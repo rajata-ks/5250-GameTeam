@@ -36,14 +36,6 @@
                         LineBreakMode="WordWrap"
                         MaxLines="5"
                         />
-
-                    <Label 
-                        Text="Nichlos Ho, Kora Burns, Mateo Godino"
-                        Style="{StaticResource CenterMessageStyle}"
-                        FontSize="Micro"
-                        LineBreakMode="WordWrap"
-                        MaxLines="5"
-                        />
                 </StackLayout>
 
                 <Button
