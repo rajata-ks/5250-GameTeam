@@ -104,7 +104,12 @@
                     </StackLayout>
                 </StackLayout>
             </Frame>
-             
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+
+                <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}"/>
+
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>
