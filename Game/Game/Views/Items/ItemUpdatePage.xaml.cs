@@ -44,8 +44,8 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Delete_Clicked(object sender, EventArgs e)
         {
-            /* If the image in the data box is empty, use the default one..
-            _ = await Navigation.PopModalAsync();*/
+            //If the image in the data box is empty, use the default one..
+            await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(ViewModel)));
         }
 
         /// <summary>
