@@ -39,7 +39,7 @@ namespace Game.Views
         public async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "Delete", viewModel.Data);
-            _ = await Navigation.PopModalAsync();
+            await Navigation.PushModalAsync(new NavigationPage(new ItemIndexPage()));
         }
 
         /// <summary>
