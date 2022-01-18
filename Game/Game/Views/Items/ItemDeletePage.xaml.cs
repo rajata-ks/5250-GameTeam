@@ -32,7 +32,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Save calls to Update
+        /// Deletes item and sends user to Item Index View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
