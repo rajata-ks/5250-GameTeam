@@ -38,6 +38,17 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Send to Delete View
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void Delete_Clicked(object sender, EventArgs e)
+        {
+            /* If the image in the data box is empty, use the default one..
+            _ = await Navigation.PopModalAsync();*/
+        }
+
+        /// <summary>
         /// Save calls to Update
         /// </summary>
         /// <param name="sender"></param>
@@ -59,6 +70,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+       
         public async void Cancel_Clicked(object sender, EventArgs e)
         {
             _ = await Navigation.PopModalAsync();
