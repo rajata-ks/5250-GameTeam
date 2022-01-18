@@ -184,7 +184,6 @@
                     </Grid>
                 </StackLayout>
 
-                //Picture of Narrator. Elf picture will be replaced once created.
                 <StackLayout Orientation="Horizontal" VerticalOptions="End">
 
                     <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}"/>
