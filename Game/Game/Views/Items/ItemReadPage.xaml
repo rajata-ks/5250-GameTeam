@@ -4,9 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.ItemReadPage"
-             Title="Read Stats">
-            
+             x:Class="Game.Views.ItemReadPage">
+
+
+    <NavigationPage.TitleView>
+        <Label Text="Read Stats" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+    </NavigationPage.TitleView>
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
