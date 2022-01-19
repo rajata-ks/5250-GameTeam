@@ -30,18 +30,41 @@
              
 
             <Label Text="Detail Page" Style="{StaticResource HeaderStyle}"/>
+            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                    <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+                    <StackLayout Style="{StaticResource VerticalStack}" Padding="10,0,10,0">
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label Text="Name : " Style="{StaticResource LabelStyle}"/>
+                            <Label Text="{Binding Data.Name}" Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
 
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label Text="Location : " Style="{StaticResource LabelStyle}"/>
+                            <Label Text="{Binding Data.Location}" Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                   Text="Name : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Name}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label Text="Attribute : " Style="{StaticResource LabelStyle}"/>
+                            <Label Text="{Binding Data.Attribute}" Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
 
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label Text="Range : " Style="{StaticResource LabelStyle}"/>
+                            <Label Text="{Binding Data.Range}" Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label Text="Value : " Style="{StaticResource LabelStyle}"/>
+                            <Label Text="{Binding Data.Value}" Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label Text="Damage : " Style="{StaticResource LabelStyle}"/>
+                            <Label Text="{Binding Data.Damage}" Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Description : " 
@@ -50,52 +73,6 @@
                     Text="{Binding Data.Description}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Location : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Location}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Attribute : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Attribute}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Range : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Range}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Value : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Value}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Damage : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Damage}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
             <Frame CornerRadius="10"  
                    Padding="50"
                    BackgroundColor="GhostWhite"
