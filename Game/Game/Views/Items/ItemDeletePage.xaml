@@ -4,8 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.ItemDeletePage"
-             Title="{Binding Title}">
+             x:Class="Game.Views.ItemDeletePage">
+
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+    </NavigationPage.TitleView>
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
