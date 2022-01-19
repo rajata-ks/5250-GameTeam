@@ -7,9 +7,12 @@
              xmlns:local="using:Game.Models"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
              xmlns:local_enum="clr-namespace:Game.Models"
-             x:Class="Game.Views.ItemCreatePage"
-             Title="{Binding Title}">
+             x:Class="Game.Views.ItemCreatePage">
 
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+    </NavigationPage.TitleView>
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
         <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
