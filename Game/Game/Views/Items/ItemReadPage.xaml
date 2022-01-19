@@ -29,7 +29,6 @@
             <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2" >
              
 
-            <Label Text="Detail Page" Style="{StaticResource HeaderStyle}"/>
             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
                     <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
                     <StackLayout Style="{StaticResource VerticalStack}" Padding="10,0,10,0">
