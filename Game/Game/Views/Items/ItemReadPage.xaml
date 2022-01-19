@@ -14,8 +14,20 @@
 
 
     <ScrollView>
-        <StackLayout Style="{StaticResource OuterBoxStack}"
-            Spacing="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition  Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2" >
+             
 
             <Label Text="Detail Page" Style="{StaticResource HeaderStyle}"/>
 
@@ -89,14 +101,14 @@
                    BackgroundColor="GhostWhite"
                    Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Black">
 
-                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center" >
+                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
                     <Label Text="Do you want to update this item?" Style="{StaticResource LabelStyle}" 
                            Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"
                             Padding="10"/>
 
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" >
+                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                         <Button 
                             Text="Yes"  Clicked="Update_Clicked"  HorizontalOptions="Center" 
                             FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0">
@@ -111,5 +123,7 @@
 
             </StackLayout>
         </StackLayout>
+
+        </Grid>
     </ScrollView>
 </ContentPage>
