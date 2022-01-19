@@ -22,8 +22,8 @@
                 Dark
                 -->
 
-            <Color x:Key="PageBackgroundColor">black</Color>
-            <Color x:Key="ViewBackgroundColor">green</Color>
+            <Color x:Key="PageBackgroundColor">Silver</Color>
+            <Color x:Key="ViewBackgroundColor">lightSteelBlue</Color>
             <Color x:Key="NavigationBarColor">orange</Color>
 
             <Color x:Key="PrimaryBackgroundColor">red</Color>
@@ -31,8 +31,8 @@
             <Color x:Key="TriciaryBackgroundColor">lightgray</Color>
             <Color x:Key="LightBackgroundColor">orange</Color>
 
-            <Color x:Key="PrimaryTextColor">lightblue</Color>
-            <Color x:Key="SecondaryTextColor">lightblue</Color>
+            <Color x:Key="PrimaryTextColor">black</Color>
+            <Color x:Key="SecondaryTextColor">black</Color>
             <Color x:Key="TriciaryTextColor">darkgreen</Color>
 
             <Color x:Key="TransparentColor">Transparent</Color>
