@@ -5,8 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Name="BrowseItemsPage"
-             x:Class="Game.Views.ItemIndexPage"
-             Title="{Binding Title}">
+             x:Class="Game.Views.ItemIndexPage">
+
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+    </NavigationPage.TitleView>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" IconImageSource="icon_add.png"/>
