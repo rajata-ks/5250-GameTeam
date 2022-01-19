@@ -46,7 +46,7 @@
                 </StackLayout>
 
             <Frame CornerRadius="10"  
-                   Padding="50"
+                   Padding="40"
                    BackgroundColor="GhostWhite"
                    Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Black">
 
