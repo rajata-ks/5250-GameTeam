@@ -67,7 +67,7 @@
 
             <StackLayout Grid.Row="1" Grid.ColumnSpan="3" >
                 <Label LineBreakMode="WordWrap"
-                    Text="Description : loooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooongloooong" 
+                    Text="Description : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     Text="{Binding Data.Description}" 
