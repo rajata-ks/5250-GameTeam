@@ -22,6 +22,11 @@ namespace Game.Views
         // Empty Constructor for UTs
         public ItemCreatePage(bool UnitTest) { }
 
+
+        //Bools used for submission.
+        private bool nameValid;
+        private bool descriptionValid;
+        private bool imageValid;
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
@@ -30,11 +35,13 @@ namespace Game.Views
             InitializeComponent();
 
             this.ViewModel.Data = new ItemModel();
-
             BindingContext = this.ViewModel;
-
             this.ViewModel.Title = "Create";
 
+            //Defaults bools
+            nameValid = true;
+            descriptionValid = true;
+            imageValid = true;
             //Need to make the SelectedItem a string, so it can select the correct item.
             LocationPicker.SelectedItem = ViewModel.Data.Location.ToString();
             AttributePicker.SelectedItem = ViewModel.Data.Attribute.ToString();
@@ -47,6 +54,10 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
+            //Checks if all boxes are filled.
+            if (!nameValid || !descriptionValid) return;
+
+
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {
@@ -96,5 +107,47 @@ namespace Game.Views
         {
             DamageValue.Text = String.Format("{0}", e.NewValue);
         }
+
+        /// <summary>
+        /// Validate the entry for name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Name_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if(NameEntry.Text.Length < 1)
+            {
+                NameEntry.Text = "Add Name!";
+                NameEntry.TextColor = Color.Red;
+                nameValid = false;
+            }
+            if(!nameValid && NameEntry.Text.Length > 1 && NameEntry.Text != "Add Name!")
+            {
+                NameEntry.TextColor = Color.Black;
+                nameValid = true;
+            }
+        }
+
+        /// <summary>
+        /// Validate the entry for description.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Description_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (DescriptionEntry.Text.Length < 1)
+            {
+                DescriptionEntry.Text = "Add Description!";
+                DescriptionEntry.TextColor = Color.Red;
+                descriptionValid = false;
+            }
+            if (!descriptionValid && DescriptionEntry.Text.Length > 1 && DescriptionEntry.Text != "Add Description!")
+            {
+                DescriptionEntry.TextColor = Color.Black;
+                descriptionValid = true;
+            }
+        }
+
+
     }
 }
