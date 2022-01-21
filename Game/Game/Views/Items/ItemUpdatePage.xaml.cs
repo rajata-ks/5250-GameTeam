@@ -25,6 +25,7 @@ namespace Game.Views
         //Bools used to validate entries.
         bool nameValid;
         bool descriptionValid;
+        bool imageValid;
         /// <summary>
         /// Constructor that takes and existing data item
         /// </summary>
@@ -39,6 +40,7 @@ namespace Game.Views
             //Set bools to true.
             nameValid = true;
             descriptionValid = true;
+            imageValid = true;
 
             //Need to make the SelectedItem a string, so it can select the correct item.
             LocationPicker.SelectedItem = data.Data.Location.ToString();
@@ -53,7 +55,7 @@ namespace Game.Views
         public async void Delete_Clicked(object sender, EventArgs e)
         {
             //Check to make sure all boxes are filled.
-            if (!nameValid || !descriptionValid) return;
+            if (!nameValid || !descriptionValid || imageValid) return;
 
             //If the image in the data box is empty, use the default one..
             await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(ViewModel)));
@@ -67,7 +69,7 @@ namespace Game.Views
         public async void Save_Clicked(object sender, EventArgs e)
         {
             //Check to make sure all boxes are filled.
-            if (!nameValid || !descriptionValid) return;
+            if (!nameValid || !descriptionValid || imageValid) return;
 
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
@@ -160,6 +162,25 @@ namespace Game.Views
                 DescriptionEntry.TextColor = Color.Black;
                 descriptionValid = true;
             }
+        }
+
+        /// <summary>
+        /// Validate the entry for image.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Image_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if(!ImageEntry.Text.EndsWith(".png"))
+            {
+                ImageEntry.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            ImageEntry.TextColor = Color.Black;
+            imageValid = true;
+
         }
     }
 }
