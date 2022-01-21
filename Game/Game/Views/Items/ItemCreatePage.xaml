@@ -95,7 +95,9 @@
 
                         <Entry 
                             Text="{Binding Data.ImageURI}" 
-                            Style="{StaticResource EntryStyle}"/>
+                            Style="{StaticResource EntryStyle}"
+                            x:Name="ImageEntry"
+                            TextChanged="Image_TextChanged"/>
 
                     </StackLayout>
                 </Grid>

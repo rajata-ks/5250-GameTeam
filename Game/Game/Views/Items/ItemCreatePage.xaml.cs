@@ -55,7 +55,7 @@ namespace Game.Views
         public async void Save_Clicked(object sender, EventArgs e)
         {
             //Checks if all boxes are filled.
-            if (!nameValid || !descriptionValid) return;
+            if (!nameValid || !descriptionValid || !imageValid) return;
 
 
             // If the image in the data box is empty, use the default one..
@@ -148,6 +148,23 @@ namespace Game.Views
             }
         }
 
+        /// <summary>
+        /// Validate the entry for image.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Image_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (!ImageEntry.Text.EndsWith(".png"))
+            {
+                ImageEntry.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
 
+            ImageEntry.TextColor = Color.Black;
+            imageValid = true;
+
+        }
     }
 }
