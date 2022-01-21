@@ -24,7 +24,7 @@ namespace Game.Views
 
         //Bools used to validate entries.
         bool nameValid;
-
+        bool descriptionValid;
         /// <summary>
         /// Constructor that takes and existing data item
         /// </summary>
@@ -38,6 +38,8 @@ namespace Game.Views
 
             //Set bools to true.
             nameValid = true;
+            descriptionValid = true;
+
             //Need to make the SelectedItem a string, so it can select the correct item.
             LocationPicker.SelectedItem = data.Data.Location.ToString();
             AttributePicker.SelectedItem = data.Data.Attribute.ToString();
@@ -51,7 +53,7 @@ namespace Game.Views
         public async void Delete_Clicked(object sender, EventArgs e)
         {
             //Check to make sure all boxes are filled.
-            if (!nameValid) return;
+            if (!nameValid || !descriptionValid) return;
 
             //If the image in the data box is empty, use the default one..
             await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(ViewModel)));
@@ -65,7 +67,7 @@ namespace Game.Views
         public async void Save_Clicked(object sender, EventArgs e)
         {
             //Check to make sure all boxes are filled.
-            if (!nameValid) return;
+            if (!nameValid || !descriptionValid) return;
 
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
@@ -139,5 +141,25 @@ namespace Game.Views
             }
         }
 
+
+        /// <summary>
+        /// Validate the entry for description.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Description_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (DescriptionEntry.Text.Length < 1)
+            {
+                DescriptionEntry.Text = "Add Description!";
+                DescriptionEntry.TextColor = Color.Red;
+                descriptionValid = false;
+            }
+            if (!descriptionValid && DescriptionEntry.Text.Length > 1 && DescriptionEntry.Text != "Add Description!")
+            {
+                DescriptionEntry.TextColor = Color.Black;
+                descriptionValid = true;
+            }
+        }
     }
 }
