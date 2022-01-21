@@ -20,6 +20,7 @@ namespace Game.Views
 
         // Empty Constructor for UTs
         public ItemDeletePage(bool UnitTest) { }
+        private string updateTitle;
 
         // Constructor for Delete takes a view model of what to delete
         public ItemDeletePage(GenericViewModel<ItemModel> data)
@@ -27,6 +28,8 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.viewModel = data;
+
+            updateTitle = data.Title;
 
             this.viewModel.Title = "Delete Item";
         }
@@ -49,6 +52,8 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Cancel_Clicked(object sender, EventArgs e)
         {
+            this.viewModel.Title = updateTitle;
+
             _ = await Navigation.PopModalAsync();
         }
 
