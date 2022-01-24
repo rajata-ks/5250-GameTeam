@@ -57,7 +57,17 @@
                             Padding="10"/>
 
 
-                       
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" >
+                            <Button 
+                            Text="Yes"  Clicked="Delete_Clicked"  HorizontalOptions="Center" 
+                            FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0">
+                            </Button>
+                            <Button 
+                            Text="No"  Clicked="Cancel_Clicked"  HorizontalOptions="Center" 
+                            FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0">
+                            </Button>
+
+                        </StackLayout>
                     </StackLayout>
               
             </StackLayout>
