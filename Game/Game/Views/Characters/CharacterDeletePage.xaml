@@ -48,22 +48,18 @@
                 </StackLayout>
 
 
-                <StackLayout 
-            HorizontalOptions="Center" 
-            Padding="20">
+                
 
-                    <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
+                    <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
-                    <Button 
-                Text="Yes" 
-                Clicked="Delete_Clicked" 
-                HorizontalOptions="Center"
-                FontSize="Medium"
-                BorderWidth="1" 
-                BorderColor="black">
-                    </Button>
-                </StackLayout>
+                        <Label Text="Are you sure you want to Character this Item?" Style="{StaticResource LabelStyle}" 
+                           Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"
+                            Padding="10"/>
 
+
+                       
+                    </StackLayout>
+              
             </StackLayout>
         </Grid>
     </ScrollView>
