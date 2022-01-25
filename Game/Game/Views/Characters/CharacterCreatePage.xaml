@@ -109,11 +109,11 @@
                                 Style="{StaticResource ValueStyle}"/>
                         </Grid>
 
-                        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
-
-                            <Label Text="Attack" Style="{StaticResource LabelStyle}"/>
+                        <StackLayout Orientation="Vertical">
 
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                                
+                                <Label Text="Attack" Style="{StaticResource LabelStyle}"/>
 
                                 <Label 
                                     Text="{Binding Data.Attack, Mode=TwoWay}" 
@@ -123,15 +123,15 @@
                                     HorizontalOptions="End"
                                     HorizontalTextAlignment="End"/>
 
-                                <Stepper 
-                                    Value="{Binding Data.Attack, Mode=TwoWay}"
-                                    ValueChanged="Attack_OnStepperValueChanged"/>
-
                             </StackLayout>
 
-                            <Label Text="Defense" Style="{StaticResource LabelStyle}"/>
+                            <Slider x:Name="attackSilder" 
+                                    Minimum="0" 
+                                    Maximum="9" ValueChanged="Attack_OnStepperValueChanged" Value="{Binding Data.Attack}" />
 
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                                
+                                <Label Text="Defense" Style="{StaticResource LabelStyle}"/>
 
                                 <Label 
                                     Text="{Binding Data.Defense, Mode=TwoWay}" 
@@ -141,15 +141,15 @@
                                     HorizontalOptions="End"
                                     HorizontalTextAlignment="End"/>
 
-                                <Stepper 
-                                    Value="{Binding Data.Defense, Mode=TwoWay}"
-                                    ValueChanged="Defense_OnStepperValueChanged"/>
-
                             </StackLayout>
 
-                            <Label Text="Speed" Style="{StaticResource LabelStyle}"/>
+                            <Slider x:Name="defenseSilder" 
+                                    Minimum="0" 
+                                    Maximum="9" ValueChanged="Defense_OnStepperValueChanged" Value="{Binding Data.Defense}" />
                             
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                                
+                                <Label Text="Speed" Style="{StaticResource LabelStyle}"/>
 
                                 <Label 
                                     Text="{Binding Data.Speed, Mode=TwoWay}" 
@@ -159,12 +159,16 @@
                                     HorizontalOptions="End"
                                     HorizontalTextAlignment="End"/>
 
-                                <Stepper 
-                                    Value="{Binding Data.Speed, Mode=TwoWay}"
-                                    ValueChanged="Speed_OnStepperValueChanged"/>
-
                             </StackLayout>
+
+                            <Slider x:Name="speedSilder" 
+                                    Minimum="0" 
+                                    Maximum="9" ValueChanged="Speed_OnStepperValueChanged" Value="{Binding Data.Speed}" />
+
                         </StackLayout>
+
+                        
+                        
 
                         <FlexLayout 
                         Padding="5"
