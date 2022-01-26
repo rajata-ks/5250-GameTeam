@@ -55,7 +55,7 @@ namespace Game.Views
         public async void Delete_Clicked(object sender, EventArgs e)
         {
             //Check to make sure all boxes are filled.
-            if (!nameValid || !descriptionValid || imageValid) return;
+            if (!nameValid || !descriptionValid || !imageValid) return;
 
             //If the image in the data box is empty, use the default one..
             await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(ViewModel)));
@@ -69,7 +69,7 @@ namespace Game.Views
         public async void Save_Clicked(object sender, EventArgs e)
         {
             //Check to make sure all boxes are filled.
-            if (!nameValid || !descriptionValid || imageValid) return;
+            if (!nameValid || !descriptionValid || ! imageValid) return;
 
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
