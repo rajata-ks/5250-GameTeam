@@ -109,6 +109,9 @@
                                 Style="{StaticResource ValueStyle}"/>
                         </Grid>
 
+                        <Label Text="Attributes" Style="{StaticResource LabelStyle}" HorizontalOptions="Center"/>
+
+
                         <StackLayout Orientation="Vertical">
 
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
