@@ -35,9 +35,6 @@ namespace Game.Views
             // Turn off the Settings Frame
             DebugSettingsFrame.IsVisible = false;
 
-            // Set to the curent date and time
-            CurrentDateTime.Text = DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
-
             // Init the Server Item Value to 100 to get everything
             SetServerItemValue("100");
         }
