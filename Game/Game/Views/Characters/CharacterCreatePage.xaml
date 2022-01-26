@@ -115,7 +115,7 @@
                         <StackLayout Orientation="Vertical">
 
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-                                
+
                                 <Label Text="Attack" Style="{StaticResource LabelStyle}"/>
 
                                 <Label 
@@ -133,7 +133,7 @@
                                     Maximum="9" ValueChanged="Attack_OnStepperValueChanged" Value="{Binding Data.Attack}" />
 
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-                                
+
                                 <Label Text="Defense" Style="{StaticResource LabelStyle}"/>
 
                                 <Label 
@@ -149,9 +149,9 @@
                             <Slider x:Name="defenseSilder" 
                                     Minimum="0" 
                                     Maximum="9" ValueChanged="Defense_OnStepperValueChanged" Value="{Binding Data.Defense}" />
-                            
+
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-                                
+
                                 <Label Text="Speed" Style="{StaticResource LabelStyle}"/>
 
                                 <Label 
@@ -170,9 +170,6 @@
 
                         </StackLayout>
 
-                        
-                        
-
                         <FlexLayout 
                         Padding="5"
                         Wrap="Wrap"
@@ -180,6 +177,20 @@
                         AlignContent="SpaceAround"
                         x:Name="ItemBox">
                         </FlexLayout>
+
+                        <Grid>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                                <Button BackgroundColor="Transparent"
+                                Text="Cancel" WidthRequest="200" Clicked="Cancel_Clicked"
+                                Style="{StaticResource GridRoundedButton}" 
+                                HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+
+                                <Button BackgroundColor="Transparent"
+                                Text="Save" WidthRequest="200" Clicked="Save_Clicked"
+                                Style="{StaticResource GridRoundedButton}" 
+                                HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+                            </StackLayout>
+                        </Grid>
 
                     </StackLayout>
                 </ScrollView>
@@ -213,41 +224,41 @@
                                 >
 
                                 <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid ColumnSpacing="5" RowSpacing="1">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="auto"/>
-                                            <RowDefinition Height="auto"/>
-                                            <RowDefinition Height="auto"/>
-                                        </Grid.RowDefinitions>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid ColumnSpacing="5" RowSpacing="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
 
-                                        <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                                             Source="{Binding ImageURI}"
                                             Style="{StaticResource ImageSmallStyle}"
                                             VerticalOptions="CenterAndExpand"/>
 
-                                        <Label Grid.Column="1" Grid.Row="0"
+                                                <Label Grid.Column="1" Grid.Row="0"
                                             Text="{Binding Name}" 
                                             Style="{StaticResource ListStyle}"/>
 
-                                        <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-                                            <Label Text="{Binding Attribute}" Style="{StaticResource ListStyle}"/>
-                                            <Label Text="{Binding Value}" Style="{StaticResource ListStyle}"/>
-                                        </StackLayout>
+                                                <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                                                    <Label Text="{Binding Attribute}" Style="{StaticResource ListStyle}"/>
+                                                    <Label Text="{Binding Value}" Style="{StaticResource ListStyle}"/>
+                                                </StackLayout>
 
-                                        <Label Grid.Column="1" Grid.Row="2"
+                                                <Label Grid.Column="1" Grid.Row="2"
                                                 Text="{Binding Description}" 
                                                 Style="{StaticResource ListStyle}"
                                                 FontSize="Micro"/>
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
                             </ListView>
 
                             <Button x:Name="PopupCloseButton" 
