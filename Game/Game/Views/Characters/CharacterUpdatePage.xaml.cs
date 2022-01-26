@@ -19,6 +19,9 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterUpdatePage : ContentPage
     {
+        //Silder increment size
+        private readonly int SliderStepSize = 1;
+
         // The Character to create
         public GenericViewModel<CharacterModel> ViewModel { get; set; }
 
@@ -138,7 +141,12 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Attack_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
-            AttackValue.Text = String.Format("{0}", e.NewValue);
+            double StepValue = SliderStepSize;
+
+            //rounding the value based on increments
+            var newStep = roundSilder(e.NewValue, attackSilder);
+
+            AttackValue.Text = String.Format("{0}", newStep);
         }
 
         /// <summary>
@@ -148,7 +156,10 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Defense_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
-            DefenseValue.Text = String.Format("{0}", e.NewValue);
+            //rounding the value based on increments
+            var newStep = roundSilder(e.NewValue, defenseSilder);
+
+            DefenseValue.Text = String.Format("{0}", newStep);
         }
 
         /// <summary>
@@ -158,7 +169,10 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
-            SpeedValue.Text = String.Format("{0}", e.NewValue);
+            //rounding the value based on increments
+            var newStep = roundSilder(e.NewValue, speedSilder);
+
+            SpeedValue.Text = String.Format("{0}", newStep);
         }
 
         /// <summary>
@@ -389,6 +403,24 @@ namespace Game.Views
             parentAnimation.Commit(this, "ChildAnimations", 16, duration, null, null);
 
             return true;
+        }
+
+        /// <summary>
+        /// Round number for the slider
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="slide"> silder object</param>
+        /// <returns></returns>
+        private double roundSilder(double val, Slider slide)
+        {
+            if (slide == null)
+            {
+                return 0;
+            }
+            //rounding the value based on increments
+            var newStep = Math.Round(val / SliderStepSize);
+
+            return slide.Value = newStep * SliderStepSize;
         }
     }
 }
