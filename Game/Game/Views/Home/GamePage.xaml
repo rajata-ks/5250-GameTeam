@@ -5,50 +5,58 @@
              >
 
     <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
 
-        <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
+                <StackLayout  Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal" Margin="0,100,0,0">
+                        <StackLayout Style="{StaticResource CardImageTextBox}" HorizontalOptions="Start">
 
-            <FlexLayout x:Name="flexLayout"
-                        Wrap="Wrap"
-                        JustifyContent="SpaceAround"
-                        AlignContent="SpaceAround">
+                            <ImageButton
+                                    Source="item.png"
+                                    Style="{StaticResource ImageLargeStyle}"
+                                    Clicked="VillageButton_Clicked"/>
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
+                            <Label 
+                                    Text="Village"
+                                    Style="{StaticResource CenterMessageStyle}"/>
 
-                    <ImageButton
-                        Source="item.png"
-                        Style="{StaticResource ImageLargeStyle}"
-                        Clicked="VillageButton_Clicked"/>
+                        </StackLayout>
 
-                    <Label 
-                        Text="Village"
-                        Style="{StaticResource CenterMessageStyle}"/>
+                        <StackLayout Style="{StaticResource CardImageTextBox}" HorizontalOptions="EndAndExpand">
+
+                            <ImageButton
+                                    Source="item.png"
+                                    Style="{StaticResource ImageLargeStyle}"
+                                    Clicked="DungeonButton_Clicked"/>
+
+                            <Label 
+                                    Text="Dungeon"
+                                    Style="{StaticResource CenterMessageStyle}"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <StackLayout Style="{StaticResource CardImageTextBox}">
+
+                            <ImageButton
+                                    Source="item.png"
+                                    Style="{StaticResource ImageLargeStyle}"
+                                    Clicked="AutobattleButton_Clicked"/>
+
+                            <Label 
+                                    Text="Auto Battle"
+                                    Style="{StaticResource CenterMessageStyle}"/>
+
+                        </StackLayout>
+                    </StackLayout>
                 </StackLayout>
+            </ScrollView>
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
-
-                    <ImageButton
-                        Source="item.png"
-                        Style="{StaticResource ImageLargeStyle}"
-                        Clicked="DungeonButton_Clicked"/>
-
-                    <Label 
-                        Text="Dungeon"
-                        Style="{StaticResource CenterMessageStyle}"/>
-                </StackLayout>
-
-                <StackLayout Style="{StaticResource CardImageTextBox}">
-
-                    <ImageButton
-                        Source="item.png"
-                        Style="{StaticResource ImageLargeStyle}"
-                        Clicked="AutobattleButton_Clicked"/>
-
-                    <Label 
-                        Text="Auto Battle"
-                        Style="{StaticResource CenterMessageStyle}"/>
-                </StackLayout>
-            </FlexLayout>
-        </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
