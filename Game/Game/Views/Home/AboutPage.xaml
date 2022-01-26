@@ -13,17 +13,45 @@
       HorizontalOptions="FillAndExpand"
       Orientation="Vertical">
 
-        <StackLayout Style="{StaticResource VerticalStack}">
+        <StackLayout>
+            
+            <Grid
+                RowSpacing="1"
+                ColumnSpacing="2"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
 
-            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-                <Image Source="d20_2.png" Style="{StaticResource ImageMediumStyle}"/>
-                <Label Text="OKAY" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                <Label Text="Rajata Kumar Shankarling" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                <Label Text="Nichlos Ho" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                <Label Text="Brad Nakamura " Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                <Label x:Name="CurrentDateTime" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-            </StackLayout>
+                <StackLayout Orientation="Horizontal">
+
+                    <Image Source="d20_2.png" Style="{StaticResource ImageMediumStyle}" HorizontalOptions="Center" Grid.Column="1" Grid.Row="0"/>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Grid.Column="2" Grid.Row="0">
+
+                        <Label Text="Team OKAY" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                        <Label Text="Rajata Kumar Shankarling" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                        <Label Text="Nichlos Ho" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                        <Label Text="Brad Nakamura " Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                        <Label Text="Game Title" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+
+            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat lacus at orci dapibus, ac euismod mauris sodales.
+                   Aenean non venenatis neque. Sed nisi nisi, sollicitudin sed risus id, scelerisque dapibus diam. Vivamus aliquam mauris lacus.
+                   Etiam in purus in odio pellentesque tincidunt. Donec a nisi mollis, ultrices metus et, vehicula turpis.
+                   Donec vitae ipsum ut mi porttitor rutrum sed nec quam. Cras in viverra magna, sed iaculis lacus.
+                   Etiam porta ligula a nisi tincidunt, eu eleifend felis interdum. Donec fermentum ligula ligula, at lobortis leo porttitor nec.
+                   Praesent vitae turpis nec risus bibendum posuere sit amet vel purus. In hac habitasse platea dictumst."
+                   Style="{StaticResource PopupItemTextStyle}" LineBreakMode="WordWrap" VerticalTextAlignment="Center" Margin="10"/>
 
             <!--Database Settings Frame-->
 
