@@ -35,11 +35,14 @@
 
                     <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Grid.Column="2" Grid.Row="0">
 
+                        <Label Text="Escape From HS!" Style="{StaticResource CenterMessageLargeStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
                         <Label Text="Team OKAY" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
                         <Label Text="Rajata Kumar Shankarling" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
                         <Label Text="Nichlos Ho" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                        <Label Text="Brad Nakamura " Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                        <Label Text="Game Title" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                        <Label Text="Brad Nakamura" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                        <Label Text="Mateo Barrales Godino" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                        <Label Text="Kora Burns" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+
 
                     </StackLayout>
                 </StackLayout>
