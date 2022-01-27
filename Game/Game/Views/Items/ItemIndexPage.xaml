@@ -89,7 +89,7 @@
                 <Button BackgroundColor="Transparent"
                     Text="Create New Item?" WidthRequest="400" Clicked="AddItem_Clicked"
                     Style="{StaticResource GridRoundedButton}" 
-                    HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+                    HorizontalOptions="CenterAndExpand" VerticalOptions="End" MinimumHeightRequest="200" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>
