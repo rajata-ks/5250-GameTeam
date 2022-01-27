@@ -89,13 +89,15 @@
 
                     <Label Grid.Row="4" Grid.Column="0"
                         Text="Image" 
-                        Style="{StaticResource LabelStyle}"/>
+                        Style="{StaticResource LabelStyle}"
+                           x:Name="ImageLabel"/>
 
                     <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
 
                         <Image 
                             Source="{Binding Data.ImageURI}"
-                            Style="{StaticResource ImageSmallStyle}"/>
+                            Style="{StaticResource ImageSmallStyle}"
+                            />
 
                         <Entry 
                             Text="{Binding Data.ImageURI}" 

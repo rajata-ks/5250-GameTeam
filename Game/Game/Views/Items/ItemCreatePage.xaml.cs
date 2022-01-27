@@ -170,7 +170,7 @@ namespace Game.Views
             }
 
             NameLabel.TextColor = Color.Black;
-            NameLabel.Text = "Name*";
+            NameLabel.Text = "Name";
             nameValid = true;
         }
 
@@ -200,7 +200,7 @@ namespace Game.Views
             }
 
             DescriptionLabel.TextColor = Color.Black;
-            DescriptionLabel.Text = "Description*";
+            DescriptionLabel.Text = "Description";
             descriptionValid = true;
         }
 
@@ -211,14 +211,28 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Image_TextChanged(object sender, ValueChangedEventArgs e)
         {
-            if (!ImageEntry.Text.EndsWith(".png"))
+            if (String.IsNullOrEmpty(ImageEntry.Text))
             {
-                ImageEntry.TextColor = Color.Red;
+                ImageLabel.TextColor = Color.Red;
                 imageValid = false;
                 return;
             }
 
-            ImageEntry.TextColor = Color.Black;
+            if (String.IsNullOrWhiteSpace(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (!ImageEntry.Text.EndsWith(".png"))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            ImageLabel.TextColor = Color.Black;
             imageValid = true;
 
         }
