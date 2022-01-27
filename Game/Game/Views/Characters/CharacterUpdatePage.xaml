@@ -63,23 +63,30 @@
 
                             <Label Grid.Row="0" Grid.Column="0"
                                 Text="Name" 
-                                Style="{StaticResource LabelStyle}"/>
+                                Style="{StaticResource LabelStyle}"
+                                   x:Name="NameLabel"/>
 
                             <Entry Grid.Row="0" Grid.Column="1"
                                 Text="{Binding Data.Name, Mode=TwoWay}" 
-                                Style="{StaticResource EntryStyle}"/>
+                                Style="{StaticResource EntryStyle}"
+                                   x:Name="NameEntry"
+                                   TextChanged="Name_TextChanged"/>
 
                             <Label Grid.Row="1" Grid.Column="0"
                                 Text="Description" 
-                                Style="{StaticResource LabelStyle}"/>
+                                Style="{StaticResource LabelStyle}"
+                                   x:Name="DescriptionLabel"/>
 
                             <Entry Grid.Row="1" Grid.Column="1"
                                 Text="{Binding Data.Description, Mode=TwoWay}" 
-                                Style="{StaticResource EntryStyle}"/>
+                                Style="{StaticResource EntryStyle}"
+                                   x:Name="DescriptionEntry"
+                                   TextChanged="Description_TextChanged"/>
 
                             <Label Grid.Row="2" Grid.Column="0"
                                 Text="Image" 
-                                Style="{StaticResource LabelStyle}"/>
+                                Style="{StaticResource LabelStyle}"
+                                   x:Name="ImageLabel"/>
 
                             <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
 
@@ -89,7 +96,9 @@
 
                                 <Entry 
                                     Text="{Binding Data.ImageURI, Mode=TwoWay}" 
-                                    Style="{StaticResource EntryStyle}"/>
+                                    Style="{StaticResource EntryStyle}"
+                                    x:Name="ImageEntry"
+                                    TextChanged="Image_TextChanged"/>
 
                             </StackLayout>
 
@@ -111,6 +120,9 @@
                                 Text="{Binding Data.MaxHealth, StringFormat= '{0:G} hp'}" 
                                 Style="{StaticResource ValueStyle}"/>
                         </Grid>
+
+                        <Label Text="Attributes" Style="{StaticResource LabelStyle}" HorizontalOptions="Center"/>
+
 
                         <StackLayout Orientation="Vertical">
 

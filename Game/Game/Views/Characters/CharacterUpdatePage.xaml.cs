@@ -28,6 +28,15 @@ namespace Game.Views
         // Hold the current location selected
         public ItemLocationEnum PopupLocationEnum = ItemLocationEnum.Unknown;
 
+        //Bools used to validate name.
+        private bool nameValid;
+
+        //Bool used to validate description.
+        private bool descriptionValid;
+
+        //Bool used to validate image.
+        private bool imageValid;
+
         // Empty Constructor for UTs
         public CharacterUpdatePage(bool UnitTest) { }
 
@@ -41,6 +50,11 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Update " + data.Title;
+
+            //Defaults bools
+            nameValid = true;
+            descriptionValid = true;
+            imageValid = true;
 
             // Load the values for the Level into the Picker
             for (var i = 1; i <= LevelTableHelper.MaxLevel; i++)
@@ -108,6 +122,22 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
+            //Check to make sure all boxes are filled.
+            if (nameValid == false)
+            {
+                return;
+            }
+
+            if (descriptionValid == false)
+            {
+                return;
+            }
+
+            if (imageValid == false)
+            {
+                return;
+            }
+
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {
@@ -173,6 +203,100 @@ namespace Game.Views
             var newStep = roundSilder(e.NewValue, speedSilder);
 
             SpeedValue.Text = String.Format("{0}", newStep);
+        }
+
+        /// <summary>
+        /// Validate the entry for name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Name_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(NameEntry.Text))
+            {
+                NameLabel.TextColor = Color.Red;
+                NameLabel.Text = "Name*";
+                nameValid = false;
+
+                return;
+            }
+
+            if (String.IsNullOrWhiteSpace(NameEntry.Text))
+            {
+                NameLabel.TextColor = Color.Red;
+                NameLabel.Text = "Name*";
+                nameValid = false;
+
+                return;
+            }
+
+            NameLabel.TextColor = Color.Black;
+            NameLabel.Text = "Name*";
+            nameValid = true;
+        }
+
+        /// <summary>
+        /// Validate the entry for description.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Description_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(DescriptionEntry.Text))
+            {
+                DescriptionLabel.TextColor = Color.Red;
+                DescriptionLabel.Text = "Description";
+                descriptionValid = false;
+
+                return;
+            }
+
+            if (String.IsNullOrWhiteSpace(DescriptionEntry.Text))
+            {
+                DescriptionLabel.TextColor = Color.Red;
+                DescriptionLabel.Text = "Description*";
+                descriptionValid = false;
+
+                return;
+            }
+
+            DescriptionLabel.TextColor = Color.Black;
+            DescriptionLabel.Text = "Description";
+            descriptionValid = true;
+        }
+
+        /// <summary>
+        /// Validate the entry for image.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Image_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+
+            if (String.IsNullOrEmpty(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (String.IsNullOrWhiteSpace(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (!ImageEntry.Text.EndsWith(".png"))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            ImageLabel.TextColor = Color.Black;
+            imageValid = true;
+
         }
 
         /// <summary>
