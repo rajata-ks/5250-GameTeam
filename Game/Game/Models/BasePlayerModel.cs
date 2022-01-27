@@ -170,6 +170,15 @@ namespace Game.Models
 
         // Following returns the values for each of the attributes with the modifiers
 
+
+        // Return converted Attribute value to decimal
+        private Decimal ProgressRangeConverter(int Progress)
+        {
+            Decimal d = Progress / (Decimal)9;
+            Decimal dc = Math.Round(d, 1);
+            return dc;
+        }
+
         #region Attack        
         [Ignore]
         // Return the attack value
@@ -204,24 +213,13 @@ namespace Game.Models
         }
 
         // Return the Attack value in decimal as we can only provide value to Progress Bar from 0-1
-        public Decimal GetAttackProgress
-        {
-            get
-            {
-                var Progress = Attack;
-                Decimal d = Progress / (Decimal)9;
-                Decimal dc = Math.Round(d, 1);
-                return dc;
-            }
-        }
-
-
+      
         [Ignore]
         // Return the Total of All Attack
         public int GetAttackTotal { get { return GetAttack(); } }
         #endregion Attack
 
-        #region Defense
+        #region Defense      
         [Ignore]
         // Return the Defense value
         public int GetDefenseLevelBonus { get { return LevelTableHelper.LevelDetailsList[Level].Defense; } }
