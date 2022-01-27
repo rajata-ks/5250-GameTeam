@@ -209,7 +209,7 @@ namespace Game.Models
             get
             {
                 var Progress = Attack;
-                Decimal d = Progress / (Decimal)10;
+                Decimal d = Progress / (Decimal)9;
                 Decimal dc = Math.Round(d, 1);
                 return dc;
             }
