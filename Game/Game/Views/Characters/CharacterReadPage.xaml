@@ -1,118 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="Game.Views.CharacterReadPage"
-             Title="{Binding Title}">
+             x:Class="Game.Views.GamePage"
+             >
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
-        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
-    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
 
-    <AbsoluteLayout
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand"
-        >
+        <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
 
-        <StackLayout Style="{StaticResource VerticalStack}"
-                    AbsoluteLayout.LayoutBounds="1,1,1,1" 
-                    AbsoluteLayout.LayoutFlags="All">
-
-            <ScrollView x:Name="ScrollView">
-                <StackLayout Style="{StaticResource OuterBoxStack}">
-
-                    <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
-
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                              
-                            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
-
-                            <StackLayout Style="{StaticResource VerticalStack}" Margin="0,35,0,0">
-                                <StackLayout Style="{StaticResource HorizontalStack}">
-                                    <Label 
-                                       Text="Name : " 
-                                       Style="{StaticResource LabelStyle}"/>
-                                    <Label 
-                                        Text="{Binding Data.Name}" 
-                                        Style="{StaticResource ValueStyle}"/>
-                                </StackLayout>
-
-                                <StackLayout Style="{StaticResource HorizontalStack}">
-                                    <Label 
-                                        Text="Description : " 
-                                        Style="{StaticResource LabelStyle}"/>
-                                    <Label 
-                                        Text="{Binding Data.Description}" 
-                                        Style="{StaticResource ValueStyle}"/>
-                                </StackLayout>
-
-                                <StackLayout Style="{StaticResource HorizontalStack}">
-                                    <Label 
-                                        Text="Level : " 
-                                        Style="{StaticResource LabelStyle}"/>
-                                    <Label 
-                                        Text="{Binding Data.Level}" 
-                                        Style="{StaticResource ValueStyle}"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </StackLayout>
-                       
-                    </StackLayout>
-
-
-                    <FlexLayout 
-                        Margin="5"
+            <FlexLayout x:Name="flexLayout"
                         Wrap="Wrap"
                         JustifyContent="SpaceAround"
-                        AlignContent="SpaceAround"
-                        x:Name="ItemBox">
-                    </FlexLayout>
+                        AlignContent="SpaceAround">
 
+                <StackLayout Style="{StaticResource CardImageTextBox}">
+
+                    <ImageButton
+                        Source="item.png"
+                        Style="{StaticResource ImageLargeStyle}"
+                        Clicked="VillageButton_Clicked"/>
+
+                    <Label 
+                        Text="Village"
+                        Style="{StaticResource CenterMessageStyle}"/>
                 </StackLayout>
-            </ScrollView>
-        </StackLayout>
 
-        <!--The Item Popup-->
-        <StackLayout x:Name="PopupLoadingView" 
-                 BackgroundColor="{StaticResource PageBackgroundColor}" 
-                 IsVisible="false" 
-                 AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
-                 AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Style="{StaticResource CardImageTextBox}">
 
-            <StackLayout 
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
-                WidthRequest="300"
-                HeightRequest="300"
-                >
+                    <ImageButton
+                        Source="item.png"
+                        Style="{StaticResource ImageLargeStyle}"
+                        Clicked="DungeonButton_Clicked"/>
 
-                <Frame 
-                    BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
-                    <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
-                        <Image x:Name="PopupItemImage" Style="{StaticResource ImageLargeStyle}"/>
+                    <Label 
+                        Text="Dungeon"
+                        Style="{StaticResource CenterMessageStyle}"/>
+                </StackLayout>
 
-                        <Label x:Name="PopupItemName" Style="{StaticResource PopupItemTextStyle} " MaxLines="2" LineBreakMode="WordWrap" />
-                        <Label x:Name="PopupItemDescription" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" />
+                <StackLayout Style="{StaticResource CardImageTextBox}">
 
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label Text="Location : " Style="{StaticResource LabelStyle}" />
-                            <Label x:Name="PopupItemLocation" Style="{StaticResource ValueStyle}" />
-                        </StackLayout>
+                    <ImageButton
+                        Source="item.png"
+                        Style="{StaticResource ImageLargeStyle}"
+                        Clicked="AutobattleButton_Clicked"/>
 
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label x:Name="PopupItemAttribute" Style="{StaticResource LabelStyle}" />
-                            <Label x:Name="PopupItemValue" Style="{StaticResource ValueStyle}" />
-                        </StackLayout>
-
-                        <Button x:Name="PopupCloseButton" 
-                                Clicked="ClosePopup_Clicked" 
-                                Text="Close"/>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-        </StackLayout>
-    </AbsoluteLayout>
+                    <Label 
+                        Text="Auto Battle"
+                        Style="{StaticResource CenterMessageStyle}"/>
+                </StackLayout>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
