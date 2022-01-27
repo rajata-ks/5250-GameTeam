@@ -24,38 +24,41 @@
             <ScrollView x:Name="ScrollView">
                 <StackLayout Style="{StaticResource OuterBoxStack}">
 
-                    <StackLayout Style="{StaticResource VerticalStack}">
-
-
-                        <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+                    <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
 
                         <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label 
-                               Text="Name : " 
-                               Style="{StaticResource LabelStyle}"/>
-                            <Label 
-                                Text="{Binding Data.Name}" 
-                                Style="{StaticResource ValueStyle}"/>
-                        </StackLayout>
+                              
+                            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
 
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label 
-                                Text="Description : " 
-                                Style="{StaticResource LabelStyle}"/>
-                            <Label 
-                                Text="{Binding Data.Description}" 
-                                Style="{StaticResource ValueStyle}"/>
-                        </StackLayout>
+                            <StackLayout Style="{StaticResource VerticalStack}" Margin="0,35,0,0">
+                                <StackLayout Style="{StaticResource HorizontalStack}">
+                                    <Label 
+                                       Text="Name : " 
+                                       Style="{StaticResource LabelStyle}"/>
+                                    <Label 
+                                        Text="{Binding Data.Name}" 
+                                        Style="{StaticResource ValueStyle}"/>
+                                </StackLayout>
 
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label 
-                                Text="Level : " 
-                                Style="{StaticResource LabelStyle}"/>
-                            <Label 
-                                Text="{Binding Data.Level}" 
-                                Style="{StaticResource ValueStyle}"/>
-                        </StackLayout>
+                                <StackLayout Style="{StaticResource HorizontalStack}">
+                                    <Label 
+                                        Text="Description : " 
+                                        Style="{StaticResource LabelStyle}"/>
+                                    <Label 
+                                        Text="{Binding Data.Description}" 
+                                        Style="{StaticResource ValueStyle}"/>
+                                </StackLayout>
 
+                                <StackLayout Style="{StaticResource HorizontalStack}">
+                                    <Label 
+                                        Text="Level : " 
+                                        Style="{StaticResource LabelStyle}"/>
+                                    <Label 
+                                        Text="{Binding Data.Level}" 
+                                        Style="{StaticResource ValueStyle}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
                        
                     </StackLayout>
 
