@@ -229,9 +229,12 @@ namespace Game.Models
         public int GetDefenseItemBonus { get { return GetItemBonus(AttributeEnum.Defense); } }
 
         [Ignore]
+        // Return the Defense value in decimal as we can only provide value to Progress Bar from 0-1
+        public Decimal GetDefenseProgress { get { return ProgressRangeConverter(Defense); } }
+
+        [Ignore]
         // Return the Total of All Defense
         public int GetDefenseTotal { get { return GetDefense(); } }
-
 
         [Ignore]
         // Return the Attack with Item Bonus
