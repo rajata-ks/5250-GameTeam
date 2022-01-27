@@ -152,7 +152,7 @@ namespace Game.Views
             }
 
             NameLabel.TextColor = Color.Black;
-            NameLabel.Text = "Name*";
+            NameLabel.Text = "Name";
             nameValid = true;
         }
 
@@ -184,7 +184,7 @@ namespace Game.Views
             }
 
             DescriptionLabel.TextColor = Color.Black;
-            DescriptionLabel.Text = "Description*";
+            DescriptionLabel.Text = "Description";
             descriptionValid = true;
         }
 
