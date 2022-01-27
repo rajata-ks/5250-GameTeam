@@ -69,23 +69,9 @@
 
 
 
+                        <Label Text="Attributes" Style="{StaticResource HeaderStyle}"/>
 
-                        <Label Grid.Column="0" Grid.Row="0"
-                                       Text="Attribute" 
-                                       Style="{StaticResource GridLabelStyle}"/>
-                            <Label Grid.Column="1" Grid.Row="0"
-                                       Text="Base Value" 
-                                       Style="{StaticResource GridLabelStyle}"/>
-                            <Label Grid.Column="2" Grid.Row="0"
-                                       Text="Level Bonus" 
-                                       Style="{StaticResource GridLabelStyle}"/>
-                            <Label Grid.Column="3" Grid.Row="0"
-                                       Text="Item Bonus" 
-                                       Style="{StaticResource GridLabelStyle}"/>
-                            <Label Grid.Column="4" Grid.Row="0"
-                                       Text="Total Value" 
-                                       Style="{StaticResource GridLabelStyle}"/>
-
+                        
                             <Label Grid.Column="0" Grid.Row="1"
                                        Text="Attack" 
                                        Style="{StaticResource GridLabelStyle}"/>
