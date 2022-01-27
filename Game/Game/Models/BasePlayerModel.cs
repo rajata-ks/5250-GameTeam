@@ -213,7 +213,7 @@ namespace Game.Models
         }
 
         // Return the Attack value in decimal as we can only provide value to Progress Bar from 0-1
-      
+        public Decimal GetAttackProgress{ get { return ProgressRangeConverter(Attack); } }
         [Ignore]
         // Return the Total of All Attack
         public int GetAttackTotal { get { return GetAttack(); } }
