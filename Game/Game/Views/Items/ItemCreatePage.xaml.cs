@@ -23,10 +23,21 @@ namespace Game.Views
         public ItemCreatePage(bool UnitTest) { }
 
 
-        //Bools used for submission.
+        //Bools used to validate name.
         private bool nameValid;
+
+        //Bool used to validate description.
         private bool descriptionValid;
+
+        //Bool used to validate image.
         private bool imageValid;
+
+        //Bool used to attribute image.
+        private bool attributeValid;
+
+        //Bool used to location image.
+        private bool locationValid;
+
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
@@ -42,6 +53,9 @@ namespace Game.Views
             nameValid = true;
             descriptionValid = true;
             imageValid = true;
+            attributeValid = true;
+            locationValid = true;
+
             //Need to make the SelectedItem a string, so it can select the correct item.
             LocationPicker.SelectedItem = ViewModel.Data.Location.ToString();
             AttributePicker.SelectedItem = ViewModel.Data.Attribute.ToString();
@@ -54,9 +68,31 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
-            //Checks if all boxes are filled.
-            if (!nameValid || !descriptionValid || !imageValid) return;
+            //Check to make sure all boxes are filled.
+            if (nameValid == false)
+            {
+                return;
+            }
 
+            if (descriptionValid == false)
+            {
+                return;
+            }
+
+            if (imageValid == false)
+            {
+                return;
+            }
+
+            if (validateErrorLocationEnum(ViewModel.Data.Location) == false)
+            {
+                return;
+            }
+
+            if (validateErrorAttributeEnum(ViewModel.Data.Attribute) == false)
+            {
+                return;
+            }
 
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
@@ -115,17 +151,27 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Name_TextChanged(object sender, ValueChangedEventArgs e)
         {
-            if(NameEntry.Text.Length < 1)
+            if (String.IsNullOrEmpty(NameEntry.Text))
             {
-                NameEntry.Text = "Add Name!";
-                NameEntry.TextColor = Color.Red;
+                NameLabel.TextColor = Color.Red;
+                NameLabel.Text = "Name*";
                 nameValid = false;
+
+                return;
             }
-            if(!nameValid && NameEntry.Text.Length > 1 && NameEntry.Text != "Add Name!")
+
+            if (String.IsNullOrWhiteSpace(NameEntry.Text))
             {
-                NameEntry.TextColor = Color.Black;
-                nameValid = true;
+                NameLabel.TextColor = Color.Red;
+                NameLabel.Text = "Name*";
+                nameValid = false;
+
+                return;
             }
+
+            NameLabel.TextColor = Color.Black;
+            NameLabel.Text = "Name*";
+            nameValid = true;
         }
 
         /// <summary>
@@ -135,17 +181,27 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Description_TextChanged(object sender, ValueChangedEventArgs e)
         {
-            if (DescriptionEntry.Text.Length < 1)
+            if (String.IsNullOrEmpty(DescriptionEntry.Text))
             {
-                DescriptionEntry.Text = "Add Description!";
-                DescriptionEntry.TextColor = Color.Red;
+                DescriptionLabel.TextColor = Color.Red;
+                DescriptionLabel.Text = "Description*";
                 descriptionValid = false;
+
+                return;
             }
-            if (!descriptionValid && DescriptionEntry.Text.Length > 1 && DescriptionEntry.Text != "Add Description!")
+
+            if (String.IsNullOrWhiteSpace(DescriptionEntry.Text))
             {
-                DescriptionEntry.TextColor = Color.Black;
-                descriptionValid = true;
+                DescriptionLabel.TextColor = Color.Red;
+                DescriptionLabel.Text = "Description*";
+                descriptionValid = false;
+
+                return;
             }
+
+            DescriptionLabel.TextColor = Color.Black;
+            DescriptionLabel.Text = "Description*";
+            descriptionValid = true;
         }
 
         /// <summary>
@@ -165,6 +221,42 @@ namespace Game.Views
             ImageEntry.TextColor = Color.Black;
             imageValid = true;
 
+        }
+
+        /// <summary>
+        /// Validate and change UI Element if invalid
+        /// Can't save unknown
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        private bool validateErrorAttributeEnum(AttributeEnum data)
+        {
+            if (data == AttributeEnum.Unknown)
+            {
+                AttributeLabel.TextColor = Color.Red;
+                AttributeLabel.Text = "Attribute*";
+                return attributeValid = false;
+            }
+
+            return attributeValid = true;
+        }
+
+        /// <summary>
+        /// Validate and change UI Element if invalid
+        /// Can't save unknown
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        private bool validateErrorLocationEnum(ItemLocationEnum data)
+        {
+            if (data == ItemLocationEnum.Unknown)
+            {
+                LocationLabel.TextColor = Color.Red;
+                LocationLabel.Text = "Location*";
+                return locationValid = false;
+            }
+
+            return locationValid = true;
         }
     }
 }
