@@ -164,6 +164,7 @@
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="ring1.png" />
     <Content Include="ring2.png" />
+    <Content Include="sampleImage.jpg" />
     <Content Include="score.png" />
     <Content Include="shield1.png" />
     <Content Include="shield2.png" />
