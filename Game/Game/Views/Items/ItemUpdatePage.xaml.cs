@@ -22,10 +22,15 @@ namespace Game.Views
         public ItemUpdatePage(bool UnitTest) { }
 
 
-        //Bools used to validate entries.
-        bool nameValid;
-        bool descriptionValid;
-        bool imageValid;
+        //Bools used to validate name.
+        private bool nameValid;
+
+        //Bool used to validate description.
+        private bool descriptionValid;
+
+        //Bool used to validate image.
+        private bool imageValid;
+
         /// <summary>
         /// Constructor that takes and existing data item
         /// </summary>
