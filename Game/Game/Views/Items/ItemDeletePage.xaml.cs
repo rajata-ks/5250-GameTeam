@@ -20,6 +20,8 @@ namespace Game.Views
 
         // Empty Constructor for UTs
         public ItemDeletePage(bool UnitTest) { }
+
+        //stores the update page title
         private string updateTitle;
 
         // Constructor for Delete takes a view model of what to delete
