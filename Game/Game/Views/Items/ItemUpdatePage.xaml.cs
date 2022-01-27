@@ -21,7 +21,6 @@ namespace Game.Views
         // Empty Constructor for Tests
         public ItemUpdatePage(bool UnitTest) { }
 
-
         //Bools used to validate name.
         private bool nameValid;
 
