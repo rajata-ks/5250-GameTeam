@@ -52,33 +52,6 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Send to Delete View
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void Delete_Clicked(object sender, EventArgs e)
-        {
-            //Check to make sure all boxes are filled.
-            if (nameValid == false)
-            {
-                return;
-            }
-
-            if (descriptionValid == false)
-            {
-                return;
-            }
-
-            if (imageValid == false)
-            {
-                return;
-            }
-
-            //If the image in the data box is empty, use the default one..
-            await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(ViewModel)));
-        }
-
-        /// <summary>
         /// Save calls to Update
         /// </summary>
         /// <param name="sender"></param>
