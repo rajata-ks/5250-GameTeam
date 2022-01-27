@@ -469,6 +469,10 @@ namespace Game.Models
             return myReturn;
         }
 
+        [Ignore]
+        // Return the Speed value in decimal as we can only provide value to Progress Bar from 0-1
+        public Decimal GetSpeedProgress { get { return ProgressRangeConverter(Speed); } }
+
         /// <summary>
         /// Return the Total Speed Value
         /// </summary>
