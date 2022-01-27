@@ -47,7 +47,7 @@
                     <Label Grid.Row="0" Grid.Column="0"
                         Text="Name" 
                         Style="{StaticResource LabelStyle}"
-                        />
+                        x:Name="NameLabel"/>
 
                     <Entry Grid.Row="0" Grid.Column="1"
                         Text="{Binding Data.Name}" 
@@ -57,7 +57,8 @@
 
                     <Label Grid.Row="1" Grid.Column="0"
                         Text="Description" 
-                        Style="{StaticResource LabelStyle}"/>
+                        Style="{StaticResource LabelStyle}"
+                           x:Name="DescriptionLabel"/>
 
                     <Entry Grid.Row="1" Grid.Column="1"
                         Text="{Binding Data.Description}" 
@@ -67,7 +68,8 @@
 
                     <Label Grid.Row="2" Grid.Column="0"
                         Text="Location" 
-                        Style="{StaticResource LabelStyle}"/>
+                        Style="{StaticResource LabelStyle}"
+                           x:Name="LocationLabel"/>
 
                     <Picker Grid.Row="2" Grid.Column="1"
                         ItemsSource="{x:Static local_enum:ItemLocationEnumHelper.GetListCharacter}" 
@@ -76,12 +78,14 @@
 
                     <Label Grid.Row="3" Grid.Column="0"
                         Text="Attribute" 
-                        Style="{StaticResource LabelStyle}"/>
+                        Style="{StaticResource LabelStyle}"
+                           x:Name="AttributeLabel"/>
 
                     <Picker Grid.Row="3" Grid.Column="1"
                         ItemsSource="{x:Static local_enum:AttributeEnumHelper.GetListCharacter}" 
                         SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                        x:Name="AttributePicker"/>
+                        x:Name="AttributePicker"
+                            />
 
                     <Label Grid.Row="4" Grid.Column="0"
                         Text="Image" 
