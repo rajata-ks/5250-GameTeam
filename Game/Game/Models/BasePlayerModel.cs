@@ -203,6 +203,19 @@ namespace Game.Models
             }
         }
 
+        // Return the Attack value in decimal as we can only provide value to Progress Bar from 0-1
+        public Decimal GetAttackProgress
+        {
+            get
+            {
+                var Progress = Attack;
+                Decimal d = Progress / (Decimal)10;
+                Decimal dc = Math.Round(d, 1);
+                return dc;
+            }
+        }
+
+
         [Ignore]
         // Return the Total of All Attack
         public int GetAttackTotal { get { return GetAttack(); } }
