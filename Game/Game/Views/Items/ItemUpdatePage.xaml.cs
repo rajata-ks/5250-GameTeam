@@ -195,16 +195,29 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Image_TextChanged(object sender, ValueChangedEventArgs e)
         {
-            if(ImageEntry.Text.EndsWith(".png"))
+            if (String.IsNullOrEmpty(ImageEntry.Text))
             {
-                ImageEntry.TextColor = Color.Black;
-                imageValid = true;
-
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
                 return;
             }
 
-            ImageEntry.TextColor = Color.Red;
-            imageValid = false;
+            if (String.IsNullOrWhiteSpace(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (!ImageEntry.Text.EndsWith(".png"))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            ImageLabel.TextColor = Color.Black;
+            imageValid = true;
 
         }
     }
