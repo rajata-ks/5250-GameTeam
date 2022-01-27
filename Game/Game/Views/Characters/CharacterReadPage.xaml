@@ -70,9 +70,27 @@
 
 
                         <Label Text="Attributes" Style="{StaticResource HeaderStyle}"/>
+                        <StackLayout Orientation="Vertical">
 
-                        
-                            <Label Grid.Column="0" Grid.Row="1"
+                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                                <Label Text="Attack: " Style="{StaticResource LabelStyle}"/>
+                                <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
+                            </StackLayout>
+                                
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" Spacing="0" HorizontalOptions="Fill">
+                                <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                                    <ProgressBar x:Name="AttackProgress" Progress="{Binding Data.GetAttackProgress}" ProgressColor="Blue" HeightRequest="20"  Margin="0" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="0" FontSize="Micro" HorizontalOptions="Start" TextColor="Black" Margin="0,-2,0,0"></Label>
+                                        <Label Text="9" FontSize="Micro" HorizontalOptions="EndAndExpand" TextColor="Black" Margin="0,-2,0,0"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+
+
+                        <Label Grid.Column="0" Grid.Row="1"
                                        Text="Attack" 
                                        Style="{StaticResource GridLabelStyle}"/>
                             <Label Grid.Column="1" Grid.Row="1"
