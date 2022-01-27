@@ -59,7 +59,20 @@ namespace Game.Views
         public async void Delete_Clicked(object sender, EventArgs e)
         {
             //Check to make sure all boxes are filled.
-            if (!nameValid || !descriptionValid || !imageValid) return;
+            if (nameValid == false)
+            {
+                return;
+            }
+
+            if (descriptionValid == false)
+            {
+                return;
+            }
+
+            if (imageValid == false)
+            {
+                return;
+            }
 
             //If the image in the data box is empty, use the default one..
             await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(ViewModel)));
@@ -73,7 +86,20 @@ namespace Game.Views
         public async void Save_Clicked(object sender, EventArgs e)
         {
             //Check to make sure all boxes are filled.
-            if (!nameValid || !descriptionValid || ! imageValid) return;
+            if (nameValid == false)
+            {
+                return;
+            }
+
+            if (descriptionValid == false)
+            {
+                return;
+            }
+
+            if (imageValid == false)
+            {
+                return;
+            }
 
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
@@ -134,17 +160,27 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Name_TextChanged(object sender, ValueChangedEventArgs e)
         {
-            if (NameEntry.Text.Length < 1)
+            if (String.IsNullOrEmpty(NameEntry.Text))
             {
-                NameEntry.Text = "Add Name!";
-                NameEntry.TextColor = Color.Red;
+                NameLabel.TextColor = Color.Red;
+                NameLabel.Text = "Name*";
                 nameValid = false;
+
+                return;
             }
-            if (!nameValid && NameEntry.Text.Length > 1 && NameEntry.Text != "Add Name!")
+
+            if (String.IsNullOrWhiteSpace(NameEntry.Text))
             {
-                NameEntry.TextColor = Color.Black;
-                nameValid = true;
+                NameLabel.TextColor = Color.Red;
+                NameLabel.Text = "Name*";
+                nameValid = false;
+
+                return;
             }
+
+            NameLabel.TextColor = Color.Black;
+            NameLabel.Text = "Name*";
+            nameValid = true;
         }
 
 
@@ -155,17 +191,28 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Description_TextChanged(object sender, ValueChangedEventArgs e)
         {
-            if (DescriptionEntry.Text.Length < 1)
+
+            if (String.IsNullOrEmpty(DescriptionEntry.Text))
             {
-                DescriptionEntry.Text = "Add Description!";
-                DescriptionEntry.TextColor = Color.Red;
+                DescriptionLabel.TextColor = Color.Red;
+                DescriptionLabel.Text = "Description*";
                 descriptionValid = false;
+
+                return;
             }
-            if (!descriptionValid && DescriptionEntry.Text.Length > 1 && DescriptionEntry.Text != "Add Description!")
+
+            if (String.IsNullOrWhiteSpace(DescriptionEntry.Text))
             {
-                DescriptionEntry.TextColor = Color.Black;
-                descriptionValid = true;
+                DescriptionLabel.TextColor = Color.Red;
+                DescriptionLabel.Text = "Description*";
+                descriptionValid = false;
+
+                return;
             }
+
+            DescriptionLabel.TextColor = Color.Black;
+            DescriptionLabel.Text = "Description*";
+            descriptionValid = true;
         }
 
         /// <summary>
@@ -175,15 +222,16 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Image_TextChanged(object sender, ValueChangedEventArgs e)
         {
-            if(!ImageEntry.Text.EndsWith(".png"))
+            if(ImageEntry.Text.EndsWith(".png"))
             {
-                ImageEntry.TextColor = Color.Red;
-                imageValid = false;
+                ImageEntry.TextColor = Color.Black;
+                imageValid = true;
+
                 return;
             }
 
-            ImageEntry.TextColor = Color.Black;
-            imageValid = true;
+            ImageEntry.TextColor = Color.Red;
+            imageValid = false;
 
         }
     }
