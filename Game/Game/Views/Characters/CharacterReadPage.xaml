@@ -129,32 +129,6 @@
                             </StackLayout>
 
                         </StackLayout>
-
-                        <Frame CornerRadius="10"  
-                               Padding="50"
-                               BackgroundColor="GhostWhite"
-                               Grid.Row="2" Grid.ColumnSpan="3" BorderColor="Black">
-
-                            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
-
-                                <Label Text="Do you want to update this Character?" Style="{StaticResource LabelStyle}" 
-                           Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center"
-                            Padding="10"/>
-
-
-                                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
-                                    <Button 
-                            Text="Yes"  Clicked="Update_Clicked"  HorizontalOptions="Center" 
-                            FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0">
-                                    </Button>
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>
-
-
-
-
-
                         <FlexLayout 
                         Margin="5"
                         Wrap="Wrap"
@@ -162,8 +136,29 @@
                         AlignContent="SpaceAround"
                         x:Name="ItemBox">
                         </FlexLayout>
+                        </StackLayout>
 
-                    </StackLayout>
+                    <Frame CornerRadius="10"  
+                               Padding="50"
+                               BackgroundColor="GhostWhite"
+                               Grid.Row="2" Grid.ColumnSpan="3" BorderColor="Black">
+
+                        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
+
+                            <Label Text="Do you want to update this Character?" Style="{StaticResource LabelStyle}" 
+                           Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center"
+                            Padding="10"/>
+
+
+                            <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                                <Button 
+                            Text="Yes"  Clicked="Update_Clicked"  HorizontalOptions="Center" 
+                            FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0">
+                                </Button>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    
                 </Grid>
             </ScrollView>
         </StackLayout>
