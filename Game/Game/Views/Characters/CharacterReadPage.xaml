@@ -153,11 +153,11 @@
                             </StackLayout>
                         </StackLayout>
                     </Frame>
-                    
-               
-     
 
-        <!--The Item Popup-->
+            <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="2" Grid.Column="0"/>
+
+
+            <!--The Item Popup-->
         <StackLayout x:Name="PopupLoadingView" 
                  BackgroundColor="{StaticResource PageBackgroundColor}" 
                  IsVisible="false" 
@@ -195,7 +195,7 @@
                     </StackLayout>
                 </Frame>
 
-                    <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="3" Grid.Column="1"/>
+                   
                 </StackLayout>
         </StackLayout>
             </Grid>
