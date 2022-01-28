@@ -22,21 +22,25 @@
     <ScrollView >
         <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
                         <ColumnDefinition  Width="*" />
                     </Grid.ColumnDefinitions>
 
-            <StackLayout >
-                <StackLayout>
-                    <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}" Grid.Row="0" Grid.Column="1"/>
-                    <StackLayout Style="{StaticResource VerticalStack}" Padding="10,0,10,0" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center">
+                <StackLayout Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="3">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        
+                        <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
+
+                    <StackLayout  Orientation="Vertical" HorizontalOptions="Center">
                         <StackLayout Style="{StaticResource HorizontalStack}">
                             <Label 
                                Text="Name : " 
@@ -63,22 +67,23 @@
                                 Style="{StaticResource ValueStyle}"/>
                         </StackLayout>
                     </StackLayout>
+                </StackLayout>
+                  
 
                 </StackLayout>
-                <StackLayout Grid.Row="1" Grid.ColumnSpan="3" >
+                <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Padding="30">
                                 <Label LineBreakMode="WordWrap"
                                     Text="Description : " 
                                     Style="{StaticResource LabelStyle}"/>
                                 <Label 
                                     Text="{Binding Data.Description}" 
                                     Style="{StaticResource ValueStyle}"/>
-                            </StackLayout>
-                       
+                </StackLayout>
 
+            <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
                         <Label Text="Attributes" Style="{StaticResource HeaderStyle}"/>
-                        <StackLayout Orientation="Vertical">
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                        <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
                                 <Label Text="Attack: " Style="{StaticResource LabelStyle}"/>
                                 <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
                             </StackLayout>
@@ -124,24 +129,23 @@
                             </StackLayout>
 
                         </StackLayout>
-                        <FlexLayout 
+                <FlexLayout 
                         Margin="5"
                         Wrap="Wrap"
                         JustifyContent="SpaceAround"
                         AlignContent="SpaceAround"
-                        x:Name="ItemBox">
-                        </FlexLayout>
-                        </StackLayout>
+                        x:Name="ItemBox" Grid.Row="3" Grid.ColumnSpan="3">
+                </FlexLayout>
+            
 
                     <Frame CornerRadius="10"  
                                Padding="50"
-                               BackgroundColor="GhostWhite"
-                               Grid.Row="2" Grid.ColumnSpan="3" BorderColor="Black">
+                               Grid.Row="4" Grid.ColumnSpan="3" BorderColor="Black" BackgroundColor="AliceBlue">
 
                         <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
                             <Label Text="Do you want to update this Character?" Style="{StaticResource LabelStyle}" 
-                           Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center"
+                           HorizontalOptions="Center"
                             Padding="10"/>
 
 
@@ -153,9 +157,9 @@
                             </StackLayout>
                         </StackLayout>
                     </Frame>
-
-            <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="2" Grid.Column="0"/>
-
+            <StackLayout Grid.Row="5" Grid.Column="0">
+                <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}"/>
+            </StackLayout>
 
             <!--The Item Popup-->
         <StackLayout x:Name="PopupLoadingView" 
@@ -163,7 +167,7 @@
                  IsVisible="false" 
                  AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
                  AbsoluteLayout.LayoutFlags="All">
-
+            
             <StackLayout 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"
@@ -197,7 +201,7 @@
 
                    
                 </StackLayout>
-        </StackLayout>
+        </StackLayout> 
             </Grid>
         </ScrollView>
     
