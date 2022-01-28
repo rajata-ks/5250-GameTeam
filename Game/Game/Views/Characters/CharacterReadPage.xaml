@@ -7,22 +7,20 @@
              x:Class="Game.Views.CharacterReadPage"
              Title="{Binding Title}">
 
+
+
+    <NavigationPage.TitleView>
+        <Label Text="Read Page" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+    </NavigationPage.TitleView>
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
 
-    <AbsoluteLayout
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand"
-        >
 
-        <StackLayout Style="{StaticResource VerticalStack}"
-                    AbsoluteLayout.LayoutBounds="1,1,1,1" 
-                    AbsoluteLayout.LayoutFlags="All">
-
-            <ScrollView x:Name="ScrollView">
-                <Grid>
+    <ScrollView >
+        <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
@@ -35,29 +33,16 @@
                         <ColumnDefinition  Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <StackLayout >
-
-
-
-                        <Label Text="Read Page" Style="{StaticResource HeaderStyle}"/>
-
-                        <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
-
+            <StackLayout >
+                <StackLayout>
+                    <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}" Grid.Row="0" Grid.Column="1"/>
+                    <StackLayout Style="{StaticResource VerticalStack}" Padding="10,0,10,0" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center">
                         <StackLayout Style="{StaticResource HorizontalStack}">
                             <Label 
                                Text="Name : " 
                                Style="{StaticResource LabelStyle}"/>
                             <Label 
                                 Text="{Binding Data.Name}" 
-                                Style="{StaticResource ValueStyle}"/>
-                        </StackLayout>
-
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label 
-                                Text="Description : " 
-                                Style="{StaticResource LabelStyle}"/>
-                            <Label 
-                                Text="{Binding Data.Description}" 
                                 Style="{StaticResource ValueStyle}"/>
                         </StackLayout>
 
@@ -77,8 +62,18 @@
                                 Text="{Binding Data.MaxHealth}" 
                                 Style="{StaticResource ValueStyle}"/>
                         </StackLayout>
+                    </StackLayout>
 
-
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.ColumnSpan="3" >
+                                <Label LineBreakMode="WordWrap"
+                                    Text="Description : " 
+                                    Style="{StaticResource LabelStyle}"/>
+                                <Label 
+                                    Text="{Binding Data.Description}" 
+                                    Style="{StaticResource ValueStyle}"/>
+                            </StackLayout>
+                       
 
                         <Label Text="Attributes" Style="{StaticResource HeaderStyle}"/>
                         <StackLayout Orientation="Vertical">
@@ -159,9 +154,8 @@
                         </StackLayout>
                     </Frame>
                     
-                </Grid>
-            </ScrollView>
-        </StackLayout>
+               
+     
 
         <!--The Item Popup-->
         <StackLayout x:Name="PopupLoadingView" 
@@ -201,8 +195,10 @@
                     </StackLayout>
                 </Frame>
 
-                
-            </StackLayout>
+                    <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="3" Grid.Column="1"/>
+                </StackLayout>
         </StackLayout>
-    </AbsoluteLayout>
+            </Grid>
+        </ScrollView>
+    
 </ContentPage>
