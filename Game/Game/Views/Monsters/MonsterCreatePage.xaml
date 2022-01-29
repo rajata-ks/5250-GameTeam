@@ -8,7 +8,11 @@
              xmlns:local_helpers="clr-namespace:Game.Helpers"
              xmlns:local_enum="clr-namespace:Game.Models"
              x:Class="Game.Views.MonsterCreatePage"
-             Title="{Binding Title}">
+             >
+
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+    </NavigationPage.TitleView>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
@@ -34,12 +38,167 @@
                 <ScrollView>
                     <StackLayout Style="{StaticResource OuterBoxStack}" Spacing="10">
 
-                        <Label Text="Create Page" Style="{StaticResource HeaderStyle}"/>
-                        
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                            <Image Source="{Binding Data.ImageURI, Mode=TwoWay}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
+
+                            <!--<ImageButton 
+                                x:Name="RollDice"
+                                Style="{StaticResource ImageLargeStyle}"
+                                Source="d10.png"
+                                Clicked="RollDice_Clicked"/> -->
+                        </StackLayout>
+
+                        <Grid
+                            RowSpacing="1"
+                            ColumnSpacing="2"
+                            VerticalOptions="Center">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0"
+                                Text="Name" 
+                                Style="{StaticResource LabelStyle}"
+                                   x:Name="NameLabel"/>
+
+                            <Entry Grid.Row="0" Grid.Column="1"
+                                Text="{Binding Data.Name, Mode=TwoWay}" 
+                                Style="{StaticResource EntryStyle}"
+                                   x:Name="NameEntry"
+                                   TextChanged="Name_TextChanged"/>
+
+                            <Label Grid.Row="1" Grid.Column="0"
+                                Text="Description" 
+                                Style="{StaticResource LabelStyle}"
+                                   x:Name="DescriptionLabel"/>
+
+                            <Entry Grid.Row="1" Grid.Column="1"
+                                Text="{Binding Data.Description, Mode=TwoWay}" 
+                                Style="{StaticResource EntryStyle}"
+                                   x:Name="DescriptionEntry"
+                                   TextChanged="Description_TextChanged"/>
+
+                            <Label Grid.Row="2" Grid.Column="0"
+                                Text="Image" 
+                                Style="{StaticResource LabelStyle}"
+                                   x:Name="ImageLabel"/>
+
+                            <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
+
+                                <Image 
+                                    Source="{Binding Data.ImageURI, Mode=TwoWay}"
+                                    Style="{StaticResource ImageSmallStyle}"/>
+
+                                <Entry 
+                                    Text="{Binding Data.ImageURI, Mode=TwoWay}" 
+                                    Style="{StaticResource EntryStyle}"
+                                    x:Name="ImageEntry"
+                                    TextChanged="Image_TextChanged"/>
+
+                            </StackLayout>
+
+                        </Grid>
+
+                        <Label Text="Attributes" Style="{StaticResource LabelStyle}" HorizontalOptions="Center"/>
+
+
+                        <StackLayout Orientation="Vertical">
+
+                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+
+                                <Label Text="Max Health" Style="{StaticResource LabelStyle}"/>
+
+                                <Label 
+                                    Text="{Binding Data.MaxHealth, Mode=TwoWay}" 
+                                    x:Name="HealthValue"
+                                    Style="{StaticResource ValueStyle}"
+                                    Padding="0,0,10,0"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="End"/>
+
+                            </StackLayout>
+
+                            <Slider x:Name="healthSilder" 
+                                    Minimum="0" 
+                                    Maximum="50" ValueChanged="Health_OnStepperValueChanged" Value="{Binding Data.Attack}" />
+
+                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+
+                                <Label Text="Attack" Style="{StaticResource LabelStyle}"/>
+
+                                <Label 
+                                    Text="{Binding Data.Attack, Mode=TwoWay}" 
+                                    x:Name="AttackValue"
+                                    Style="{StaticResource ValueStyle}"
+                                    Padding="0,0,10,0"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="End"/>
+
+                            </StackLayout>
+
+                            <Slider x:Name="attackSilder" 
+                                    Minimum="0" 
+                                    Maximum="9" ValueChanged="Attack_OnStepperValueChanged" Value="{Binding Data.Attack}" />
+
+                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+
+                                <Label Text="Defense" Style="{StaticResource LabelStyle}"/>
+
+                                <Label 
+                                    Text="{Binding Data.Defense, Mode=TwoWay}" 
+                                    x:Name="DefenseValue"
+                                    Style="{StaticResource ValueStyle}"
+                                    Padding="0,0,10,0"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="End"/>
+
+                            </StackLayout>
+
+                            <Slider x:Name="defenseSilder" 
+                                    Minimum="0" 
+                                    Maximum="9" ValueChanged="Defense_OnStepperValueChanged" Value="{Binding Data.Defense}" />
+
+                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+
+                                <Label Text="Speed" Style="{StaticResource LabelStyle}"/>
+
+                                <Label 
+                                    Text="{Binding Data.Speed, Mode=TwoWay}" 
+                                    x:Name="SpeedValue"
+                                    Style="{StaticResource ValueStyle}"
+                                    Padding="0,0,10,0"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="End"/>
+
+                            </StackLayout>
+
+                            <Slider x:Name="speedSilder" 
+                                    Minimum="0" 
+                                    Maximum="9" ValueChanged="Speed_OnStepperValueChanged" Value="{Binding Data.Speed}" />
+
+                        </StackLayout>
+
+                        <Grid>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                                <Button BackgroundColor="Transparent"
+                                Text="Cancel" WidthRequest="200" Clicked="Cancel_Clicked"
+                                Style="{StaticResource GridRoundedButton}" 
+                                HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+
+                                <Button BackgroundColor="Transparent"
+                                Text="Save" WidthRequest="200" Clicked="Save_Clicked"
+                                Style="{StaticResource GridRoundedButton}" 
+                                HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+                            </StackLayout>
+                        </Grid>
+
                     </StackLayout>
                 </ScrollView>
             </StackLayout>
-
         </AbsoluteLayout>
 
     </ContentPage.Content>
