@@ -124,7 +124,7 @@
 
                             <Slider x:Name="healthSilder" 
                                     Minimum="0" 
-                                    Maximum="50" ValueChanged="Health_OnStepperValueChanged" Value="{Binding Data.Attack}" />
+                                    Maximum="50" ValueChanged="Health_OnStepperValueChanged" Value="{Binding Data.MaxHealth}" />
 
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
 
