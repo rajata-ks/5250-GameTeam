@@ -17,41 +17,58 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <StackLayout Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="3">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                
-                <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
-                
-                <StackLayout  Orientation="Vertical" HorizontalOptions="Center">
-                    <StackLayout Style="{StaticResource HorizontalStack}">
-                        <Label 
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition  Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="3">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                    <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
+
+                    <StackLayout  Orientation="Vertical" HorizontalOptions="Center">
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label 
                                Text="Name : " 
                                Style="{StaticResource LabelStyle}"/>
-                        <Label 
+                            <Label 
                                 Text="{Binding Data.Name}" 
                                 Style="{StaticResource ValueStyle}"/>
-                    </StackLayout>
+                        </StackLayout>
 
-                    <StackLayout Style="{StaticResource HorizontalStack}">
-                        <Label 
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label 
                                 Text="Level : " 
                                 Style="{StaticResource LabelStyle}"/>
-                        <Label 
+                            <Label 
                                 Text="{Binding Data.Level}" 
                                 Style="{StaticResource ValueStyle}"/>
-                    </StackLayout>
+                        </StackLayout>
 
-                    <StackLayout Style="{StaticResource HorizontalStack}">
-                        <Label 
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label 
                                 Text="Max Health : " 
                                 Style="{StaticResource LabelStyle}"/>
-                        <Label 
+                            <Label 
                                 Text="{Binding Data.MaxHealth}" 
                                 Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
                     </StackLayout>
                 </StackLayout>
-
             </StackLayout>
-        </StackLayout>
+            
+         
+        </Grid>
     </ScrollView>
 </ContentPage>
