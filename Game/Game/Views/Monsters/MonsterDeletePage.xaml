@@ -18,29 +18,43 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition  Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2">
-                <Label 
+            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2" >
+
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label 
                    Text="Name : " 
                     Style="{StaticResource LabelStyle}"/>
-                <Label 
+                    <Label 
                     Text="{Binding Data.Name}" 
                     Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
+                </StackLayout>
 
-            <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2">
-                <Label 
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label 
                     Text="Description : " 
                     Style="{StaticResource LabelStyle}"/>
-                <Label 
+                    <Label 
                     Text="{Binding Data.Description}" 
                     Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
             </StackLayout>
 
 
-        </StackLayout>
+
+        </Grid>
     </ScrollView>
 </ContentPage>
