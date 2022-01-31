@@ -19,8 +19,20 @@
     <ScrollView>
         <StackLayout Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="3">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-
+                
                 <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
+                
+                <StackLayout  Orientation="Vertical" HorizontalOptions="Center">
+                    <StackLayout Style="{StaticResource HorizontalStack}">
+                        <Label 
+                               Text="Name : " 
+                               Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                                Text="{Binding Data.Name}" 
+                                Style="{StaticResource ValueStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+
             </StackLayout>
         </StackLayout>
     </ScrollView>
