@@ -31,6 +31,15 @@
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
+            <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2">
+                <Label 
+                    Text="Description : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Description}" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+
 
         </StackLayout>
     </ScrollView>
