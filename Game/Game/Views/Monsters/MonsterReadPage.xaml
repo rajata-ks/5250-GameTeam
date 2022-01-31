@@ -72,6 +72,10 @@
                 <Label LineBreakMode="WordWrap" Text="Description : " Style="{StaticResource LabelStyle}"/>
                 <Label Text="{Binding Data.Description}" Style="{StaticResource ValueStyle}"/>
             </StackLayout>
+
+            <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
+                <Label Text="Attributes" Style="{StaticResource HeaderStyle}"/>
+            </StackLayout>
         </Grid>
     </ScrollView>
 </ContentPage>
