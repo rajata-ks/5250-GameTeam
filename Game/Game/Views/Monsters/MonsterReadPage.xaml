@@ -7,6 +7,10 @@
              x:Class="Game.Views.MonsterReadPage"
              Title="{Binding Title}">
 
+    <NavigationPage.TitleView>
+        <Label Text="Read Page" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+    </NavigationPage.TitleView>
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
@@ -26,7 +30,7 @@
 
                     <StackLayout Style="{StaticResource VerticalStack}">
 
-                        <Label Text="Read Page" Style="{StaticResource HeaderStyle}"/>
+                    
 
                     </StackLayout>
                 </StackLayout>
