@@ -82,7 +82,7 @@
             </ListView>
             <Grid>
                 <Button BackgroundColor="Transparent"
-                    Text="Create New Item?" WidthRequest="400" Clicked="Add_Clicked"
+                    Text="Create New Character?" WidthRequest="400" Clicked="Add_Clicked"
                     Style="{StaticResource GridRoundedButton}" 
                     HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
             </Grid>
