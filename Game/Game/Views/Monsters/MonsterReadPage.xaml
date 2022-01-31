@@ -16,26 +16,12 @@
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
 
-    <AbsoluteLayout
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand"
-        >
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="3">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
 
-        <StackLayout Style="{StaticResource VerticalStack}"
-                    AbsoluteLayout.LayoutBounds="1,1,1,1" 
-                    AbsoluteLayout.LayoutFlags="All">
-
-            <ScrollView x:Name="ScrollView">
-                <StackLayout Style="{StaticResource OuterBoxStack}">
-
-                    <StackLayout Style="{StaticResource VerticalStack}">
-
-                    
-
-                    </StackLayout>
-                </StackLayout>
-            </ScrollView>
+                <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
+            </StackLayout>
         </StackLayout>
-
-    </AbsoluteLayout>
+    </ScrollView>
 </ContentPage>
