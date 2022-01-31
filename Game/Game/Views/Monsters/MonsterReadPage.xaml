@@ -139,8 +139,10 @@
                         </Button>
                     </StackLayout>
                 </StackLayout>
-
             </Frame>
+            <StackLayout Grid.Row="5" Grid.Column="0">
+                <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}"/>
+            </StackLayout>
         </Grid>
     </ScrollView>
 </ContentPage>
