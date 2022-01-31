@@ -78,8 +78,7 @@
 
                 </StackLayout>
             </Frame>
-
-
+            <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="2" Grid.Column="0"/>
         </Grid>
     </ScrollView>
 </ContentPage>
