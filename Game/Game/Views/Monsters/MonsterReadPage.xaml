@@ -131,6 +131,13 @@
                     <Label Text="Do you want to update this Monster?" Style="{StaticResource LabelStyle}" 
                            HorizontalOptions="Center"
                             Padding="10"/>
+
+                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                        <Button 
+                            Text="Yes"  Clicked="Update_Clicked"  HorizontalOptions="Center" 
+                            FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0">
+                        </Button>
+                    </StackLayout>
                 </StackLayout>
 
             </Frame>
