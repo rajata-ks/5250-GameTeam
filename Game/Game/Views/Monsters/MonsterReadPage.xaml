@@ -80,6 +80,16 @@
                     <Label Text="Attack: " Style="{StaticResource LabelStyle}"/>
                     <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" Spacing="0" HorizontalOptions="Fill">
+                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                        <ProgressBar x:Name="AttackProgress" Progress="{Binding Data.GetAttackProgress}" ProgressColor="Blue" HeightRequest="20"  Margin="0" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="0" FontSize="Micro" HorizontalOptions="Start" TextColor="Black" Margin="0,-2,0,0"></Label>
+                            <Label Text="9" FontSize="Micro" HorizontalOptions="EndAndExpand" TextColor="Black" Margin="0,-2,0,0"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
             </StackLayout>
         </Grid>
     </ScrollView>
