@@ -18,10 +18,11 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <StackLayout Style="{StaticResource OuterBoxStack}"
-                Spacing="10">
+        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2" >
 
-            
+            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+
+
         </StackLayout>
     </ScrollView>
 </ContentPage>
