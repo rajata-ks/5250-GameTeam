@@ -75,6 +75,11 @@
 
             <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
                 <Label Text="Attributes" Style="{StaticResource HeaderStyle}"/>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                    <Label Text="Attack: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
+                </StackLayout>
             </StackLayout>
         </Grid>
     </ScrollView>
