@@ -90,6 +90,12 @@
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                    <Label Text="Defense: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="{Binding Data.Defense}" Style="{StaticResource LabelStyle}"/>
+                </StackLayout>
+
             </StackLayout>
         </Grid>
     </ScrollView>
