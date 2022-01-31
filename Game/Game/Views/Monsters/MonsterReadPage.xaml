@@ -123,7 +123,9 @@
 
             </StackLayout>
          
-      
+            <Frame CornerRadius="10"  
+                               Padding="50"
+                               Grid.Row="3" Grid.ColumnSpan="3" BorderColor="Black" BackgroundColor="AliceBlue">
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
                     <Label Text="Do you want to update this Monster?" Style="{StaticResource LabelStyle}" 
@@ -131,6 +133,7 @@
                             Padding="10"/>
                 </StackLayout>
 
+            </Frame>
         </Grid>
     </ScrollView>
 </ContentPage>
