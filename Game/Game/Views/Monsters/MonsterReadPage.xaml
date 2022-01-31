@@ -122,6 +122,15 @@
                 </StackLayout>
 
             </StackLayout>
+         
+      
+                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
+
+                    <Label Text="Do you want to update this Monster?" Style="{StaticResource LabelStyle}" 
+                           HorizontalOptions="Center"
+                            Padding="10"/>
+                </StackLayout>
+
         </Grid>
     </ScrollView>
 </ContentPage>
