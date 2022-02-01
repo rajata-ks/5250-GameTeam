@@ -53,6 +53,12 @@ namespace Game.Views
             descriptionValid = true;
             imageValid = true;
 
+            //Add Difficuly to list
+            foreach(string i  in Enum.GetNames(typeof(DifficultyEnum)))
+            {
+                DifficultyPicker.Items.Add(i);
+            }
+            this.ViewModel.Data.Difficulty = DifficultyEnum.Easy;
             _ = UpdatePageBindingContext();
         }
 
@@ -70,7 +76,7 @@ namespace Game.Views
             BindingContext = this.ViewModel;
 
             ViewModel.Data.Difficulty = difficulty;
-
+            //DifficultyPicker.SelectedIndex - ViewModel.Data.Difficulty - 1;
             return true;
         }
 
@@ -117,7 +123,17 @@ namespace Game.Views
             _ = await Navigation.PopModalAsync();
         }
 
-
+        /// <summary>
+        /// Change the difficulty from the list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void Difficulty_Changed(object sender, EventArgs args)
+        {
+            //Change the Difficulty
+            ViewModel.Data.Difficulty = (DifficultyEnum)Enum.Parse(typeof(DifficultyEnum), 
+                                        DifficultyPicker.Items[DifficultyPicker.SelectedIndex]);
+        }
 
         /// <summary>
         /// Catch the change to the Stepper for Attack
