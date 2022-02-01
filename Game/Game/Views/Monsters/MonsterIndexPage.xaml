@@ -49,6 +49,12 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Grid>
+                <Button BackgroundColor="Transparent"
+                    Text="Create New Monster?" WidthRequest="400" Clicked="Add_Clicked"
+                    Style="{StaticResource GridRoundedButton}" 
+                    HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
