@@ -110,24 +110,6 @@
 
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
 
-                                <Label Text="Max Health" Style="{StaticResource LabelStyle}"/>
-
-                                <Label 
-                                    Text="{Binding Data.MaxHealth, Mode=TwoWay}" 
-                                    x:Name="HealthValue"
-                                    Style="{StaticResource ValueStyle}"
-                                    Padding="0,0,10,0"
-                                    HorizontalOptions="End"
-                                    HorizontalTextAlignment="End"/>
-
-                            </StackLayout>
-
-                            <Slider x:Name="healthSilder" 
-                                    Minimum="0" 
-                                    Maximum="50" ValueChanged="Health_OnStepperValueChanged" Value="{Binding Data.MaxHealth}" />
-
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-
                                 <Label Text="Attack" Style="{StaticResource LabelStyle}"/>
 
                                 <Label 

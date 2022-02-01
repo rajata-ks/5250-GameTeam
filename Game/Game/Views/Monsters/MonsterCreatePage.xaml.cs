@@ -117,20 +117,7 @@ namespace Game.Views
             _ = await Navigation.PopModalAsync();
         }
 
-        /// <summary>
-        /// Catch the change to the Stepper for Health
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void Health_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            double StepValue = SliderStepSize;
 
-            //rounding the value based on increments
-            var newStep = roundSilder(e.NewValue, healthSilder);
-
-            HealthValue.Text = String.Format("{0}", newStep);
-        }
 
         /// <summary>
         /// Catch the change to the Stepper for Attack
