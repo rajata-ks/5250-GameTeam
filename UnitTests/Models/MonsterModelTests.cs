@@ -154,7 +154,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert 
-            Assert.AreEqual(true, result.Contains("Troll"));
+            Assert.AreEqual(true, result.Contains("New"));
         }
 
         [Test]
@@ -226,7 +226,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(2, result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
@@ -316,7 +316,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Contains("Troll"));
+            Assert.AreEqual(true, result.Contains("New"));
         }
 
         [Test]
@@ -649,7 +649,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(7654323, result);
+            Assert.AreEqual(7654322, result);
         }
 
         [Test]

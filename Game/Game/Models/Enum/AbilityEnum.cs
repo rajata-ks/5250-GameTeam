@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace Game.Models
@@ -44,6 +45,14 @@ namespace Game.Models
 
         // Heal Self
         Heal = 54,
+    }
+
+    public enum ImageNames
+    {
+        [Description("None")]
+        None,
+        [Description("Elf1.png")]
+        Elf
     }
 
     /// <summary>
