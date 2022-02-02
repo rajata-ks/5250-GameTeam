@@ -77,7 +77,6 @@ namespace Game.Views
             BindingContext = this.ViewModel;
 
             ViewModel.Data.Difficulty = difficulty;
-
             return true;
         }
 
@@ -124,10 +123,16 @@ namespace Game.Views
         {
             _ = await Navigation.PopModalAsync();
         }
-
+        /// <summary>
+        /// Changes the diffculty of the Monster.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Difficulty_Changed(object sender, EventArgs e)
         {
-
+            //Change the Difficulty
+            ViewModel.Data.Difficulty = (DifficultyEnum)Enum.Parse(typeof(DifficultyEnum),
+                                        DifficultyPicker.Items[DifficultyPicker.SelectedIndex]);
         }
 
         /// <summary>
