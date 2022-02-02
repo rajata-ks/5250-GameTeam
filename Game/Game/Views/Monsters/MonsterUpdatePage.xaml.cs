@@ -118,7 +118,10 @@ namespace Game.Views
             _ = await Navigation.PopModalAsync();
         }
 
+        public void Difficulty_Changed(object sender, EventArgs e)
+        {
 
+        }
 
         /// <summary>
         /// Catch the change to the Stepper for Attack

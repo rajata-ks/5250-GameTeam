@@ -100,7 +100,13 @@
                                     TextChanged="Image_TextChanged"/>
 
                             </StackLayout>
-
+                            <Label Grid.Row="3" Grid.Column="0"
+                                   Text="Difficulty"
+                                   Style="{StaticResource LabelStyle}"/>
+                            <Picker Grid.Row="3" Grid.Column="1"
+                                    SelectedIndex="{Binding SelectedItemProperty}"
+                                    SelectedIndexChanged="Difficulty_Changed"
+                                    x:Name="DifficultyPicker"/>
                         </Grid>
 
                         <Label Text="Attributes" Style="{StaticResource LabelStyle}" HorizontalOptions="Center"/>
