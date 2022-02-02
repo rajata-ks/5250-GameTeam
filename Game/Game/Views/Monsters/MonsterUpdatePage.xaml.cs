@@ -53,6 +53,13 @@ namespace Game.Views
             descriptionValid = true;
             imageValid = true;
 
+            //Add Difficuly to list
+            foreach (string i in Enum.GetNames(typeof(DifficultyEnum)))
+            {
+                DifficultyPicker.Items.Add(i);
+            }
+            this.ViewModel.Data.Difficulty = DifficultyEnum.Easy;
+
             _ = UpdatePageBindingContext();
         }
 
