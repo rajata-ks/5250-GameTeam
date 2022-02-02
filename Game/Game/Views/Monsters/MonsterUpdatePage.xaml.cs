@@ -34,7 +34,10 @@ namespace Game.Views
         //Bool used to validate image.
         private bool imageValid;
 
+        //Int used to keep track of curent index.
         private int difficultyIndex;
+
+        private DifficultyEnum currDifficulty;
         // Empty Constructor for UTs
         public MonsterUpdatePage(bool UnitTest) { }
 
@@ -83,7 +86,7 @@ namespace Game.Views
             // Clear the Binding and reset it
             BindingContext = null;
             BindingContext = this.ViewModel;
-            ViewModel.Data.Difficulty = difficulty;
+            ViewModel.Data.Difficulty = currDifficulty = difficulty;
             DifficultyPicker.SelectedIndex = difficultyIndex;
             return true;
         }
@@ -119,6 +122,9 @@ namespace Game.Views
 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
 
+            //Save the difficulty. 
+            ViewModel.Data.Difficulty = currDifficulty;
+
             _ = await Navigation.PopModalAsync();
         }
 
@@ -139,7 +145,7 @@ namespace Game.Views
         public void Difficulty_Changed(object sender, EventArgs e)
         {
             //Change the Difficulty
-            ViewModel.Data.Difficulty = (DifficultyEnum)Enum.Parse(typeof(DifficultyEnum),
+            currDifficulty = (DifficultyEnum)Enum.Parse(typeof(DifficultyEnum),
                                         DifficultyPicker.Items[DifficultyPicker.SelectedIndex]);
         }
 
