@@ -34,6 +34,7 @@ namespace Game.Views
         //Bool used to validate image.
         private bool imageValid;
 
+        private int difficultyIndex;
         // Empty Constructor for UTs
         public MonsterUpdatePage(bool UnitTest) { }
 
@@ -53,12 +54,19 @@ namespace Game.Views
             descriptionValid = true;
             imageValid = true;
 
+            //Find what the DifficultyPicker.SelectedIndex should be.
+            int currIndex = 0;
+            difficultyIndex = 0;
             //Add Difficuly to list
             foreach (string i in Enum.GetNames(typeof(DifficultyEnum)))
             {
                 DifficultyPicker.Items.Add(i);
+                if(i == this.ViewModel.Data.Difficulty.ToString())
+                {
+                    difficultyIndex = currIndex;
+                }
+                currIndex++;
             }
-            this.ViewModel.Data.Difficulty = DifficultyEnum.Unknown;
 
             _ = UpdatePageBindingContext();
         }
@@ -76,7 +84,7 @@ namespace Game.Views
             BindingContext = null;
             BindingContext = this.ViewModel;
             ViewModel.Data.Difficulty = difficulty;
-            DifficultyPicker.SelectedIndex = 0;
+            DifficultyPicker.SelectedIndex = difficultyIndex;
             return true;
         }
 
