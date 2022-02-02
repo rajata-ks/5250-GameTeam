@@ -58,7 +58,7 @@ namespace Game.Views
             {
                 DifficultyPicker.Items.Add(i);
             }
-            this.ViewModel.Data.Difficulty = DifficultyEnum.Easy;
+            this.ViewModel.Data.Difficulty = DifficultyEnum.Unknown;
 
             _ = UpdatePageBindingContext();
         }
@@ -75,8 +75,8 @@ namespace Game.Views
             // Clear the Binding and reset it
             BindingContext = null;
             BindingContext = this.ViewModel;
-
             ViewModel.Data.Difficulty = difficulty;
+            DifficultyPicker.SelectedIndex = 0;
             return true;
         }
 
