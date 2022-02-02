@@ -74,9 +74,8 @@ namespace Game.Views
             // Clear the Binding and reset it
             BindingContext = null;
             BindingContext = this.ViewModel;
-
             ViewModel.Data.Difficulty = difficulty;
-            //DifficultyPicker.SelectedIndex - ViewModel.Data.Difficulty - 1;
+            DifficultyPicker.SelectedIndex = 0;
             return true;
         }
 
