@@ -317,6 +317,7 @@ namespace Game.Views
             {
                 return 0;
             }
+
             //rounding the value based on increments
             var newStep = Math.Round(val / SliderStepSize);
 

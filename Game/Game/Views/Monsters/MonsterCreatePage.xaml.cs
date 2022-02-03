@@ -129,6 +129,7 @@ namespace Game.Views
         /// <param name="args"></param>
         public void Difficulty_Changed(object sender, EventArgs args)
         {
+
             //Change the Difficulty
             ViewModel.Data.Difficulty = (DifficultyEnum)Enum.Parse(typeof(DifficultyEnum), 
                                         DifficultyPicker.Items[DifficultyPicker.SelectedIndex]);
@@ -156,6 +157,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Defense_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
+
             //rounding the value based on increments
             var newStep = RoundSilderValueToWhole(e.NewValue, defenseSilder);
 
@@ -311,6 +313,7 @@ namespace Game.Views
             {
                 return 0;
             }
+
             //rounding the value based on increments
             var newStep = Math.Round(val / SliderStepSize);
 
