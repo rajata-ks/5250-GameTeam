@@ -156,7 +156,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Attack_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
-            double StepValue = SliderStepSize;
+            var StepValue = SliderStepSize;
 
             //rounding the value based on increments
             var newStep = RoundSilderValueToWhole(e.NewValue, attackSilder);
