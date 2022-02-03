@@ -25,13 +25,13 @@
     public static class ActionEnumExtensions
     {
         /// <summary>
-        /// Display a String for the Enums
+        /// Display a string for the Enums
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         public static string ToMessage(this ActionEnum value)
         {
-            // Default String
+            // Default string
             var Message = "None";
 
             switch (value)
@@ -57,13 +57,13 @@
         }
 
         /// <summary>
-        /// Display a String for the Enums
+        /// Display a string for the Enums
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         public static string ToImageURI(this ActionEnum value)
         {
-            // Default String
+            // Default string
             var Message = "action_default.png";
 
             switch (value)

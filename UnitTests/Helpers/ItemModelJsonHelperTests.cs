@@ -91,7 +91,7 @@ namespace UnitTests.Helpers
             Assert.AreEqual(null, result);
         }
 
-        readonly String ItemJson = @"{
+        readonly string ItemJson = @"{
                             'Value':10,
                             'Attribute':14,
                             'Location':22,

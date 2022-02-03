@@ -91,7 +91,7 @@
         }
 
         /// <summary>
-        /// Returns the String Attacker Hit Defender
+        /// Returns the string Attacker Hit Defender
         /// </summary>
         /// <returns></returns>
         public string GetTurnMessage()

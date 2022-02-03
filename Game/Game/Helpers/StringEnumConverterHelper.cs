@@ -8,11 +8,11 @@ namespace Game.Helpers
     // This allows the convert in the picker to be data bound back and forth the model
     // The picker requires this because the picker must be a string, but the enum is a value...
 
-    // Converts from a String to the enum value.  Head = 5, would return 5 for the string "Head", and for "Head" will return 5
+    // Converts from a string to the enum value.  Head = 5, would return 5 for the string "Head", and for "Head" will return 5
     public class StringEnumConverter : IValueConverter
     {
         /// <summary>
-        /// Converts a value to the String
+        /// Converts a value to the string
         /// </summary>
         /// <param name="value"></param>
         /// <param name="targetType"></param>
@@ -37,7 +37,7 @@ namespace Game.Helpers
         }
 
         /// <summary>
-        /// Converts a String to the Value
+        /// Converts a string to the Value
         /// </summary>
         /// <param name="value"></param>
         /// <param name="targetType"></param>

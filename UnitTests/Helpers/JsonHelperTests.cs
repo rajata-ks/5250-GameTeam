@@ -20,7 +20,7 @@ namespace UnitTests.Helpers
 'BoolFalse': 'False',
 'Integer':1,
 'Double':1.1,
-'String':'string',
+'string':'string',
 'StringList':['a','b','c'],
 'BoolList':[true,false,true],
 'ObjectList': [{'string':'first', 'bool':true},{'string':'second', 'bool':true},{'string':'third', 'bool':true}],
@@ -152,7 +152,7 @@ namespace UnitTests.Helpers
             JObject json = JObject.Parse(ExampleJson);
 
             // Act
-            var result = JsonHelper.GetJsonString(json, "String");
+            var result = JsonHelper.GetJsonString(json, "string");
 
             // Reset
 

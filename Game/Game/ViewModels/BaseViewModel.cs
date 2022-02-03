@@ -54,7 +54,7 @@ namespace Game.ViewModels
         }
 
         /// <summary>
-        /// The String to show on the page
+        /// The string to show on the page
         /// </summary>
         string title = string.Empty;
         public string Title

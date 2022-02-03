@@ -161,7 +161,7 @@ namespace Game.Views
             //rounding the value based on increments
             var newStep = RoundSilderValueToWhole(e.NewValue, attackSilder);
 
-            AttackValue.Text = String.Format("{0}", newStep);
+            AttackValue.Text = string.Format("{0}", newStep);
         }
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace Game.Views
             //rounding the value based on increments
             var newStep = RoundSilderValueToWhole(e.NewValue, defenseSilder);
 
-            DefenseValue.Text = String.Format("{0}", newStep);
+            DefenseValue.Text = string.Format("{0}", newStep);
         }
 
         /// <summary>
@@ -187,7 +187,7 @@ namespace Game.Views
             //rounding the value based on increments
             var newStep = RoundSilderValueToWhole(e.NewValue, speedSilder);
 
-            SpeedValue.Text = String.Format("{0}", newStep);
+            SpeedValue.Text = string.Format("{0}", newStep);
         }
 
 
@@ -198,7 +198,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Name_TextChanged(object sender, ValueChangedEventArgs e)
         {
-            if (String.IsNullOrEmpty(NameEntry.Text))
+            if (string.IsNullOrEmpty(NameEntry.Text))
             {
                 NameLabel.TextColor = Color.Red;
                 NameLabel.Text = "Name*";
@@ -207,7 +207,7 @@ namespace Game.Views
                 return;
             }
 
-            if (String.IsNullOrWhiteSpace(NameEntry.Text))
+            if (string.IsNullOrWhiteSpace(NameEntry.Text))
             {
                 NameLabel.TextColor = Color.Red;
                 NameLabel.Text = "Name*";
@@ -228,7 +228,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public void Description_TextChanged(object sender, ValueChangedEventArgs e)
         {
-            if (String.IsNullOrEmpty(DescriptionEntry.Text))
+            if (string.IsNullOrEmpty(DescriptionEntry.Text))
             {
                 DescriptionLabel.TextColor = Color.Red;
                 DescriptionLabel.Text = "Description";
@@ -237,7 +237,7 @@ namespace Game.Views
                 return;
             }
 
-            if (String.IsNullOrWhiteSpace(DescriptionEntry.Text))
+            if (string.IsNullOrWhiteSpace(DescriptionEntry.Text))
             {
                 DescriptionLabel.TextColor = Color.Red;
                 DescriptionLabel.Text = "Description*";
@@ -259,14 +259,14 @@ namespace Game.Views
         public void Image_TextChanged(object sender, ValueChangedEventArgs e)
         {
 
-            if (String.IsNullOrEmpty(ImageEntry.Text))
+            if (string.IsNullOrEmpty(ImageEntry.Text))
             {
                 ImageLabel.TextColor = Color.Red;
                 imageValid = false;
                 return;
             }
 
-            if (String.IsNullOrWhiteSpace(ImageEntry.Text))
+            if (string.IsNullOrWhiteSpace(ImageEntry.Text))
             {
                 ImageLabel.TextColor = Color.Red;
                 imageValid = false;

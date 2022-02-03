@@ -23,13 +23,13 @@
     public static class CharacterJobEnumExtensions
     {
         /// <summary>
-        /// Display a String for the Enums
+        /// Display a string for the Enums
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         public static string ToMessage(this CharacterJobEnum value)
         {
-            // Default String
+            // Default string
             var Message = "Player";
 
             switch (value)
