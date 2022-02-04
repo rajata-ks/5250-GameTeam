@@ -62,6 +62,8 @@ namespace Game.Views
             }
             this.ViewModel.Data.Difficulty = DifficultyEnum.Easy;
             _ = UpdatePageBindingContext();
+
+            AddItemsToDisplay();
         }
 
         /// <summary>
