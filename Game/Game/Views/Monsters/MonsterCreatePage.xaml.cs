@@ -272,6 +272,28 @@ namespace Game.Views
 
         }
 
+
+        /// <summary>
+        /// The row selected from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0019:Use pattern matching", Justification = "<Pending>")]
+        public void OnPopupItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            ItemModel data = args.SelectedItem as ItemModel;
+            if (data == null)
+            {
+                return;
+            }
+
+            _ = ViewModel.Data.AddItem(PopupLocationEnum, data.Id);
+
+            AddItemsToDisplay();
+
+            ClosePopup();
+        }
+
         ///// <summary>
         ///// 
         ///// Randomize the Monster
