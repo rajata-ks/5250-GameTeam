@@ -37,6 +37,9 @@ namespace Game.Views
         //Bool used to validate image.
         private bool imageValid;
 
+        //copy of pre edited data
+        private CharacterModel CharacterModelCopy;
+
         // Empty Constructor for UTs
         public CharacterUpdatePage(bool UnitTest) { }
 
@@ -55,6 +58,8 @@ namespace Game.Views
             nameValid = true;
             descriptionValid = true;
             imageValid = true;
+
+            CharacterModelCopy = new CharacterModel(data.Data);
 
             // Load the values for the Level into the Picker
             for (var i = 1; i <= LevelTableHelper.MaxLevel; i++)
@@ -156,10 +161,9 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Cancel_Clicked(object sender, EventArgs e)
         {
-            // TODO: Mike, refactor this. Setting and Showing is causing a bug
-            // Don't want to set the value on update constructor, only after save on the page
-            // need to make sure that cancel from a save, actually cancels.
-            // Make a copy of the object and work from that and then have that passed in to update
+
+            //revert changes to original
+            ViewModel.Data.Update(CharacterModelCopy);
 
             _ = await Navigation.PopModalAsync();
         }
