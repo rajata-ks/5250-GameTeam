@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using Game.ViewModels;
 using Game.Models;
+using System.Linq;
 
 namespace Game.Views
 {
@@ -32,7 +33,27 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+
+            AddItemsToDisplay();
         }
+
+        /// <summary>
+        /// Show the Items the Character has
+        /// </summary>
+        public void AddItemsToDisplay()
+        {
+            var FlexList = ItemBox.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                _ = ItemBox.Children.Remove(data);
+            }
+
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
+
+        }
+
+
+
 
         /// <summary>
         /// Save calls to Update
