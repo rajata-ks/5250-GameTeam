@@ -354,7 +354,23 @@ namespace Game.Views
             PopupItemSelector.IsVisible = false;
         }
 
+        /// <summary>
+        /// Show the Items the Character has
+        /// </summary>
+        public void AddItemsToDisplay()
+        {
+            var FlexList = ItemBox.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                _ = ItemBox.Children.Remove(data);
+            }
+
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
+            
+        }
+
         
+
 
         ///// <summary>
         ///// 
