@@ -37,6 +37,9 @@ namespace Game.Views
         //Int used to keep track of curent index.
         private int difficultyIndex;
 
+        //copy of pre edited data
+        private MonsterModel MonsterModelCopy;
+
         private DifficultyEnum currDifficulty;
         // Empty Constructor for UTs
         public MonsterUpdatePage(bool UnitTest) { }
@@ -56,6 +59,8 @@ namespace Game.Views
             nameValid = true;
             descriptionValid = true;
             imageValid = true;
+
+            MonsterModelCopy = new MonsterModel(data.Data);
 
             //Find what the DifficultyPicker.SelectedIndex should be.
             int currIndex = 0;
@@ -135,6 +140,10 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Cancel_Clicked(object sender, EventArgs e)
         {
+
+            //revert changes to original
+            ViewModel.Data.Update(MonsterModelCopy);
+
             _ = await Navigation.PopModalAsync();
         }
         /// <summary>
