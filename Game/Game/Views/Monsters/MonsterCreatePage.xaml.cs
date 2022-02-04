@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Game.Models;
 using Game.ViewModels;
+using System.Linq;
 
 namespace Game.Views
 {
@@ -315,43 +316,82 @@ namespace Game.Views
                 Name = "None",
                 Description = "None"
             };
+            
+            List<ItemModel> itemList = new List<ItemModel>
+            {
+                NoneItem
+            };
 
-            ///// <summary>
-            ///// 
-            ///// Randomize the Monster
-            ///// Keep the Level the Same
-            ///// 
-            ///// </summary>
-            ///// <returns></returns>
-            //public bool RandomizeMonster()
-            //{
-            //    // Randomize Name
-            //    ViewModel.Data.Name = RandomPlayerHelper.GetMonsterName();
-            //    ViewModel.Data.Description = RandomPlayerHelper.GetMonsterDescription();
+            // Add the rest of the items to the list
+            itemList.AddRange(ItemIndexViewModel.Instance.GetLocationItems(location));
 
-            //    // Randomize the Attributes
-            //    ViewModel.Data.Attack = RandomPlayerHelper.GetAbilityValue();
-            //    ViewModel.Data.Speed = RandomPlayerHelper.GetAbilityValue();
-            //    ViewModel.Data.Defense = RandomPlayerHelper.GetAbilityValue();
+            // Populate the list with the items
+            PopupLocationItemListView.ItemsSource = itemList;
 
-            //    ViewModel.Data.Difficulty = RandomPlayerHelper.GetMonsterDifficultyValue();
+            // Remember the location for this popup
+            PopupLocationEnum = location;
 
-            //    ViewModel.Data.ImageURI = RandomPlayerHelper.GetMonsterImage();
+            return true;
+        }
 
-            //    ViewModel.Data.UniqueItem = RandomPlayerHelper.GetMonsterUniqueItem();
+        /// <summary>
+        /// When the user clicks the close in the Popup
+        /// hide the view
+        /// show the scroll view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ClosePopup_Clicked(object sender, EventArgs e)
+        {
+            ClosePopup();
+        }
 
-            //    _ = UpdatePageBindingContext();
+        /// <summary>
+        /// Close the popup
+        /// </summary>
+        public void ClosePopup()
+        {
+            PopupItemSelector.IsVisible = false;
+        }
 
-            //    return true;
-            //}
+        
 
-            /// <summary>
-            /// Round number for the slider
-            /// </summary>
-            /// <param name="val"></param>
-            /// <param name="slide"> silder object</param>
-            /// <returns></returns>
-            private double RoundSilderValueToWhole(double val, Slider slide)
+        ///// <summary>
+        ///// 
+        ///// Randomize the Monster
+        ///// Keep the Level the Same
+        ///// 
+        ///// </summary>
+        ///// <returns></returns>
+        //public bool RandomizeMonster()
+        //{
+        //    // Randomize Name
+        //    ViewModel.Data.Name = RandomPlayerHelper.GetMonsterName();
+        //    ViewModel.Data.Description = RandomPlayerHelper.GetMonsterDescription();
+
+        //    // Randomize the Attributes
+        //    ViewModel.Data.Attack = RandomPlayerHelper.GetAbilityValue();
+        //    ViewModel.Data.Speed = RandomPlayerHelper.GetAbilityValue();
+        //    ViewModel.Data.Defense = RandomPlayerHelper.GetAbilityValue();
+
+        //    ViewModel.Data.Difficulty = RandomPlayerHelper.GetMonsterDifficultyValue();
+
+        //    ViewModel.Data.ImageURI = RandomPlayerHelper.GetMonsterImage();
+
+        //    ViewModel.Data.UniqueItem = RandomPlayerHelper.GetMonsterUniqueItem();
+
+        //    _ = UpdatePageBindingContext();
+
+        //    return true;
+        //}
+
+        /// <summary>
+        /// Round number for the slider
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="slide"> silder object</param>
+        /// <returns></returns>
+        private double RoundSilderValueToWhole(double val, Slider slide)
         {
             if (slide == null)
             {
