@@ -30,6 +30,9 @@ namespace Game.Views
         //Bool used to validate image.
         private bool imageValid;
 
+        //copy of pre edited data
+        private ItemModel ItemModelCopy;
+
         /// <summary>
         /// Constructor that takes and existing data item
         /// </summary>
@@ -45,6 +48,8 @@ namespace Game.Views
             nameValid = true;
             descriptionValid = true;
             imageValid = true;
+
+            ItemModelCopy = new ItemModel(data.Data);
 
             //Need to make the SelectedItem a string, so it can select the correct item.
             LocationPicker.SelectedItem = data.Data.Location.ToString();
@@ -92,6 +97,9 @@ namespace Game.Views
        
         public async void Cancel_Clicked(object sender, EventArgs e)
         {
+
+            ViewModel.Data.Update(ItemModelCopy);
+
             _ = await Navigation.PopModalAsync();
         }
 
