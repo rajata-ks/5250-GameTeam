@@ -98,6 +98,7 @@ namespace Game.Views
         public async void Cancel_Clicked(object sender, EventArgs e)
         {
 
+            //revert changes to original
             ViewModel.Data.Update(ItemModelCopy);
 
             _ = await Navigation.PopModalAsync();
