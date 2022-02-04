@@ -273,7 +273,7 @@ namespace Game.Views
         }
 
 
-        /// <summary>
+         /// <summary>
         /// The row selected from the list
         /// </summary>
         /// <param name="sender"></param>
@@ -294,42 +294,64 @@ namespace Game.Views
             ClosePopup();
         }
 
-        ///// <summary>
-        ///// 
-        ///// Randomize the Monster
-        ///// Keep the Level the Same
-        ///// 
-        ///// </summary>
-        ///// <returns></returns>
-        //public bool RandomizeMonster()
-        //{
-        //    // Randomize Name
-        //    ViewModel.Data.Name = RandomPlayerHelper.GetMonsterName();
-        //    ViewModel.Data.Description = RandomPlayerHelper.GetMonsterDescription();
-
-        //    // Randomize the Attributes
-        //    ViewModel.Data.Attack = RandomPlayerHelper.GetAbilityValue();
-        //    ViewModel.Data.Speed = RandomPlayerHelper.GetAbilityValue();
-        //    ViewModel.Data.Defense = RandomPlayerHelper.GetAbilityValue();
-
-        //    ViewModel.Data.Difficulty = RandomPlayerHelper.GetMonsterDifficultyValue();
-
-        //    ViewModel.Data.ImageURI = RandomPlayerHelper.GetMonsterImage();
-
-        //    ViewModel.Data.UniqueItem = RandomPlayerHelper.GetMonsterUniqueItem();
-
-        //    _ = UpdatePageBindingContext();
-
-        //    return true;
-        //}
-
         /// <summary>
-        /// Round number for the slider
+        /// Show the Popup for Selecting Items
         /// </summary>
-        /// <param name="val"></param>
-        /// <param name="slide"> silder object</param>
+        /// <param name="location"></param>
         /// <returns></returns>
-        private double RoundSilderValueToWhole(double val, Slider slide)
+        public bool ShowPopup(ItemLocationEnum location)
+        {
+            PopupItemSelector.IsVisible = true;
+
+            PopupLocationLabel.Text = "Items for :";
+            PopupLocationValue.Text = location.ToMessage();
+
+            // Make a fake item for None
+            var NoneItem = new ItemModel
+            {
+                Id = null, // will use null to clear the item
+                Guid = "None", // how to find this item amoung all of them
+                ImageURI = "icon_cancel.png",
+                Name = "None",
+                Description = "None"
+            };
+
+            ///// <summary>
+            ///// 
+            ///// Randomize the Monster
+            ///// Keep the Level the Same
+            ///// 
+            ///// </summary>
+            ///// <returns></returns>
+            //public bool RandomizeMonster()
+            //{
+            //    // Randomize Name
+            //    ViewModel.Data.Name = RandomPlayerHelper.GetMonsterName();
+            //    ViewModel.Data.Description = RandomPlayerHelper.GetMonsterDescription();
+
+            //    // Randomize the Attributes
+            //    ViewModel.Data.Attack = RandomPlayerHelper.GetAbilityValue();
+            //    ViewModel.Data.Speed = RandomPlayerHelper.GetAbilityValue();
+            //    ViewModel.Data.Defense = RandomPlayerHelper.GetAbilityValue();
+
+            //    ViewModel.Data.Difficulty = RandomPlayerHelper.GetMonsterDifficultyValue();
+
+            //    ViewModel.Data.ImageURI = RandomPlayerHelper.GetMonsterImage();
+
+            //    ViewModel.Data.UniqueItem = RandomPlayerHelper.GetMonsterUniqueItem();
+
+            //    _ = UpdatePageBindingContext();
+
+            //    return true;
+            //}
+
+            /// <summary>
+            /// Round number for the slider
+            /// </summary>
+            /// <param name="val"></param>
+            /// <param name="slide"> silder object</param>
+            /// <returns></returns>
+            private double RoundSilderValueToWhole(double val, Slider slide)
         {
             if (slide == null)
             {
