@@ -36,8 +36,8 @@
                                     CornerRadius="10"
                                     Padding="10"
                                    HorizontalOptions="FillAndExpand"
-                                   BackgroundColor="GhostWhite"
-                                   BorderColor="Black">
+                                   BackgroundColor="{StaticResource SecondaryBackgroundColor}"
+                                   BorderColor="{StaticResource TriciaryTextColor}">
 
                                 <Grid ColumnSpacing="5" RowSpacing="1">
                                     <Grid.ColumnDefinitions>
@@ -86,8 +86,8 @@
             </ListView>
 
             <Grid>
-                <Button BackgroundColor="Transparent"
-                    Text="Create New Item?" WidthRequest="400" Clicked="AddItem_Clicked"
+                <Button
+                    Text="Create New Item?" Clicked="AddItem_Clicked"
                     Style="{StaticResource GridRoundedButton}" 
                     HorizontalOptions="CenterAndExpand" VerticalOptions="End" MinimumHeightRequest="200" />
             </Grid>
