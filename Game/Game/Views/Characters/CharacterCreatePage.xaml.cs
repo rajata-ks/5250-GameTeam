@@ -174,7 +174,7 @@ namespace Game.Views
             var StepValue = SliderStepSize;
 
             //rounding the value based on increments
-            var newStep = roundSilder(e.NewValue, attackSilder);
+            var newStep = RoundSilderValueToWhole(e.NewValue, attackSilder);
 
             AttackValue.Text = string.Format("{0}", newStep);
         }
@@ -187,7 +187,7 @@ namespace Game.Views
         public void Defense_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             //rounding the value based on increments
-            var newStep = roundSilder(e.NewValue, defenseSilder);
+            var newStep = RoundSilderValueToWhole(e.NewValue, defenseSilder);
 
             DefenseValue.Text = string.Format("{0}", newStep);
         }
@@ -200,7 +200,7 @@ namespace Game.Views
         public void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             //rounding the value based on increments
-            var newStep = roundSilder(e.NewValue, speedSilder);
+            var newStep = RoundSilderValueToWhole(e.NewValue, speedSilder);
 
             SpeedValue.Text = string.Format("{0}", newStep);
         }
@@ -541,7 +541,7 @@ namespace Game.Views
         /// <param name="val"></param>
         /// <param name="slide"> silder object</param>
         /// <returns></returns>
-        private double roundSilder(double val, Slider slide)
+        private double RoundSilderValueToWhole(double val, Slider slide)
         {
             if(slide == null)
             {
