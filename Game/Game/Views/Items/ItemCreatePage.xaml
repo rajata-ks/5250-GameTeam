@@ -12,7 +12,7 @@
     <NavigationPage.TitleView>
         <Label Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
     </NavigationPage.TitleView>
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
         <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
@@ -30,12 +30,12 @@
             <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10">
 
-                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Start"/>
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="Center"/>
 
                 <Grid
-                    RowSpacing="1"
+                    RowSpacing="10"
                     ColumnSpacing="2"
-                    VerticalOptions="Center">
+                    VerticalOptions="Center" Margin="0,30">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -46,18 +46,21 @@
 
                     <Label Grid.Row="0" Grid.Column="0"
                         Text="Name" 
-                        Style="{StaticResource LabelStyle}"
+                        Style="{StaticResource LabelBaseStyle}"
+                           TextColor="{StaticResource PrimaryTextColor}"
                         x:Name="NameLabel"/>
 
                     <Entry Grid.Row="0" Grid.Column="1"
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource EntryStyle}"
                         x:Name="NameEntry"
-                        TextChanged="Name_TextChanged"/>
+                        TextChanged="Name_TextChanged"
+                           />
 
                     <Label Grid.Row="1" Grid.Column="0"
                         Text="Description" 
-                        Style="{StaticResource LabelStyle}"
+                        TextColor="{StaticResource PrimaryTextColor}" 
+                        Style="{StaticResource LabelBaseStyle}"
                            x:Name="DescriptionLabel"/>
 
                     <Entry Grid.Row="1" Grid.Column="1"
@@ -89,7 +92,8 @@
 
                     <Label Grid.Row="4" Grid.Column="0"
                         Text="Image" 
-                        Style="{StaticResource LabelStyle}"
+                           TextColor="{StaticResource PrimaryTextColor}" 
+                        Style="{StaticResource LabelBaseStyle}"
                            x:Name="ImageLabel"/>
 
                     <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
@@ -110,67 +114,68 @@
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
 
-                    <Label 
-                            Text="Range" 
-                            Style="{StaticResource LabelStyle}"/>
+                    <Label Text="Attributes" Style="{StaticResource LabelStyle}" HorizontalOptions="Center" Margin="10"/>
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                    <StackLayout Orientation="Vertical">
 
-                        <Label 
-                            Text="{Binding Data.Range}" 
-                            x:Name="RangeValue"
-                            Style="{StaticResource ValueStyle}"
-                            Padding="0,0,10,0"
-                            HorizontalOptions="End"
-                            HorizontalTextAlignment="End"/>
+                        <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
 
-                        <Stepper 
-                            Value="{Binding Data.Range, Mode=TwoWay}"
-                            ValueChanged="Range_OnStepperValueChanged"/>
+                            <Label Text="Damage" Style="{StaticResource LabelStyle}"/>
+
+                            <Label 
+                                    Text="{Binding Data.Attack, Mode=TwoWay}" 
+                                    x:Name="DamageValue"
+                                    Style="{StaticResource ValueStyle}"
+                                    Padding="0,0,10,0"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="End"/>
+
+                        </StackLayout>
+
+                        <Slider x:Name="damageSilder" 
+                                    Minimum="0" 
+                                    Maximum="9" ValueChanged="Damage_OnStepperValueChanged" Value="{Binding Data.Damage}" ThumbColor="{StaticResource PrimaryTextColor}" 
+                                MaximumTrackColor="{StaticResource TriciaryBackgroundColor}"/>
+
+                        <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+
+                            <Label Text="Range" Style="{StaticResource LabelStyle}"/>
+
+                            <Label 
+                                    Text="{Binding Data.Defense, Mode=TwoWay}" 
+                                    x:Name="RangeValue"
+                                    Style="{StaticResource ValueStyle}"
+                                    Padding="0,0,10,0"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="End"/>
+
+                        </StackLayout>
+
+                        <Slider x:Name="rangeSilder" ThumbColor="{StaticResource PrimaryTextColor}" MaximumTrackColor="{StaticResource TriciaryBackgroundColor}"
+                                    Minimum="0" 
+                                    Maximum="9" ValueChanged="Range_OnStepperValueChanged" Value="{Binding Data.Range}" />
+
+                        <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+
+                            <Label Text="Value" Style="{StaticResource LabelStyle}"/>
+
+                            <Label 
+                                    Text="{Binding Data.Speed, Mode=TwoWay}" 
+                                    x:Name="ValueValue"
+                                    Style="{StaticResource ValueStyle}"
+                                    Padding="0,0,10,0"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="End"/>
+
+                        </StackLayout>
+
+                        <Slider x:Name="valueSilder" ThumbColor="{StaticResource PrimaryTextColor}" MaximumTrackColor="{StaticResource TriciaryBackgroundColor}"
+                                    Minimum="0" 
+                                    Maximum="9" ValueChanged="Value_OnStepperValueChanged" Value="{Binding Data.Value}" />
 
                     </StackLayout>
 
-                    <Label 
-                        Text="Value"
-                        Style="{StaticResource LabelStyle}"/>
-
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-
-                        <Label 
-                            Text="{Binding Data.Value}" 
-                            x:Name="ValueValue"
-                            Style="{StaticResource ValueStyle}"
-                            Padding="0,0,10,0"
-                            HorizontalOptions="End"
-                            HorizontalTextAlignment="End"/>
-
-                        <Stepper 
-                            Value="{Binding Data.Value, Mode=TwoWay}"
-                            ValueChanged="Value_OnStepperValueChanged"/>
-
-                    </StackLayout>
-
-                    <Label 
-                        Text="Damage" 
-                        Style="{StaticResource LabelStyle}"/>
-
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-
-                        <Label 
-                            Text="{Binding Data.Damage}" 
-                            x:Name="DamageValue"
-                            Style="{StaticResource ValueStyle}"
-                            Padding="0,0,10,0"
-                            HorizontalOptions="End"
-                            HorizontalTextAlignment="End"/>
-
-                        <Stepper 
-                            Value="{Binding Data.Damage, Mode=TwoWay}"
-                            ValueChanged="Damage_OnStepperValueChanged"/>
-
-                    </StackLayout>
-
-                    <StackLayout VerticalOptions="End" Spacing="0" Padding="0">
+                    <StackLayout VerticalOptions="End" Spacing="0" Padding="0" Margin="0,40">
                         <Grid Padding="0" ColumnSpacing="0" RowSpacing="0">
 
                             <Grid.RowDefinitions>
@@ -182,25 +187,18 @@
                             </Grid.ColumnDefinitions>
 
                             <Button 
-                            Text="Yes"  Clicked="Save_Clicked"  Grid.Row="0" Grid.Column="0"
+                            Text="Cancel"  Clicked="Cancel_Clicked"  Grid.Row="0" Grid.Column="1"
                             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"   
                             FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="12" CornerRadius="5"/>
 
                             <Button 
-                            Text="No"  Clicked="Cancel_Clicked"  Grid.Row="0" Grid.Column="1"
+                            Text="Save"  Clicked="Save_Clicked"  Grid.Row="0" Grid.Column="0"
                             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"   
                             FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="12" CornerRadius="5"/>
 
                         </Grid>
 
                     </StackLayout>
-
-                    <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                        
-                        <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}"/>
-                        
-                    </StackLayout>
-
                 </StackLayout>
             </StackLayout>
         </ScrollView>
