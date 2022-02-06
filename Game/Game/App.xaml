@@ -22,18 +22,18 @@
                 Dark
                 -->
 
-            <Color x:Key="PageBackgroundColor">Silver</Color>
-            <Color x:Key="ViewBackgroundColor">lightSteelBlue</Color>
-            <Color x:Key="NavigationBarColor">orange</Color>
+            <Color x:Key="PageBackgroundColor">#246b94</Color>
+            <Color x:Key="ViewBackgroundColor">#fbfffe</Color>
+            <Color x:Key="NavigationBarColor">#143b52</Color>
 
-            <Color x:Key="PrimaryBackgroundColor">red</Color>
-            <Color x:Key="SecondaryBackgroundColor">gray</Color>
-            <Color x:Key="TriciaryBackgroundColor">lightgray</Color>
-            <Color x:Key="LightBackgroundColor">orange</Color>
+            <Color x:Key="PrimaryBackgroundColor">#246b94</Color>
+            <Color x:Key="SecondaryBackgroundColor">#fbfffe</Color>
+            <Color x:Key="TriciaryBackgroundColor">#97110d</Color>
+            <Color x:Key="LightBackgroundColor">#fbfffe</Color>
 
-            <Color x:Key="PrimaryTextColor">black</Color>
-            <Color x:Key="SecondaryTextColor">black</Color>
-            <Color x:Key="TriciaryTextColor">darkgreen</Color>
+            <Color x:Key="PrimaryTextColor">#fbfffe</Color>
+            <Color x:Key="SecondaryTextColor">#071013</Color>
+            <Color x:Key="TriciaryTextColor">#97110d</Color>
 
             <Color x:Key="TransparentColor">Transparent</Color>
 
@@ -59,8 +59,8 @@
 
             <!-- Pages -->
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource ViewBackgroundColor}" />
-                <Setter Property="BarTextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationBarColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource PrimaryTextColor}" />
             </Style>
 
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
@@ -104,6 +104,7 @@
                 x:Key="ListStyle"
                 BasedOn="{StaticResource LabelBaseStyle}">
                 <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}"/>
             </Style>
 
             <Style TargetType="Label"
@@ -301,6 +302,8 @@
                 <Setter Property="BorderWidth" Value="1"/>
                 <Setter Property="BorderColor" Value="Black"/>
                 <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="WidthRequest" Value="400"/>
             </Style>
 
             <!-- Stack Layouts -->
