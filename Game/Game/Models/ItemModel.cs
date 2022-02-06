@@ -1,5 +1,6 @@
 ﻿using Game.Services;
 using Game.Helpers;
+using System;
 
 namespace Game.Models
 {
@@ -127,5 +128,25 @@ namespace Game.Models
 
             return Value;
         }
+
+        #region item stats display
+        // Return the Damage value in decimal as we can only provide value to Progress Bar from 0-1
+        public Decimal GetDamageProgress { get { return ProgressRangeConverter(Damage); } }
+
+        // Return the Value value in decimal as we can only provide value to Progress Bar from 0-1
+        public Decimal GetValueProgress { get { return ProgressRangeConverter(Value); } }
+
+        // Return the Range value in decimal as we can only provide value to Progress Bar from 0-1
+        public Decimal GetRangeProgress { get { return ProgressRangeConverter(Range); } }
+
+
+        // Return converted Attribute value to decimal
+        private Decimal ProgressRangeConverter(int Progress)
+        {
+            Decimal d = Progress / (Decimal)9;
+            Decimal dc = Math.Round(d, 1);
+            return dc;
+        }
+        #endregion
     }
 }
