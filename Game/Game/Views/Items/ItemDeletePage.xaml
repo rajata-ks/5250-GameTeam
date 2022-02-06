@@ -58,8 +58,8 @@
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
                     <Label Text="Are you sure you want to delete this Item?" Style="{StaticResource ListStyle}" 
-                           Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" FontSize="Large"
-                            Padding="10"/>
+                           Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" FontSize="Medium"
+                            Padding="10" LineBreakMode="WordWrap" HorizontalTextAlignment="Center"/>
 
 
                     <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand" >
