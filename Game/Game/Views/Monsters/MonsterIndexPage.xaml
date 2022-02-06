@@ -34,7 +34,7 @@
                                 Padding="10"
                                 HorizontalOptions="FillAndExpand"
                                 BackgroundColor="GhostWhite"
-                                BorderColor="Black">
+                                BorderColor="Black"  Margin="5">
                                 
                                 <Grid ColumnSpacing="5" RowSpacing="1">
                                 <Grid.ColumnDefinitions>
