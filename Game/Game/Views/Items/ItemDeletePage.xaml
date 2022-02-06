@@ -20,7 +20,7 @@
         <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
@@ -52,24 +52,27 @@
 
             <Frame CornerRadius="10"  
                    Padding="40"
-                   BackgroundColor="GhostWhite"
-                   Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Black">
+                   BackgroundColor="{StaticResource SecondaryBackgroundColor}"
+                   Grid.Row="1" Grid.ColumnSpan="2" BorderColor="{StaticResource TriciaryBackgroundColor}">
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
-                    <Label Text="Are you sure you want to delete this Item?" Style="{StaticResource LabelStyle}" 
-                           Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"
+                    <Label Text="Are you sure you want to delete this Item?" Style="{StaticResource ListStyle}" 
+                           Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" FontSize="Large"
                             Padding="10"/>
 
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" >
-                        <Button 
-                            Text="Yes"  Clicked="Delete_Clicked"  HorizontalOptions="Center" 
-                            FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0">
+                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand" >
+                        <Button x:Name="CancelButton" 
+                            Text="Cancel"  Clicked="Cancel_Clicked"  HorizontalOptions="Center" Style="{StaticResource GridRoundedButton}"
+                            WidthRequest="100"
+                            FontSize="Medium" BorderWidth="1"  BorderColor="{StaticResource TriciaryBackgroundColor}" Margin="-5,0,10,0">
                         </Button>
+                        
                         <Button 
-                            Text="No"  Clicked="Cancel_Clicked"  HorizontalOptions="Center" 
-                            FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0">
+                            Text="Save"  Clicked="Delete_Clicked"  HorizontalOptions="Center" Style="{StaticResource GridRoundedButton}"
+                            WidthRequest="100"
+                            FontSize="Medium" BorderWidth="1"  BorderColor="{StaticResource TriciaryBackgroundColor}" Margin="10,0,0,0">
                         </Button>
 
                     </StackLayout>
