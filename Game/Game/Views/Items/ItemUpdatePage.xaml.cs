@@ -33,6 +33,9 @@ namespace Game.Views
         //copy of pre edited data
         private ItemModel ItemModelCopy;
 
+        //Silder increment size
+        private readonly int SliderStepSize = 1;
+
         /// <summary>
         /// Constructor that takes and existing data item
         /// </summary>
@@ -105,33 +108,44 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Catch the change to the Stepper for Range
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void Range_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            RangeValue.Text = string.Format("{0}", e.NewValue);
-        }
-
-        /// <summary>
-        /// Catch the change to the stepper for Value
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void Value_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            ValueValue.Text = string.Format("{0}", e.NewValue);
-        }
-
-        /// <summary>
-        /// Catch the change to the stepper for Damage
+        /// Catch the change to the Stepper for Attack
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void Damage_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
-            DamageValue.Text = string.Format("{0}", e.NewValue);
+            var StepValue = SliderStepSize;
+
+            //rounding the value based on increments
+            var newStep = RoundSilderValueToWhole(e.NewValue, damageSilder);
+
+            DamageValue.Text = string.Format("{0}", newStep);
+        }
+
+        /// <summary>
+        /// Catch the change to the Stepper for Defense
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Range_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            //rounding the value based on increments
+            var newStep = RoundSilderValueToWhole(e.NewValue, rangeSilder);
+
+            RangeValue.Text = string.Format("{0}", newStep);
+        }
+
+        /// <summary>
+        /// Catch the change to the Stepper for Speed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Value_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            //rounding the value based on increments
+            var newStep = RoundSilderValueToWhole(e.NewValue, valueSilder);
+
+            ValueValue.Text = string.Format("{0}", newStep);
         }
 
 
@@ -160,7 +174,7 @@ namespace Game.Views
                 return;
             }
 
-            NameLabel.TextColor = Color.Black;
+            NameLabel.TextColor = Color.White;
             NameLabel.Text = "Name";
             nameValid = true;
         }
@@ -192,7 +206,7 @@ namespace Game.Views
                 return;
             }
 
-            DescriptionLabel.TextColor = Color.Black;
+            DescriptionLabel.TextColor = Color.White;
             DescriptionLabel.Text = "Description";
             descriptionValid = true;
         }
@@ -225,9 +239,27 @@ namespace Game.Views
                 return;
             }
 
-            ImageLabel.TextColor = Color.Black;
+            ImageLabel.TextColor = Color.White;
             imageValid = true;
 
+        }
+
+        /// <summary>
+        /// Round number for the slider
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="slide"> silder object</param>
+        /// <returns></returns>
+        private double RoundSilderValueToWhole(double val, Slider slide)
+        {
+            if (slide == null)
+            {
+                return 0;
+            }
+            //rounding the value based on increments
+            var newStep = Math.Round(val / SliderStepSize);
+
+            return slide.Value = newStep * SliderStepSize;
         }
     }
 }
