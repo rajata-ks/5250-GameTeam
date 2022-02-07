@@ -425,36 +425,6 @@ namespace Game.Views
             return ItemStack;
         }
 
-
-        ///// <summary>
-        ///// 
-        ///// Randomize the Monster
-        ///// Keep the Level the Same
-        ///// 
-        ///// </summary>
-        ///// <returns></returns>
-        //public bool RandomizeMonster()
-        //{
-        //    // Randomize Name
-        //    ViewModel.Data.Name = RandomPlayerHelper.GetMonsterName();
-        //    ViewModel.Data.Description = RandomPlayerHelper.GetMonsterDescription();
-
-        //    // Randomize the Attributes
-        //    ViewModel.Data.Attack = RandomPlayerHelper.GetAbilityValue();
-        //    ViewModel.Data.Speed = RandomPlayerHelper.GetAbilityValue();
-        //    ViewModel.Data.Defense = RandomPlayerHelper.GetAbilityValue();
-
-        //    ViewModel.Data.Difficulty = RandomPlayerHelper.GetMonsterDifficultyValue();
-
-        //    ViewModel.Data.ImageURI = RandomPlayerHelper.GetMonsterImage();
-
-        //    ViewModel.Data.UniqueItem = RandomPlayerHelper.GetMonsterUniqueItem();
-
-        //    _ = UpdatePageBindingContext();
-
-        //    return true;
-        //}
-
         /// <summary>
         /// Round number for the slider
         /// </summary>

@@ -40,12 +40,6 @@
 
                         <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                             <Image Source="{Binding Data.ImageURI, Mode=TwoWay}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
-
-                            <!--<ImageButton 
-                                x:Name="RollDice"
-                                Style="{StaticResource ImageLargeStyle}"
-                                Source="d10.png"
-                                Clicked="RollDice_Clicked"/> -->
                         </StackLayout>
 
                         <Grid
