@@ -136,9 +136,11 @@
                                Grid.Row="4" Grid.ColumnSpan="3" BorderColor="Black" BackgroundColor="AliceBlue">
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
-                    <Label Text="Do you want to update this Monster?" Style="{StaticResource LabelStyle}" 
+                    <Label Text="Do you want to update this Monster?" 
+                           TextColor="Black"
+                           Style="{StaticResource LabelStyle}" 
                            HorizontalOptions="Center"
-                            Padding="10"/>
+                           Padding="10"/>
 
                     <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                         <Button 
