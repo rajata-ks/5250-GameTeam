@@ -144,7 +144,7 @@
 
                         <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
-                            <Label Text="Do you want to update this Character?" Style="{StaticResource LabelStyle}" 
+                            <Label Text="Do you want to update this Character?" TextColor="Black" Style="{StaticResource LabelStyle}" 
                            HorizontalOptions="Center"
                             Padding="10"/>
 
