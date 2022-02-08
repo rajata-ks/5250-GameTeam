@@ -564,6 +564,16 @@
                 <Setter Property="Minimum" Value="0" />
                 <Setter Property="Maximum" Value="9"/>
             </Style>
+
+            <!-- ListView -->
+            <Style TargetType="ListView"
+                x:Key="PopUpStyle">
+                <Setter Property="CachingStrategy" Value="RecycleElement" />
+                <Setter Property="ItemSelected" Value="OnPopupItemSelected"/>
+                <Setter Property="HasUnevenRows" Value="true"/>
+                <Setter Property="Margin" Value="5,0,5 0"/>
+                <Setter Property="RowHeight" Value="80"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
