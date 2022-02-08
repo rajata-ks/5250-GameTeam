@@ -655,6 +655,14 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="PopupBox">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="WidthRequest" Value="300" />
+                <Setter Property="HeightRequest" Value="300" />
+            </Style>
             <!--List View-->
             <Style TargetType="ListView" 
                    x:Key="DefaultListView">
