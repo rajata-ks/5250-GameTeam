@@ -70,7 +70,7 @@
 
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
                     <StackLayout Style="{StaticResource ProgressMiddleStack}">
-                        <ProgressBar x:Name="DamageProgress" Progress="{Binding Data.GetDamageProgress}" ProgressColor="{StaticResource TriciaryBackgroundColor}" HeightRequest="20"  Margin="0" />
+                        <ProgressBar x:Name="DamageProgress" Progress="{Binding Data.GetDamageProgress}" Style="{StaticResource AttributeProgressBar}"/>
                         <StackLayout Style="{StaticResource ProgressInnerStack}">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
                             <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
@@ -85,7 +85,7 @@
 
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
                     <StackLayout Style="{StaticResource ProgressMiddleStack}">
-                        <ProgressBar x:Name="ValueProgress" Progress="{Binding Data.GetValueProgress}" ProgressColor="{StaticResource TriciaryBackgroundColor}" HeightRequest="20"  Margin="0" />
+                        <ProgressBar x:Name="ValueProgress" Progress="{Binding Data.GetValueProgress}" Style="{StaticResource AttributeProgressBar}" />
                         <StackLayout Style="{StaticResource ProgressInnerStack}">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
                             <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
@@ -100,7 +100,7 @@
 
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
                     <StackLayout Style="{StaticResource ProgressMiddleStack}">
-                        <ProgressBar x:Name="RangeProgress" Progress="{Binding Data.GetRangeProgress}" ProgressColor="{StaticResource TriciaryBackgroundColor}" HeightRequest="20"  Margin="0" />
+                        <ProgressBar x:Name="RangeProgress" Progress="{Binding Data.GetRangeProgress}" Style="{StaticResource AttributeProgressBar}" />
                         <StackLayout Style="{StaticResource ProgressInnerStack}">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
                             <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
