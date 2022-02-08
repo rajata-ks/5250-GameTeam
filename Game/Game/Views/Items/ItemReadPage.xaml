@@ -61,7 +61,7 @@
             </StackLayout>
 
             <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
-                <Label Text="Attributes" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"/>
+                <Label Text="Attributes" Style="{StaticResource HeaderCenterStyle}"/>
 
                 <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
                     <Label Text="Damage " Style="{StaticResource LabelStyle}"/>
