@@ -133,6 +133,8 @@ namespace Game.Models
         // The Difficulty scale to use when creating examples
         public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
 
+
+        public ItemLocationEnum Location { get; set; } = ItemLocationEnum.Unknown;
         // The Job for the Player
         public CharacterJobEnum Job { get; set; } = CharacterJobEnum.Unknown;
 
