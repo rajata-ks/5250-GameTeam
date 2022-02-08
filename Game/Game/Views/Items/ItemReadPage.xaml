@@ -69,7 +69,7 @@
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="DamageProgress" Progress="{Binding Data.GetDamageProgress}" ProgressColor="{StaticResource TriciaryBackgroundColor}" HeightRequest="20"  Margin="0" />
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
@@ -84,7 +84,7 @@
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="ValueProgress" Progress="{Binding Data.GetValueProgress}" ProgressColor="{StaticResource TriciaryBackgroundColor}" HeightRequest="20"  Margin="0" />
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
@@ -99,7 +99,7 @@
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="RangeProgress" Progress="{Binding Data.GetRangeProgress}" ProgressColor="{StaticResource TriciaryBackgroundColor}" HeightRequest="20"  Margin="0" />
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
