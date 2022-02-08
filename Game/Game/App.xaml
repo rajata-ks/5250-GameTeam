@@ -578,7 +578,18 @@
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="VerticalOptions" Value="EndAndExpand" />
             </Style>
-
+            
+            <!--List View-->
+            <Style TargetType="ListView" 
+                   x:Key="DefaultListView">
+                <Setter Property="HasUnevenRows" Value="true" />
+                <Setter Property="Margin" Value="5,0,5,0" />
+                <Setter Property="RowHeight" Value="100" />
+                <Setter Property="ItemsSource" Value="{Binding Dataset}" />
+                <Setter Property="IsRefreshing" Value="{Binding IsBusy, Mode=OneWay}" />
+                <Setter Property="RefreshCommand" Value="{Binding LoadItemsCommand}" />
+            </Style>
+            
             <!-- Frame -->
             <Style TargetType="Frame">
                 <Setter Property="Margin" Value="0" />
@@ -588,6 +599,19 @@
                 <Setter Property="HasShadow" Value="false" />
                 <Setter Property="BorderColor" Value="{StaticResource PrimaryBackgroundColor}" />
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBackgroundColor}" />
+            </Style>
+
+            <Style TargetType="Frame"
+                x:Key="NarratorFrame">
+                <Setter Property="HeightRequest" Value="112" />
+                <Setter Property="WidthRequest" Value="250" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="BorderColor" Value="{StaticResource SecondaryBackgroundColor}" />
+
+          
             </Style>
 
             <Style TargetType="Frame"
