@@ -40,7 +40,7 @@
 
                     <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
 
-                    <StackLayout  Orientation="Vertical" HorizontalOptions="Center">
+                    <StackLayout  Style="{StaticResource VerticalCenterStyle}">
                         <StackLayout Style="{StaticResource HorizontalStack}">
                             <Label 
                                Text="Name : " 
