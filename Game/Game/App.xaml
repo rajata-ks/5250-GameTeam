@@ -226,7 +226,7 @@
             </Style>
 
             <Style TargetType="Label"
-                x:Key="ProgressStartStyle"
+                x:Key="ProgressStartStyle">
                 <Setter Property="FontSize" Value="Micro" />
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="TextColor" Value="Black" />
@@ -234,7 +234,7 @@
             </Style>
 
             <Style TargetType="Label"
-                x:Key="ProgressEndStyle"
+                x:Key="ProgressEndStyle">
                 <Setter Property="FontSize" Value="Micro" />
                 <Setter Property="HorizontalOptions" Value="EndAndExpand" />
                 <Setter Property="TextColor" Value="Black" />
