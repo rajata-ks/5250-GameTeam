@@ -14,7 +14,7 @@
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="1" Margin="0,50,0,0">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="1">
                         <Grid RowSpacing="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="150"></RowDefinition>
