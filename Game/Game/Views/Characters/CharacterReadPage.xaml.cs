@@ -85,12 +85,6 @@ namespace Game.Views
                 Source = data.ImageURI
             };
 
-            if (ClickableButton)
-            {
-                // Add a event to the user can click the item and see more
-                ItemButton.Clicked += (sender, args) => ShowPopup(data);
-            }
-
             // Add the Display Text for the item
             var ItemLabel = new Label
             {
@@ -115,41 +109,8 @@ namespace Game.Views
             return ItemStack;
         }
 
-        /// <summary>
-        /// Show the Popup for the Item
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public bool ShowPopup(ItemModel data)
-        {
-            PopupLoadingView.IsVisible = true;
-            PopupItemImage.Source = data.ImageURI;
 
-            PopupItemName.Text = data.Name;
-            PopupItemDescription.Text = data.Description;
-            PopupItemLocation.Text = data.Location.ToMessage();
-            PopupItemAttribute.Text = data.Attribute.ToMessage();
-            PopupItemValue.Text = " + " + data.Value.ToString();
 
-            //// Close the popup after 3 seconds
-            //Device.StartTimer(TimeSpan.FromSeconds(3), () => { 
-            //        PopupLoadingView.IsVisible = false;
-            //        return true; }); 
-
-            return true;
-        }
-
-        /// <summary>
-        /// When the user clicks the close in the Popup
-        /// hide the view
-        /// show the scroll view
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void ClosePopup_Clicked(object sender, EventArgs e)
-        {
-            PopupLoadingView.IsVisible = false;
-        }
 
         /// <summary>
         /// Save calls to Update
