@@ -63,7 +63,7 @@
             <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
                 <Label Text="Attributes" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"/>
 
-                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0" HorizontalOptions="CenterAndExpand">
+                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
                     <Label Text="Damage " Style="{StaticResource LabelStyle}"/>
                     <Label Text="{Binding Data.Damage}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
@@ -78,7 +78,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0" HorizontalOptions="CenterAndExpand">
+                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
                     <Label Text="Value " Style="{StaticResource LabelStyle}"/>
                     <Label Text="{Binding Data.Value}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
@@ -93,7 +93,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0" HorizontalOptions="CenterAndExpand">
+                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
                     <Label Text="Range " Style="{StaticResource LabelStyle}" />
                     <Label Text="{Binding Data.Range}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
