@@ -227,7 +227,6 @@
 
             <Style TargetType="Label"
                 x:Key="ProgressStartStyle"
-                BasedOn="{StaticResource ValueStyle}">
                 <Setter Property="FontSize" Value="Micro" />
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="TextColor" Value="Black" />
