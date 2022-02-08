@@ -250,6 +250,14 @@
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="Margin" Value="0,-2,0,0"/>
             </Style>
+
+            <Style TargetType="Label"
+                x:Key="UpdateStyle"
+                BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Padding" Value="10" />
+            </Style>
             
             <!-- Image -->
             <Style TargetType="Image"
