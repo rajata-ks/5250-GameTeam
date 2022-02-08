@@ -23,7 +23,6 @@
                         <ImageButton
                                     Grid.Row="0" Grid.Column="0"
                                     Source="sampleImage.jpg"
-                                    Aspect="AspectFill"
                                     Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="CharactersButton_Clicked"/>
 
@@ -33,7 +32,6 @@
 
                         <ImageButton Grid.Row="1" Grid.Column="0"
                                     Source="sampleImage.jpg"
-                                    Aspect="AspectFill"
                                     Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="ItemsButton_Clicked"/>
 
@@ -44,7 +42,6 @@
                         <ImageButton
                                     Grid.Row="2" Grid.Column="0"
                                     Source="sampleImage.jpg"
-                                    Aspect="AspectFill"
                                     Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="MonstersButton_Clicked"/>
 
@@ -53,9 +50,8 @@
                                     Style="{StaticResource HorizontalMenuLabelLeft}"/>
 
                         <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="3">
-                            <StackLayout>
-                                <Label Text="Undead Academy:" Style="{StaticResource CenterMessageLargeStyle}"/>
-                                <Label Text="School Girls Survive the Night" Style="{StaticResource CenterMessageStyle}"/>
+                            <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="3">
+                                <Image Source="logo.png" Style="{StaticResource LogoImageMedVillagePage}" />
                             </StackLayout>
                         </StackLayout>
                     </Grid>
