@@ -124,7 +124,7 @@
                             Padding="10"/>
 
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}">
                         <Button 
                             Text="Yes"  Clicked="Update_Clicked"
                             FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0"
