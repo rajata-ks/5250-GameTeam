@@ -10,7 +10,7 @@
 
 
     <NavigationPage.TitleView>
-        <Label Text="Read Page" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+        <Label Text="Read Page" Style="{StaticResource HeaderCenterStyle}"/>
     </NavigationPage.TitleView>
 
     <ContentPage.ToolbarItems>
@@ -36,11 +36,11 @@
             </Grid.ColumnDefinitions>
 
             <StackLayout Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="3">
-                <StackLayout Style="{StaticResource HorizontalCenterStyle}">
+                <StackLayout Style="{StaticResource HorizontalCenterStack}">
 
                     <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
 
-                    <StackLayout  Style="{StaticResource VerticalCenterStyle}">
+                    <StackLayout  Style="{StaticResource VerticalCenterStack}">
                         <StackLayout Style="{StaticResource HorizontalStack}">
                             <Label 
                                Text="Name : " 
