@@ -609,7 +609,15 @@
                 BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Padding" Value="0,0,10,0" />
             </Style>
-
+            
+            <Style TargetType="StackLayout"
+                x:Key="ProgressOuterStack">
+                <Setter Property="Orientation" Value="Horizontal" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="Spacing" Value="0" />
+            </Style>
+            
             <!--List View-->
             <Style TargetType="ListView" 
                    x:Key="DefaultListView">
