@@ -8,7 +8,7 @@
 
 
     <NavigationPage.TitleView>
-        <Label Text="Read Stats" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+        <Label Text="Read Stats" Style="{StaticResource HeaderCenterStyle}"/>
     </NavigationPage.TitleView>
 
     <ContentPage.ToolbarItems>
