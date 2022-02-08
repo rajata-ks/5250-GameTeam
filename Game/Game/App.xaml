@@ -396,10 +396,17 @@
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
+            
             <Style TargetType="StackLayout"
                 x:Key="CenterVerticalStack"
                    BasedOn="{StaticResource VerticalStack}">
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="HomePageCenterVerticalStack"
+                   BasedOn="{StaticResource CenterVerticalStack}">
+                <Setter Property="VerticalOptions" Value="Center" />
             </Style>
 
 
