@@ -89,7 +89,7 @@
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="AttackProgress" Progress="{Binding Data.GetAttackProgress}" Style="{StaticResource AttributeProgressBar}" />
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
@@ -104,7 +104,7 @@
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="DefenseProgress" Progress="{Binding Data.GetDefenseProgress}" Style="{StaticResource AttributeProgressBar}"/>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
@@ -119,7 +119,7 @@
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="SpeedProgress" Progress="{Binding Data.GetSpeedProgress}" Style="{StaticResource AttributeProgressBar}"/>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
