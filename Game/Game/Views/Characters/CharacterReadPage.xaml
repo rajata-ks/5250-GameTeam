@@ -91,7 +91,7 @@
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
                     <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="AttackProgress" Progress="{Binding Data.GetAttackProgress}" Style="{StaticResource AttributeProgressBar}" />
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout Style="{StaticResource ProgressInnerStack}">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
                             <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
                         </StackLayout>
@@ -106,7 +106,7 @@
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
                     <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="DefenseProgress" Progress="{Binding Data.GetDefenseProgress}" Style="{StaticResource AttributeProgressBar}"/>
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout Style="{StaticResource ProgressInnerStack}">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
                             <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
                         </StackLayout>
@@ -121,7 +121,7 @@
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
                     <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="SpeedProgress" Progress="{Binding Data.GetSpeedProgress}" Style="{StaticResource AttributeProgressBar}"/>
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout Style="{StaticResource ProgressInnerStack}">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
                             <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
                         </StackLayout>
