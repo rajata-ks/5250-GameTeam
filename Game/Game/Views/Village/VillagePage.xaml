@@ -12,14 +12,12 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="1">
-                    <Grid RowSpacing="0">
+                <StackLayout Style="{StaticResource VerticalStackHorizontalFillExpand}" Grid.Row="1">
+                    <Grid RowSpacing="30">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="150"></RowDefinition>
-                            <RowDefinition Height="25"></RowDefinition>
-                            <RowDefinition Height="150"></RowDefinition>
-                            <RowDefinition Height="25"></RowDefinition>
-                            <RowDefinition Height="150"></RowDefinition>
+                            <RowDefinition Height="130"></RowDefinition>
+                            <RowDefinition Height="130"></RowDefinition>
+                            <RowDefinition Height="130"></RowDefinition>
                         </Grid.RowDefinitions>
 
                         <ImageButton
@@ -33,37 +31,36 @@
                                    Text="Characters" 
                                    Style="{StaticResource HorizontalMenuLabelLeft}"/>
 
-                        <ImageButton Grid.Row="2" Grid.Column="0"
+                        <ImageButton Grid.Row="1" Grid.Column="0"
                                     Source="sampleImage.jpg"
                                     Aspect="AspectFill"
                                     Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="ItemsButton_Clicked"/>
 
-                        <Label Grid.Row="2" 
+                        <Label Grid.Row="1" 
                                    Text="Items" 
                                    Style="{StaticResource HorizontalMenuLabelRight}"/>
 
                         <ImageButton
-                                    Grid.Row="4" Grid.Column="0"
+                                    Grid.Row="2" Grid.Column="0"
                                     Source="sampleImage.jpg"
                                     Aspect="AspectFill"
                                     Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="MonstersButton_Clicked"/>
 
-                        <Label Grid.Row="4" 
+                        <Label Grid.Row="2" 
                                    Text="Monsters" 
                                     Style="{StaticResource HorizontalMenuLabelLeft}"/>
 
+                        <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="3">
+                            <StackLayout>
+                                <Label Text="Undead Academy:" Style="{StaticResource CenterMessageLargeStyle}"/>
+                                <Label Text="School Girls Survive the Night" Style="{StaticResource CenterMessageStyle}"/>
+                            </StackLayout>
+                        </StackLayout>
                     </Grid>
                 </StackLayout>
             </Grid>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,30,0,0">
-                <StackLayout Orientation="Vertical" HorizontalOptions="Center">
-                    <Label Text="Undead Academy:" Style="{StaticResource CenterMessageLargeStyle}"/>
-                    <Label Text="School Girls Survive the Night" Style="{StaticResource CenterMessageStyle}"/>
-                </StackLayout>
-            </StackLayout>
-
             <Button
                     Text="LeaderBoard" Clicked="ScoresButton_Clicked"
                     Style="{StaticResource StickyBottomButtons}"/>
