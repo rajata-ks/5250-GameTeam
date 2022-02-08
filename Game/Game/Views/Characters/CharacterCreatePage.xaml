@@ -160,8 +160,9 @@
                             </StackLayout>
 
                             <Slider x:Name="defenseSilder" 
-                                    Minimum="0" 
-                                    Maximum="9" ValueChanged="Defense_OnStepperValueChanged" Value="{Binding Data.Defense}" />
+                                    Style="{StaticResource AttributeSlider}"
+                                    ValueChanged="Defense_OnStepperValueChanged" 
+                                    Value="{Binding Data.Defense}" />
 
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
 
