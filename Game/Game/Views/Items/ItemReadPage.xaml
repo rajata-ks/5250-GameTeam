@@ -33,7 +33,7 @@
             </Grid.ColumnDefinitions>
 
             <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}" Grid.Row="0" Grid.Column="1"/>
-            <StackLayout Style="{StaticResource VerticalStack}" Grid.Row="0" Grid.Column="2" HorizontalOptions="Start" VerticalOptions="Center">
+            <StackLayout Style="{StaticResource VerticalCenterStack}" Grid.Row="0" Grid.Column="2" >
                 <StackLayout Style="{StaticResource HorizontalStack}">
                     <Label Text="Name : " Style="{StaticResource LabelStyle}"/>
                     <Label Text="{Binding Data.Name}" Style="{StaticResource ValueStyle}"/>
