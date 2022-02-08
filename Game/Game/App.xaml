@@ -79,9 +79,11 @@
 
             <!-- Scroll View -->
 
-            <Style TargetType="ScrollView">
+            <Style TargetType="ScrollView"
+                   x:Key="NeverScrollView">
                 <Setter Property="VerticalScrollBarVisibility" Value="Never"/>
                 <Setter Property="HorizontalScrollBarVisibility" Value="Never"/>
+                <Setter Property="Orientation" Value="Vertical"/>
             </Style>
 
             <!-- Label -->
@@ -208,6 +210,12 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
 
+            <Style TargetType="Label"
+                x:Key="AboutUsText"
+                BasedOn="{StaticResource PopupItemTextStyle}">
+                <Setter Property="Margin" Value="20" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
 
             <Style TargetType="Label"
                 x:Key="AttributeLabelStyle"
@@ -363,6 +371,12 @@
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
+            <Style TargetType="StackLayout"
+                x:Key="CenterVerticalStack"
+                   BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            </Style>
+
 
             <Style TargetType="StackLayout"
                 x:Key="CenterHorizontalStack"
@@ -523,12 +537,23 @@
             </Style>
 
             <!-- Grid -->
-            <Style TargetType="Grid">
+            <Style TargetType="Grid"
+                   x:Key="Grid">
                 <Setter Property="ColumnSpacing" Value="0" />
                 <Setter Property="RowSpacing" Value="0" />
                 <Setter Property="Margin" Value="0" />
                 <Setter Property="Padding" Value="0" />
             </Style>
+            
+            <Style TargetType="Grid"
+                   x:Key="CenterGrid"
+                   BasedOn="{StaticResource Grid}">
+                <Setter Property="ColumnSpacing" Value="2" />
+                <Setter Property="RowSpacing" Value="1" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
 
             <Style TargetType="Grid"
                 x:Key="MapGridStyle">
