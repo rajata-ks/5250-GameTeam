@@ -59,8 +59,8 @@
             </Grid>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,30,0,0">
                 <StackLayout Orientation="Vertical" HorizontalOptions="Center">
-                    <Label Text="Undead Academy:" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center" FontSize="Large"/>
-                    <Label Text="School Girls Survive the Night" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center" FontSize="Large"/>
+                    <Label Text="Undead Academy:" Style="{StaticResource CenterMessageLargeStyle}"/>
+                    <Label Text="School Girls Survive the Night" Style="{StaticResource CenterMessageStyle}"/>
                 </StackLayout>
             </StackLayout>
 
