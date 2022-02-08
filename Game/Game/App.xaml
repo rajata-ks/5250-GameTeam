@@ -744,6 +744,14 @@
                 <Setter Property="Margin" Value="0"/>
             </Style>
 
+            <!-- FlexLayout -->
+            <Style TargetType="FlexLayout"
+                x:Key="ItemLayout">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="Wrap" Value="Wrap"/>
+                <Setter Property="JustifyContent" Value="SpaceAround"/>
+                <Setter Property="AlignContent" Value="SpaceAround"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
