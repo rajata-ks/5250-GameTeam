@@ -635,6 +635,11 @@
                 <Setter Property="Orientation" Value="Horizontal" />
             </Style>
             
+            <Style TargetType="StackLayout"
+                x:Key="VerticalCenterStyle">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Orientation" Value="Vertical" />
+            </Style>
             <!--List View-->
             <Style TargetType="ListView" 
                    x:Key="DefaultListView">
