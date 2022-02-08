@@ -179,8 +179,9 @@
                             </StackLayout>
 
                             <Slider x:Name="speedSilder" 
-                                    Minimum="0" 
-                                    Maximum="9" ValueChanged="Speed_OnStepperValueChanged" Value="{Binding Data.Speed}" />
+                                    Style="{StaticResource AttributeSlider}"
+                                    ValueChanged="Speed_OnStepperValueChanged"
+                                    Value="{Binding Data.Speed}" />
 
                         </StackLayout>
 
