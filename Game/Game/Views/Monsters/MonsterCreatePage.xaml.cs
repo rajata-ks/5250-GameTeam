@@ -63,6 +63,13 @@ namespace Game.Views
             this.ViewModel.Data.Difficulty = DifficultyEnum.Easy;
             _ = UpdatePageBindingContext();
 
+            foreach (string i in Enum.GetNames(typeof(ItemLocationEnum)))
+            {
+                LocationPicker.Items.Add(i);
+
+            }
+            this.ViewModel.Data.Location = ItemLocationEnum.Unknown;
+
             AddItemsToDisplay();
         }
 
@@ -137,6 +144,53 @@ namespace Game.Views
             //Change the Difficulty
             ViewModel.Data.Difficulty = (DifficultyEnum)Enum.Parse(typeof(DifficultyEnum), 
                                         DifficultyPicker.Items[DifficultyPicker.SelectedIndex]);
+        }
+
+        /// <summary>
+        /// Change the Items from the list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void Location_Changed(object sender, EventArgs args)
+        {
+
+            //Change the Item Location
+            ViewModel.Data.Location = (ItemLocationEnum)Enum.Parse(typeof(ItemLocationEnum),
+                                        LocationPicker.Items[LocationPicker.SelectedIndex]);
+
+            // show pop up based on selected index
+            switch (LocationPicker.SelectedIndex)
+            {
+                case 0:
+                    ShowPopup(ItemLocationEnum.Unknown);
+                    break;
+                case 1:
+                    ShowPopup(ItemLocationEnum.Head);
+                    break;
+                case 2:
+                    ShowPopup(ItemLocationEnum.Necklass);
+                    break;
+                case 3:
+                    ShowPopup(ItemLocationEnum.PrimaryHand);
+                    break;
+                case 4:
+                    ShowPopup(ItemLocationEnum.OffHand);
+                    break;
+                case 5:
+                    ShowPopup(ItemLocationEnum.Finger);
+                    break;
+                case 6:
+                    ShowPopup(ItemLocationEnum.RightFinger);
+                    break;
+                case 7:
+                    ShowPopup(ItemLocationEnum.LeftFinger);
+                    break;
+                case 8:
+                    ShowPopup(ItemLocationEnum.Feet);
+                    break;
+
+
+            }
         }
 
         /// <summary>
@@ -367,8 +421,8 @@ namespace Game.Views
             {
                 _ = ItemBox.Children.Remove(data);
             }
-
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
+            var  location = ViewModel.Data.Location;
+            ItemBox.Children.Add(GetItemToDisplay(location));
             
         }
 
@@ -404,7 +458,7 @@ namespace Game.Views
             // Add the Display Text for the item
             var ItemLabel = new Label
             {
-                Text = location.ToMessage(),
+                
                 Style = (Style)Application.Current.Resources["ValueStyleMicro"],
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center
