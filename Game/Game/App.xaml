@@ -365,6 +365,20 @@
             </Style>
 
             <Style TargetType="StackLayout"
+                x:Key="CenterHorizontalStack"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="VerticalStackHorizontalFillExpand"
+                   BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+
+            <Style TargetType="StackLayout"
                 x:Key="OuterBoxStack"
                 BasedOn="{StaticResource VerticalStack}">
             </Style>
