@@ -225,6 +225,15 @@
                 <Setter Property="HorizontalTextAlignment" Value="End" />
             </Style>
 
+            <Style TargetType="Label"
+                x:Key="ProgressStartStyle"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0,-2,0,0"/>
+            </Style>
+
             <!-- Image -->
             <Style TargetType="Image"
                 x:Key="ImageLargeStyle">
