@@ -163,6 +163,15 @@
 
                         </StackLayout>
 
+                        <Label Grid.Row="4" Grid.Column="0" HorizontalOptions="Center"
+                                   Text="Item"
+                                   Style="{StaticResource LabelStyle}"/>
+                        <Picker   Grid.Row="4" Grid.Column="1" HorizontalOptions="Center"
+                                    SelectedIndex="{Binding SelectedItemProperty}"
+                                    SelectedIndexChanged="Location_Changed"
+                                    x:Name="LocationPicker"/>
+                        
+                        
                         <FlexLayout 
                         Padding="5"
                         Wrap="Wrap"
