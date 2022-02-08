@@ -48,7 +48,8 @@ namespace Game.Views
                 _ = ItemBox.Children.Remove(data);
             }
 
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
+            var location = ViewModel.Data.Location;
+            ItemBox.Children.Add(GetItemToDisplay(location));
 
         }
 
