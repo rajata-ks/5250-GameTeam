@@ -5,62 +5,68 @@
              >
 
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Row="1">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"></RowDefinition>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="150"></RowDefinition>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="150"></RowDefinition>
+                        </Grid.RowDefinitions>
 
-                <StackLayout  Orientation="Vertical">
-                    <StackLayout Orientation="Horizontal" Margin="0,100,0,0">
-                        <StackLayout Style="{StaticResource CardImageTextBox}" HorizontalOptions="Start">
-
-                            <ImageButton
-                                    Source="item.png"
-                                    Style="{StaticResource ImageLargeStyle}"
+                        <ImageButton
+                                    Grid.Row="0" Grid.Column="0"
+                                    Source="sampleImage.jpg"
+                                    Aspect="AspectFill"
+                                    Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="CharactersButton_Clicked"/>
 
-                            <Label 
-                                    Text="Characters"
-                                    Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Grid.Row="0" 
+                                   Text="Characters" 
+                                   Style="{StaticResource HorizontalMenuLabelLeft}"/>
 
-                        </StackLayout>
-
-                        <StackLayout Style="{StaticResource CardImageTextBox}" HorizontalOptions="EndAndExpand">
-
-                            <ImageButton
-                                    Source="item.png"
-                                    Style="{StaticResource ImageLargeStyle}"
+                        <ImageButton Grid.Row="2" Grid.Column="0"
+                                    Source="sampleImage.jpg"
+                                    Aspect="AspectFill"
+                                    Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="ItemsButton_Clicked"/>
 
-                            <Label 
-                                    Text="Items"
-                                    Style="{StaticResource CenterMessageStyle}"/>
-                        </StackLayout>
-                    </StackLayout>
+                        <Label Grid.Row="2" 
+                                   Text="Items" 
+                                   Style="{StaticResource HorizontalMenuLabelRight}"/>
 
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <StackLayout Style="{StaticResource CardImageTextBox}">
-
-                            <ImageButton
-                                    Source="item.png"
-                                    Style="{StaticResource ImageLargeStyle}"
+                        <ImageButton
+                                    Grid.Row="4" Grid.Column="0"
+                                    Source="sampleImage.jpg"
+                                    Aspect="AspectFill"
+                                    Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="MonstersButton_Clicked"/>
 
-                            <Label 
-                                    Text="Monsters"
-                                    Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Grid.Row="4" 
+                                   Text="Monsters" 
+                                    Style="{StaticResource HorizontalMenuLabelLeft}"/>
 
-                        </StackLayout>
-                    </StackLayout>
-
+                    </Grid>
                 </StackLayout>
-            </ScrollView>
+            </Grid>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,30,0,0">
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                    <Label Text="Undead Academy:" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center" FontSize="Large"/>
+                    <Label Text="School Girls Survive the Night" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center" FontSize="Large"/>
+                </StackLayout>
+            </StackLayout>
 
-            <Button Grid.Row="1" BackgroundColor="Transparent"
-                    Text="LeaderBoard" HeightRequest="50" Clicked="ScoresButton_Clicked"
-                    Style="{StaticResource GridRoundedButton}"/>
-        </Grid>
+            <Button
+                    Text="LeaderBoard" Clicked="ScoresButton_Clicked"
+                    Style="{StaticResource StickyBottomButtons}"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
