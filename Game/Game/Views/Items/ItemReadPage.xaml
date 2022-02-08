@@ -118,17 +118,14 @@
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
-                    <Label Text="Do you want to update this item?" Style="{StaticResource LabelStyle}" 
-                           TextColor="{StaticResource SecondaryTextColor}"
-                           Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center"
-                            Padding="10"/>
+                    <Label Text="Do you want to update this item?" Style="{StaticResource UpdateStyle}"
+                           Grid.Row="1" Grid.ColumnSpan="3"/>
 
 
                     <StackLayout Style="{StaticResource HorizontalCenterStack}">
                         <Button 
                             Text="Yes"  Clicked="Update_Clicked"
-                            FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0"
-                            HorizontalOptions="End">
+                            Style="{StaticResource UpdateButton}">
                         </Button>
                     </StackLayout>
                 </StackLayout>
