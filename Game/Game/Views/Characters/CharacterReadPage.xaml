@@ -149,12 +149,16 @@
                             Padding="10"/>
 
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
-                                <Button 
+                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                        <Button 
                             Text="Yes"  Clicked="Update_Clicked"  HorizontalOptions="Center" 
-                            FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0">
-                                </Button>
-                            </StackLayout>
+                            Style="{StaticResource GridRoundedButton}"
+                            FontSize="Small"
+                            HeightRequest="50"
+                            WidthRequest="80"
+                            BorderColor="black" Margin="10,0,10,0">
+                        </Button>
+                    </StackLayout>
                         </StackLayout>
                     </Frame>
             <StackLayout Grid.Row="5" Grid.Column="0">
