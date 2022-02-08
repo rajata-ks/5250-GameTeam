@@ -134,9 +134,7 @@
             </FlexLayout>
 
 
-            <Frame CornerRadius="10"  
-                               Padding="50"
-                               Grid.Row="4" Grid.ColumnSpan="3" BorderColor="Black" BackgroundColor="AliceBlue">
+            <Frame Style="{StaticResource UpdateFrame}"  Grid.Row="4" Grid.ColumnSpan="3">
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
