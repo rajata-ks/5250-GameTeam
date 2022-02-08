@@ -8,31 +8,21 @@
              x:Class="Game.Views.ItemIndexPage">
 
     <NavigationPage.TitleView>
-        <Label Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+        <Label Text="{Binding Title}" Style="{StaticResource CenterMessageStyle}"/>
     </NavigationPage.TitleView>
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" IconImageSource="icon_add.png"/>
-    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
-            
             <ListView x:Name="ItemsListView" 
-                    ItemsSource="{Binding Dataset}"
-                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                    RefreshCommand="{Binding LoadItemsCommand}"
+                    Style="{StaticResource DefaultListView}"
                     CachingStrategy="RecycleElement"
                     ItemSelected="OnItemSelected"
-                    HasUnevenRows="true"
-                    Margin="5,0,5,0"
-                    RowHeight="100">
+                    >
                 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-
-                                <Frame
+                            <Frame
                                     CornerRadius="10"
                                     Padding="10"
                                    HorizontalOptions="FillAndExpand"
@@ -88,8 +78,7 @@
             <Grid>
                 <Button
                     Text="Create New Item?" Clicked="AddItem_Clicked"
-                    Style="{StaticResource GridRoundedButton}" 
-                    HorizontalOptions="CenterAndExpand" VerticalOptions="End" MinimumHeightRequest="200" />
+                    Style="{StaticResource StickyBottomButtons}" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>
