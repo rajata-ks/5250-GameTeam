@@ -67,7 +67,7 @@
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
-            
+
             <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Padding="30">
                 <Label LineBreakMode="WordWrap" Text="Description : " Style="{StaticResource LabelStyle}"/>
                 <Label Text="{Binding Data.Description}" Style="{StaticResource ValueStyle}"/>
@@ -83,7 +83,7 @@
 
                 <StackLayout Orientation="Horizontal" VerticalOptions="Start" Spacing="0" HorizontalOptions="Fill">
                     <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
-                        <ProgressBar x:Name="AttackProgress" Progress="{Binding Data.GetAttackProgress}" ProgressColor="Blue" HeightRequest="20"  Margin="0" />
+                        <ProgressBar x:Name="AttackProgress" Progress="{Binding Data.GetAttackProgress}" Style="{StaticResource AttributeProgressBar}" />
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" FontSize="Micro" HorizontalOptions="Start" TextColor="Black" Margin="0,-2,0,0"></Label>
                             <Label Text="9" FontSize="Micro" HorizontalOptions="EndAndExpand" TextColor="Black" Margin="0,-2,0,0"></Label>
@@ -98,7 +98,7 @@
 
                 <StackLayout Orientation="Horizontal" VerticalOptions="Start" Spacing="0" HorizontalOptions="Fill">
                     <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
-                        <ProgressBar x:Name="DefenseProgress" Progress="{Binding Data.GetDefenseProgress}" ProgressColor="Blue" HeightRequest="20"  Margin="0" />
+                        <ProgressBar x:Name="DefenseProgress" Progress="{Binding Data.GetDefenseProgress}" Style="{StaticResource AttributeProgressBar}"/>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" FontSize="Micro" HorizontalOptions="Start" TextColor="Black" Margin="0,-2,0,0"></Label>
                             <Label Text="9" FontSize="Micro" HorizontalOptions="EndAndExpand" TextColor="Black" Margin="0,-2,0,0"></Label>
@@ -113,7 +113,7 @@
 
                 <StackLayout Orientation="Horizontal" VerticalOptions="Start" Spacing="0" HorizontalOptions="Fill">
                     <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
-                        <ProgressBar x:Name="SpeedProgress" Progress="{Binding Data.GetSpeedProgress}" ProgressColor="Blue" HeightRequest="20"  Margin="0" />
+                        <ProgressBar x:Name="SpeedProgress" Progress="{Binding Data.GetSpeedProgress}" Style="{StaticResource AttributeProgressBar}"/>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" FontSize="Micro" HorizontalOptions="Start" TextColor="Black" Margin="0,-2,0,0"></Label>
                             <Label Text="9" FontSize="Micro" HorizontalOptions="EndAndExpand" TextColor="Black" Margin="0,-2,0,0"></Label>
