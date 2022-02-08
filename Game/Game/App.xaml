@@ -663,6 +663,13 @@
                 <Setter Property="WidthRequest" Value="300" />
                 <Setter Property="HeightRequest" Value="300" />
             </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="PopupLoadingView">
+                <Setter Property="BackgroundColor" Value="{StaticResource PageBackgroundColor}"/>
+                <Setter Property="IsVisible" Value="false" />
+            </Style>
+                
             <!--List View-->
             <Style TargetType="ListView" 
                    x:Key="DefaultListView">
