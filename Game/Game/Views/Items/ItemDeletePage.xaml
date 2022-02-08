@@ -9,11 +9,6 @@
     <NavigationPage.TitleView>
         <Label Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
     </NavigationPage.TitleView>
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
-    </ContentPage.ToolbarItems>
 
     <ScrollView>
 
@@ -29,10 +24,10 @@
                     <ColumnDefinition  Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2" >
+                <StackLayout Style="{StaticResource CenterVerticalStack}" Grid.Row="0" Grid.ColumnSpan="2" >
                 
                     <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2" >
+                    <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="0" Grid.ColumnSpan="2" >
                         <Label
                            Text="Name : " 
                             Style="{StaticResource LabelStyle}"/>
@@ -40,7 +35,7 @@
                             Text="{Binding Data.Name}" 
                             Style="{StaticResource ValueStyle}"/>
                     </StackLayout>
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2" >
+                    <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="0" Grid.ColumnSpan="2" >
                         <Label 
                                 Text="Description : " 
                                 Style="{StaticResource LabelStyle}"/>
@@ -70,7 +65,7 @@
                         </Button>
                         
                         <Button 
-                            Text="Save"  Clicked="Delete_Clicked"  HorizontalOptions="Center" Style="{StaticResource GridRoundedButton}"
+                            Text="Delete"  Clicked="Delete_Clicked"  HorizontalOptions="Center" Style="{StaticResource GridRoundedButton}"
                             WidthRequest="100"
                             FontSize="Medium" BorderWidth="1"  BorderColor="{StaticResource TriciaryBackgroundColor}" Margin="10,0,0,0">
                         </Button>
