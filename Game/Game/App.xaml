@@ -144,6 +144,15 @@
                 <Setter Property="FontSize" Value="Small" />
             </Style>
 
+
+            <Style TargetType="Label"
+                x:Key="HeaderCenterStyle"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
             <Style TargetType="Label"
                 x:Key="LabelStyle"
                 BasedOn="{StaticResource LabelBaseStyle}">
@@ -636,13 +645,13 @@
             </Style>
             
             <Style TargetType="StackLayout"
-                x:Key="HorizontalCenterStyle">
+                x:Key="HorizontalCenterStack">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Orientation" Value="Horizontal" />
             </Style>
             
             <Style TargetType="StackLayout"
-                x:Key="VerticalCenterStyle">
+                x:Key="VerticalCenterStack">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
