@@ -604,6 +604,12 @@
                 <Setter Property="VerticalOptions" Value="EndAndExpand" />
             </Style>
             
+            <Style TargetType="StackLayout"
+                x:Key="AttributeStackLayoutStyle"
+                BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="Padding" Value="0,0,10,0" />
+            </Style>
+
             <!--List View-->
             <Style TargetType="ListView" 
                    x:Key="DefaultListView">
