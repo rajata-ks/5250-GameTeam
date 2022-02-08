@@ -110,11 +110,7 @@
 
             </StackLayout>
 
-            <Frame CornerRadius="10"  
-                   Padding="50"
-                   BackgroundColor="{StaticResource SecondaryBackgroundColor}"
-                   BorderColor="{StaticResource TriciaryTextColor}"
-                   Grid.Row="3" Grid.ColumnSpan="3" Margin="0,50">
+            <Frame Style="{StaticResource UpdateFrame}" Grid.Row="3" Grid.ColumnSpan="3">
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
