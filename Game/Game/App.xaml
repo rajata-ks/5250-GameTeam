@@ -548,7 +548,13 @@
                 <Setter Property="FontAttributes" Value="None" />
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
             </Style>
-
+            
+            <!-- Slider -->
+            <Style TargetType="Slider"
+                x:Key="AttributeSlider">
+                <Setter Property="Minimum" Value="0" />
+                <Setter Property="Maximum" Value="9"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
