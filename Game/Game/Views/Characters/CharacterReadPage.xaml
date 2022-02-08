@@ -135,7 +135,7 @@
                 <StackLayout Style="{StaticResource VerticalCenterStack}">
 
                     <Label Text="Do you want to update this Character?" Style="{StaticResource UpdateStyle}"/>
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}">
                         <Button 
                             Text="Yes"  Clicked="Update_Clicked" 
                             Style="{StaticResource UpdateButton}"/>
