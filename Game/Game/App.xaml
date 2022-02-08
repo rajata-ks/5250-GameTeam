@@ -101,6 +101,24 @@
             </Style>
 
             <Style TargetType="Label"
+                x:Key="HorizontalMenuLabelLeft"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="VerticalTextAlignment" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="FontSize" Value="50" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="HorizontalMenuLabelRight"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="VerticalTextAlignment" Value="End" />
+                <Setter Property="FontSize" Value="50" />
+            </Style>
+
+            <Style TargetType="Label"
                 x:Key="ListStyle"
                 BasedOn="{StaticResource LabelBaseStyle}">
                 <Setter Property="FontSize" Value="Micro" />
@@ -151,15 +169,15 @@
                 x:Key="MessageLargeStyle"
                 BasedOn="{StaticResource MessageStyle}">
                 <Setter Property="FontSize" Value="Large" />
-            </Style>            
-            
+            </Style>
+
             <Style TargetType="Label"
                 x:Key="CenterMessageStyle"
                 BasedOn="{StaticResource HeaderStyle}">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
-
+            
             <Style TargetType="Label"
                 x:Key="CenterMessageLargeStyle"
                 BasedOn="{StaticResource CenterMessageStyle}">
@@ -199,6 +217,13 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="Aspect" Value="Fill" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="HorizontalMenuImageButton"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
             </Style>
 
             <Style TargetType="Image"
