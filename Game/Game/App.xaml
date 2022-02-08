@@ -735,7 +735,14 @@
                 <Setter Property="Minimum" Value="0" />
                 <Setter Property="Maximum" Value="9"/>
             </Style>
-
+            
+            <!-- ProgressBar -->
+            <Style TargetType="ProgressBar"
+                x:Key="AttributeProgressBar">
+                <Setter Property="ProgressColor" Value="Blue" />
+                <Setter Property="HeightRequest" Value="20"/>
+                <Setter Property="Margin" Value="0"/>
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>
