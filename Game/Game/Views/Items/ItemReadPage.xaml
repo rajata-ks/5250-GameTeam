@@ -52,9 +52,9 @@
 
 
             <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Padding="30">
-                <Label LineBreakMode="WordWrap"
+                <Label
                     Text="Description : " 
-                    Style="{StaticResource LabelStyle}"/>
+                    Style="{StaticResource DescriptionStyle}"/>
                 <Label 
                     Text="{Binding Data.Description}" 
                     Style="{StaticResource ValueStyle}"/>
