@@ -623,7 +623,10 @@
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="Spacing" Value="0" />
             </Style>
-            
+            <Style TargetType="StackLayout"
+                x:Key="ProgressInnerStack">
+                <Setter Property="Orientation" Value="Horizontal" />
+            </Style>
             <!--List View-->
             <Style TargetType="ListView" 
                    x:Key="DefaultListView">
