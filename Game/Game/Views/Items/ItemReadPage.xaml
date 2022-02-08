@@ -71,7 +71,7 @@
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
                     <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="DamageProgress" Progress="{Binding Data.GetDamageProgress}" ProgressColor="{StaticResource TriciaryBackgroundColor}" HeightRequest="20"  Margin="0" />
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout Style="{StaticResource ProgressInnerStack}">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
                             <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
                         </StackLayout>
@@ -86,7 +86,7 @@
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
                     <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="ValueProgress" Progress="{Binding Data.GetValueProgress}" ProgressColor="{StaticResource TriciaryBackgroundColor}" HeightRequest="20"  Margin="0" />
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout Style="{StaticResource ProgressInnerStack}">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
                             <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
                         </StackLayout>
@@ -101,7 +101,7 @@
                 <StackLayout Style="{StaticResource ProgressOuterStack}">
                     <StackLayout Style="{StaticResource ProgressMiddleStack}">
                         <ProgressBar x:Name="RangeProgress" Progress="{Binding Data.GetRangeProgress}" ProgressColor="{StaticResource TriciaryBackgroundColor}" HeightRequest="20"  Margin="0" />
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout Style="{StaticResource ProgressInnerStack}">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
                             <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
                         </StackLayout>
