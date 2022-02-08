@@ -149,8 +149,7 @@
 
             <!--The Item Popup-->
             <StackLayout x:Name="PopupLoadingView" 
-                 BackgroundColor="{StaticResource PageBackgroundColor}" 
-                 IsVisible="false" 
+                 Style="{StaticResource PopupLoadingView}"
                  AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
                  AbsoluteLayout.LayoutFlags="All">
 
