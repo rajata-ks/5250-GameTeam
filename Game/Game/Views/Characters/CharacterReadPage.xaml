@@ -132,7 +132,7 @@
 
             <Frame Style="{StaticResource UpdateFrame}"  Grid.Row="4" Grid.ColumnSpan="3">
 
-                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
+                <StackLayout Style="{StaticResource VerticalCenterStack}">
 
                     <Label Text="Do you want to update this Character?" Style="{StaticResource UpdateStyle}"/>
                     <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
