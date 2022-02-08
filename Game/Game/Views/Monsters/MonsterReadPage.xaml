@@ -123,12 +123,8 @@
 
             </StackLayout>
 
-            <FlexLayout 
-                        Margin="5"
-                        Wrap="Wrap"
-                        JustifyContent="SpaceAround"
-                        AlignContent="SpaceAround"
-                        x:Name="ItemBox" Grid.Row="3" Grid.ColumnSpan="3">
+            <FlexLayout  
+                Style="{StaticResource ItemLayout}" x:Name="ItemBox" Grid.Row="3" Grid.ColumnSpan="3">
             </FlexLayout>
 
             <Frame CornerRadius="10"  
