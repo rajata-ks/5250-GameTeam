@@ -174,7 +174,7 @@ namespace Game.Views
                     ShowPopup(ItemLocationEnum.PrimaryHand);
                     break;
                 case 4:
-                    ShowPopup(ItemLocationEnum.OffHand);
+                    this.ViewModel.Data.Location = ItemLocationEnum.OffHand;//ShowPopup(ItemLocationEnum.OffHand);
                     break;
                 case 5:
                     ShowPopup(ItemLocationEnum.Finger);
@@ -359,6 +359,11 @@ namespace Game.Views
         /// <returns></returns>
         public bool ShowPopup(ItemLocationEnum location)
         {
+            if (ViewModel.Data.Location != ItemLocationEnum.Unknown) //the picker was selected
+            {
+                location = ViewModel.Data.Location;
+            }
+
             PopupItemSelector.IsVisible = true;
 
             PopupLocationLabel.Text = "Items for :";
