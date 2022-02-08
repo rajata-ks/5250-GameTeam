@@ -8,21 +8,13 @@
              Title="About">
 
     <ScrollView
-      Padding="10,10,10,10"
-      VerticalOptions="Start"
-      HorizontalOptions="FillAndExpand"
-      Orientation="Vertical">
-
+      Style="{StaticResource NeverScrollView}">
         <StackLayout>
-            
             <Grid
-                RowSpacing="1"
-                ColumnSpacing="2"
-                VerticalOptions="Center"
-                HorizontalOptions="Center">
+                Style="{StaticResource CenterGrid}">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="400"/>
@@ -30,40 +22,29 @@
                 </Grid.ColumnDefinitions>
 
                 <StackLayout Orientation="Horizontal">
-
-                    <Image Source="d20_2.png" Style="{StaticResource ImageMediumStyle}" HorizontalOptions="Center" Grid.Column="1" Grid.Row="0"/>
-
-                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Grid.Column="2" Grid.Row="0">
-
-                        <Label Text="Escape From HS!" Style="{StaticResource CenterMessageLargeStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                        <Label Text="Team OKAY" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                        <Label Text="Rajata Kumar Shankarling" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                        <Label Text="Nichlos Ho" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                        <Label Text="Brad Nakamura" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                        <Label Text="Mateo Barrales Godino" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                        <Label Text="Kora Burns" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-
-
+                    <StackLayout Style="{StaticResource CenterVerticalStack}" Grid.Column="2" Grid.Row="0">
+                        <Image Source="logo.png" Style="{StaticResource LogoImageLarge}" />
+                        <Label Text="Team OKAY" Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Text="Rajata Kumar Shankarling" Style="{StaticResource CenterMessageStyle}" />
+                        <Label Text="Nichlos Ho" Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Text="Brad Nakamura" Style="{StaticResource CenterMessageStyle}" />
+                        <Label Text="Mateo Barrales Godino" Style="{StaticResource CenterMessageStyle}" />
+                        <Label Text="Kora Burns" Style="{StaticResource CenterMessageStyle}"/>
                     </StackLayout>
                 </StackLayout>
             </Grid>
-
-            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat lacus at orci dapibus, ac euismod mauris sodales.
-                   Aenean non venenatis neque. Sed nisi nisi, sollicitudin sed risus id, scelerisque dapibus diam. Vivamus aliquam mauris lacus.
-                   Etiam in purus in odio pellentesque tincidunt. Donec a nisi mollis, ultrices metus et, vehicula turpis.
-                   Donec vitae ipsum ut mi porttitor rutrum sed nec quam. Cras in viverra magna, sed iaculis lacus.
-                   Etiam porta ligula a nisi tincidunt, eu eleifend felis interdum. Donec fermentum ligula ligula, at lobortis leo porttitor nec.
-                   Praesent vitae turpis nec risus bibendum posuere sit amet vel purus. In hac habitasse platea dictumst."
-                   Style="{StaticResource PopupItemTextStyle}" LineBreakMode="WordWrap" VerticalTextAlignment="Center" Margin="10"/>
+                
+            <Label Text="This game is made by the very passionate students of Seattle University in the Master's of science program.
+                          The game is about high school girls who are stuck in a monster's zone where they will need to fight to survive and 
+                   escape by the following morning before the evil catches them. If they fail, they will be forever stuck in the zone and lose the game. Are you up to the challenge?"
+                   Style="{StaticResource AboutUsText}"/>
 
             <!--Database Settings Frame-->
 
             <StackLayout Style="{StaticResource HorizontalStack}">
-
                 <Label
                         Text="Database Settings"
                         Style="{DynamicResource LabelStyle}"/>
-
                 <Switch
                         x:Name="DatabaseSettingsSwitch"
                         HorizontalOptions="EndAndExpand"

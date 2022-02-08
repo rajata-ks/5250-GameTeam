@@ -79,9 +79,21 @@
 
             <!-- Scroll View -->
 
-            <Style TargetType="ScrollView">
+            <Style TargetType="ScrollView"
+                   x:Key="NeverScrollView">
                 <Setter Property="VerticalScrollBarVisibility" Value="Never"/>
                 <Setter Property="HorizontalScrollBarVisibility" Value="Never"/>
+                <Setter Property="Orientation" Value="Vertical"/>
+            </Style>
+
+            <!-- Silder -->
+
+            <Style TargetType="Slider"
+                   x:Key="DefaultSlider">
+                <Setter Property="ThumbColor" Value="{StaticResource PrimaryTextColor}"/>
+                <Setter Property="MaximumTrackColor" Value="{StaticResource TriciaryBackgroundColor}"/>
+                <Setter Property="Minimum" Value="0"/>
+                <Setter Property="Maximum" Value="9"/>
             </Style>
 
             <!-- Label -->
@@ -98,6 +110,24 @@
                 <Setter Property="HorizontalTextAlignment" Value="Start"/>
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="HorizontalMenuLabelLeft"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="VerticalTextAlignment" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="FontSize" Value="50" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="HorizontalMenuLabelRight"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="VerticalTextAlignment" Value="End" />
+                <Setter Property="FontSize" Value="50" />
             </Style>
 
             <Style TargetType="Label"
@@ -140,7 +170,7 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="LineBreakMode" Value="NoWrap" />
             </Style>
-            
+
             <Style TargetType="Label"
                 x:Key="MessageStyle"
                 BasedOn="{StaticResource HeaderStyle}">
@@ -151,8 +181,8 @@
                 x:Key="MessageLargeStyle"
                 BasedOn="{StaticResource MessageStyle}">
                 <Setter Property="FontSize" Value="Large" />
-            </Style>            
-            
+            </Style>
+
             <Style TargetType="Label"
                 x:Key="CenterMessageStyle"
                 BasedOn="{StaticResource HeaderStyle}">
@@ -165,7 +195,7 @@
                 BasedOn="{StaticResource CenterMessageStyle}">
                 <Setter Property="FontSize" Value="Large" />
             </Style>
-            
+
             <Style TargetType="Label"
                 x:Key="GridLabelStyle"
                 BasedOn="{StaticResource LabelStyle}">
@@ -189,6 +219,37 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
+
+            <Style TargetType="Label"
+                x:Key="AboutUsText"
+                BasedOn="{StaticResource PopupItemTextStyle}">
+                <Setter Property="Margin" Value="20" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="AttributeLabelStyle"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="Padding" Value="10,0,10,0" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="ProgressStartStyle">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0,-2,0,0"/>
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="ProgressEndStyle">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0,-2,0,0"/>
+            </Style>
             
             <!-- Image -->
             <Style TargetType="Image"
@@ -199,6 +260,38 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="Aspect" Value="Fill" />
+            </Style>
+            
+            <Style TargetType="Image"
+                x:Key="LogoImageLarge"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="HeightRequest" Value="300" />
+                <Setter Property="WidthRequest" Value="300" />
+                <Setter Property="Aspect" Value="AspectFit" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="LogoImageMed"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="HeightRequest" Value="100" />
+                <Setter Property="WidthRequest" Value="100" />
+            </Style>
+            
+            <Style TargetType="Image"
+                x:Key="LogoImageMedVillagePage"
+                BasedOn="{StaticResource LogoImageMed}">
+                <Setter Property="HeightRequest" Value="100" />
+                <Setter Property="WidthRequest" Value="100" />
+                <Setter Property="Margin" Value="-10" />
+            </Style>
+
+
+            <Style TargetType="Image"
+                x:Key="HorizontalMenuImageButton"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="Aspect" Value="AspectFill" />
             </Style>
 
             <Style TargetType="Image"
@@ -251,6 +344,12 @@
             </Style>
 
             <Style TargetType="Image"
+                x:Key="ImageLargeStyleCenter"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="Image"
                 x:Key="BattleMapPlayerSmallStyle"
                 BasedOn="{StaticResource ImageBattleSmallStyle}">
             </Style>
@@ -289,8 +388,8 @@
                 <Setter Property="HeightRequest" Value="30"/>
             </Style>
 
-            <!-- Button -->
-            <Style TargetType="Button" x:Key="GridRoundedButton">
+            <Style TargetType="Button" 
+                   x:Key="GridRoundedButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
                 <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}"/>
@@ -300,10 +399,15 @@
                 <Setter Property="Padding" Value="1"/>
                 <Setter Property="Margin" Value="1"/>
                 <Setter Property="BorderWidth" Value="1"/>
-                <Setter Property="BorderColor" Value="Black"/>
                 <Setter Property="CornerRadius" Value="5"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="WidthRequest" Value="400"/>
+            </Style>
+
+            <Style TargetType="Button" 
+                   x:Key="StickyBottomButtons"
+                   BasedOn="{StaticResource GridRoundedButton}">
+                <Setter Property="Margin" Value="30"/>
             </Style>
 
             <!-- Stack Layouts -->
@@ -321,6 +425,47 @@
                 x:Key="VerticalStack"
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Orientation" Value="Vertical" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="VerticalStackSaveCancelButtons">
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="Spacing" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0,40" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="HorizontalStackFillExpand"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="CenterVerticalStack"
+                   BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="HomePageCenterVerticalStack"
+                   BasedOn="{StaticResource CenterVerticalStack}">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+
+            <Style TargetType="StackLayout"
+                x:Key="CenterHorizontalStack"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="VerticalStackHorizontalFillExpand"
+                   BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Margin" Value="0"/>
             </Style>
 
             <Style TargetType="StackLayout"
@@ -354,7 +499,7 @@
                 <Setter Property="MinimumWidthRequest" Value="60" />
                 <Setter Property="Spacing" Value="1" />
             </Style>
-            
+
             <Style TargetType="StackLayout"
                 x:Key="PlayerInfoBox"
                 BasedOn="{StaticResource CardImageTextBox}">
@@ -466,9 +611,10 @@
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="BorderColor" Value="{StaticResource SecondaryBackgroundColor}" />
             </Style>
-            
+
             <!-- Grid -->
-            <Style TargetType="Grid">
+            <Style TargetType="Grid"
+                   x:Key="Grid">
                 <Setter Property="ColumnSpacing" Value="0" />
                 <Setter Property="RowSpacing" Value="0" />
                 <Setter Property="Margin" Value="0" />
@@ -476,11 +622,29 @@
             </Style>
             
             <Style TargetType="Grid"
+                   x:Key="CenterGrid"
+                   BasedOn="{StaticResource Grid}">
+                <Setter Property="ColumnSpacing" Value="2" />
+                <Setter Property="RowSpacing" Value="1" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="Grid"
+                   x:Key="UpdateCreateGrid"
+                   BasedOn="{StaticResource Grid}">
+                <Setter Property="RowSpacing" Value="15" />
+                <Setter Property="ColumnSpacing" Value="2" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0,30" />
+            </Style>
+
+            <Style TargetType="Grid"
                 x:Key="MapGridStyle">
                 <Setter Property="VerticalOptions" Value="Fill" />
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
             </Style>
-            
+
             <!-- Entry -->
             <Style TargetType="Entry"
                 x:Key="EntryStyle">
@@ -523,6 +687,14 @@
                 <Setter Property="FontAttributes" Value="None" />
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
             </Style>
+
+            <!-- Slider -->
+            <Style TargetType="Slider"
+                x:Key="AttributeSlider">
+                <Setter Property="Minimum" Value="0" />
+                <Setter Property="Maximum" Value="9"/>
+            </Style>
+
 
         </ResourceDictionary>
     </Application.Resources>

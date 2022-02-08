@@ -5,64 +5,58 @@
              >
 
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
-
-                <StackLayout  Orientation="Vertical">
-                    <StackLayout Orientation="Horizontal" Margin="0,100,0,0">
-                        <StackLayout Style="{StaticResource CardImageTextBox}" HorizontalOptions="Start">
+        <StackLayout >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Style="{StaticResource VerticalStackHorizontalFillExpand}" Grid.Row="1">
+                        <Grid RowSpacing="30">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150"></RowDefinition>
+                                <RowDefinition Height="150"></RowDefinition>
+                                <RowDefinition Height="150"></RowDefinition>
+                                <RowDefinition Height="150"></RowDefinition>
+                            </Grid.RowDefinitions>
 
                             <ImageButton
-                                    Source="item.png"
-                                    Style="{StaticResource ImageLargeStyle}"
+                                    Grid.Row="0" Grid.Column="0"
+                                    Source="sampleImage.jpg"
+                                    Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="VillageButton_Clicked"/>
 
-                            <Label 
-                                    Text="Village"
-                                    Style="{StaticResource CenterMessageStyle}"/>
+                            <Label Grid.Row="0" 
+                                   Text="Village" 
+                                   Style="{StaticResource HorizontalMenuLabelLeft}"/>
 
-                        </StackLayout>
-
-                        <StackLayout Style="{StaticResource CardImageTextBox}" HorizontalOptions="EndAndExpand">
-
-                            <ImageButton
-                                    Source="item.png"
-                                    Style="{StaticResource ImageLargeStyle}"
+                            <ImageButton Grid.Row="1" Grid.Column="0"
+                                    Source="sampleImage.jpg"
+                                    Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="DungeonButton_Clicked"/>
 
-                            <Label 
-                                    Text="Dungeon"
-                                    Style="{StaticResource CenterMessageStyle}"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <StackLayout Style="{StaticResource CardImageTextBox}">
+                            <Label Grid.Row="1" 
+                                   Text="Dungeon" 
+                                   Style="{StaticResource HorizontalMenuLabelRight}"/>
 
                             <ImageButton
-                                    Source="item.png"
-                                    Style="{StaticResource ImageLargeStyle}"
+                                    Grid.Row="2" Grid.Column="0"
+                                    Source="sampleImage.jpg"
+                                    Style="{StaticResource HorizontalMenuImageButton}"
                                     Clicked="AutobattleButton_Clicked"/>
 
-                            <Label 
-                                    Text="Auto Battle"
-                                    Style="{StaticResource CenterMessageStyle}"/>
+                            <Label Grid.Row="2" 
+                                   Text="Auto-Battle" 
+                                    Style="{StaticResource HorizontalMenuLabelLeft}"/>
 
-                        </StackLayout>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,100,0,0">
-                        <StackLayout Orientation="Vertical" HorizontalOptions="Center">
-                            <Label Text="Welcome to" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center" FontSize="Large"/>
-                            <Label Text="Escape From HS!" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center" FontSize="Large"/>
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>
-            </ScrollView>
+                            <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="3">
+                                <Image Source="logo.png" Style="{StaticResource LogoImageLarge}" />
+                            </StackLayout>
 
-        </Grid>
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
     </ContentPage.Content>
 </ContentPage>
