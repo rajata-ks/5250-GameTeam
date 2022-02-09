@@ -25,7 +25,7 @@
                 <ColumnDefinition  Width="*" />
             </Grid.ColumnDefinitions>
 
-            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center" Grid.Row="0" Grid.ColumnSpan="2" >
+            <StackLayout Style="{StaticResource VerticalCenterStack}"  Grid.Row="0" Grid.ColumnSpan="2" >
 
                 <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
                 <StackLayout Style="{StaticResource HorizontalCenterStack}" Grid.Row="0" Grid.ColumnSpan="2">
