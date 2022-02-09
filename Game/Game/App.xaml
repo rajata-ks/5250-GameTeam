@@ -682,7 +682,12 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource PageBackgroundColor}"/>
                 <Setter Property="IsVisible" Value="false" />
             </Style>
-                
+
+            <Style TargetType="StackLayout"
+                    x:Key="AttributeStackLayout"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="Padding" Value="10,0,10,0"/>
+            </Style>
             <!--List View-->
             <Style TargetType="ListView" 
                    x:Key="DefaultListView">
