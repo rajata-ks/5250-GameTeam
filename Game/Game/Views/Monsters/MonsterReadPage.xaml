@@ -155,8 +155,8 @@
                         <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
                             <Image x:Name="PopupItemImage" Style="{StaticResource ImageLargeStyle}"/>
 
-                            <Label x:Name="PopupItemName" Style="{StaticResource PopupItemTextStyle} " MaxLines="2" LineBreakMode="WordWrap" />
-                            <Label x:Name="PopupItemDescription" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" />
+                            <Label x:Name="PopupItemName" Style="{StaticResource ItemPopup} "/>
+                            <Label x:Name="PopupItemDescription" Style="{StaticResource ItemPopup}"/>
 
                             <StackLayout Style="{StaticResource HorizontalStack}">
                                 <Label Text="Location : " Style="{StaticResource LabelStyle}" />
