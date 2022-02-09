@@ -126,7 +126,7 @@
 
                         <StackLayout Orientation="Vertical">
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                            <StackLayout Style="{StaticResource AttributeStackLayout}">
 
                                 <Label Text="Attack" Style="{StaticResource LabelStyle}"/>
 
@@ -142,7 +142,7 @@
                                     ValueChanged="Attack_OnStepperValueChanged" 
                                     Value="{Binding Data.Attack}" />
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                            <StackLayout Style="{StaticResource AttributeStackLayout}">
 
                                 <Label Text="Defense" Style="{StaticResource LabelStyle}"/>
 
@@ -158,7 +158,7 @@
                                     ValueChanged="Defense_OnStepperValueChanged" 
                                     Value="{Binding Data.Defense}" />
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                            <StackLayout Style="{StaticResource AttributeStackLayout}">
 
                                 <Label Text="Speed" Style="{StaticResource LabelStyle}"/>
 
