@@ -48,10 +48,8 @@
             </StackLayout>
 
 
-            <Frame CornerRadius="10"  
-                   Padding="40"
-                   BackgroundColor="GhostWhite"
-                   Grid.Row="1" Grid.ColumnSpan="2" BorderColor="Black">
+            <Frame Style="{StaticResource NarratorFrame}"
+                   Grid.Row="1" Grid.ColumnSpan="2">
 
                     <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
