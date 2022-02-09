@@ -44,6 +44,7 @@ namespace Game.Views
 
         private DifficultyEnum currDifficulty;
         private int locationIndex;
+        private ItemLocationEnum currLocation;
 
         // Empty Constructor for UTs
         public MonsterUpdatePage(bool UnitTest) { }
@@ -118,6 +119,9 @@ namespace Game.Views
             BindingContext = this.ViewModel;
             ViewModel.Data.Difficulty = currDifficulty = difficulty;
             DifficultyPicker.SelectedIndex = difficultyIndex;
+
+            ViewModel.Data.Location = currLocation = location;
+            LocationPicker.SelectedIndex = locationIndex;
             return true;
         }
 
