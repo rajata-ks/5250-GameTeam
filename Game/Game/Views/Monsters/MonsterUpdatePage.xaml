@@ -117,7 +117,7 @@
                                     Text="{Binding Data.Attack, Mode=TwoWay}" 
                                     x:Name="AttackValue"
                                     Style="{StaticResource AttributeLabelStyle}"/>
-                                
+
                             </StackLayout>
 
                             <Slider x:Name="attackSilder" 
@@ -126,6 +126,8 @@
                                     Value="{Binding Data.Attack}" />
 
                             <StackLayout Style="{StaticResource AttributeStackLayout}">
+
+                                <Label Text="Defense" Style="{StaticResource LabelStyle}"/>
 
                                 <Label 
                                     Text="{Binding Data.Defense, Mode=TwoWay}" 
@@ -138,31 +140,22 @@
                                     Style="{StaticResource DefaultSlider}"
                                     ValueChanged="Defense_OnStepperValueChanged" 
                                     Value="{Binding Data.Defense}" />
-                            
-                            <StackLayout Style="{StaticResource AttributeStackLayout}">
-                                
-                                <Slider x:Name="defenseSilder" 
-                                    Minimum="0" 
-                                    Maximum="9" ValueChanged="Defense_OnStepperValueChanged" Value="{Binding Data.Defense}" />
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                            <StackLayout Style="{StaticResource AttributeStackLayout}">
 
                                 <Label Text="Speed" Style="{StaticResource LabelStyle}"/>
 
                                 <Label 
                                     Text="{Binding Data.Speed, Mode=TwoWay}" 
                                     x:Name="SpeedValue"
-                                    Style="{StaticResource ValueStyle}"
-                                    Padding="0,0,10,0"
-                                    HorizontalOptions="End"
-                                    HorizontalTextAlignment="End"/>
+                                    Style="{StaticResource AttributeLabelStyle}"/>
 
                             </StackLayout>
 
                             <Slider x:Name="speedSilder" 
-                                    Minimum="0" 
-                                    Maximum="9" ValueChanged="Speed_OnStepperValueChanged" Value="{Binding Data.Speed}" />
-
+                                    Style="{StaticResource DefaultSlider}"
+                                    ValueChanged="Speed_OnStepperValueChanged"
+                                    Value="{Binding Data.Speed}" />
                         </StackLayout>
 
                         <FlexLayout 
