@@ -40,7 +40,7 @@
                         <Label Text="Create Page" Style="{StaticResource HeaderStyle}"/>
 
                         <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Image Source="{Binding Data.ImageURI, Mode=TwoWay}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
+                            <Image Source="{Binding Data.ImageURI, Mode=TwoWay}" Style="{StaticResource DisplayAsset}"/>
 
                             <ImageButton 
                                 x:Name="RollDice"
