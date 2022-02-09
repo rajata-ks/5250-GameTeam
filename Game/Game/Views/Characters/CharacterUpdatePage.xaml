@@ -10,7 +10,7 @@
              x:Class="Game.Views.CharacterUpdatePage">
 
     <NavigationPage.TitleView>
-        <Label Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+        <Label Text="{Binding Title}"  Style="{StaticResource HeaderCenterStyle}"/>
     </NavigationPage.TitleView>
 
     <ContentPage.ToolbarItems>
