@@ -62,18 +62,19 @@
                                 Text="{Binding Data.Attribute}" 
                                 Style="{StaticResource ValueStyle}"/>
                         </StackLayout>
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label
+                                Text="Description : " 
+                                Style="{StaticResource DescriptionStyle}"/>
+                            <Label 
+                                Text="{Binding Data.Description}" 
+                                Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
                     </StackLayout>
                 </StackLayout>
 
 
-                <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Padding="30">
-                    <Label
-                    Text="Description : " 
-                    Style="{StaticResource DescriptionStyle}"/>
-                    <Label 
-                    Text="{Binding Data.Description}" 
-                    Style="{StaticResource ValueStyle}"/>
-                </StackLayout>
+
 
                 <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
                     <Label Text="Attributes" Style="{StaticResource HeaderCenterStyle}"/>
