@@ -163,8 +163,8 @@
                                     SelectedIndex="{Binding SelectedItemProperty}"
                                     SelectedIndexChanged="Location_Changed"
                                     x:Name="LocationPicker"/>
-                        
-                        
+
+
                         <FlexLayout 
                         Padding="5"
                         Wrap="Wrap"
