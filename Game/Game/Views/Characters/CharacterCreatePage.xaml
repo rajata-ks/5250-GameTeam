@@ -202,12 +202,7 @@
                  AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
                  AbsoluteLayout.LayoutFlags="All">
 
-                <StackLayout 
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand"
-                    WidthRequest="300"
-                    HeightRequest="300"
-                    >
+                <StackLayout Style="{StaticResource PopupBox}">
 
                     <Frame  BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
                         <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
