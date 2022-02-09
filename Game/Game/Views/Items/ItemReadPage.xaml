@@ -32,103 +32,118 @@
                 <ColumnDefinition  Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}" Grid.Row="0" Grid.Column="1"/>
-            <StackLayout Style="{StaticResource VerticalCenterStack}" Grid.Row="0" Grid.Column="2" >
-                <StackLayout Style="{StaticResource HorizontalStack}">
-                    <Label Text="Name : " Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.Name}" Style="{StaticResource ValueStyle}"/>
-                </StackLayout>
-   
-                <StackLayout Style="{StaticResource HorizontalStack}">
-                    <Label Text="Location : " Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.Location}" Style="{StaticResource ValueStyle}"/>
+            <StackLayout Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="3">
+                <StackLayout Style="{StaticResource HorizontalCenterStack}">
+                    <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
+
+                    <StackLayout  Style="{StaticResource VerticalCenterStack}">
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label 
+                               Text="Name : " 
+                               Style="{StaticResource LabelStyle}"/>
+                            <Label 
+                                Text="{Binding Data.Name}" 
+                                Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label 
+                                Text="Location : " 
+                                Style="{StaticResource LabelStyle}"/>
+                            <Label 
+                                Text="{Binding Data.Location}" 
+                                Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
+                        <StackLayout Style="{StaticResource HorizontalStack}">
+                            <Label 
+                                Text="Attribute : " 
+                                Style="{StaticResource LabelStyle}"/>
+                            <Label 
+                                Text="{Binding Data.Attribute}" 
+                                Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
+                    </StackLayout>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource HorizontalStack}">
-                    <Label Text="Attribute : " Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.Attribute}" Style="{StaticResource ValueStyle}"/>
-                </StackLayout>
-            </StackLayout>
 
-
-            <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Padding="30">
-                <Label
+                <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Padding="30">
+                    <Label
                     Text="Description : " 
                     Style="{StaticResource DescriptionStyle}"/>
-                <Label 
+                    <Label 
                     Text="{Binding Data.Description}" 
                     Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
-                <Label Text="Attributes" Style="{StaticResource HeaderCenterStyle}"/>
-
-                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                    <Label Text="Damage " Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.Damage}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
-                        <ProgressBar x:Name="DamageProgress" Progress="{Binding Data.GetDamageProgress}" Style="{StaticResource AttributeProgressBar}"/>
-                        <StackLayout Style="{StaticResource ProgressInnerStack}">
-                            <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
-                            <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
+                    <Label Text="Attributes" Style="{StaticResource HeaderCenterStyle}"/>
+
+                    <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
+                        <Label Text="Damage " Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding Data.Damage}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Style="{StaticResource ProgressOuterStack}">
+                        <StackLayout Style="{StaticResource ProgressMiddleStack}">
+                            <ProgressBar x:Name="DamageProgress" Progress="{Binding Data.GetDamageProgress}" Style="{StaticResource AttributeProgressBar}"/>
+                            <StackLayout Style="{StaticResource ProgressInnerStack}">
+                                <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
+                                <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
-                </StackLayout>
 
-                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                    <Label Text="Value " Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.Value}" Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
+                    <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
+                        <Label Text="Value " Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding Data.Value}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
 
-                <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
-                        <ProgressBar x:Name="ValueProgress" Progress="{Binding Data.GetValueProgress}" Style="{StaticResource AttributeProgressBar}" />
-                        <StackLayout Style="{StaticResource ProgressInnerStack}">
-                            <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
-                            <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                    <StackLayout Style="{StaticResource ProgressOuterStack}">
+                        <StackLayout Style="{StaticResource ProgressMiddleStack}">
+                            <ProgressBar x:Name="ValueProgress" Progress="{Binding Data.GetValueProgress}" Style="{StaticResource AttributeProgressBar}" />
+                            <StackLayout Style="{StaticResource ProgressInnerStack}">
+                                <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
+                                <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
-                </StackLayout>
 
-                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                    <Label Text="Range " Style="{StaticResource LabelStyle}" />
-                    <Label Text="{Binding Data.Range}" Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
+                    <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
+                        <Label Text="Range " Style="{StaticResource LabelStyle}" />
+                        <Label Text="{Binding Data.Range}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
 
-                <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
-                        <ProgressBar x:Name="RangeProgress" Progress="{Binding Data.GetRangeProgress}" Style="{StaticResource AttributeProgressBar}" />
-                        <StackLayout Style="{StaticResource ProgressInnerStack}">
-                            <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
-                            <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                    <StackLayout Style="{StaticResource ProgressOuterStack}">
+                        <StackLayout Style="{StaticResource ProgressMiddleStack}">
+                            <ProgressBar x:Name="RangeProgress" Progress="{Binding Data.GetRangeProgress}" Style="{StaticResource AttributeProgressBar}" />
+                            <StackLayout Style="{StaticResource ProgressInnerStack}">
+                                <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
+                                <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
+
                 </StackLayout>
 
-            </StackLayout>
+                <Frame Style="{StaticResource UpdateFrame}" Grid.Row="3" Grid.ColumnSpan="3">
 
-            <Frame Style="{StaticResource UpdateFrame}" Grid.Row="3" Grid.ColumnSpan="3">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}">
 
-                <StackLayout Style="{StaticResource VerticalCenterStack}">
-
-                    <Label Text="Do you want to update this item?" Style="{StaticResource UpdateStyle}"
+                        <Label Text="Do you want to update this item?" Style="{StaticResource UpdateStyle}"
                            Grid.Row="1" Grid.ColumnSpan="3"/>
 
 
-                    <StackLayout Style="{StaticResource HorizontalCenterStack}">
-                        <Button 
+                        <StackLayout Style="{StaticResource HorizontalCenterStack}">
+                            <Button 
                             Text="Yes"  Clicked="Update_Clicked"
                             Style="{StaticResource UpdateButton}">
-                        </Button>
+                            </Button>
+                        </StackLayout>
                     </StackLayout>
-                </StackLayout>
-            </Frame>
+                </Frame>
 
+            </StackLayout>
             <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="4" Grid.Column="1"/>
-
         </Grid>
     </ScrollView>
 </ContentPage>
