@@ -43,6 +43,8 @@ namespace Game.Views
         private MonsterModel MonsterModelCopy;
 
         private DifficultyEnum currDifficulty;
+        private int locationIndex;
+
         // Empty Constructor for UTs
         public MonsterUpdatePage(bool UnitTest) { }
 
@@ -77,6 +79,22 @@ namespace Game.Views
                 }
                 currIndex++;
             }
+
+            //Find what the LocationPicker.SelectedIndex should be.
+            int currLocationIndex = 0;
+            locationIndex = 0;
+
+            //Add item Locations to list
+            foreach (string i in Enum.GetNames(typeof(ItemLocationEnum)))
+            {
+                LocationPicker.Items.Add(i);
+                if (i == this.ViewModel.Data.Location.ToString())
+                {
+                    locationIndex = currLocationIndex;
+                }
+                currLocationIndex++;
+            }
+
 
             AddItemsToDisplay();
 
