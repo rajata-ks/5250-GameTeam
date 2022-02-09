@@ -266,8 +266,8 @@
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Padding" Value="10" />
-            </Style>'
-            
+            </Style>
+
             <Style TargetType="Label"
                 x:Key="DescriptionStyle"
                 BasedOn="{StaticResource LabelStyle}">
