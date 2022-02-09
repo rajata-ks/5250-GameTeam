@@ -22,13 +22,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame
-                                    CornerRadius="10"
-                                    Padding="10"
-                                   HorizontalOptions="FillAndExpand"
-                                   BackgroundColor="{StaticResource SecondaryBackgroundColor}"
-                                   BorderColor="{StaticResource TriciaryTextColor}" Margin="5">
-
+                            <Frame Style="{StaticResource ListIndexFrameCells}">
                                 <Grid ColumnSpacing="5" RowSpacing="1">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="200"/>
@@ -68,8 +62,6 @@
 
                             </Grid>
                             </Frame>
-
-                           
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
