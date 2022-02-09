@@ -16,59 +16,59 @@ namespace Game.GameRules
             var datalist = new List<ItemModel>()
             {
                 new ItemModel {
-                    Name = "Books",
-                    Description = "Big and Heavy",
-                    ImageURI = "pen.png",
+                    Name = "Gold Sword",
+                    Description = "Sword made of Gold, really expensive looking",
+                    ImageURI = "sword1.png",
                     Range = 0,
-                    Damage = 0,
-                    Value = 2,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Defense},
-
-                new ItemModel {
-                    Name = "Pen",
-                    Description = "Can be used for stabbing",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 3,
-                    Value = 1,
+                    Damage = 10,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
-                    Name = "Duster",
-                    Description = "Find a better weapon",
-                    ImageURI = "pen.png",
+                    Name = "Pirate Sword",
+                    Description = "Aye matie",
+                    ImageURI = "sword2.png",
+                    Range = 0,
+                    Damage = 8,
+                    Value = 9,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Dagger",
+                    Description = "watch out",
+                    ImageURI = "sword3.png",
                     Range = 0,
                     Damage = 6,
-                    Value = 2,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
-                    Name = "School Bag",
-                    Description = "Can be used as armor",
-                    ImageURI = "pen.png",
+                    Name = "Strong Sword",
+                    Description = "watch out",
+                    ImageURI = "sword4.png",
                     Range = 0,
-                    Damage = 5,
-                    Value = 5,
+                    Damage = 12,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Defense},
+                    Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
-                    Name = "Shoes",
-                    Description = "Run Fast!",
-                    ImageURI = "pen.png",
+                    Name = "Wand",
+                    Description = "watch out",
+                    ImageURI = "sword5.png",
                     Range = 0,
                     Damage = 4,
                     Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Speed},
+                    Attribute = AttributeEnum.Defense},
 
                 new ItemModel {
-                    Name = "Lunch Box",
-                    Description = "Cute lunch ruined",
-                    ImageURI = "pen.png",
+                    Name = "Mace",
+                    Description = "watch out",
+                    ImageURI = "sword6.png",
                     Range = 0,
                     Damage = 6,
                     Value = 9,
@@ -76,35 +76,184 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Speed},
 
                 new ItemModel {
-                    Name = "Desk",
-                    Description = "Tons of Damage",
-                    ImageURI = "pen.png",
-                    Range = 1,
-                    Damage = 10,
-                    Value = 10,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
-                    Name = "Chair",
-                    Description = "Great damage",
-                    ImageURI = "pen.png",
-                    Range = 3,
-                    Damage = 6,
-                    Value = 5,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
-                    Name = "Chalk",
-                    Description = "Useless as hell",
-                    ImageURI = "pen.png",
+                    Name = "Mace of Health",
+                    Description = "Feeling Good",
+                    ImageURI = "sword7.png",
                     Range = 0,
-                    Damage = 1,
-                    Value = 1,
+                    Damage = 6,
+                    Value = 9,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.CurrentHealth},
+
+                new ItemModel {
+                    Name = "Arrows",
+                    Description = "Poke your eye out",
+                    ImageURI = "sword8.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack},
 
+                new ItemModel {
+                    Name = "Boxing",
+                    Description = "watch out",
+                    ImageURI = "sword9.png",
+                    Range = 0,
+                    Damage = 6,
+                    Value = 9,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Bow",
+                    Description = "Fast Bow",
+                    ImageURI = "sword10.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 9,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Fire Bow",
+                    Description = "Fast Bow",
+                    ImageURI = "sword11.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 9,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Strong Shield",
+                    Description = "Enough to hide behind",
+                    ImageURI = "shield1.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.Defense},
+
+                new ItemModel {
+                    Name = "Fancy Shield",
+                    Description = "Enough to hide behind",
+                    ImageURI = "shield2.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.Defense},
+
+                new ItemModel {
+                    Name = "Health Shield",
+                    Description = "Enough to hide behind",
+                    ImageURI = "shield3.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.MaxHealth},
+
+                new ItemModel {
+                    Name = "Lucky Shield",
+                    Description = "Do you feel lucky punk?",
+                    ImageURI = "shield4.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Bunny Hat",
+                    Description = "Pink hat with fluffy ears",
+                    ImageURI = "hat1.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Head,
+                    Attribute = AttributeEnum.Speed},
+
+                new ItemModel {
+                    Name = "Horned Hat",
+                    Description = "Where's the Rabbit?",
+                    ImageURI = "hat2.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Head,
+                    Attribute = AttributeEnum.Defense},
+
+                new ItemModel {
+                    Name = "Fast Necklass",
+                    Description = "And Tasty",
+                    ImageURI = "neck1.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Necklass,
+                    Attribute = AttributeEnum.Speed},
+
+                new ItemModel {
+                    Name = "Feel the Power",
+                    Description = "Love this one",
+                    ImageURI = "neck2.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Necklass,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Horned Hat",
+                    Description = "Where's the Rabbit?",
+                    ImageURI = "hat2.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Head,
+                    Attribute = AttributeEnum.Defense},
+
+                new ItemModel {
+                    Name = "Ring of Power",
+                    Description = "The wearer has all the power",
+                    ImageURI = "ring1.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Finger,
+                    Attribute = AttributeEnum.Speed},
+
+                new ItemModel {
+                    Name = "Strong Ring",
+                    Description = "Watch out",
+                    ImageURI = "ring2.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Finger,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Warm Shoes",
+                    Description = "Strong Shoes",
+                    ImageURI = "feet1.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Feet,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Cute Shoes",
+                    Description = "really fast",
+                    ImageURI = "feet2.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Feet,
+                    Attribute = AttributeEnum.Speed},
             };
 
             return datalist;
@@ -151,11 +300,11 @@ namespace Game.GameRules
             var datalist = new List<CharacterModel>()
             {
                 new CharacterModel {
-                    Name = "Mike",
-                    Description = "Archer Wannabe",
+                    Name = "Nerd",
+                    Description = " A geek girl",
                     Level = 1,
                     MaxHealth = 5,
-                    ImageURI = "elf1.png",
+                    ImageURI = "character__nerd.png",
                     Head = HeadString,
                     Necklass = NecklassString,
                     PrimaryHand = PrimaryHandString,
@@ -166,11 +315,11 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "Tim",
-                    Description = "Hawk eye",
+                    Name = "Athlete",
+                    Description = "Not a runner? Now you are..",
                     Level = 1,
                     MaxHealth = 5,
-                    ImageURI = "elf2.png",
+                    ImageURI = "character_athlete.png",
                     Head = HeadString,
                     Necklass = NecklassString,
                     PrimaryHand = PrimaryHandString,
@@ -181,11 +330,11 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "Doug",
-                    Description = "Warrior in training",
+                    Name = "Goth",
+                    Description = "Don't get in my way",
                     Level = 1,
                     MaxHealth = 8,
-                    ImageURI = "elf4.png",
+                    ImageURI = "character_athlete.png",
                     Head = HeadString,
                     Necklass = NecklassString,
                     PrimaryHand = PrimaryHandString,
@@ -196,35 +345,27 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "Sue",
-                    Description = "A strong Warrior",
+                    Name = "Skater",
+                    Description = "I still got a lot of shoes left",
                     Level = 4,
                     MaxHealth = 38,
-                    ImageURI = "elf3.png"
+                    ImageURI = "character_athlete.png"
                 },
 
                 new CharacterModel {
-                    Name = "Jea",
+                    Name = "Procastinator",
                     Description = "Come and get me",
                     Level = 5,
                     MaxHealth = 43,
-                    ImageURI = "elf5.png"
+                    ImageURI = "character_athlete.png"
                 },
 
                 new CharacterModel {
-                    Name = "Darren",
-                    Description = "The Wiz",
+                    Name = "Class Clown",
+                    Description = "You dont fear me ? then you'll die braver than most!",
                     Level = 5,
                     MaxHealth = 43,
-                    ImageURI = "elf6.png"
-                },
-
-                new CharacterModel {
-                    Name = "Dani",
-                    Description = "A powerfull Cleric",
-                    Level = 5,
-                    MaxHealth = 43,
-                    ImageURI = "elf7.png"
+                    ImageURI = "character_athlete.png"
                 }
             };
 
