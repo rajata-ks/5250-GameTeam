@@ -125,7 +125,7 @@
                                     ValueChanged="Attack_OnStepperValueChanged" 
                                     Value="{Binding Data.Attack}" />
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                            <StackLayout Style="{StaticResource AttributeStackLayout}">
 
                                 <Label Text="Defense" Style="{StaticResource LabelStyle}"/>
 
