@@ -69,8 +69,8 @@
                             Style="{StaticResource UpdateButton}">
                         </Button>
                         <Button 
-                            Text="No"  Clicked="Cancel_Clicked"  HorizontalOptions="Center" 
-                            FontSize="Medium" BorderWidth="1"  BorderColor="black" Margin="10,0,10,0">
+                            Text="No"  Clicked="Cancel_Clicked"   
+                            Style="{StaticResource UpdateButton}">
                         </Button>
                     </StackLayout>
 
