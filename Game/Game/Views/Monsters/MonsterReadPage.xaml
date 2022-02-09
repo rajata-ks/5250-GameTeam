@@ -8,7 +8,7 @@
              Title="{Binding Title}">
 
     <NavigationPage.TitleView>
-        <Label Text="Read Page" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+        <Label Text="Read Page" Style="{StaticResource HeaderCenterStyle}"/>
     </NavigationPage.TitleView>
 
     <ContentPage.ToolbarItems>
