@@ -280,6 +280,13 @@
                 <Setter Property="LineBreakMode" Value="WordWrap" />
                 <Setter Property="MaxLines" Value="2" />
             </Style>
+            
+            <Style TargetType="Label"
+                x:Key="AttributesTitle"
+                BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+            
             <!-- Image -->
             <Style TargetType="Image"
                 x:Key="ImageLargeStyle">
