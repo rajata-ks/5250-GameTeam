@@ -432,7 +432,14 @@
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="WidthRequest" Value="400"/>
             </Style>
-
+            <Style TargetType="Button" 
+                   x:Key="CreatePageButtonStyle"
+                   BasedOn="{StaticResource GridRoundedButton}">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+            </Style>
             <Style TargetType="Button" 
                    x:Key="UpdateButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
