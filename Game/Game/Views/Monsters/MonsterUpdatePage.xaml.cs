@@ -159,6 +159,10 @@ namespace Game.Views
             //Save the difficulty. 
             ViewModel.Data.Difficulty = currDifficulty;
 
+
+            //Save the location
+            ItemBox.Children.Add(GetItemToDisplay(currLocation));
+
             _ = await Navigation.PopModalAsync();
         }
 
