@@ -158,9 +158,21 @@
                                     Value="{Binding Data.Speed}" />
                         </StackLayout>
 
-                        <FlexLayout Style="{StaticResource ItemLayout}"
-                        x:Name="ItemBox">
-                        </FlexLayout>
+                        <StackLayout Style="{StaticResource HorizontalCenterStack}" >
+                            <Label Grid.Row="4" Grid.Column="0" 
+                                   Text="Item"
+                                   Style="{StaticResource LabelStyle}"/>
+                            <Picker   Grid.Row="4" Grid.Column="1" 
+                                    SelectedIndex="{Binding SelectedItemProperty}"
+                                    SelectedIndexChanged="Location_Changed"
+                                    x:Name="LocationPicker"/>
+
+
+                            <FlexLayout Grid.Row="4" Grid.Column="2" 
+                                Style="{StaticResource ItemLayout}"
+                                x:Name="ItemBox">
+                            </FlexLayout>
+                        </StackLayout>
 
                         <Grid>
                             <StackLayout Orientation="Horizontal" VerticalOptions="End">
