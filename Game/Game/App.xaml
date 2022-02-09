@@ -820,6 +820,12 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
                 <Setter Property="PlaceholderColor" Value="{StaticResource TriciaryTextColor}" />
             </Style>
+
+            <Style TargetType="Entry"
+                x:Key="NameEntry"
+                BasedOn="{StaticResource EntryStyle}">
+                <Setter Property="Text" Value="{Binding Data.Description, Mode=TwoWay}" />
+            </Style>
             
             <Style TargetType="Entry"
                 x:Key="DescriptionEntry"
