@@ -158,11 +158,7 @@
                                     Value="{Binding Data.Speed}" />
                         </StackLayout>
 
-                        <FlexLayout 
-                        Padding="5"
-                        Wrap="Wrap"
-                        JustifyContent="SpaceAround"
-                        AlignContent="SpaceAround"
+                        <FlexLayout Style="{StaticResource ItemLayout}"
                         x:Name="ItemBox">
                         </FlexLayout>
 
