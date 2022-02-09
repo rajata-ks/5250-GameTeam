@@ -127,10 +127,10 @@
                 Style="{StaticResource ItemLayout}" x:Name="ItemBox" Grid.Row="3" Grid.ColumnSpan="3">
             </FlexLayout>
 
-            <Frame      Style="{StaticResource UpdateFrame}"
+            <Frame      Style="{StaticResource Update}"
                         Padding="50"
                         Grid.Row="4" Grid.ColumnSpan="3" >
-                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
+                <StackLayout Style="{StaticResource VerticalCenterStack}">
 
                     <Label Text="Do you want to update this Monster?" 
                            TextColor="Black"
