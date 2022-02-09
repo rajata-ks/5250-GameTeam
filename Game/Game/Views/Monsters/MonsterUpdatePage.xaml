@@ -127,19 +127,21 @@
 
                             <StackLayout Style="{StaticResource AttributeStackLayout}">
 
-                                <Label Text="Defense" Style="{StaticResource LabelStyle}"/>
-
                                 <Label 
                                     Text="{Binding Data.Defense, Mode=TwoWay}" 
                                     x:Name="DefenseValue"
-                                    Style="{StaticResource ValueStyle}"
-                                    Padding="0,0,10,0"
-                                    HorizontalOptions="End"
-                                    HorizontalTextAlignment="End"/>
+                                    Style="{StaticResource AttributeLabelStyle}"/>
 
                             </StackLayout>
 
                             <Slider x:Name="defenseSilder" 
+                                    Style="{StaticResource DefaultSlider}"
+                                    ValueChanged="Defense_OnStepperValueChanged" 
+                                    Value="{Binding Data.Defense}" />
+                            
+                            <StackLayout Style="{StaticResource AttributeStackLayout}">
+                                
+                                <Slider x:Name="defenseSilder" 
                                     Minimum="0" 
                                     Maximum="9" ValueChanged="Defense_OnStepperValueChanged" Value="{Binding Data.Defense}" />
 
