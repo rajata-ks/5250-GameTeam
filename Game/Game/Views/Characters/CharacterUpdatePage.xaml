@@ -126,11 +126,11 @@
 
                         <StackLayout Orientation="Vertical">
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                            <StackLayout Style="{StaticResource AttributeStackLayout}">
 
-                                <Label Text="Attack" Style="{StaticResource LabelStyle}"/>
-
-                                <Label 
+                            <Label Text="Attack" Style="{StaticResource LabelStyle}"/>
+                            
+                            <Label 
                                     Text="{Binding Data.Attack, Mode=TwoWay}" 
                                     x:Name="AttackValue"
                                     Style="{StaticResource AttributeLabelStyle}"/>
