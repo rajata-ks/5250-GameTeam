@@ -39,11 +39,18 @@ namespace Game.Views
         //Int used to keep track of curent index.
         private int difficultyIndex;
 
+        //Int used to keep track of curent index of item 
+        private int locationIndex;
+
         //copy of pre edited data
         private MonsterModel MonsterModelCopy;
 
+
+        //temp current difficulty
         private DifficultyEnum currDifficulty;
-        private int locationIndex;
+       
+
+        //temp current item location 
         private ItemLocationEnum currLocation;
 
         // Empty Constructor for UTs
@@ -81,6 +88,9 @@ namespace Game.Views
                 currIndex++;
             }
 
+            _ = UpdatePageBindingContext();
+
+
             //Find what the LocationPicker.SelectedIndex should be.
             int currLocationIndex = 0;
             locationIndex = 0;
@@ -99,7 +109,7 @@ namespace Game.Views
 
             AddItemsToDisplay();
 
-            _ = UpdatePageBindingContext();
+           
         }
 
         /// <summary>
@@ -161,7 +171,7 @@ namespace Game.Views
 
 
             //Save the location
-            ItemBox.Children.Add(GetItemToDisplay(currLocation));
+            ViewModel.Data.Location = currLocation;
 
             _ = await Navigation.PopModalAsync();
         }
@@ -465,7 +475,7 @@ namespace Game.Views
                 _ = ItemBox.Children.Remove(data);
             }
 
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
+            ItemBox.Children.Add(GetItemToDisplay(currLocation));
         }
 
         /// <summary>
@@ -500,7 +510,7 @@ namespace Game.Views
             // Add the Display Text for the item
             var ItemLabel = new Label
             {
-                Text = "Item",
+              
                 Style = (Style)Application.Current.Resources["ValueStyleMicro"],
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center
