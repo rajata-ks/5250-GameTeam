@@ -151,8 +151,7 @@
                  AbsoluteLayout.LayoutFlags="All">
 
                 <StackLayout Style="{StaticResource PopupBox}">
-                    <Frame 
-                    BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
+                    <Frame Style="{StaticResource ItemFrame}">
                         <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
                             <Image x:Name="PopupItemImage" Style="{StaticResource ImageLargeStyle}"/>
 
