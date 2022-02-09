@@ -7,7 +7,7 @@
              x:Class="Game.Views.ItemDeletePage">
 
     <NavigationPage.TitleView>
-        <Label Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource HeaderStyle}"/>
+        <Label Text="{Binding Title}" Style="{StaticResource CenterMessageStyle}"/>
     </NavigationPage.TitleView>
 
     <ScrollView>
@@ -45,10 +45,8 @@
                     </StackLayout>
             </StackLayout>
 
-            <Frame CornerRadius="10"  
-                   Padding="40"
-                   BackgroundColor="{StaticResource SecondaryBackgroundColor}"
-                   Grid.Row="1" Grid.ColumnSpan="2" BorderColor="{StaticResource TriciaryBackgroundColor}">
+            <Frame Style="{StaticResource NarratorFrame}"
+                   Grid.Row="1" Grid.ColumnSpan="2">
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
@@ -57,17 +55,16 @@
                             Padding="10" LineBreakMode="WordWrap" HorizontalTextAlignment="Center"/>
 
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand" >
+                    <StackLayout Style="{StaticResource CenterHorizontalStack}">
                         <Button x:Name="CancelButton" 
-                            Text="Cancel"  Clicked="Cancel_Clicked"  HorizontalOptions="Center" Style="{StaticResource GridRoundedButton}"
-                            WidthRequest="100"
-                            FontSize="Medium" BorderWidth="1"  BorderColor="{StaticResource TriciaryBackgroundColor}" Margin="-5,0,10,0">
+                            Text="Cancel"  Clicked="Cancel_Clicked"  HorizontalOptions="Center" 
+                            Style="{StaticResource UpdateButton}"
+                            Margin="-5,0,10,0">
                         </Button>
                         
                         <Button 
-                            Text="Delete"  Clicked="Delete_Clicked"  HorizontalOptions="Center" Style="{StaticResource GridRoundedButton}"
-                            WidthRequest="100"
-                            FontSize="Medium" BorderWidth="1"  BorderColor="{StaticResource TriciaryBackgroundColor}" Margin="10,0,0,0">
+                            Text="Delete"  Clicked="Delete_Clicked"  HorizontalOptions="Center"
+                            Style="{StaticResource UpdateButton}" Margin="10,0,0,0">
                         </Button>
 
                     </StackLayout>
