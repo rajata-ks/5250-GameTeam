@@ -272,8 +272,14 @@
                 x:Key="DescriptionStyle"
                 BasedOn="{StaticResource LabelStyle}">
                 <Setter Property="LineBreakMode" Value="WordWrap" />
-            </Style
-                   >
+            </Style>
+            
+            <Style TargetType="Label"
+                x:Key="ItemPopup"
+                BasedOn="{StaticResource PopupItemTextStyle}">
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="MaxLines" Value="2" />
+            </Style>
             <!-- Image -->
             <Style TargetType="Image"
                 x:Key="ImageLargeStyle">
@@ -738,6 +744,8 @@
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}"/>
                 <Setter Property="Padding" Value="1" />
             </Style>
+                
+            
             <!-- Grid -->
             <Style TargetType="Grid"
                    x:Key="Grid">
