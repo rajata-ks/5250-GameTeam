@@ -86,7 +86,7 @@
                         <ProgressBar x:Name="AttackProgress" Progress="{Binding Data.GetAttackProgress}" Style="{StaticResource AttributeProgressBar}" />
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
-                            <Label Text="9" FontSize="Micro" HorizontalOptions="EndAndExpand" TextColor="Black" Margin="0,-2,0,0"></Label>
+                            <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
@@ -101,7 +101,7 @@
                         <ProgressBar x:Name="DefenseProgress" Progress="{Binding Data.GetDefenseProgress}" Style="{StaticResource AttributeProgressBar}"/>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
-                            <Label Text="9" FontSize="Micro" HorizontalOptions="EndAndExpand" TextColor="Black" Margin="0,-2,0,0"></Label>
+                            <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
@@ -116,7 +116,7 @@
                         <ProgressBar x:Name="SpeedProgress" Progress="{Binding Data.GetSpeedProgress}" Style="{StaticResource AttributeProgressBar}"/>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
-                            <Label Text="9" FontSize="Micro" HorizontalOptions="EndAndExpand" TextColor="Black" Margin="0,-2,0,0"></Label>
+                            <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
