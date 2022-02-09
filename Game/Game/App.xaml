@@ -701,6 +701,12 @@
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Padding" Value="10,0,10,0"/>
             </Style>
+
+            <Style TargetType="StackLayout"
+                    x:Key="ImageLayout"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
             <!--List View-->
             <Style TargetType="ListView" 
                    x:Key="DefaultListView">
@@ -869,6 +875,14 @@
                 <Setter Property="Wrap" Value="Wrap"/>
                 <Setter Property="JustifyContent" Value="SpaceAround"/>
                 <Setter Property="AlignContent" Value="SpaceAround"/>
+            </Style>
+
+
+            <!-- Entry -->
+            <Style TargetType="Entry"
+                x:Key="ImageEntry"
+                BasedOn="{StaticResource EntryStyle}">
+                <Setter Property="Text" Value="{Binding Data.ImageURI, Mode=TwoWay}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
