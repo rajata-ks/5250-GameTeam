@@ -119,7 +119,7 @@
                             </StackLayout>
 
                             <Slider x:Name="attackSilder" 
-                                    Style="{StaticResource AttributeSlider}"
+                                    Style="{StaticResource DefaultSlider}"
                                     ValueChanged="Attack_OnStepperValueChanged" 
                                     Value="{Binding Data.Attack}" />
 
@@ -135,7 +135,7 @@
                             </StackLayout>
 
                             <Slider x:Name="defenseSilder" 
-                                    Style="{StaticResource AttributeSlider}"
+                                    Style="{StaticResource DefaultSlider}"
                                     ValueChanged="Defense_OnStepperValueChanged" 
                                     Value="{Binding Data.Defense}" />
                             <StackLayout Style="{StaticResource AttributeStackLayout}">
@@ -150,7 +150,7 @@
                             </StackLayout>
 
                             <Slider x:Name="speedSilder" 
-                                    Style="{StaticResource AttributeSlider}"
+                                    Style="{StaticResource DefaultSlider}"
                                     ValueChanged="Speed_OnStepperValueChanged"
                                     Value="{Binding Data.Speed}" />
 
