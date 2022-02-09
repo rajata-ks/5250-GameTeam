@@ -382,7 +382,13 @@
                 x:Key="BattleMapPlayerSmallStyle"
                 BasedOn="{StaticResource ImageBattleSmallStyle}">
             </Style>
-
+            
+            <Style TargetType="Image"
+                x:Key="DisplayAsset"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            </Style>
+            
             <!-- ImageButton -->
             <Style TargetType="ImageButton">
                 <Setter Property="HeightRequest" Value="150" />
