@@ -74,11 +74,10 @@
                                 Style="{StaticResource LabelStyle}"
                                    x:Name="DescriptionLabel"/>
 
-                            <Entry Grid.Row="1" Grid.Column="1"
-                                Text="{Binding Data.Description, Mode=TwoWay}" 
-                                Style="{StaticResource EntryStyle}"
-                                   x:Name="DescriptionEntry"
-                                   TextChanged="Description_TextChanged"/>
+                            <Entry Grid.Row="1" Grid.Column="1" 
+                                Style="{StaticResource DescriptionEntry}"
+                                x:Name="DescriptionEntry"
+                                TextChanged="Description_TextChanged"/>
 
                             <Label Grid.Row="2" Grid.Column="0"
                                 Text="Image" 
