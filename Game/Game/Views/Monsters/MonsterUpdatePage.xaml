@@ -109,23 +109,21 @@
                         <StackLayout Orientation="Vertical">
 
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                            <StackLayout Style="{StaticResource AttributeStackLayout}">
 
                                 <Label Text="Attack" Style="{StaticResource LabelStyle}"/>
 
                                 <Label 
                                     Text="{Binding Data.Attack, Mode=TwoWay}" 
                                     x:Name="AttackValue"
-                                    Style="{StaticResource ValueStyle}"
-                                    Padding="0,0,10,0"
-                                    HorizontalOptions="End"
-                                    HorizontalTextAlignment="End"/>
-
+                                    Style="{StaticResource AttributeLabelStyle}"/>
+                                
                             </StackLayout>
 
                             <Slider x:Name="attackSilder" 
-                                    Minimum="0" 
-                                    Maximum="9" ValueChanged="Attack_OnStepperValueChanged" Value="{Binding Data.Attack}" />
+                                    Style="{StaticResource DefaultSlider}"
+                                    ValueChanged="Attack_OnStepperValueChanged" 
+                                    Value="{Binding Data.Attack}" />
 
                             <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
 
