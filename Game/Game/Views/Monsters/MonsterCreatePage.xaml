@@ -170,10 +170,9 @@
 
                         <Grid>
                             <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                                <Button BackgroundColor="Transparent"
-                                Text="Cancel" WidthRequest="200" Clicked="Cancel_Clicked"
-                                Style="{StaticResource GridRoundedButton}" 
-                                HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+                                <Button 
+                                Text="Cancel" Clicked="Cancel_Clicked"
+                                Style="{StaticResource CreatePageButtonStyle}"/>
 
                                 <Button BackgroundColor="Transparent"
                                 Text="Save" WidthRequest="200" Clicked="Save_Clicked"
