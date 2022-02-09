@@ -731,6 +731,16 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBackgroundColor}" />
             </Style>
 
+            <Style TargetType="Frame" 
+                   x:Key="ListIndexFrameCells">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BorderColor" Value="{StaticResource TriciaryTextColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
+            </Style>
+
             <Style TargetType="Frame"
                 x:Key="NarratorFrame">
                 <Setter Property="HeightRequest" Value="112" />
