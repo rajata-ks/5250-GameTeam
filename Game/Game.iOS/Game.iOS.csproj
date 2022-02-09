@@ -316,4 +316,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\zombieTeacher.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\character_athlete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\character__nerd.png" />
+  </ItemGroup>
 </Project>
