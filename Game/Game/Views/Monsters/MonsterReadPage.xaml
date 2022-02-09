@@ -127,21 +127,15 @@
                 Style="{StaticResource ItemLayout}" x:Name="ItemBox" Grid.Row="3" Grid.ColumnSpan="3">
             </FlexLayout>
 
-            <Frame      Style="{StaticResource UpdateFrame}"
-                        Padding="50"
-                        Grid.Row="4" Grid.ColumnSpan="3" >
+            <Frame Style="{StaticResource UpdateFrame}"  Grid.Row="4" Grid.ColumnSpan="3" >
                 <StackLayout Style="{StaticResource VerticalCenterStack}">
 
                     <Label Text="Do you want to update this Monster?" Style="{StaticResource UpdateStyle}" />
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}">
                         <Button 
-                            Text="Yes"  Clicked="Update_Clicked"  HorizontalOptions="Center" 
-                            Style="{StaticResource GridRoundedButton}"
-                            FontSize="Small"
-                            HeightRequest="50"
-                            WidthRequest="80"
-                            BorderColor="black" Margin="10,0,10,0">
+                            Text="Yes"  Clicked="Update_Clicked"
+                            Style="{StaticResource UpdateButton}">
                         </Button>
                     </StackLayout>
                 </StackLayout>
