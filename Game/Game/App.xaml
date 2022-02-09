@@ -96,6 +96,7 @@
                 <Setter Property="Maximum" Value="9"/>
             </Style>
 
+
             <!-- Label -->
 
             <Style TargetType="Label"
@@ -248,6 +249,7 @@
                 x:Key="ProgressStartStyle">
                 <Setter Property="FontSize" Value="Micro" />
                 <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="TextColor" Value="Black" />
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="Margin" Value="0,-2,0,0"/>
             </Style>
@@ -870,13 +872,6 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
             </Style>
 
-            <!-- Slider -->
-            <Style TargetType="Slider"
-                x:Key="AttributeSlider">
-                <Setter Property="Minimum" Value="0" />
-                <Setter Property="Maximum" Value="9"/>
-            </Style>
-            
             <!-- ProgressBar -->
             <Style TargetType="ProgressBar"
                 x:Key="AttributeProgressBar">
