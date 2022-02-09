@@ -469,7 +469,6 @@
                 <Setter Property="CornerRadius" Value="5"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="WidthRequest" Value="80"/>
-                <Setter Property="BorderColor" Value="Black"/>
             </Style>
                 
             <Style TargetType="Button" 
@@ -743,13 +742,10 @@
 
             <Style TargetType="Frame"
                 x:Key="NarratorFrame">
-                <Setter Property="HeightRequest" Value="112" />
-                <Setter Property="WidthRequest" Value="250" />
-                <Setter Property="Margin" Value="0" />
-                <Setter Property="Padding" Value="0" />
-                <Setter Property="VerticalOptions" Value="Start" />
-                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-                <Setter Property="BorderColor" Value="{StaticResource SecondaryBackgroundColor}" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
+                <Setter Property="Padding" Value="40" />
+                <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}" />
             </Style>
 
             <Style TargetType="Frame"
