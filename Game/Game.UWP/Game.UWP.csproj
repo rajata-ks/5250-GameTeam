@@ -164,6 +164,7 @@
     <Content Include="logo.png" />
     <Content Include="neck1.png" />
     <Content Include="neck2.png" />
+    <Content Include="pen.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="ring1.png" />
     <Content Include="ring2.png" />
