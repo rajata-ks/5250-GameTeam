@@ -69,7 +69,7 @@
             </StackLayout>
 
             <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Padding="30">
-                <Label LineBreakMode="WordWrap" Text="Description : " Style="{StaticResource LabelStyle}"/>
+                <Label Text="Description : " Style="{StaticResource DescriptionStyle}"/>
                 <Label Text="{Binding Data.Description}" Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
