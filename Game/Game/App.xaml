@@ -732,7 +732,12 @@
                 <Setter Property="BorderColor" Value="Black" />
                 <Setter Property="BackgroundColor" Value="AliceBlue" />
             </Style>
-            
+                
+            <Style TargetType="Frame"
+                x:Key="ItemFrame">
+                <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}"/>
+                <Setter Property="Padding" Value="1" />
+            </Style>
             <!-- Grid -->
             <Style TargetType="Grid"
                    x:Key="Grid">
