@@ -390,39 +390,39 @@ namespace Game.GameRules
             var datalist = new List<MonsterModel>()
             {
                 new MonsterModel {
-                    Name = "Green Troll",
-                    Description = "Big and Ugly",
-                    ImageURI = "troll1.png",
+                    Name = "Zombified Math Teacher",
+                    Description = "Too smart for you.",
+                    ImageURI = "zombieTeacher.png",
                 },
 
                 new MonsterModel {
-                    Name = "Old Troll",
-                    Description = "Old and Powerfull",
-                    ImageURI = "troll2.png",
+                    Name = "Zombified Lunch Lady",
+                    Description = "Don't skip lunch, or else.",
+                    ImageURI = "zombieTeacher.png",
                 },
 
                 new MonsterModel {
-                    Name = "Dainty Troll",
-                    Description = "and fast",
-                    ImageURI = "troll3.png",
+                    Name = "Zombified Janitor",
+                    Description = "Cleans up the defeated.",
+                    ImageURI = "zombieTeacher.png",
                 },
 
                 new MonsterModel {
-                    Name = "Troll's Troll",
-                    Description = "wozer",
-                    ImageURI = "troll4.png",
+                    Name = "Zombified Security Guard",
+                    Description = "Make sure you have your hall pass...",
+                    ImageURI = "zombieTeacher.png",
                 },
 
                 new MonsterModel {
-                    Name = "Warrior Troll",
-                    Description = "with sword",
-                    ImageURI = "troll5.png",
+                    Name = "Ghoul Vice-Principle",
+                    Description = "Second in command. Just as dangerous.",
+                    ImageURI = "zombieTeacher.png",
                 },
 
                 new MonsterModel {
-                    Name = "Ax Troll",
-                    Description = "with Hat and Ax",
-                    ImageURI = "troll6.png",
+                    Name = "Ghoul Principle",
+                    Description = "Rules the school with an iron fist.",
+                    ImageURI = "zombieTeacher.png",
                 },
             };
 
