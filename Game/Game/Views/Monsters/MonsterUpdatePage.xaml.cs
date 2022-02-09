@@ -187,6 +187,53 @@ namespace Game.Views
                                         DifficultyPicker.Items[DifficultyPicker.SelectedIndex]);
         }
 
+
+        /// <summary>
+        /// Change the Items from the list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void Location_Changed(object sender, EventArgs args)
+        {
+
+            //Change the Item Location
+            currLocation = (ItemLocationEnum)Enum.Parse(typeof(ItemLocationEnum),
+                                        LocationPicker.Items[LocationPicker.SelectedIndex]);
+
+            // show pop up based on selected index
+            switch (LocationPicker.SelectedIndex)
+            {
+                case 0:
+                    ShowPopup(ItemLocationEnum.Unknown);
+                    break;
+                case 1:
+                    ShowPopup(ItemLocationEnum.Head);
+                    break;
+                case 2:
+                    ShowPopup(ItemLocationEnum.Necklass);
+                    break;
+                case 3:
+                    ShowPopup(ItemLocationEnum.PrimaryHand);
+                    break;
+                case 4:
+                    ShowPopup(ItemLocationEnum.OffHand);
+                    break;
+                case 5:
+                    ShowPopup(ItemLocationEnum.Finger);
+                    break;
+                case 6:
+                    ShowPopup(ItemLocationEnum.RightFinger);
+                    break;
+                case 7:
+                    ShowPopup(ItemLocationEnum.LeftFinger);
+                    break;
+                case 8:
+                    ShowPopup(ItemLocationEnum.Feet);
+                    break;
+
+
+            }
+        }
         /// <summary>
         /// Catch the change to the Stepper for Attack
         /// </summary>
