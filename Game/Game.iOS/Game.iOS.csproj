@@ -313,4 +313,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\zombieTeacher.png" />
+  </ItemGroup>
 </Project>

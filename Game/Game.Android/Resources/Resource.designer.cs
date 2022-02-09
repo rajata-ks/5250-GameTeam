@@ -14,7 +14,7 @@ namespace Game.Droid
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.1.0.11")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
 	public partial class Resource
 	{
 		
@@ -16836,6 +16836,9 @@ namespace Game.Droid
 			
 			// aapt resource value: 0x7F0700C9
 			public const int village = 2131165385;
+			
+			// aapt resource value: 0x7F0700CA
+			public const int zombieTeacher = 2131165386;
 			
 			static Drawable()
 			{
