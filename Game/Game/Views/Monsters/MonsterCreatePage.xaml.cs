@@ -174,7 +174,7 @@ namespace Game.Views
                     ShowPopup(ItemLocationEnum.PrimaryHand);
                     break;
                 case 4:
-                    this.ViewModel.Data.Location = ItemLocationEnum.OffHand;//ShowPopup(ItemLocationEnum.OffHand);
+                    ShowPopup(ItemLocationEnum.OffHand);
                     break;
                 case 5:
                     ShowPopup(ItemLocationEnum.Finger);
