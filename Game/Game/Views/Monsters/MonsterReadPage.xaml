@@ -76,7 +76,7 @@
             <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
                 <Label Text="Attributes" Style="{StaticResource HeaderStyle}"/>
 
-                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
                     <Label Text="Attack: " Style="{StaticResource LabelStyle}"/>
                     <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
@@ -91,7 +91,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
                     <Label Text="Defense: " Style="{StaticResource LabelStyle}"/>
                     <Label Text="{Binding Data.Defense}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
@@ -106,7 +106,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
                     <Label Text="Speed: " Style="{StaticResource LabelStyle}"/>
                     <Label Text="{Binding Data.Speed}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
