@@ -110,6 +110,9 @@ namespace Game.Views
             // Temp store off the Difficulty
             var difficulty = this.ViewModel.Data.Difficulty;
 
+            // Temp store off the item Location 
+            var location = this.ViewModel.Data.Location;
+
             // Clear the Binding and reset it
             BindingContext = null;
             BindingContext = this.ViewModel;
