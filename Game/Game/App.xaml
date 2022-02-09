@@ -820,7 +820,18 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
                 <Setter Property="PlaceholderColor" Value="{StaticResource TriciaryTextColor}" />
             </Style>
-
+            
+            <Style TargetType="Entry"
+                x:Key="DescriptionEntry"
+                BasedOn="{StaticResource EntryStyle}">
+                <Setter Property="Text" Value="{Binding Data.Description, Mode=TwoWay}" />
+            </Style>
+            
+            <Style TargetType="Entry"
+                x:Key="ImageEntry"
+                BasedOn="{StaticResource EntryStyle}">
+                <Setter Property="Text" Value="{Binding Data.ImageURI, Mode=TwoWay}" />
+            </Style>
             <!-- Editor-->
             <Style TargetType="Editor">
                 <Setter Property="FontSize" Value="Small" />
@@ -878,12 +889,8 @@
             </Style>
 
 
-            <!-- Entry -->
-            <Style TargetType="Entry"
-                x:Key="ImageEntry"
-                BasedOn="{StaticResource EntryStyle}">
-                <Setter Property="Text" Value="{Binding Data.ImageURI, Mode=TwoWay}" />
-            </Style>
+
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
