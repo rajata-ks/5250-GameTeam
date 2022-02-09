@@ -157,7 +157,7 @@
                                     Style="{StaticResource DefaultSlider}"
                                     ValueChanged="Defense_OnStepperValueChanged" Value="{Binding Data.Defense}" />
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                            <StackLayout Style="{StaticResource AttributeStackLayout}">
 
                                 <Label Text="Speed" Style="{StaticResource LabelStyle}"/>
 
