@@ -196,10 +196,7 @@
                             <ListView x:Name="PopupLocationItemListView" 
                                         CachingStrategy="RecycleElement"
                                         ItemSelected="OnPopupItemSelected"
-                                        HasUnevenRows="true"
-                                        Margin="5,0,5,0"
-                                        RowHeight="80"
-                                        >
+                                        Style="{StaticResource DefaultListView}">
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
