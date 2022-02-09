@@ -11,7 +11,7 @@
              >
 
     <NavigationPage.TitleView>
-        <Label Text="{Binding Title}"  Style="{StaticResource HeadercenterStyle}"/>
+        <Label Text="{Binding Title}"  Style="{StaticResource HeaderCenterStyle}"/>
     </NavigationPage.TitleView>
 
     <ContentPage.ToolbarItems>
@@ -38,8 +38,8 @@
                 <ScrollView>
                     <StackLayout Style="{StaticResource OuterBoxStack}" Spacing="10">
 
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Image Source="{Binding Data.ImageURI, Mode=TwoWay}" Style="{StaticResource DisplayAsset}" />
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                            <Image Source="{Binding Data.ImageURI, Mode=TwoWay}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
                         </StackLayout>
 
                         <Grid
@@ -81,7 +81,7 @@
                                 Style="{StaticResource LabelStyle}"
                                    x:Name="ImageLabel"/>
 
-                            <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource ImageLayout}">
+                            <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
 
                                 <Image 
                                     Source="{Binding Data.ImageURI, Mode=TwoWay}"
@@ -103,7 +103,7 @@
                                     x:Name="DifficultyPicker"/>
                         </Grid>
 
-                        <Label Text="Attributes" Style="{StaticResource AttributesStyle}" />
+                        <Label Text="Attributes" Style="{StaticResource LabelStyle}" HorizontalOptions="Center"/>
 
                         <StackLayout Orientation="Vertical">
 
