@@ -39,7 +39,7 @@
                     <StackLayout Style="{StaticResource OuterBoxStack}" Spacing="10">
 
                         <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
-                            <Image Source="{Binding Data.ImageURI, Mode=TwoWay}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
+                            <Image Source="{Binding Data.ImageURI, Mode=TwoWay}" Style="{StaticResource DisplayAsset}"/>
                         </StackLayout>
 
                         <Grid
