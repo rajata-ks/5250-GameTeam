@@ -103,7 +103,7 @@
                                     x:Name="DifficultyPicker"/>
                         </Grid>
 
-                        <Label Text="Attributes" Style="{StaticResource LabelStyle}" HorizontalOptions="Center"/>
+                        <Label Text="Attributes" Style="{StaticResource AttributesTitle}"/>
 
 
                         <StackLayout Orientation="Vertical">
