@@ -231,7 +231,7 @@ namespace Game.Views
                 return;
             }
 
-            NameLabel.TextColor = Color.Black;
+            NameLabel.TextColor = Color.White;
             NameLabel.Text = "Name*";
             nameValid = true;
         }
@@ -261,7 +261,7 @@ namespace Game.Views
                 return;
             }
 
-            DescriptionLabel.TextColor = Color.Black;
+            DescriptionLabel.TextColor = Color.White;
             DescriptionLabel.Text = "Description";
             descriptionValid = true;
         }
@@ -295,7 +295,7 @@ namespace Game.Views
                 return;
             }
 
-            ImageLabel.TextColor = Color.Black;
+            ImageLabel.TextColor = Color.White;
             imageValid = true;
 
         }
