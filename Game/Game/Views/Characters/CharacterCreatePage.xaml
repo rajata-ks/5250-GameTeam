@@ -61,7 +61,7 @@
                             <Label Grid.Row="0" Grid.Column="0"
                                 Text="Name" 
                                 Style="{StaticResource LabelStyle}"
-                                   x:Name="NameLabel"/>
+                                x:Name="NameLabel"/>
 
                             <Entry Grid.Row="0" Grid.Column="1"
                                 Style="{StaticResource NameEntry}"
@@ -196,7 +196,7 @@
 
                 <StackLayout Style="{StaticResource PopupBox}">
 
-                    <Frame  BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
+                    <Frame  Style="{StaticResource ItemFrame}">
                         <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
                             <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupItemTextStyle}" />
                             <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyle}" />
