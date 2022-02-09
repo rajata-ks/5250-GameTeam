@@ -167,12 +167,11 @@
                                 <Button 
                                 Text="Cancel" Clicked="Cancel_Clicked"
                                 Style="{StaticResource CreatePageButtonStyle}"/>
-                                
-                                
-                                <Button BackgroundColor="Transparent"
-                                Text="Save" WidthRequest="200" Clicked="Save_Clicked"
-                                Style="{StaticResource GridRoundedButton}" 
-                                HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+
+
+                                <Button
+                                Text="Save" Clicked="Save_Clicked"
+                                Style="{StaticResource CreatePageButtonStyle}"/>
                             </StackLayout>
                         </Grid>
                     </StackLayout>
