@@ -22,7 +22,7 @@ namespace Game.Models
             Description = "Monster Description";
             Difficulty = DifficultyEnum.Average;
             UniqueItem = null;
-            ImageURI = "troll.png";
+            ImageURI = "zombieTeacher.png";
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
 
