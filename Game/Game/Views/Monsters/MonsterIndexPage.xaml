@@ -66,9 +66,9 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Grid>
-                <Button BackgroundColor="Transparent"
-                    Text="Create New Monster?" WidthRequest="400" Clicked="Add_Clicked"
-                    Style="{StaticResource StickyBottomButtons}" />
+                <Button 
+                    Text="Create New Monster?"  Clicked="Add_Clicked"
+                    Style="{StaticResource CreateBottomButton}" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>
