@@ -42,7 +42,7 @@
                             <ImageButton 
                                 x:Name="RollDice"
                                 Style="{StaticResource ImageLargeStyle}"
-                                Source="d10.png"
+                                Source="dice.png"
                                 Clicked="RollDice_Clicked"/>
                         </StackLayout>
 
