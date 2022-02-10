@@ -73,7 +73,7 @@
             <Grid>
                 <Button 
                     Text="Create New Character?" Clicked="Add_Clicked"
-                    Style="{StaticResource CreateBottomButton}" >
+                    Style="{StaticResource StickyBottomButtons}" >
                     
                 </Button>
               

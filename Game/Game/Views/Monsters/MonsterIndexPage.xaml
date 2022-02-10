@@ -68,7 +68,7 @@
             <Grid>
                 <Button 
                     Text="Create New Monster?"  Clicked="Add_Clicked"
-                    Style="{StaticResource CreateBottomButton}" />
+                    Style="{StaticResource StickyBottomButtons}" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>
