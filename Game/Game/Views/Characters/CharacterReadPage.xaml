@@ -80,7 +80,7 @@
                 <Label Text="Attributes" Style="{StaticResource HeaderStyle}"/>
 
                 <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                    <Label Text="Attack: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="Attack: " Style="{StaticResource AttributeLabelStyle}"/>
                     <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
 
@@ -95,7 +95,7 @@
                 </StackLayout>
 
                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                    <Label Text="Defense: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="Defense: " Style="{StaticResource AttributeLabelStyle}"/>
                     <Label Text="{Binding Data.Defense}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
 
@@ -110,7 +110,7 @@
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                    <Label Text="Speed: " Style="{StaticResource LabelStyle}"/>
+                    <Label Text="Speed: " Style="{StaticResource AttributeLabelStyle}"/>
                     <Label Text="{Binding Data.Speed}" Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
 
