@@ -249,7 +249,7 @@
             <Style TargetType="Label"
                 x:Key="AttributeLabelStyle"
                 BasedOn="{StaticResource ValueStyle}">
-                <Setter Property="Padding" Value="10,0,10,0" />
+                <Setter Property="Padding" Value="0,0,10,0" />
                 <Setter Property="HorizontalOptions" Value="End" />
                 <Setter Property="HorizontalTextAlignment" Value="End" />
             </Style>
