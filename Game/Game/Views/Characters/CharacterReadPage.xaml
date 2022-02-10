@@ -144,7 +144,7 @@
                 </StackLayout>
             </Frame>
             <StackLayout Grid.Row="5" Grid.Column="0">
-                <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}"/>
+                <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}"/>
             </StackLayout>
 
             <!--The Item Popup-->
