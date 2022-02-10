@@ -29,13 +29,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame
-                                CornerRadius="10"
-                                Padding="10"
-                                HorizontalOptions="FillAndExpand"
-                                BackgroundColor="GhostWhite"
-                                BorderColor="Black"  Margin="5">
-                                
+                            <Frame Style="{StaticResource ListIndexFrameCells}">
                                 <Grid ColumnSpacing="5" RowSpacing="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
