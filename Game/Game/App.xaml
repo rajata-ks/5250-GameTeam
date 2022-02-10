@@ -162,12 +162,20 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Margin" Value="0,30,0,0"/>
             </Style>
+            
             <Style TargetType="Label"
                 x:Key="LabelStyle"
                 BasedOn="{StaticResource LabelBaseStyle}">
                 <Setter Property="FontSize" Value="Small" />
             </Style>
 
+            <Style TargetType="Label"
+                x:Key="AttributeLabelStyle"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="Margin"  Value="10,0,0,0" />
+            </Style>
+            
             <Style TargetType="Label"
                 x:Key="ValueStyle"
                 BasedOn="{StaticResource LabelStyle}">
