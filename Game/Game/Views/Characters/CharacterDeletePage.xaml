@@ -53,12 +53,10 @@
 
                     <StackLayout Style="{StaticResource VerticalCenterStack}">
 
-                        <Label Text="Are you sure you want to delete this Character?" Style="{StaticResource LabelStyle}" 
-                           Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center"
-                            Padding="10"/>
+                    <Label Text="Are you sure you want to delete this Character?" Style="{StaticResource UpdateStyle}"/>
 
 
-                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" >
+                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" >
                             <Button 
                             Text="Yes"
                                 Style="{StaticResource UpdateButton}"
