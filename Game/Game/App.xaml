@@ -447,7 +447,7 @@
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="VerticalOptions" Value="FillAndExpand"/>
-                <Setter Property="FontSize" Value="Micro"/>
+                <Setter Property="FontSize" Value="Default"/>
                 <Setter Property="Padding" Value="1"/>
                 <Setter Property="Margin" Value="1"/>
                 <Setter Property="BorderWidth" Value="1"/>
