@@ -904,8 +904,18 @@
                 <Setter Property="AlignContent" Value="SpaceAround"/>
             </Style>
 
-
-
+            <!-- FlexLayout -->
+            <Style TargetType="FlexLayout"
+                x:Key="MonsterItemLayout">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Wrap" Value="Wrap"/>
+                <Setter Property="JustifyContent" Value="Start"/>
+                <Setter Property="AlignItems" Value="Center"/>
+                <Setter Property="AlignContent" Value="Start"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="WidthRequest" Value="50"/>
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>
