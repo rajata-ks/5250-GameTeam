@@ -18,8 +18,8 @@ namespace Game.Models
         {
             PlayerType = PlayerTypeEnum.Character;
             Guid = Id;
-            Name = "Nerd";
-            Description = "A geek girl";
+            Name = " New Character";
+            Description = "Character Description";
             Level = 1;
             ImageURI = "character__nerd.png";
             ExperienceTotal = 0;
