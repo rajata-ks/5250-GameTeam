@@ -138,7 +138,7 @@
                 </Frame>
 
             </StackLayout>
-            <Image Source="elf1.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="4" Grid.Column="1"/>
+            <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="4" Grid.Column="1"/>
         </Grid>
     </ScrollView>
 </ContentPage>
