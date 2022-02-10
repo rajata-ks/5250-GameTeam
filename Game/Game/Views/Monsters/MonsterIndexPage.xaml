@@ -21,14 +21,9 @@
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
             <ListView x:Name="MonstersListView" 
-                    ItemsSource="{Binding Dataset}"
-                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                    RefreshCommand="{Binding LoadItemsCommand}"
+                    Style="{StaticResource DefaultListView}"
                     CachingStrategy="RecycleElement"
                     ItemSelected="OnItemSelected"
-                    HasUnevenRows="true"
-                    Margin="5,0,5,0"
-                    RowHeight="100"
                     >
                 
                 <ListView.ItemTemplate>
