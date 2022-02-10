@@ -74,7 +74,7 @@
             </StackLayout>
 
             <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
-                <Label Text="Attributes" Style="{StaticResource HeaderStyle}"/>
+                <Label Text="Attributes" Style="{StaticResource AttributeHeaderStyle}"/>
 
                 <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
                     <Label Text="Attack: " Style="{StaticResource AttributeLabelStyle}"/>
