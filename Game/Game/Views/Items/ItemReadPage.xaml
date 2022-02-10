@@ -80,7 +80,7 @@
                     <Label Text="Attributes" Style="{StaticResource AttributeHeaderStyle}"/>
 
                     <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                        <Label Text="Damage " Style="{StaticResource LabelStyle}"/>
+                        <Label Text="Damage: " Style="{StaticResource AttributeLabelStyle}"/>
                         <Label Text="{Binding Data.Damage}" Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
@@ -95,7 +95,7 @@
                     </StackLayout>
 
                     <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                        <Label Text="Value " Style="{StaticResource LabelStyle}"/>
+                        <Label Text="Value: " Style="{StaticResource AttributeLabelStyle}"/>
                         <Label Text="{Binding Data.Value}" Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
@@ -110,7 +110,7 @@
                     </StackLayout>
 
                     <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                        <Label Text="Range " Style="{StaticResource LabelStyle}" />
+                        <Label Text="Range: " Style="{StaticResource AttributeLabelStyle}" />
                         <Label Text="{Binding Data.Range}" Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
