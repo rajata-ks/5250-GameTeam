@@ -81,10 +81,12 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Grid>
-                <Button BackgroundColor="Transparent"
-                    Text="Create New Character?" WidthRequest="400" Clicked="Add_Clicked"
-                    Style="{StaticResource GridRoundedButton}" 
-                    HorizontalOptions="CenterAndExpand" VerticalOptions="End" />
+                <Button 
+                    Text="Create New Character?" Clicked="Add_Clicked"
+                    Style="{StaticResource CreateBottomButton}" >
+                    
+                </Button>
+              
             </Grid>
         </StackLayout>
     </ContentPage.Content>
