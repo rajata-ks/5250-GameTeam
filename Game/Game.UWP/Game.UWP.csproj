@@ -137,6 +137,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="battleboard.png" />
     <Content Include="character_athlete.png" />
+    <Content Include="character_nerd_headshot.png" />
     <Content Include="character__nerd.png" />
     <Content Include="d10.png" />
     <Content Include="d20_2.png" />
