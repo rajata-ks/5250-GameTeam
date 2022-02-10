@@ -41,11 +41,12 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
-                                    Source="{Binding ImageURI}"
-                                    Style="{StaticResource ImageMediumStyle}"
-                                    VerticalOptions="CenterAndExpand"/>
-                                <Label Grid.Column="1" Grid.Row="0"
+                                    <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                        Source="{Binding ImageURI}"
+                                        Style="{StaticResource ImageMediumStyle}"
+                                        HorizontalOptions="Center"/>
+                                    
+                                    <Label Grid.Column="1" Grid.Row="0"
                                     Text="{Binding Name}" 
                                     Style="{StaticResource ListStyle}"/>
 
