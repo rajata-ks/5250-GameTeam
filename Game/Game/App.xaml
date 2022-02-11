@@ -495,7 +495,15 @@
                 <Setter Property="HeightRequest" Value="50"/>
             </Style>
 
-                <!-- Stack Layouts -->
+            <!-- AbsoluteLayout-->
+            <Style TargetType="AbsoluteLayout"
+                x:Key="AbsHorizontalStackFillAndExpand">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+
+
+            <!-- Stack Layouts -->
             <Style TargetType="StackLayout"
                 x:Key="HorizontalStack">
                 <Setter Property="Orientation" Value="Horizontal" />
