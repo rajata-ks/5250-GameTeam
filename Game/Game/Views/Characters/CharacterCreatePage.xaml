@@ -65,6 +65,7 @@
 
                             <Entry Grid.Row="0" Grid.Column="1"
                                 Style="{StaticResource NameEntry}"
+                                Text="{Binding Data.Name, Mode=TwoWay}" 
                                 x:Name="NameEntry"
                                 TextChanged="Name_TextChanged"/>
 
@@ -172,17 +173,28 @@
                         x:Name="ItemBox">
                         </FlexLayout>
 
-                        <Grid>
-                            <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                                <Button 
-                                Text="Cancel" Clicked="Cancel_Clicked"
-                                Style="{StaticResource GridRoundedButton}"/>
+                        <StackLayout Style="{StaticResource VerticalStackSaveCancelButtons}">
+                            <Grid>
 
-                                <Button
-                                Text="Save" Clicked="Save_Clicked"
-                                Style="{StaticResource GridRoundedButton}"/>
-                            </StackLayout>
-                        </Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Button 
+                            Text="Cancel"  Clicked="Cancel_Clicked"  Grid.Row="0" Grid.Column="0"
+                            Style="{StaticResource GridRoundedButton}"/>
+
+                                <Button 
+                            Text="Save"  Clicked="Save_Clicked"  Grid.Row="0" Grid.Column="1"
+                            Style="{StaticResource GridRoundedButton}"/>
+
+                            </Grid>
+
+                        </StackLayout>
 
                     </StackLayout>
                 </ScrollView>
