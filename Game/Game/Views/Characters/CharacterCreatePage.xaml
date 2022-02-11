@@ -180,7 +180,7 @@
 
                                 <Button
                                 Text="Save" Clicked="Save_Clicked"
-                                Style="{StaticResource CreatePageButtonStyle}"/>
+                                Style="{StaticResource GridRoundedButton}"/>
                             </StackLayout>
                         </Grid>
 
