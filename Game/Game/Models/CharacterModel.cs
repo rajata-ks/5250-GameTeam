@@ -18,7 +18,7 @@ namespace Game.Models
         {
             PlayerType = PlayerTypeEnum.Character;
             Guid = Id;
-            Name = " New Character";
+            Name = "New Character";
             Description = "Character Description";
             Level = 1;
             ImageURI = "character__nerd.png";
