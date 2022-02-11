@@ -59,7 +59,7 @@
             </Grid>
             <Button
                     Text="LeaderBoard" Clicked="ScoresButton_Clicked"
-                    Style="{StaticResource StickyBottomButtons}"/>
+                    Style="{StaticResource CreateBottomButton}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
