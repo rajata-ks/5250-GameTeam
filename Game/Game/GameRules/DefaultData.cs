@@ -16,58 +16,58 @@ namespace Game.GameRules
             var datalist = new List<ItemModel>()
             {
                 new ItemModel {
+                    Name = "Pen",
+                    Description = "Good for stabbing",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 10,
+                    Value = 9,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
                     Name = "Books",
                     Description = "Big and Heavy",
                     ImageURI = "pen.png",
                     Range = 0,
-                    Damage = 0,
-                    Value = 2,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Defense},
-
-                new ItemModel {
-                    Name = "Pen",
-                    Description = "Can be used for stabbing",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 3,
-                    Value = 1,
+                    Damage = 8,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
                     Name = "Duster",
-                    Description = "Find a better weapon",
+                    Description = "Sweep em out",
                     ImageURI = "pen.png",
                     Range = 0,
                     Damage = 6,
-                    Value = 2,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
                     Name = "School Bag",
-                    Description = "Can be used as armor",
+                    Description = "A useful weapon",
                     ImageURI = "pen.png",
                     Range = 0,
-                    Damage = 5,
-                    Value = 5,
+                    Damage = 12,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Defense},
+                    Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
                     Name = "Shoes",
-                    Description = "Run Fast!",
+                    Description = "Run fast",
                     ImageURI = "pen.png",
                     Range = 0,
                     Damage = 4,
                     Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Speed},
+                    Attribute = AttributeEnum.Defense},
 
                 new ItemModel {
                     Name = "Lunch Box",
-                    Description = "Cute lunch ruined",
+                    Description = "Handy and a weapon",
                     ImageURI = "pen.png",
                     Range = 0,
                     Damage = 6,
@@ -76,22 +76,32 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Speed},
 
                 new ItemModel {
-                    Name = "Desk",
-                    Description = "Tons of Damage",
+                    Name = "Water Bottle",
+                    Description = "Feeling Good",
                     ImageURI = "pen.png",
-                    Range = 1,
+                    Range = 0,
+                    Damage = 6,
+                    Value = 9,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.CurrentHealth},
+
+                new ItemModel {
+                    Name = "Desk",
+                    Description = "How did you pick that up?",
+                    ImageURI = "pen.png",
+                    Range = 10,
                     Damage = 10,
-                    Value = 10,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
                     Name = "Chair",
-                    Description = "Great damage",
+                    Description = "Please don't throw that!",
                     ImageURI = "pen.png",
-                    Range = 3,
+                    Range = 0,
                     Damage = 6,
-                    Value = 5,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack},
 
@@ -99,12 +109,151 @@ namespace Game.GameRules
                     Name = "Chalk",
                     Description = "Useless as hell",
                     ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 1,
-                    Value = 1,
+                    Range = 10,
+                    Damage = 10,
+                    Value = 9,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack},
 
+                new ItemModel {
+                    Name = "Glasses",
+                    Description = "Really good for seeing",
+                    ImageURI = "pen.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 9,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Yard Stick",
+                    Description = "Great for long distance",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.Defense},
+
+                new ItemModel {
+                    Name = "Binder",
+                    Description = "Useless like the chalk",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.Defense},
+
+                new ItemModel {
+                    Name = "Refrigerator",
+                    Description = "You are a god",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.MaxHealth},
+
+                new ItemModel {
+                    Name = "Microphone",
+                    Description = "Scream out your lungs",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Pack of Gum",
+                    Description = "Something to chew on",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Head,
+                    Attribute = AttributeEnum.Speed},
+
+                new ItemModel {
+                    Name = "Pencil",
+                    Description = "Useful now",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Head,
+                    Attribute = AttributeEnum.Defense},
+
+                new ItemModel {
+                    Name = "Binder Paper",
+                    Description = "What can you do with this?",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Necklass,
+                    Attribute = AttributeEnum.Speed},
+
+                new ItemModel {
+                    Name = "Energy Drink",
+                    Description = "Go Fast",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Necklass,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Hat",
+                    Description = "Blocks out the sun",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Head,
+                    Attribute = AttributeEnum.Defense},
+
+                new ItemModel {
+                    Name = "Sun Glasses",
+                    Description = "Can't see anything",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Finger,
+                    Attribute = AttributeEnum.Speed},
+
+                new ItemModel {
+                    Name = "Flag Pole",
+                    Description = "Best weapon in game",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Finger,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Fan",
+                    Description = "Cool",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Feet,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Gym Shirt",
+                    Description = "Smelly",
+                    ImageURI = "pen.png",
+                    Range = 0,
+                    Damage = 0,
+                    Value = 9,
+                    Location = ItemLocationEnum.Feet,
+                    Attribute = AttributeEnum.Speed},
             };
 
             return datalist;
