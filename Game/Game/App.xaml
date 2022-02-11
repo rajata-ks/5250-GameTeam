@@ -488,11 +488,11 @@
 
             <Style TargetType="Button" 
                    x:Key="CreateBottomButton"
-                BasedOn="{StaticResource GridRoundedButton}" >
-                <Setter Property="BackgroundColor" Value="Transparent"/>
+                BasedOn="{StaticResource StickyBottomButtons}" >
                 <Setter Property="WidthRequest" Value="400"/>
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
                 <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="HeightRequest" Value="50"/>
             </Style>
 
                 <!-- Stack Layouts -->
