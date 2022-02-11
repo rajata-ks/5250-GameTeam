@@ -295,9 +295,9 @@ namespace UnitTests.Views
         public void CharacterUpdatePage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
         {
             // Arrange
-            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.Head);
+            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
             page.ViewModel.Data.Head = item.Id;
-            var StackItem = page.GetItemToDisplay(ItemLocationEnum.Head);
+            var StackItem = page.GetItemToDisplay(ItemLocationEnum.PrimaryHand);
             var dataImage = StackItem.Children[0];
 
             // Act
