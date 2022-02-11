@@ -176,7 +176,7 @@
                             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                                 <Button 
                                 Text="Cancel" Clicked="Cancel_Clicked"
-                                Style="{StaticResource CreatePageButtonStyle}"/>
+                                Style="{StaticResource GridRoundedButton}"/>
 
                                 <Button
                                 Text="Save" Clicked="Save_Clicked"
