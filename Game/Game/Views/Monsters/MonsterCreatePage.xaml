@@ -27,8 +27,8 @@
 
     <ContentPage.Content>
         <AbsoluteLayout
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand"
+                Style="{StaticResource AbsHorizontalStackFillAndExpand}"
+
         >
 
             <StackLayout Style="{StaticResource VerticalStack}"
