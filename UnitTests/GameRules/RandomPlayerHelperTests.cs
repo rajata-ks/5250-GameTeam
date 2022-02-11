@@ -111,7 +111,7 @@ namespace UnitTests.Helpers
             _ = DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual("the awesome", result);
+            Assert.AreEqual("the geek girl", result);
         }
 
         [Test]
@@ -153,7 +153,7 @@ namespace UnitTests.Helpers
             _ = DiceHelper.SetForcedRollValue(2);
 
             // Act
-            var result = RandomPlayerHelper.GetItem(Game.Models.ItemLocationEnum.Feet);
+            var result = RandomPlayerHelper.GetItem(Game.Models.ItemLocationEnum.PrimaryHand);
 
             // Reset
             _ = DiceHelper.DisableForcedRolls();
@@ -210,7 +210,7 @@ namespace UnitTests.Helpers
             _ = DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual("elf2.png", result);
+            Assert.AreEqual("character_athlete.png", result);
         }
 
         [Test]
@@ -244,7 +244,7 @@ namespace UnitTests.Helpers
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Name.Contains("Elf"));
+            Assert.AreEqual(true, result.Name.Contains("New Character"));
         }
 
         [Test]
