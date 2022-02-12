@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
-             xmlns:local_enum="clr-namespace:Game.Models"
+             xmlns:local_enum="clr-namespace:Game.Models" xmlns:viewmodels="clr-namespace:Game.ViewModels" xmlns:views="clr-namespace:Game.Views"
              x:Class="Game.Views.ItemCreatePage">
 
     <NavigationPage.TitleView>
@@ -19,11 +19,48 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-
         <ScrollView>
             <StackLayout Style="{StaticResource OuterBoxStack}">
 
-                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyleCenter}"/>
+                <Label Text="Image Select" Style="{StaticResource CenterMessageLargeStyle}" />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="250" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image  Grid.Column="0" Grid.Row="0"
+                                        Source="leftarrow.png"
+                                        Style="{StaticResource ImageMediumStyle}"
+                                        HorizontalOptions="Center"/>
+                    
+                    <CarouselView ItemsSource="{Binding Dataset}" IndicatorView="{x:Reference itemIndicator}" Grid.Row="0" Grid.Column="1" x:Name="carouselItem">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame HasShadow="False" BorderColor="Transparent" CornerRadius="5" HeightRequest="300" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                        <Image Source="{Binding ImageURI}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" />
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView x:Name="itemIndicator" IndicatorColor="DarkGray" IndicatorsShape="Circle" Margin="20" 
+                                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" MaximumVisible="1" 
+                                   SelectedIndicatorColor="{StaticResource TriciaryBackgroundColor}" Grid.Row="1" Grid.ColumnSpan="3"/>
+                    
+                    <Image Grid.Row="0" Grid.Column="2"
+                                        Source="rightarrow.png"
+                                        Style="{StaticResource ImageMediumStyle}"
+                                        HorizontalOptions="Center"/>
+
+                </Grid>
 
                 <Grid
                     Style="{StaticResource UpdateCreateGrid}">
@@ -77,26 +114,6 @@
                         ItemsSource="{x:Static local_enum:AttributeEnumHelper.GetListCharacter}" 
                         SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="AttributePicker"/>
-
-                    <Label Grid.Row="4" Grid.Column="0"
-                        Text="Image" 
-                        Style="{StaticResource LabelBaseStyle}"
-                           x:Name="ImageLabel"/>
-
-                    <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStackFillExpand}">
-
-                        <Image 
-                            Source="{Binding Data.ImageURI}"
-                            Style="{StaticResource ImageSmallStyle}"
-                            />
-
-                        <Entry 
-                            Text="{Binding Data.ImageURI}" 
-                            Style="{StaticResource EntryStyle}"
-                            x:Name="ImageEntry"
-                            TextChanged="Image_TextChanged"/>
-
-                    </StackLayout>
                 </Grid>
 
                 <StackLayout Style="{StaticResource VerticalStackHorizontalFillExpand}">

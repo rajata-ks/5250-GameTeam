@@ -2,6 +2,7 @@
 using Game.ViewModels;
 
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 using Xamarin.Forms;
@@ -43,24 +44,36 @@ namespace Game.Views
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
-        public ItemCreatePage()
+        public ItemCreatePage(ItemIndexViewModel ViewModel = null)
         {
             InitializeComponent();
 
             this.ViewModel.Data = new ItemModel();
+
+            if (ViewModel != null)
+            {
+                //initialize the dataset
+                this.ViewModel.Dataset = new ObservableCollection<DefaultModel>();
+
+                foreach (var data in ViewModel.Dataset)
+                {
+                    this.ViewModel.Dataset.Add(new DefaultModel { Name = data.Name, Description = data.Description, ImageURI = data.ImageURI });
+                }
+            }
+
             BindingContext = this.ViewModel;
+           
             this.ViewModel.Title = "Create";
 
             //Defaults bools
             nameValid = true;
             descriptionValid = true;
-            imageValid = true;
             attributeValid = true;
             locationValid = true;
 
             //Need to make the SelectedItem a string, so it can select the correct item.
-            LocationPicker.SelectedItem = ViewModel.Data.Location.ToString();
-            AttributePicker.SelectedItem = ViewModel.Data.Attribute.ToString();
+            LocationPicker.SelectedItem = this.ViewModel.Data.Location.ToString();
+            AttributePicker.SelectedItem = this.ViewModel.Data.Attribute.ToString();
         }
 
         /// <summary>
@@ -81,11 +94,6 @@ namespace Game.Views
                 return;
             }
 
-            if (imageValid == false)
-            {
-                return;
-            }
-
             if (validateErrorLocationEnum(ViewModel.Data.Location) == false)
             {
                 return;
@@ -101,6 +109,10 @@ namespace Game.Views
             {
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
+
+            //get current carousel item image url to save
+            var curImage = (DefaultModel)(carouselItem.CurrentItem);
+            ViewModel.Data.ImageURI = curImage.ImageURI;
 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             _ = await Navigation.PopModalAsync();
@@ -213,39 +225,6 @@ namespace Game.Views
             DescriptionLabel.TextColor = Color.White;
             DescriptionLabel.Text = "Description";
             descriptionValid = true;
-        }
-
-        /// <summary>
-        /// Validate the entry for image.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void Image_TextChanged(object sender, ValueChangedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(ImageEntry.Text))
-            {
-                ImageLabel.TextColor = Color.Red;
-                imageValid = false;
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(ImageEntry.Text))
-            {
-                ImageLabel.TextColor = Color.Red;
-                imageValid = false;
-                return;
-            }
-
-            if (!ImageEntry.Text.EndsWith(".png"))
-            {
-                ImageLabel.TextColor = Color.Red;
-                imageValid = false;
-                return;
-            }
-
-            ImageLabel.TextColor = Color.White;
-            imageValid = true;
-
         }
 
         /// <summary>
