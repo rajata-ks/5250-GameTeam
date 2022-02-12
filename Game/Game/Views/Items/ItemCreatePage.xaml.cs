@@ -63,7 +63,7 @@ namespace Game.Views
 
             BindingContext = this.ViewModel;
            
-            this.ViewModel.Title = "Create";
+            this.ViewModel.Title = "";
 
             //Defaults bools
             nameValid = true;
