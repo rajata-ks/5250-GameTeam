@@ -337,4 +337,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\leftarrow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\startbutton.png" />
+  </ItemGroup>
 </Project>
