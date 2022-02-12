@@ -17,6 +17,8 @@ namespace Game.Models
         // The Name of the Item 
         public string Name { get; set; } = "This is an Item";
 
+        public string ImageURI { get; set; } = "";
+
         // The Descirption of the Item
         public string Description { get; set; } = "Item Description";
 
