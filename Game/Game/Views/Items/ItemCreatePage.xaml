@@ -54,7 +54,7 @@
                         </CarouselView.ItemTemplate>
                     </CarouselView>
                     <IndicatorView x:Name="itemIndicator" IndicatorColor="DarkGray" IndicatorsShape="Circle" Margin="20" 
-                                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" MaximumVisible="1" 
+                                   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" MaximumVisible="1" 
                                    SelectedIndicatorColor="{StaticResource TriciaryBackgroundColor}" Grid.Row="1" Grid.ColumnSpan="3"/>
 
                     <Image Grid.Row="0" Grid.Column="2"
@@ -149,7 +149,7 @@
                                 <Label 
                                     Text="{Binding Data.Defense, Mode=TwoWay}" 
                                     x:Name="RangeValue"
-                                    Style="{StaticResource ValueStyle}"/>
+                                    Style="{StaticResource EntryStyle}"/>
 
                             </StackLayout>
 
@@ -163,7 +163,7 @@
                                 <Label 
                                     Text="{Binding Data.Speed, Mode=TwoWay}" 
                                     x:Name="ValueValue"
-                                    Style="{StaticResource ValueStyle}"/>
+                                    Style="{StaticResource EntryStyle}"/>
 
                             </StackLayout>
 
