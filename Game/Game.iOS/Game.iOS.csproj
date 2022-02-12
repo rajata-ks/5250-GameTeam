@@ -331,4 +331,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\dice.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rightarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\leftarrow.png" />
+  </ItemGroup>
 </Project>
