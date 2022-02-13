@@ -55,7 +55,7 @@ namespace Game.GameRules
         public static string GetMonsterImage()
         {
 
-            List<string> FirstNameList = new List<string> { "troll1.png", "troll2.png", "troll3.png", "troll4.png", "troll5.png", "troll6.png" };
+            List<string> FirstNameList = new List<string> { "zombieTeacher.png"};
 
             var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
 
@@ -69,7 +69,7 @@ namespace Game.GameRules
         public static string GetCharacterImage()
         {
 
-            List<string> FirstNameList = new List<string> { "character__nerd.png", "character_athlete.png", "elf3.png", "elf4.png", "elf5.png", "elf6.png", "elf7.png" };
+            List<string> FirstNameList = new List<string> { "character__nerd.png", "character_athlete.png"};
 
             var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
 
@@ -85,7 +85,7 @@ namespace Game.GameRules
         public static string GetMonsterName()
         {
 
-            List<string> FirstNameList = new List<string> { "Arg", "Deg", "Ase", "Xes", "Zez", "Klk", "Oi", "Oni", "Tanu" };
+            List<string> FirstNameList = new List<string> {"Zombified Teachers","Zombified Lunch Ladie","Zombified Janitor","Zombified Security Guard","Ghoul Vice-Principle","Ghoul Principle"};
 
             var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
 
@@ -100,7 +100,7 @@ namespace Game.GameRules
         /// <returns></returns>
         public static string GetMonsterDescription()
         {
-            List<string> StringList = new List<string> { "eats Elf", "the Elf hater", "Elf destoryer", "Elf Hunter", "Elf Killer", "Can't we all get along?" };
+            List<string> StringList = new List<string> { "Too smart for you.", "Don't skip lunch, or else.", "Cleans up the defeated.", "Make sure you have your hall pass...", "Second in command. Just as dangerous.", "Rules the school with an iron fist." };
 
             var result = StringList.ElementAt(DiceHelper.RollDice(1, StringList.Count()) - 1);
 
@@ -116,7 +116,7 @@ namespace Game.GameRules
         public static string GetCharacterName()
         {
 
-            List<string> FirstNameList = new List<string> { "Mike", "Doug", "Jea", "Sue", "Tim", "Daren", "Dani", "Mami", "Mari", "Ryu", "Hucky", "Peanut", "Sumi", "Apple", "Ami", "Honami", "Sonomi", "Pat", "Sakue", "Isamu" };
+            List<string> FirstNameList = new List<string> {"Nerd","Athelete","Goth","Skater","Procastinator","Class Clown"};
 
             var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
 
@@ -131,7 +131,7 @@ namespace Game.GameRules
         /// <returns></returns>
         public static string GetCharacterDescription()
         {
-            List<string> StringList = new List<string> { "Not a runner? now you are", "the geek girl" };
+            List<string> StringList = new List<string> { "Not a runner? now you are", "the geek girl", "Don't get in my way", "I still got a lot of shoes left", "Come and get me", "You dont fear me ? then you'll die braver than most!" };
 
             var result = StringList.ElementAt(DiceHelper.RollDice(1, StringList.Count()) - 1);
 
