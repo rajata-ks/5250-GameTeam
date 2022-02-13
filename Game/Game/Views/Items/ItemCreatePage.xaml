@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
-             xmlns:local_enum="clr-namespace:Game.Models" xmlns:viewmodels="clr-namespace:Game.ViewModels" xmlns:views="clr-namespace:Game.Views"
+             xmlns:local_enum="clr-namespace:Game.Models"
              x:Class="Game.Views.ItemCreatePage">
 
     <NavigationPage.TitleView>
