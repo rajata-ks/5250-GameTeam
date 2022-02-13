@@ -54,7 +54,7 @@ namespace Game.Views
             {
                 //initialize the dataset
                 this.ViewModel.Dataset = new ObservableCollection<DefaultModel>();
-
+                //to populate the dataset so images can show up
                 foreach (var data in ViewModel.Dataset)
                 {
                     this.ViewModel.Dataset.Add(new DefaultModel { Name = data.Name, Description = data.Description, ImageURI = data.ImageURI });
