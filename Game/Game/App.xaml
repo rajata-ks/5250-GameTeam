@@ -356,6 +356,12 @@
             </Style>
 
             <Style TargetType="Image"
+                x:Key="ImageMediumStyleCenter"
+                BasedOn="{StaticResource ImageMediumStyle}">
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="Image"
                 x:Key="ImageSmallStyle"
                 BasedOn="{StaticResource ImageLargeStyle}">
                 <Setter Property="HeightRequest" Value="30" />
@@ -412,6 +418,16 @@
                 x:Key="DisplayAsset"
                 BasedOn="{StaticResource ImageLargeStyle}">
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            </Style>
+
+            <!-- IndicatorView -->
+
+            <Style TargetType="IndicatorView" x:Key="IndicatorViewDefault">
+                <Setter Property="IndicatorColor" Value="DarkGray" />
+                <Setter Property="IndicatorsShape" Value="Circle" />
+                <Setter Property="Margin" Value="20" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="SelectedIndicatorColor" Value="{StaticResource TriciaryBackgroundColor}"/>
             </Style>
             
             <!-- ImageButton -->
@@ -763,7 +779,17 @@
                 <Setter Property="BorderColor" Value="{StaticResource PrimaryBackgroundColor}" />
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBackgroundColor}" />
             </Style>
-
+            
+            <Style TargetType="Frame" 
+                   x:Key="CarouselViewFrame">
+                <Setter Property="HasShadow" Value="false" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="HeightRequest" Value="300" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            
             <Style TargetType="Frame" 
                    x:Key="ListIndexFrameCells">
                 <Setter Property="Margin" Value="5" />
