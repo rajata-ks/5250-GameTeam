@@ -46,27 +46,24 @@
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout>
-                                    <Frame HasShadow="False" BorderColor="Transparent" CornerRadius="5" HeightRequest="300" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                    <Frame Style="{StaticResource CarouselViewFrame}">
                                         <Image Source="{Binding ImageURI}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" />
                                     </Frame>
                                 </StackLayout>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
                     </CarouselView>
-                    <IndicatorView x:Name="itemIndicator" IndicatorColor="DarkGray" IndicatorsShape="Circle" Margin="20" 
-                                   VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" MaximumVisible="1" 
-                                   SelectedIndicatorColor="{StaticResource TriciaryBackgroundColor}" Grid.Row="1" Grid.ColumnSpan="3"/>
+                    <IndicatorView x:Name="itemIndicator" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource IndicatorViewDefault}"/>
 
                     <Image Grid.Row="0" Grid.Column="2"
                                         Source="rightarrow.png"
-                                        Style="{StaticResource ImageMediumStyle}"
-                                        HorizontalOptions="Center"/>
+                                        Style="{StaticResource ImageMediumStyleCenter}"/>
 
                 </Grid>
 
                 <Grid x:Name="MainGrid">
                     <ScrollView VerticalOptions="FillAndExpand">
-                        <StackLayout VerticalOptions="FillAndExpand" Padding="24" Spacing="0">
+                        <StackLayout Padding="24" Spacing="0">
                             <StackLayout VerticalOptions="CenterAndExpand">
                                 <StackLayout x:Name="FormLayout" Spacing="16" VerticalOptions="CenterAndExpand">
                                     <StackLayout Spacing="8">
