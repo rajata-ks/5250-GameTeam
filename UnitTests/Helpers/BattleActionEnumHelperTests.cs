@@ -10,6 +10,35 @@ namespace UnitTests.Helpers
     [TestFixture]
     class BattleActionEnumHelperTests
     {
+
+        [Test]
+        public void BattleActionEnumHelper_ConvertStringToEnum_Return_ENUM_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = BattleActionEnumHelper.GetListAll;
+
+            // Assert
+            Assert.IsTrue(result.Count > 0);
+
+            // Assert
+        }
+
+        [Test]
+        public void BattleActionEnumHelper_GetListAll_return_result_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = BattleActionEnumHelper.GetListAll;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result.FirstOrDefault() != null);
+        }
+
         [Test]
         public void BattleActionEnumHelper_GetListAll_Should_Pass()
         {
