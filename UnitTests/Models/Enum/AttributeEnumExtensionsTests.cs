@@ -8,6 +8,48 @@ namespace UnitTests.Models
     public class AttributeEnumExtensionsTests
     {
         [Test]
+        public void AttributeEnumExtensionsTests_ConvertStringToEnum_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AttributeEnumHelper.ConvertStringToEnum("Unknown");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AttributeEnum.Unknown, result);
+        }
+
+        [Test]
+        public void AttributeEnumExtensionsTests_GetListCharacter_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AttributeEnumHelper.GetListCharacter;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result.Count > 0);
+        }
+
+        [Test]
+        public void AttributeEnumExtensionsTests_Get_Full_List_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AttributeEnumHelper.GetListItem;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result.Count > 0);
+        }
+
+        [Test]
         public void AttributeEnumExtensionsTests_Unknown_Default_Should_Pass()
         {
             // Arrange
