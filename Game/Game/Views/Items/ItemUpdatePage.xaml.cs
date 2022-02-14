@@ -68,7 +68,7 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             //set carousel to the current item image
-            carouselItem.CurrentItem = this.ViewModel.Dataset.Where(x => x.Id == this.ViewModel.Data.Id).FirstOrDefault();
+            carouselItem.CurrentItem = this.ViewModel.Dataset.Where(x => x.Id == data.Data.Id).FirstOrDefault();
 
             //set title
             this.ViewModel.Title = "Update " + data.Title;
@@ -113,10 +113,6 @@ namespace Game.Views
             {
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
-
-            //get current carousel item image url to save
-            //var curImage = (DefaultModel)(carouselItem.CurrentItem);
-            //ViewModel.Data.ImageURI = curImage.ImageURI;
 
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             _ = await Navigation.PopModalAsync();
@@ -257,6 +253,13 @@ namespace Game.Views
             var newStep = Math.Round(val / SliderStepSize);
 
             return slide.Value = newStep * SliderStepSize;
+        }
+
+        private void carouselItem_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
+        {
+            //get current carousel item image url to save
+            var cur = e.CurrentItem as DefaultModel;
+            ViewModel.Data.ImageURI = cur.ImageURI;
         }
     }
 }

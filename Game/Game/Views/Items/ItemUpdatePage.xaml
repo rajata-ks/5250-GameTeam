@@ -42,7 +42,8 @@
                                         Style="{StaticResource ImageMediumStyle}"
                                         HorizontalOptions="Center"/>
 
-                    <CarouselView ItemsSource="{Binding Dataset}" IndicatorView="{x:Reference itemIndicator}" Grid.Row="0" Grid.Column="1" x:Name="carouselItem">
+                    <CarouselView ItemsSource="{Binding Dataset}" IndicatorView="{x:Reference itemIndicator}" Grid.Row="0" Grid.Column="1" x:Name="carouselItem"
+                                  CurrentItemChanged="carouselItem_CurrentItemChanged">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout>
