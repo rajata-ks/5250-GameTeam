@@ -9,6 +9,21 @@ namespace UnitTests.Models
     public class BattleMessageModelTests
     {
         [Test]
+        public void BattleMessageModel_ClearMessages_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new BattleMessagesModel();
+            result.AttackerName = "bogus";
+            result.ClearMessages();
+            // Reset
+
+            // Assert
+            Assert.AreEqual(result.AttackerName, string.Empty);
+        }
+
+        [Test]
         public void BattleMessageModel_Constructor_Default_Should_Pass()
         {
             // Arrange
