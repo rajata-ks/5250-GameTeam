@@ -18,7 +18,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.True(string.IsNullOrEmpty(result.Name));
+            Assert.AreEqual("", result.Name);
         }
 
         [Test]

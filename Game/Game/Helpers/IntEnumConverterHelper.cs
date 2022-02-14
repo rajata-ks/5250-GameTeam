@@ -15,7 +15,7 @@ namespace Game.Helpers
     public class IntEnumConverter : IValueConverter
     {
         /// <summary>
-        /// Converts string to Int
+        /// Converts String to Int
         /// </summary>
         /// <param name="value"></param>
         /// <param name="targetType"></param>
@@ -33,7 +33,7 @@ namespace Game.Helpers
         }
 
         /// <summary>
-        /// Converts from Int to string
+        /// Converts from Int to String
         /// </summary>
         /// <param name="value"></param>
         /// <param name="targetType"></param>

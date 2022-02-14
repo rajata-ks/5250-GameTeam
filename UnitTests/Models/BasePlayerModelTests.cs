@@ -32,7 +32,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.True(string.IsNullOrEmpty(result.Name));
+            Assert.AreEqual("", result.Name);
         }
 
         [Test]
@@ -790,7 +790,9 @@ namespace UnitTests.Models
             _ = Game.Helpers.DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual(2, result);
+            // Example for UT Lecture
+            // Assert.AreEqual(2, result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]

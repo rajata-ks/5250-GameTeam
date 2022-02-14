@@ -12,7 +12,10 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BattleSettingsPage : ContentPage
     {
-        // Empty Constructor for UTs
+        /// <summary>
+        /// Constructor for Unit Tests
+        /// </summary>
+        /// <param name="UnitTest"></param>
         // public BattleSettingsPage(bool UnitTest) { }
 
         /// <summary>

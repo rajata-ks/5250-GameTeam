@@ -261,5 +261,47 @@ namespace UnitTests.Helpers
             // Assert
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
         }
+
+        [Test]
+        public void ItemLocationEnumHelper_GetListMessageCharacter_Valid_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemLocationEnumHelper.GetListMessageCharacter;
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(7, result.Count);
+        }
+
+        [Test]
+        public void ItemLocationEnumHelper_ConvertMessageToEnum_Valid_Head_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemLocationEnumHelper.ConvertMessageToEnum("Head");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(ItemLocationEnum.Head, result);
+        }
+
+        [Test]
+        public void ItemLocationEnumHelper_ConvertMessageToEnum_InValid_Bogus_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemLocationEnumHelper.ConvertMessageToEnum("bogus");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(ItemLocationEnum.Unknown, result);
+        }
     }
 }

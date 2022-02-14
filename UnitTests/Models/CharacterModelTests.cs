@@ -161,7 +161,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert 
-            Assert.AreEqual(true, result.Contains("New Character"));
+            Assert.AreEqual(true, result.Contains("Character"));
         }
 
         [Test]
@@ -414,7 +414,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Contains("New Character"));
+            Assert.AreEqual(true, result.Contains("Character"));
         }
 
         [Test]
@@ -863,7 +863,9 @@ namespace UnitTests.Models
             _ = Game.Helpers.DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual(2, result);
+            // Example for UT Lecture
+            // Assert.AreEqual(2, result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]

@@ -1,5 +1,7 @@
-﻿using Game.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+using Game.Models;
 
 namespace Game.GameRules
 {
@@ -71,6 +73,22 @@ namespace Game.GameRules
             LevelDetailsList.Add(new LevelDetailsModel(21, 400000, 0, 0, 0));
 
             return LevelDetailsList.Count;
+        }
+
+        /// <summary>
+        /// Return the Level Table at a given Level
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        public static LevelDetailsModel GetLevelAttribute(int level)
+        {
+            var LevelData = LevelDetailsList.ElementAtOrDefault(level);
+            if (LevelData == null)
+            {
+                return LevelDetailsList.Last();
+            }
+
+            return LevelData;
         }
     }
 }

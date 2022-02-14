@@ -6,11 +6,14 @@ using Game.Helpers;
 using Game.Models;
 using Game.ViewModels;
 
-
 namespace Game.GameRules
 {
     public static class RandomPlayerHelper
     {
+
+        public static List<string> CharacterImageList = new List<string> { "elf1.png", "elf2.png", "elf3.png", "elf4.png", "elf5.png", "elf6.png", "elf7.png" };
+        public static List<string> MonsterImageList = new List<string> { "troll1.png", "troll2.png", "troll3.png", "troll4.png", "troll5.png", "troll6.png" };
+
         /// <summary>
         /// Get Health
         /// </summary>
@@ -54,10 +57,7 @@ namespace Game.GameRules
         /// <returns></returns>
         public static string GetMonsterImage()
         {
-
-            List<string> FirstNameList = new List<string> { "troll1.png", "troll2.png", "troll3.png", "troll4.png", "troll5.png", "troll6.png" };
-
-            var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
+            var result = MonsterImageList.ElementAt(DiceHelper.RollDice(1, MonsterImageList.Count()) - 1);
 
             return result;
         }
@@ -68,10 +68,7 @@ namespace Game.GameRules
         /// <returns></returns>
         public static string GetCharacterImage()
         {
-
-            List<string> FirstNameList = new List<string> { "character__nerd.png", "character_athlete.png", "elf3.png", "elf4.png", "elf5.png", "elf6.png", "elf7.png" };
-
-            var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
+            var result = CharacterImageList.ElementAt(DiceHelper.RollDice(1, CharacterImageList.Count()) - 1);
 
             return result;
         }
@@ -131,7 +128,7 @@ namespace Game.GameRules
         /// <returns></returns>
         public static string GetCharacterDescription()
         {
-            List<string> StringList = new List<string> { "Not a runner? now you are", "the geek girl" };
+            List<string> StringList = new List<string> { "the terrible", "the awesome", "the lost", "the old", "the younger", "the quiet", "the loud", "the helpless", "the happy", "the sleepy", "the angry", "the clever" };
 
             var result = StringList.ElementAt(DiceHelper.RollDice(1, StringList.Count()) - 1);
 
@@ -161,7 +158,7 @@ namespace Game.GameRules
         /// <summary>
         /// Get a Random Item for the Location
         /// 
-        /// Return the string for the ID
+        /// Return the String for the ID
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>

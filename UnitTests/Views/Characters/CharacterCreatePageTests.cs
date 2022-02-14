@@ -8,14 +8,15 @@ using Game.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Mocks;
+using Game.GameRules;
 
 namespace UnitTests.Views
 {
     [TestFixture]
     public class CharacterCreatePageTests : CharacterCreatePage
     {
-        App app;
-        CharacterCreatePage page;
+        private App app;
+        private CharacterCreatePage page;
 
         public CharacterCreatePageTests() : base(true) { }
 
@@ -29,7 +30,7 @@ namespace UnitTests.Views
             app = new App();
             Application.Current = app;
 
-            page = new CharacterCreatePage(new GenericViewModel<CharacterModel>(new CharacterModel()));
+            page = new CharacterCreatePage(new GenericViewModel<CharacterModel>(new CharacterModel() { ImageURI = "elf1.png" }));
         }
 
         [TearDown]
@@ -280,6 +281,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
+
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
@@ -299,6 +301,37 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_Level_Changed_Invalid_NegOne_Should_Skip()
+        {
+            // Arrange
+            var item = (Picker)page.FindByName("LevelPicker");
+
+            // Act
+            item.SelectedIndex = -1;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got here
+        }
+
+        [Test]
+        public void CharacterCreatePage_Level_Changed_Invalid_Same_Should_Skip()
+        {
+            // Arrange
+            var item = (Picker)page.FindByName("LevelPicker");
+
+            // Act
+            item.SelectedIndex = 1;
+            item.SelectedIndex = 1;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got here
         }
     }
 }

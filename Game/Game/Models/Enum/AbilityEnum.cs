@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 
 namespace Game.Models
@@ -47,27 +46,19 @@ namespace Game.Models
         Heal = 54,
     }
 
-    public enum ImageNames
-    {
-        [Description("None")]
-        None,
-        [Description("Elf1.png")]
-        Elf
-    }
-
     /// <summary>
     /// Friendly strings for the Enum Class
     /// </summary>
     public static class AbilityEnumExtensions
     {
         /// <summary>
-        /// Display a string for the Enums
+        /// Display a String for the Enums
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         public static string ToMessage(this AbilityEnum value)
         {
-            // Default string
+            // Default String
             var Message = "None";
 
             switch (value)
@@ -187,7 +178,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Given the string for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
+        /// Given the String for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>

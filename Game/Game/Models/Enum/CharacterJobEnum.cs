@@ -1,4 +1,8 @@
-﻿namespace Game.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Game.Models
 {
     /// <summary>
     /// The Types of Jobs a character can have
@@ -23,13 +27,13 @@
     public static class CharacterJobEnumExtensions
     {
         /// <summary>
-        /// Display a string for the Enums
+        /// Display a String for the Enums
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         public static string ToMessage(this CharacterJobEnum value)
         {
-            // Default string
+            // Default String
             var Message = "Player";
 
             switch (value)
@@ -48,6 +52,28 @@
             }
 
             return Message;
+        }
+    }
+
+    /// <summary>
+    /// Helper for Charcter Jobs
+    /// </summary>
+    public static class CharacterJobEnumHelper
+    {
+        /// <summary>
+        /// Gets the list of locations that an Item can have.
+        /// Does not include the Left and Right Finger 
+        /// </summary>
+        public static List<string> GetJobList
+        {
+            get
+            {
+                var myList = Enum.GetNames(typeof(CharacterJobEnum)).ToList();
+                var result = myList.Where(a => a.ToString() != CharacterJobEnum.Unknown.ToString())
+                                           .OrderBy(a => a)
+                                           .ToList();
+                return result;
+            }
         }
     }
 }

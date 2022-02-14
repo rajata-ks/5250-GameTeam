@@ -2,6 +2,9 @@
 
 namespace Game.Helpers
 {
+    /// <summary>
+    /// Helper to roll dice and random numbers
+    /// </summary>
     public static class DiceHelper
     {
         /// <summary>
@@ -10,7 +13,7 @@ namespace Game.Helpers
         /// You can control the seed value for Random by passing a value to the constructor
         /// Do that if you want to be able able get the same sequence of Random over and over
         /// </summary>
-        private static Random rnd = new Random();
+        private static readonly Random rnd = new Random();
 
         // Turn on to force Rolls to be non random
         public static bool ForceRollsToNotRandom = false;
@@ -18,23 +21,28 @@ namespace Game.Helpers
         // Holds the random value for the sytem
         private static int _ForcedRandomValue = 1;
 
-        // What number should return for random numbers (1 is good choice...)
-        public static bool SetForcedRollValue(int value)
+        /// <summary>
+        /// What number should return for random numbers (1 is good choice...)
+        /// </summary>
+        public static int SetForcedRollValue(int value)
         {
             _ForcedRandomValue = value;
-
-            return true;
+            return _ForcedRandomValue;
         }
 
-        // Turn Random State Off
+        /// <summary>
+        /// Turn Random State Off
+        /// </summary>
+        /// <returns></returns>
         public static bool DisableForcedRolls()
         {
             ForceRollsToNotRandom = false;
-
             return ForceRollsToNotRandom;
         }
 
-        // Turn Random State On
+        /// <summary>
+        /// Turn Random State On
+        /// </summary>
         public static bool EnableForcedRolls()
         {
             ForceRollsToNotRandom = true;
@@ -50,19 +58,27 @@ namespace Game.Helpers
         /// <returns></returns>
         public static int RollDice(int rolls, int dice)
         {
-            if (ForceRollsToNotRandom)
-            {
-                return rolls * _ForcedRandomValue;
-            }
+            //// ForceRolls check after the rolls check, that prevents the bug of negative rolls
+            //if (ForceRollsToNotRandom)
+            //{
+            //    return rolls * _ForcedRandomValue;
+            //}
 
             if (rolls < 1)
             {
                 return 0;
             }
 
+            // Dice check is after Rolls number check to allow for force roll value even if dice it 0
             if (dice < 1)
             {
                 return 0;
+            }
+
+            // ForceRolls check after the rolls check, that prevents the bug of negative rolls
+            if (ForceRollsToNotRandom)
+            {
+                return rolls * _ForcedRandomValue;
             }
 
             var myReturn = 0;

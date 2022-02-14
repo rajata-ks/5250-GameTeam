@@ -35,13 +35,13 @@ namespace Game.Models
     public static class DifficultyEnumExtensions
     {
         /// <summary>
-        /// Display a string for the Enums
+        /// Display a String for the Enums
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         public static string ToMessage(this DifficultyEnum value)
         {
-            // Default string
+            // Default String
             var Message = "Unknown";
 
             switch (value)
@@ -86,7 +86,7 @@ namespace Game.Models
         /// <returns></returns>
         public static int ToModifier(this DifficultyEnum EnumValue, int value)
         {
-            // Default string
+            // Default String
             var modifier = 1.0;
 
             switch (EnumValue)
@@ -154,7 +154,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Given the string for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
+        /// Given the String for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
