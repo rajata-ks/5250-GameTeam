@@ -22,6 +22,20 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void AbilityEnumExtensionsTests_Get_Full_List_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnumHelper.GetFullList;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result.Count > 0);
+        }
+
+        [Test]
         public void AbilityEnumExtensionsTests_Bandage_Default_Should_Pass()
         {
             // Arrange
