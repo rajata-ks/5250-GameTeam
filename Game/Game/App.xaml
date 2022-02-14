@@ -291,20 +291,20 @@
                 BasedOn="{StaticResource LabelStyle}">
                 <Setter Property="LineBreakMode" Value="WordWrap" />
             </Style>
-            
+
             <Style TargetType="Label"
                 x:Key="ItemPopup"
                 BasedOn="{StaticResource PopupItemTextStyle}">
                 <Setter Property="LineBreakMode" Value="WordWrap" />
                 <Setter Property="MaxLines" Value="2" />
             </Style>
-            
+
             <Style TargetType="Label"
                 x:Key="AttributesTitle"
                 BasedOn="{StaticResource LabelStyle}">
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
-            
+
             <!-- Image -->
             <Style TargetType="Image"
                 x:Key="ImageLargeStyle">
@@ -315,7 +315,7 @@
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="Aspect" Value="Fill" />
             </Style>
-            
+
             <Style TargetType="Image"
                 x:Key="LogoImageLarge"
                 BasedOn="{StaticResource ImageLargeStyle}">
@@ -330,7 +330,7 @@
                 <Setter Property="HeightRequest" Value="100" />
                 <Setter Property="WidthRequest" Value="100" />
             </Style>
-            
+
             <Style TargetType="Image"
                 x:Key="LogoImageMedVillagePage"
                 BasedOn="{StaticResource LogoImageMed}">
@@ -413,7 +413,7 @@
                 x:Key="BattleMapPlayerSmallStyle"
                 BasedOn="{StaticResource ImageBattleSmallStyle}">
             </Style>
-            
+
             <Style TargetType="Image"
                 x:Key="DisplayAsset"
                 BasedOn="{StaticResource ImageLargeStyle}">
@@ -429,7 +429,7 @@
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="SelectedIndicatorColor" Value="{StaticResource TriciaryBackgroundColor}"/>
             </Style>
-            
+
             <!-- ImageButton -->
             <Style TargetType="ImageButton">
                 <Setter Property="HeightRequest" Value="150" />
@@ -502,7 +502,7 @@
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="WidthRequest" Value="80"/>
             </Style>
-                
+
             <Style TargetType="Button" 
                    x:Key="StickyBottomButtons"
                    BasedOn="{StaticResource GridRoundedButton}">
@@ -695,13 +695,13 @@
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="VerticalOptions" Value="EndAndExpand" />
             </Style>
-            
+
             <Style TargetType="StackLayout"
                 x:Key="AttributeStackLayoutStyle"
                 BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Padding" Value="0,0,10,0" />
             </Style>
-            
+
             <Style TargetType="StackLayout"
                 x:Key="ProgressOuterStack">
                 <Setter Property="Orientation" Value="Horizontal" />
@@ -715,18 +715,18 @@
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="Spacing" Value="0" />
             </Style>
-            
+
             <Style TargetType="StackLayout"
                 x:Key="ProgressInnerStack">
                 <Setter Property="Orientation" Value="Horizontal" />
             </Style>
-            
+
             <Style TargetType="StackLayout"
                 x:Key="HorizontalCenterStack">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Orientation" Value="Horizontal" />
             </Style>
-            
+
             <Style TargetType="StackLayout"
                 x:Key="VerticalCenterStack">
                 <Setter Property="HorizontalOptions" Value="Center" />
@@ -768,7 +768,7 @@
                 <Setter Property="IsRefreshing" Value="{Binding IsBusy, Mode=OneWay}" />
                 <Setter Property="RefreshCommand" Value="{Binding LoadItemsCommand}" />
             </Style>
-            
+
             <!-- Frame -->
             <Style TargetType="Frame">
                 <Setter Property="Margin" Value="0" />
@@ -779,7 +779,7 @@
                 <Setter Property="BorderColor" Value="{StaticResource PrimaryBackgroundColor}" />
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBackgroundColor}" />
             </Style>
-            
+
             <Style TargetType="Frame" 
                    x:Key="CarouselViewFrame">
                 <Setter Property="HasShadow" Value="false" />
@@ -789,7 +789,7 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
             </Style>
-            
+
             <Style TargetType="Frame" 
                    x:Key="ListIndexFrameCells">
                 <Setter Property="Margin" Value="5" />
@@ -829,7 +829,7 @@
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="BorderColor" Value="{StaticResource SecondaryBackgroundColor}" />
             </Style>
-            
+
             <Style TargetType="Frame"
                 x:Key="UpdateFrame">
                 <Setter Property="CornerRadius" Value="10" />
@@ -837,14 +837,14 @@
                 <Setter Property="BorderColor" Value="Black" />
                 <Setter Property="BackgroundColor" Value="AliceBlue" />
             </Style>
-                
+
             <Style TargetType="Frame"
                 x:Key="ItemFrame">
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}"/>
                 <Setter Property="Padding" Value="1" />
             </Style>
-                
-            
+
+
             <!-- Grid -->
             <Style TargetType="Grid"
                    x:Key="Grid">
@@ -853,7 +853,7 @@
                 <Setter Property="Margin" Value="0" />
                 <Setter Property="Padding" Value="0" />
             </Style>
-            
+
             <Style TargetType="Grid"
                    x:Key="CenterGrid"
                    BasedOn="{StaticResource Grid}">
@@ -894,13 +894,13 @@
                 BasedOn="{StaticResource EntryStyle}">
                 <Setter Property="Text" Value="{Binding Data.Description, Mode=TwoWay}" />
             </Style>
-            
+
             <Style TargetType="Entry"
                 x:Key="DescriptionEntry"
                 BasedOn="{StaticResource EntryStyle}">
                 <Setter Property="Text" Value="{Binding Data.Description, Mode=TwoWay}" />
             </Style>
-            
+
             <Style TargetType="Entry"
                 x:Key="ImageEntry"
                 BasedOn="{StaticResource EntryStyle}">

@@ -5,8 +5,6 @@ using Xamarin.Forms.Xaml;
 
 using Game.ViewModels;
 using Game.Models;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace Game.Views
 {
@@ -29,6 +27,9 @@ namespace Game.Views
         //Bool used to validate description.
         private bool descriptionValid;
 
+        //Bool used to validate image.
+        private bool imageValid;
+
         //copy of pre edited data
         private ItemModel ItemModelCopy;
 
@@ -41,37 +42,15 @@ namespace Game.Views
         public ItemUpdatePage(GenericViewModel<ItemModel> data)
         {
             InitializeComponent();
-            this.ViewModel = data;
 
-            //clear list
-            if (this.ViewModel.Dataset != null)
-            {
-                this.ViewModel.Dataset.Clear();
-            }
+            BindingContext = this.ViewModel = data;
 
-            //initialize the dataset
-            this.ViewModel.Dataset = new ObservableCollection<DefaultModel>();
-
-            //get all data
-            var dataList = ItemIndexViewModel.Instance.Dataset;
-
-            //to populate the dataset so images can show up
-            foreach (var datas in dataList)
-            {
-                this.ViewModel.Dataset.Add(new DefaultModel { Name = datas.Name, Description = datas.Description, ImageURI = datas.ImageURI, Id = datas.Id });
-            }
-
-            BindingContext = this.ViewModel;
-
-            //set carousel to the current item image
-            carouselItem.CurrentItem = this.ViewModel.Dataset.Where(x => x.Id == this.ViewModel.Data.Id).FirstOrDefault();
-
-            //set title
             this.ViewModel.Title = "Update " + data.Title;
 
             //Set bools to true.
             nameValid = true;
             descriptionValid = true;
+            imageValid = true;
 
             ItemModelCopy = new ItemModel(data.Data);
 
@@ -98,15 +77,16 @@ namespace Game.Views
                 return;
             }
 
+            if (imageValid == false)
+            {
+                return;
+            }
+
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
-
-            //get current carousel item image url to save
-            var curImage = (DefaultModel)(carouselItem.CurrentItem);
-            ViewModel.Data.ImageURI = curImage.ImageURI;
 
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             _ = await Navigation.PopModalAsync();
@@ -117,7 +97,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-       
+
         public async void Cancel_Clicked(object sender, EventArgs e)
         {
 
@@ -229,6 +209,39 @@ namespace Game.Views
             DescriptionLabel.TextColor = Color.White;
             DescriptionLabel.Text = "Description";
             descriptionValid = true;
+        }
+
+        /// <summary>
+        /// Validate the entry for image.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Image_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (!ImageEntry.Text.EndsWith(".png"))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            ImageLabel.TextColor = Color.White;
+            imageValid = true;
+
         }
 
         /// <summary>

@@ -29,10 +29,7 @@ namespace Game.Views
         public Dictionary<string, object> MapLocationObject = new Dictionary<string, object>();
 
 
-        /// <summary>
-        /// Constructor for Unit Tests
-        /// </summary>
-        /// <param name="UnitTest"></param>
+        // Empty Constructor for UTs
         bool UnitTestSetting;
         public BattlePage(bool UnitTest) { UnitTestSetting = UnitTest; }
 

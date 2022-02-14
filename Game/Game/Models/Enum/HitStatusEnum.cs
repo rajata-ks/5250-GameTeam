@@ -33,13 +33,13 @@ namespace Game.Models
     public static class HitStatusEnumExtensions
     {
         /// <summary>
-        /// Display a String for the Enums
+        /// Display a string for the Enums
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
         public static string ToMessage(this HitStatusEnum value)
         {
-            // Default String
+            // Default string
             var Message = "Unknown";
 
             switch (value)
@@ -107,7 +107,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Given the String for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
+        /// Given the string for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -117,7 +117,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Given the Full String for an enum, return its value
+        /// Given the Full string for an enum, return its value
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>

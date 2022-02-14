@@ -245,7 +245,7 @@ namespace UnitTests.Views
         public void RoundOverPage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
         {
             // Arrange
-            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.Head);
+            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
             var StackItem = page.GetItemToDisplay(item);
             var dataImage = StackItem.Children[0];
 

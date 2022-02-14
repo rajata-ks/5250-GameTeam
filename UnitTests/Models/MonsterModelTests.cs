@@ -765,10 +765,7 @@ namespace UnitTests.Models
             _ = Game.Helpers.DiceHelper.DisableForcedRolls();
 
             // Assert
-
-            // Example for UT Lecture
-            // Assert.AreEqual(2, result);
-            Assert.AreEqual(1, result);
+            Assert.AreEqual(2, result);
         }
 
         [Test]

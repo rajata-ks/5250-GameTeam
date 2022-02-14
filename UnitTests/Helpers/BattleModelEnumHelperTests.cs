@@ -11,20 +11,6 @@ namespace UnitTests.Helpers
     class BattleModeEnumHelperTests
     {
         [Test]
-        public void BattleModeEnumHelper_GetListAll_return_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = BattleModeEnumHelper.GetListAll;
-
-            // Assert
-            Assert.IsTrue(result.FirstOrDefault() != null);
-
-            // Assert
-        }
-
-        [Test]
         public void BattleModeEnumHelper_GetListAll_Should_Pass()
         {
             // Arrange

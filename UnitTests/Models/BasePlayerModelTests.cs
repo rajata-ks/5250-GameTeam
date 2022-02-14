@@ -22,84 +22,6 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void BasePlayerModel_Get_Location_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = new BasePlayerModel<CharacterModel>();
-            result.Location = ItemLocationEnum.OffHand;
-            // Reset
-
-            // Assert
-            Assert.AreEqual(ItemLocationEnum.OffHand, result.Location);
-        }
-
-        [Test]
-        public void BasePlayerModel_GetSpeedProgress_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = new BasePlayerModel<CharacterModel>();
-            result.Speed = 2;
-            var output = result.GetSpeedProgress;
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(output.GetType(), typeof(decimal));
-        }
-
-        [Test]
-        public void BasePlayerModel_GetDefenseProgress_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = new BasePlayerModel<CharacterModel>();
-            result.Defense = 2;
-            var output = result.GetDefenseProgress;
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(output.GetType(), typeof(decimal));
-        }
-
-        [Test]
-        public void BasePlayerModel_ProgressRangeConverter_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = new BasePlayerModel<CharacterModel>();
-            result.Attack = 2;
-            var output = result.GetAttackProgress;
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(output.GetType(), typeof(decimal));
-        }
-
-        [Test]
-        public void BasePlayerModel_ClearBuffs_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = new BasePlayerModel<CharacterModel>();
-            result.BuffAttackValue = 100;
-            result.ClearBuffs();
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(0, result.BuffAttackValue);
-        }
-
-        [Test]
         public void BasePlayerModel_Constructor_Default_Should_Pass()
         {
             // Arrange
@@ -110,7 +32,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual("", result.Name);
+            Assert.AreEqual(string.Empty, result.Name);
         }
 
         [Test]
@@ -868,9 +790,7 @@ namespace UnitTests.Models
             _ = Game.Helpers.DiceHelper.DisableForcedRolls();
 
             // Assert
-            // Example for UT Lecture
-            // Assert.AreEqual(2, result);
-            Assert.AreEqual(1, result);
+            Assert.AreEqual(2, result);
         }
 
         [Test]

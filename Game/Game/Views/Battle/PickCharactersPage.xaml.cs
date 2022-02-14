@@ -27,10 +27,7 @@ namespace Game.Views
     public partial class PickCharactersPage : ContentPage
     {
 
-        /// <summary>
-        /// Constructor for Unit Tests
-        /// </summary>
-        /// <param name="UnitTest"></param>
+        // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
 
         /// <summary>

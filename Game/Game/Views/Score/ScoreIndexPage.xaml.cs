@@ -20,10 +20,7 @@ namespace Game.Views
         // The view model, used for data binding
         readonly ScoreIndexViewModel ViewModel = ScoreIndexViewModel.Instance;
 
-        /// <summary>
-        /// Constructor for Unit Tests
-        /// </summary>
-        /// <param name="UnitTest"></param>
+        // Empty Constructor for UTs
         public ScoreIndexPage(bool UnitTest) { }
 
         /// <summary>

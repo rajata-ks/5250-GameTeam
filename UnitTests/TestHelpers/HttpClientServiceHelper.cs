@@ -80,7 +80,7 @@ namespace UnitTests.TestHelpers
             HttpStatusCode = HttpStatusCodeSuccess;
         }
 
-        // Response String
+        // Response string
         public static StringContent ResponseMessageStringContent = new("Content as string");
 
         // The default string to reset to
