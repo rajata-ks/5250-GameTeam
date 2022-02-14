@@ -5,6 +5,8 @@ using Xamarin.Forms.Xaml;
 
 using Game.ViewModels;
 using Game.Models;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Game.Views
 {
@@ -43,8 +45,32 @@ namespace Game.Views
         {
             InitializeComponent();
 
+            this.ViewModel = data;
+
+            //clear list
+            if (this.ViewModel.Dataset != null)
+            {
+                this.ViewModel.Dataset.Clear();
+            }
+
+            //initialize the dataset
+            this.ViewModel.Dataset = new ObservableCollection<DefaultModel>();
+
+            //get all data
+            var dataList = ItemIndexViewModel.Instance.Dataset;
+
+            //to populate the dataset so images can show up
+            foreach (var datas in dataList)
+            {
+                this.ViewModel.Dataset.Add(new DefaultModel { Name = datas.Name, Description = datas.Description, ImageURI = datas.ImageURI, Id = datas.Id });
+            }
+
             BindingContext = this.ViewModel = data;
 
+            //set carousel to the current item image
+            carouselItem.CurrentItem = this.ViewModel.Dataset.Where(x => x.Id == this.ViewModel.Data.Id).FirstOrDefault();
+
+            //set title
             this.ViewModel.Title = "Update " + data.Title;
 
             //Set bools to true.
@@ -87,6 +113,10 @@ namespace Game.Views
             {
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
+
+            //get current carousel item image url to save
+            //var curImage = (DefaultModel)(carouselItem.CurrentItem);
+            //ViewModel.Data.ImageURI = curImage.ImageURI;
 
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             _ = await Navigation.PopModalAsync();
@@ -209,39 +239,6 @@ namespace Game.Views
             DescriptionLabel.TextColor = Color.White;
             DescriptionLabel.Text = "Description";
             descriptionValid = true;
-        }
-
-        /// <summary>
-        /// Validate the entry for image.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void Image_TextChanged(object sender, ValueChangedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(ImageEntry.Text))
-            {
-                ImageLabel.TextColor = Color.Red;
-                imageValid = false;
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(ImageEntry.Text))
-            {
-                ImageLabel.TextColor = Color.Red;
-                imageValid = false;
-                return;
-            }
-
-            if (!ImageEntry.Text.EndsWith(".png"))
-            {
-                ImageLabel.TextColor = Color.Red;
-                imageValid = false;
-                return;
-            }
-
-            ImageLabel.TextColor = Color.White;
-            imageValid = true;
-
         }
 
         /// <summary>
