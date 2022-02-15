@@ -47,7 +47,7 @@ namespace UnitTests.Models
 
             // Assert
             Assert.IsNotNull(result.Id);
-            Assert.AreEqual(Game.Services.ItemService.DefaultImageURI, result.ImageURI);
+            Assert.AreEqual(string.Empty, result.ImageURI);
             Assert.AreEqual(PlayerTypeEnum.Unknown, result.PlayerType);
             Assert.AreEqual(true, result.Alive);
             Assert.AreEqual(0, result.Order);
