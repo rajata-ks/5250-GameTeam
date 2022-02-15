@@ -8,6 +8,19 @@ namespace UnitTests.Helpers
     [TestFixture]
     public class ItemLocationEnumHelperTests
     {
+        [Test]
+        public void ItemLocationEnumHelper_ItemLocationEnum_ConvertMessageToEnum_not_exist_Should_Return_Unknown()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemLocationEnumHelper.ConvertMessageToEnum("bogus");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(ItemLocationEnum.Unknown,result);
+        }
 
         [Test]
         public void ItemLocationEnumHelper_ItemLocationEnum_Valid_1Time_6sided_Should_Between_1_and_6()
