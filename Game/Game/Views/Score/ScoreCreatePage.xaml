@@ -89,8 +89,28 @@
                         Text="{Binding Data.ScoreTotal}" 
                         Style="{StaticResource EntryStyle}"/>
 
+                    </Grid>
 
-                </Grid>
+                <StackLayout Style="{StaticResource VerticalStackSaveCancelButtons}">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Button 
+                            Text="Cancel"  Clicked="Cancel_Clicked"  Grid.Row="0" Grid.Column="0"
+                            Style="{StaticResource GridRoundedButton}"/>
+
+                       
+
+                    </Grid>
+
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
