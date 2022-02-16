@@ -68,7 +68,7 @@
             </ListView>
             <Grid>
                 <Button 
-                    Text="Create New Score?" Clicked="Add_Clicked"
+                    Text="Create New Score?" Clicked="AddScore_Clicked"
                     Style="{StaticResource StickyBottomButtons}" >
 
                 </Button>
