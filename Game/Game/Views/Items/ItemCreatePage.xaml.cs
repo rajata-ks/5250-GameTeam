@@ -66,10 +66,10 @@ namespace Game.Views
             this.ViewModel.Title = "";
 
             //Defaults bools
-            nameValid = true;
-            descriptionValid = true;
-            attributeValid = true;
-            locationValid = true;
+            nameValid = false;
+            descriptionValid = false;
+            attributeValid = false;
+            locationValid = false;
 
             //Need to make the SelectedItem a string, so it can select the correct item.
             LocationPicker.SelectedItem = this.ViewModel.Data.Location.ToString();
@@ -93,21 +93,17 @@ namespace Game.Views
             {
                 return;
             }
-
-            if (validateErrorLocationEnum(ViewModel.Data.Location) == false)
+            validateErrorLocationEnum(ViewModel.Data.Location);
+            if (!locationValid)
             {
                 return;
             }
 
-            if (validateErrorAttributeEnum(ViewModel.Data.Attribute) == false)
+            validateErrorAttributeEnum(ViewModel.Data.Attribute);
+
+            if (!attributeValid)
             {
                 return;
-            }
-
-            // If the image in the data box is empty, use the default one..
-            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
-            {
-                ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
 
             //get current carousel item image url to save
@@ -233,7 +229,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        private bool validateErrorAttributeEnum(AttributeEnum data)
+        public bool validateErrorAttributeEnum(AttributeEnum data)
         {
             if (data == AttributeEnum.Unknown)
             {
@@ -251,7 +247,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        private bool validateErrorLocationEnum(ItemLocationEnum data)
+        public bool validateErrorLocationEnum(ItemLocationEnum data)
         {
             if (data == ItemLocationEnum.Unknown)
             {
@@ -269,7 +265,7 @@ namespace Game.Views
         /// <param name="val"></param>
         /// <param name="slide"> silder object</param>
         /// <returns></returns>
-        private double RoundSilderValueToWhole(double val, Slider slide)
+        public double RoundSilderValueToWhole(double val, Slider slide)
         {
             if (slide == null)
             {
