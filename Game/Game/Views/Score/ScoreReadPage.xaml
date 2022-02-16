@@ -18,7 +18,7 @@
             <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10">
 
-             
+
 
                 <Grid
                     RowSpacing="1"
@@ -33,14 +33,14 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0"
-                        Text="Name : " 
+                        Text="Name :" 
                         Style="{StaticResource LabelStyle}"/>
                     <Label Grid.Row="0" Grid.Column="1"
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource ValueStyle}"/>
 
                     <Label Grid.Row="1" Grid.Column="0"
-                        Text="Battle : " 
+                        Text="Battle :" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <Label Grid.Row="1" Grid.Column="1"
@@ -48,7 +48,7 @@
                         Style="{StaticResource ValueStyle}"/>
 
                     <Label Grid.Row="2" Grid.Column="0"
-                        Text="Date : " 
+                        Text="Date :" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <Label Grid.Row="2" Grid.Column="1"
@@ -56,7 +56,7 @@
                         Style="{StaticResource ValueStyle}"/>
 
                     <Label Grid.Row="3" Grid.Column="0"
-                        Text="Experience Gained : " 
+                        Text="Experience Gained :" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <Label Grid.Row="3" Grid.Column="1"
@@ -64,7 +64,7 @@
                         Style="{StaticResource ValueStyle}"/>
 
                     <Label Grid.Row="4" Grid.Column="0"
-                        Text="Monsters killed : " 
+                        Text="Monsters killed :" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <Label Grid.Row="4" Grid.Column="1"
@@ -72,16 +72,28 @@
                         Style="{StaticResource ValueStyle}"/>
 
                     <Label Grid.Row="5" Grid.Column="0"
-                        Text="Total Score : " 
+                        Text="Total Score :" 
                         Style="{StaticResource LabelStyle}"/>
 
-                    <Label Grid.Row="4" Grid.Column="1"
+                    <Label Grid.Row="5" Grid.Column="1"
                         Text="{Binding Data.ScoreTotal}" 
                         Style="{StaticResource ValueStyle}"/>
 
                 </Grid>
 
-               
+                <Frame Style="{StaticResource UpdateFrame}"  Grid.Row="4" Grid.ColumnSpan="3" >
+                    <StackLayout Style="{StaticResource VerticalCenterStack}">
+
+                        <Label Text="Do you want to update this Score?" Style="{StaticResource UpdateStyle}" />
+
+                        <StackLayout Style="{StaticResource HorizontalCenterStack}">
+                            <Button 
+                            Text="Yes"  Clicked="Update_Clicked"
+                            Style="{StaticResource UpdateButton}">
+                            </Button>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
