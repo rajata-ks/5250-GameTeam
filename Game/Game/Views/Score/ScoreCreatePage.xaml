@@ -87,9 +87,12 @@
 
                     <Label Grid.Row="4" Grid.Column="0"
                         Text="Monsters killed " 
+                        x:Name="MonsterLabel"
                         Style="{StaticResource LabelStyle}"/>
 
                     <Entry Grid.Row="4" Grid.Column="1"
+                        x:Name="MonsterEntry"
+                        TextChanged="Monster_TextChanged"
                         Text="{Binding Data.MonstersKilledList}" 
                         Style="{StaticResource EntryStyle}"/>
 
