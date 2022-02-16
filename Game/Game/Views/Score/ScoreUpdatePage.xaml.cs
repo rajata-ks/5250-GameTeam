@@ -21,6 +21,24 @@ namespace Game.Views
 
         // Constructor for Unit Testing
         public ScoreUpdatePage(bool UnitTest) { }
+        
+        //Bool used to validate name.
+        private bool nameValid;
+
+        //Bool used to validate battle.
+        private bool battleValid;
+
+        //Bool used to validate date.
+        private bool dateValid;
+
+        //Bool used to validate experience.
+        private bool experienceValid;
+
+        //Bool used to validate monster.
+        private bool monsterValid;
+
+        //Bool used to validate score.
+        private bool scoreValid;
 
         /// <summary>
         /// Constructor that takes and existing data Score
@@ -41,6 +59,11 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
+            if (!nameValid)
+            {
+                return;
+            }
+
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             _ = await Navigation.PopModalAsync();
         }
@@ -54,5 +77,36 @@ namespace Game.Views
         {
             _ = await Navigation.PopModalAsync();
         }
+
+        /// <summary>
+        /// Validate the entry for name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Name_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(NameEntry.Text))
+            {
+                NameLabel.TextColor = Color.Red;
+                NameLabel.Text = "Name*";
+                nameValid = false;
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(NameEntry.Text))
+            {
+                NameLabel.TextColor = Color.Red;
+                NameLabel.Text = "Name*";
+                nameValid = false;
+
+                return;
+            }
+
+            NameLabel.TextColor = Color.White;
+            NameLabel.Text = "Name";
+            nameValid = true;
+        }
+
     }
 }
