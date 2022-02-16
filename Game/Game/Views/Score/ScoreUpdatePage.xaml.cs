@@ -39,6 +39,7 @@ namespace Game.Views
 
         //Bool used to validate score.
         private bool scoreValid;
+        private bool imageValid;
 
         /// <summary>
         /// Constructor that takes and existing data Score
@@ -103,6 +104,41 @@ namespace Game.Views
 
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             _ = await Navigation.PopModalAsync();
+        }
+
+
+        /// <summary>
+        /// Validate the entry for image.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Image_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (!ImageEntry.Text.EndsWith(".png"))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            ImageLabel.TextColor = Color.White;
+            imageValid = true;
+
         }
 
         /// <summary>
