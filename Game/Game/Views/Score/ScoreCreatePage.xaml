@@ -65,6 +65,14 @@
                         Text="{Binding Data.GameDate}" 
                         Style="{StaticResource EntryStyle}"/>
 
+                    <Label Grid.Row="3" Grid.Column="0"
+                        Text="Experience Gained" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Entry Grid.Row="3" Grid.Column="1"
+                        Text="{Binding Data.ExperienceGainedTotal}" 
+                        Style="{StaticResource EntryStyle}"/>
+
                 </Grid>
             </StackLayout>
         </ScrollView>
