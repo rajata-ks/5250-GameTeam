@@ -25,7 +25,6 @@ namespace Game.Views
         //Bool used to validate name.
         private bool nameValid;
 
-
         //Bool used to validate battle.
         private bool battleValid;
 
@@ -37,7 +36,6 @@ namespace Game.Views
 
         //Bool used to validate monster.
         private bool monsterValid;
-
 
         //Bool used to validate score.
         private bool scoreValid;
