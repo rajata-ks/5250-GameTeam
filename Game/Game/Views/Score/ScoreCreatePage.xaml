@@ -98,9 +98,12 @@
 
                     <Label Grid.Row="5" Grid.Column="0"
                         Text="Total Score" 
+                        x:Name="ScoreLabel"
                         Style="{StaticResource LabelStyle}"/>
 
                     <Entry Grid.Row="5" Grid.Column="1"
+                        x:Name="ScoreEntry"
+                        TextChanged="Score_TextChanged"
                         Text="{Binding Data.ScoreTotal}" 
                         Style="{StaticResource EntryStyle}"/>
 
