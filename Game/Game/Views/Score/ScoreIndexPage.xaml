@@ -66,6 +66,14 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Grid>
+                <Button 
+                    Text="Create New Score?" Clicked="Add_Clicked"
+                    Style="{StaticResource StickyBottomButtons}" >
+
+                </Button>
+
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
