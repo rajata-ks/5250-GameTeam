@@ -62,13 +62,15 @@
                         TextChanged="Battle_TextChanged"
                         Text="{Binding Data.BattleNumber}" 
                         Style="{StaticResource EntryStyle}"/>
-                    
 
                     <Label Grid.Row="2" Grid.Column="0"
                         Text="Date" 
+                        x:Name="DateLabel"
                         Style="{StaticResource LabelStyle}"/>
 
                     <Entry Grid.Row="2" Grid.Column="1"
+                        x:Name="DateEntry"
+                        TextChanged="Date_TextChanged"
                         Text="{Binding Data.GameDate}" 
                         Style="{StaticResource EntryStyle}"/>
 
