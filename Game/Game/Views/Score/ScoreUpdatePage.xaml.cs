@@ -196,6 +196,33 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Validate the entry for Experience.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Experience_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ExperienceEntry.Text))
+            {
+                ExperienceLabel.TextColor = Color.Red;
+                ExperienceLabel.Text = "Experience*";
+                experienceValid = false;
+                return;
+            }
+            if (!isNumeric(ExperienceEntry.Text))
+            {
+                ExperienceLabel.TextColor = Color.Red;
+                ExperienceLabel.Text = "Experience*";
+                experienceValid = false;
+                return;
+            }
+
+            ExperienceLabel.TextColor = Color.White;
+            ExperienceLabel.Text = "Experience";
+            experienceValid = true;
+        }
+
+        /// <summary>
         /// Checks if the string is only numeric values.
         /// </summary>
         /// <param name="s"></param>
