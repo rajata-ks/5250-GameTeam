@@ -22,6 +22,9 @@ namespace Game.Views
         // Constructor for Unit Testing
         public ScoreCreatePage(bool UnitTest) { }
 
+        //Bool used to validate name.
+        private bool nameValid;
+
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
@@ -61,6 +64,37 @@ namespace Game.Views
         public async void Cancel_Clicked(object sender, EventArgs e)
         {
             _ = await Navigation.PopModalAsync();
+        }
+
+
+        /// <summary>
+        /// Validate the entry for name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Name_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(NameEntry.Text))
+            {
+                NameLabel.TextColor = Color.Red;
+                NameLabel.Text = "Name*";
+                nameValid = false;
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(NameEntry.Text))
+            {
+                NameLabel.TextColor = Color.Red;
+                NameLabel.Text = "Name*";
+                nameValid = false;
+
+                return;
+            }
+
+            NameLabel.TextColor = Color.White;
+            NameLabel.Text = "Name";
+            nameValid = true;
         }
     }
 }
