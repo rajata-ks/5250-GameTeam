@@ -28,6 +28,9 @@ namespace Game.Views
 
         //Bool used to validate battle.
         private bool battleValid;
+
+        //Bool used to validate date.
+        private bool dateValid;
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
@@ -38,6 +41,10 @@ namespace Game.Views
             data.Data = new ScoreModel();
 
             BindingContext = this.ViewModel = data;
+            //Default bools
+            nameValid = true;
+            battleValid = true;
+            dateValid = true;
 
             this.ViewModel.Title = "Create";
         }
@@ -58,15 +65,18 @@ namespace Game.Views
             {
                 return;
             }
+
+            if(!dateValid)
+            {
+                return;
+            }
+
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
 
-            //Default bools
-            nameValid = true;
-            battleValid = true;
 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             _ = await Navigation.PopModalAsync();
@@ -136,8 +146,38 @@ namespace Game.Views
             }
 
             BattleLabel.TextColor = Color.White;
-            BattleLabel.Text = "Battle*";
+            BattleLabel.Text = "Battle";
             battleValid = true;
+        }
+
+        /// <summary>
+        /// Validate the entry for Date.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Date_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            //Used to validate DateTime.
+            DateTime temp;
+
+            if (string.IsNullOrEmpty(DateEntry.Text))
+            {
+                DateLabel.TextColor = Color.Red;
+                DateLabel.Text = "Date*";
+                dateValid = false;
+                return;
+            }
+            if (!DateTime.TryParse(DateEntry.Text, out temp))
+            {
+                DateLabel.TextColor = Color.Red;
+                DateLabel.Text = "Date*";
+                dateValid = false;
+                return;
+            }
+
+            DateLabel.TextColor = Color.White;
+            DateLabel.Text = "Date";
+            dateValid = true;
         }
 
         /// <summary>
