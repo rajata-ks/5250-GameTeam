@@ -51,9 +51,9 @@ namespace Game.Views
             this.ViewModel.Title = "Create";
 
             //Defaults bools
-            nameValid = true;
-            descriptionValid = true;
-            imageValid = true;
+            nameValid = false;
+            descriptionValid = false;
+            imageValid = false;
 
             //Add Difficuly to list
             foreach(string i  in Enum.GetNames(typeof(DifficultyEnum)))
@@ -104,11 +104,6 @@ namespace Game.Views
             }
 
             if (descriptionValid == false)
-            {
-                return;
-            }
-
-            if (imageValid == false)
             {
                 return;
             }
@@ -490,7 +485,7 @@ namespace Game.Views
         /// <param name="val"></param>
         /// <param name="slide"> silder object</param>
         /// <returns></returns>
-        private double RoundSilderValueToWhole(double val, Slider slide)
+        public double RoundSilderValueToWhole(double val, Slider slide)
         {
             if (slide == null)
             {
