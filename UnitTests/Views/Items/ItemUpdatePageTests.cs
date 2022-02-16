@@ -80,6 +80,25 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void ItemUpdatePage_Constructor_Dataset_not_null_should_clear_Should_Pass()
+        {
+            // Arrange
+            var data = new GenericViewModel<ItemModel>() {
+                Dataset = new System.Collections.ObjectModel.ObservableCollection<DefaultModel> { new DefaultModel() },
+                Data = new ItemModel() { Id = "1" }
+            };
+            page = new ItemUpdatePage(data);
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(page.ViewModel.Dataset.Count != 1);
+        }
+
+        [Test]
         public void ItemUpdatePage_Save_Clicked_Null_Image_Should_Pass()
         {
             // Arrange
@@ -172,6 +191,180 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_Save_Clicked_Null_Valid_all_But_Description_Should_Pass()
+        {
+            // Arrange
+            var nameEntry = page.FindByName("NameEntry");
+            ((Entry)nameEntry).Text = "test";
+
+            page.Name_TextChanged(null, null);
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_Save_Clicked_Invalid_Name_Should_Pass()
+        {
+            // Arrange
+            var nameEntry = page.FindByName("NameEntry");
+            ((Entry)nameEntry).Text = null;
+
+            page.Name_TextChanged(null, null);
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_Save_Clicked_Invalid_Description_Should_Pass()
+        {
+            // Arrange
+            var nameEntry = page.FindByName("NameEntry");
+            ((Entry)nameEntry).Text = "test";
+
+            var descriptionEntry = page.FindByName("DescriptionEntry");
+            ((Entry)descriptionEntry).Text = null;
+
+            page.Name_TextChanged(null, null);
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_Save_Clicked_Null_Valid_all_But_Location_Should_Pass()
+        {
+            // Arrange
+            var nameEntry = page.FindByName("NameEntry");
+            ((Entry)nameEntry).Text = "test";
+            var descriptionEntry = page.FindByName("DescriptionEntry");
+            ((Entry)descriptionEntry).Text = "test";
+
+            page.Name_TextChanged(null, null);
+            page.Description_TextChanged(null, null);
+
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_Save_Clicked_Null_Valid_all_But_Attribute_Should_Pass()
+        {
+            // Arrange
+            var nameEntry = page.FindByName("NameEntry");
+            ((Entry)nameEntry).Text = "test";
+            var descriptionEntry = page.FindByName("DescriptionEntry");
+            ((Entry)descriptionEntry).Text = "test";
+            page.ViewModel.Data.Location = ItemLocationEnum.Necklass;
+
+            page.Name_TextChanged(null, null);
+            page.Description_TextChanged(null, null);
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_Save_Clicked_Null_Valid_Should_Pass()
+        {
+            // Arrange
+            var nameEntry = page.FindByName("NameEntry");
+            ((Entry)nameEntry).Text = "test";
+
+            var descriptionEntry = page.FindByName("DescriptionEntry");
+            ((Entry)descriptionEntry).Text = "test";
+
+            page.ViewModel.Data.Location = ItemLocationEnum.Necklass;
+            page.ViewModel.Data.Attribute = AttributeEnum.Attack;
+
+            var carouselItem = page.FindByName("carouselItem");
+            ((CarouselView)carouselItem).CurrentItem = new DefaultModel() { ImageURI = "test.png" };
+
+            page.Name_TextChanged(null, null);
+            page.Description_TextChanged(null, null);
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_name_changed_empty_string_Should_Pass()
+        {
+            // Arrange
+            var nameEntry = page.FindByName("NameEntry");
+            ((Entry)nameEntry).Text = " ";
+
+            // Act
+
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_description_changed_empty_string_Should_Pass()
+        {
+            // Arrange
+            var descriptionEntry = page.FindByName("DescriptionEntry");
+            ((Entry)descriptionEntry).Text = " ";
+
+            //act
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_round_silder_null_silder_Should_Pass()
+        {
+            // Arrange
+
+            //act
+            var test = page.RoundSilderValueToWhole(2.3,null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(test == 0); // Got to here, so it happened...
         }
     }
 }
