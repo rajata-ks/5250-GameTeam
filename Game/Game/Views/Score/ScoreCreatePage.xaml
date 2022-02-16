@@ -42,24 +42,26 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0"
-                        Text="Name" 
                         x:Name="NameLabel"
+                        Text="Name" 
                         Style="{StaticResource LabelStyle}"/>
                     
                     <Entry Grid.Row="0" Grid.Column="1"
-                        Text="{Binding Data.Name}" 
                         x:Name="NameEntry"
                         TextChanged="Name_TextChanged"
+                        Text="{Binding Data.Name}" 
                         Style="{StaticResource EntryStyle}"/>
 
                     <Label Grid.Row="1" Grid.Column="0"
+                        x:Name="BattleLabel"
                         Text="Battle" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <Entry Grid.Row="1" Grid.Column="1"
+                        x:Name="BattleEntry"
+                        TextChanged="Battle_TextChanged"
                         Text="{Binding Data.BattleNumber}" 
                         Style="{StaticResource EntryStyle}"/>
-
                     <Label Grid.Row="2" Grid.Column="0"
                         Text="Date" 
                         Style="{StaticResource LabelStyle}"/>
