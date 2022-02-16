@@ -250,6 +250,33 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Validate the entry for Score
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name=""></param>
+        public void Score_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ScoreEntry.Text))
+            {
+                ScoreLabel.TextColor = Color.Red;
+                ScoreLabel.Text = "Score*";
+                scoreValid = false;
+                return;
+            }
+            if (!isNumeric(ScoreEntry.Text))
+            {
+                ScoreLabel.TextColor = Color.Red;
+                ScoreLabel.Text = "Score*";
+                scoreValid = false;
+                return;
+            }
+
+            ScoreLabel.TextColor = Color.White;
+            ScoreLabel.Text = "Score";
+            scoreValid = true;
+        }
+
+        /// <summary>
         /// Checks if the string is only numeric values.
         /// </summary>
         /// <param name="s"></param>
