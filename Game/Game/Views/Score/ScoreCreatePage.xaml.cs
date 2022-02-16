@@ -31,6 +31,10 @@ namespace Game.Views
 
         //Bool used to validate date.
         private bool dateValid;
+
+        //Bool used to validate experience.
+        private bool experienceValid;
+
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
@@ -45,6 +49,7 @@ namespace Game.Views
             nameValid = true;
             battleValid = true;
             dateValid = true;
+            experienceValid = true;
 
             this.ViewModel.Title = "Create";
         }
@@ -67,6 +72,11 @@ namespace Game.Views
             }
 
             if(!dateValid)
+            {
+                return;
+            }
+
+            if(!experienceValid)
             {
                 return;
             }
@@ -179,6 +189,34 @@ namespace Game.Views
             DateLabel.Text = "Date";
             dateValid = true;
         }
+
+        /// <summary>
+        /// Validate the entry for Experience.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Experience_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ExperienceEntry.Text))
+            {
+                ExperienceLabel.TextColor = Color.Red;
+                ExperienceLabel.Text = "Experience*";
+                experienceValid = false;
+                return;
+            }
+            if (!isNumeric(ExperienceEntry.Text))
+            {
+                ExperienceLabel.TextColor = Color.Red;
+                ExperienceLabel.Text = "Experience*";
+                experienceValid = false;
+                return;
+            }
+
+            ExperienceLabel.TextColor = Color.White;
+            ExperienceLabel.Text = "Experience";
+            experienceValid = true;
+        }
+
 
         /// <summary>
         /// Checks if the string is only numeric values.
