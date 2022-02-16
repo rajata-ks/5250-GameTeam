@@ -103,11 +103,6 @@ namespace Game.Views
                 return;
             }
 
-            if (imageValid == false)
-            {
-                return;
-            }
-
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {
@@ -243,7 +238,7 @@ namespace Game.Views
         /// <param name="val"></param>
         /// <param name="slide"> silder object</param>
         /// <returns></returns>
-        private double RoundSilderValueToWhole(double val, Slider slide)
+        public double RoundSilderValueToWhole(double val, Slider slide)
         {
             if (slide == null)
             {
