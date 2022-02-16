@@ -43,10 +43,13 @@
 
                     <Label Grid.Row="0" Grid.Column="0"
                         Text="Name" 
+                        x:Name="NameLabel"
                         Style="{StaticResource LabelStyle}"/>
                     
                     <Entry Grid.Row="0" Grid.Column="1"
                         Text="{Binding Data.Name}" 
+                        x:Name="NameEntry"
+                        TextChanged="Name_TextChanged"
                         Style="{StaticResource EntryStyle}"/>
 
                     <Label Grid.Row="1" Grid.Column="0"
