@@ -769,6 +769,18 @@
                 <Setter Property="RefreshCommand" Value="{Binding LoadItemsCommand}" />
             </Style>
 
+
+            <Style TargetType="ListView" 
+                   x:Key="ScoreListView">
+                <Setter Property="HasUnevenRows" Value="true" />
+                <Setter Property="Margin" Value="5,0,5,0" />
+                <Setter Property="RowHeight" Value="100" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="ItemsSource" Value="{Binding Dataset}" />
+                <Setter Property="IsRefreshing" Value="{Binding IsBusy, Mode=OneWay}" />
+                <Setter Property="RefreshCommand" Value="{Binding LoadItemsCommand}" />
+            </Style>
+
             <!-- Frame -->
             <Style TargetType="Frame">
                 <Setter Property="Margin" Value="0" />
@@ -796,6 +808,18 @@
                 <Setter Property="Padding" Value="10" />
                 <Setter Property="CornerRadius" Value="10" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BorderColor" Value="{StaticResource TriciaryTextColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
+            </Style>
+
+            <Style TargetType="Frame" 
+                   x:Key="ScoreIndexFrameCells">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="HeightRequest" Value="100" />
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryTextColor}" />
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
             </Style>

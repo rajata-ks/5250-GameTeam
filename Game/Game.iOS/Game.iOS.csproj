@@ -340,4 +340,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\startbutton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GRADE.png" />
+  </ItemGroup>
 </Project>

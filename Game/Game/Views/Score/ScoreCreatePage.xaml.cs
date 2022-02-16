@@ -24,6 +24,7 @@ namespace Game.Views
 
         //Bool used to validate name.
         private bool nameValid;
+        private bool imageValid;
 
         //Bool used to validate battle.
         private bool battleValid;
@@ -52,6 +53,7 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
             //Default bools
             nameValid = true;
+            imageValid = true;
             battleValid = true;
             dateValid = true;
             experienceValid = true;
@@ -61,6 +63,8 @@ namespace Game.Views
             this.ViewModel.Title = "Create";
         }
 
+
+       
         /// <summary>
         /// Save by calling for Create
         /// </summary>
