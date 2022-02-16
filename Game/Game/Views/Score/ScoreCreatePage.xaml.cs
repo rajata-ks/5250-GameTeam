@@ -25,6 +25,9 @@ namespace Game.Views
         //Bool used to validate name.
         private bool nameValid;
 
+
+        //Bool used to validate battle.
+        private bool battleValid;
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
@@ -46,11 +49,24 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
+            if (!nameValid)
+            {
+                return;
+            }
+
+            if (!battleValid)
+            {
+                return;
+            }
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {
                 ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
             }
+
+            //Default bools
+            nameValid = true;
+            battleValid = true;
 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             _ = await Navigation.PopModalAsync();
@@ -95,6 +111,51 @@ namespace Game.Views
             NameLabel.TextColor = Color.White;
             NameLabel.Text = "Name";
             nameValid = true;
+        }
+
+        /// <summary>
+        /// Validate the entry for battle.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Battle_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(BattleEntry.Text))
+            {
+                BattleLabel.TextColor = Color.Red;
+                BattleLabel.Text = "Battle*";
+                battleValid = false;
+                return;
+            }
+            if (!isNumeric(BattleEntry.Text))
+            {
+                BattleLabel.TextColor = Color.Red;
+                BattleLabel.Text = "Battle*";
+                battleValid = false;
+                return;
+            }
+
+            BattleLabel.TextColor = Color.White;
+            BattleLabel.Text = "Battle*";
+            battleValid = true;
+        }
+
+        /// <summary>
+        /// Checks if the string is only numeric values.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        private bool isNumeric(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!(c >= '0' && c <= '9'))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
