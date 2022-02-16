@@ -94,7 +94,13 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
+
+                <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="5" Grid.Column="0"/>
+
             </StackLayout>
+                
         </ScrollView>
+        
     </ContentPage.Content>
+   
 </ContentPage>
