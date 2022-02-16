@@ -75,10 +75,13 @@
                         Style="{StaticResource EntryStyle}"/>
 
                     <Label Grid.Row="3" Grid.Column="0"
-                        Text="Experience Gained" 
+                        Text="Experience Gained"
+                        x:Name="ExperienceLabel"
                         Style="{StaticResource LabelStyle}"/>
 
                     <Entry Grid.Row="3" Grid.Column="1"
+                        x:Name="ExperienceEntry"
+                        TextChanged="Experience_TextChanged"
                         Text="{Binding Data.ExperienceGainedTotal}" 
                         Style="{StaticResource EntryStyle}"/>
 
