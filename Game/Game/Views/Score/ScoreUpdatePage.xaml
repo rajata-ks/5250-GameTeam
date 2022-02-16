@@ -57,7 +57,13 @@
                         Text="{Binding Data.BattleNumber}" 
                         Style="{StaticResource EntryStyle}"/>
 
-                    
+                    <Label Grid.Row="2" Grid.Column="0"
+                        Text="Date" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Entry Grid.Row="2" Grid.Column="1"
+                        Text="{Binding Data.GameDate}" 
+                        Style="{StaticResource EntryStyle}"/>
 
                 </Grid>
 
