@@ -106,7 +106,9 @@
                             Text="Cancel"  Clicked="Cancel_Clicked"  Grid.Row="0" Grid.Column="0"
                             Style="{StaticResource GridRoundedButton}"/>
 
-                       
+                        <Button 
+                            Text="Save"  Clicked="Save_Clicked"  Grid.Row="0" Grid.Column="1"
+                            Style="{StaticResource GridRoundedButton}"/>
 
                     </Grid>
 
