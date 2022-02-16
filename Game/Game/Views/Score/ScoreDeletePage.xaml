@@ -45,6 +45,16 @@
                     Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
 
+                <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label 
+                    Text="Date : " 
+                    Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                    Text="{Binding Data.GameDate}" 
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+
 
             </StackLayout>
 
