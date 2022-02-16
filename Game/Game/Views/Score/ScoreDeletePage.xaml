@@ -13,78 +13,38 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <StackLayout Style="{StaticResource OuterBoxStack}"
-                Spacing="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-            <Label Text="Delete Page" Style="{StaticResource HeaderStyle}"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition  Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <StackLayout>
-                <StackLayout Style="{StaticResource HorizontalStack}">
+            <StackLayout Style="{StaticResource VerticalCenterStack}" Grid.Row="0" Grid.ColumnSpan="2" >
+
+                <StackLayout Style="{StaticResource HorizontalCenterStack}"  Grid.Row="0" Grid.ColumnSpan="2">
                     <Label 
-                       Text="Name : " 
-                        Style="{StaticResource LabelStyle}"/>
+                   Text="Name : " 
+                    Style="{StaticResource LabelStyle}"/>
                     <Label 
-                        Text="{Binding Data.Name}" 
-                        Style="{StaticResource ValueStyle}"/>
+                    Text="{Binding Data.Name}" 
+                    Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource HorizontalStack}">
-                    <Label 
-                        Text="Game Date:"
-                        Style="{StaticResource LabelStyle}"/>
-
-                    <Label 
-                        Text="{Binding Data.GameDate}"
-                        Style="{StaticResource ValueStyle}"/>
-                </StackLayout>
-
-                <StackLayout Style="{StaticResource HorizontalStack}">
-                    <Label 
-                        Text="AutoBattle:"                      
-                        Style="{StaticResource LabelStyle}"/>
-
-                    <Label 
-                        Text="{Binding Data.AutoBattle}"
-                        Style="{StaticResource ValueStyle}"/>
-                </StackLayout>
-
-                <StackLayout Style="{StaticResource HorizontalStack}">
-                    <Label 
-                        Text="Score:" 
-                        Style="{StaticResource LabelStyle}"/>
-                    <Label 
-                        Text="{Binding Data.ScoreTotal}"
-                        Style="{StaticResource ValueStyle}"/>
-                </StackLayout>
-
-                <StackLayout Style="{StaticResource HorizontalStack}">
-                    <Label 
-                        Text="Number of Rounds:"                      
-                        Style="{StaticResource LabelStyle}"/>
-
-                    <Label 
-                        Text="{Binding Data.RoundCount}"
-                        Style="{StaticResource ValueStyle}"/>
-                </StackLayout>
-   
+               
             </StackLayout>
 
-            <StackLayout 
-                HorizontalOptions="Center" 
-                Padding="20">
+            <Frame Style="{StaticResource NarratorFrame}"
+                   Grid.Row="1" Grid.ColumnSpan="2">
 
-                <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
-
-                <Button 
-                    Text="Yes" 
-                    Clicked="Delete_Clicked" 
-                    HorizontalOptions="Center"
-                    FontSize="Medium"
-                    BorderWidth="1" 
-                    BorderColor="black">
-                </Button>
-
-            </StackLayout>
-        </StackLayout>
+                
+            </Frame>
+            <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="2" Grid.Column="0"/>
+        </Grid>
     </ScrollView>
 </ContentPage>
