@@ -49,6 +49,13 @@ namespace Game.Views
 
             BindingContext = this.ViewModel = data;
 
+            //Default bools
+            nameValid = true;
+            battleValid = true;
+            dateValid = true;
+            experienceValid = true;
+            monsterValid = true;
+            scoreValid = true;
             this.ViewModel.Title = "Update " + data.Title;
         }
 
@@ -63,7 +70,30 @@ namespace Game.Views
             {
                 return;
             }
+            if (!battleValid)
+            {
+                return;
+            }
 
+            if (!dateValid)
+            {
+                return;
+            }
+
+            if (!experienceValid)
+            {
+                return;
+            }
+
+            if (!monsterValid)
+            {
+                return;
+            }
+
+            if (!scoreValid)
+            {
+                return;
+            }
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             _ = await Navigation.PopModalAsync();
         }
@@ -135,6 +165,35 @@ namespace Game.Views
             battleValid = true;
         }
 
+        /// <summary>
+        /// Validate the entry for Date.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Date_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            //Used to validate DateTime.
+            DateTime temp;
+
+            if (string.IsNullOrEmpty(DateEntry.Text))
+            {
+                DateLabel.TextColor = Color.Red;
+                DateLabel.Text = "Date*";
+                dateValid = false;
+                return;
+            }
+            if (!DateTime.TryParse(DateEntry.Text, out temp))
+            {
+                DateLabel.TextColor = Color.Red;
+                DateLabel.Text = "Date*";
+                dateValid = false;
+                return;
+            }
+
+            DateLabel.TextColor = Color.White;
+            DateLabel.Text = "Date";
+            dateValid = true;
+        }
 
         /// <summary>
         /// Checks if the string is only numeric values.
