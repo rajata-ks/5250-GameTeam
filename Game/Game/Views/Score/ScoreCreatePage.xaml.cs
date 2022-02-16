@@ -64,7 +64,40 @@ namespace Game.Views
         }
 
 
-       
+        /// <summary>
+        /// Validate the entry for image.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Image_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (!ImageEntry.Text.EndsWith(".png"))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            ImageLabel.TextColor = Color.White;
+            imageValid = true;
+
+        }
+
         /// <summary>
         /// Save by calling for Create
         /// </summary>
