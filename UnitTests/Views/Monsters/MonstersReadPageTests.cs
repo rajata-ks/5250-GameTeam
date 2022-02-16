@@ -80,6 +80,38 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void MonsterReadPage_ShowPopup_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            _ = page.ShowPopup(new ItemModel());
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void MonsterReadPage_GetItemToDisplay_ShowPopup_Valid_Should_Pass()
+        {
+            // Arrange
+            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
+            page.ViewModel.Data.PrimaryHand = item.Id;
+            var StackItem = page.GetItemToDisplay(ItemLocationEnum.PrimaryHand);
+            var dataImage = StackItem.Children[0];
+
+            // Act
+            ((ImageButton)dataImage).PropagateUpClicked();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+
+        [Test]
         public void MonsterReadPage_OnBackButtonPressed_Valid_Should_Pass()
         {
             // Arrange
@@ -92,5 +124,34 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void CharacterUpdatePage_ClosePopup_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.ClosePopup_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterUpdatePage_AddItemsToDisplay_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
     }
 }
