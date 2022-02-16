@@ -107,5 +107,38 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+        [Test]
+        public void ScoreCreatePage_Save_Clicked_Null_Valid_all_But_Description_Should_Pass()
+        {
+            // Arrange
+            var nameEntry = page.FindByName("NameEntry");
+            ((Entry)nameEntry).Text = "test";
+
+            page.Name_TextChanged(null, null);
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ScoreCreatePage_name_changed_empty_string_Should_Pass()
+        {
+            // Arrange
+            var nameEntry = page.FindByName("NameEntry");
+            ((Entry)nameEntry).Text = " ";
+            page.Name_TextChanged(null, null);
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
