@@ -81,6 +81,15 @@
                         Text="{Binding Data.MonstersKilledList}" 
                         Style="{StaticResource EntryStyle}"/>
 
+                    <Label Grid.Row="5" Grid.Column="0"
+                        Text="Total Score" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Entry Grid.Row="5" Grid.Column="1"
+                        Text="{Binding Data.ScoreTotal}" 
+                        Style="{StaticResource EntryStyle}"/>
+
+
                 </Grid>
             </StackLayout>
         </ScrollView>
