@@ -223,6 +223,33 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Validate the entry for Monster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name=""></param>
+        public void Monster_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(MonsterEntry.Text))
+            {
+                MonsterLabel.TextColor = Color.Red;
+                MonsterLabel.Text = "Monster*";
+                monsterValid = false;
+                return;
+            }
+            if (!isNumeric(MonsterEntry.Text))
+            {
+                MonsterLabel.TextColor = Color.Red;
+                MonsterLabel.Text = "Monster*";
+                monsterValid = false;
+                return;
+            }
+
+            MonsterLabel.TextColor = Color.White;
+            MonsterLabel.Text = "Monster";
+            monsterValid = true;
+        }
+
+        /// <summary>
         /// Checks if the string is only numeric values.
         /// </summary>
         /// <param name="s"></param>
