@@ -108,7 +108,7 @@
                         Style="{StaticResource EntryStyle}"/>
 
                     <Label Grid.Row="6" Grid.Column="0"
-                                Text="Letter Grade:" 
+                                Text="Letter Grade " 
                                 Style="{StaticResource LabelStyle}"
                                    x:Name="ImageLabel"/>
 
