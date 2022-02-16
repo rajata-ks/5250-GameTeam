@@ -816,8 +816,8 @@
                    x:Key="ScoresIndexFrameCells">
                 <Setter Property="Margin" Value="5" />
                 <Setter Property="Padding" Value="10" />
-                <Setter Property="CornerRadius" Value="10" />
-                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="WidthRequest" Value="160" />
                 <Setter Property="HeightRequest" Value="100" />
                 <Setter Property="HorizontalOptions" Value="StartAndExpand" />
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryTextColor}" />
