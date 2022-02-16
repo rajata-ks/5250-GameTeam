@@ -35,6 +35,9 @@ namespace Game.Views
         //Bool used to validate experience.
         private bool experienceValid;
 
+        //Bool used to validate monster.
+        private bool monsterValid;
+
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
@@ -50,6 +53,7 @@ namespace Game.Views
             battleValid = true;
             dateValid = true;
             experienceValid = true;
+            monsterValid = true;
 
             this.ViewModel.Title = "Create";
         }
@@ -77,6 +81,11 @@ namespace Game.Views
             }
 
             if(!experienceValid)
+            {
+                return;
+            }
+
+            if(!monsterValid)
             {
                 return;
             }
@@ -217,7 +226,32 @@ namespace Game.Views
             experienceValid = true;
         }
 
+        /// <summary>
+        /// Validate the entry for Monster
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name=""></param>
+        public void Monster_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(MonsterEntry.Text))
+            {
+                MonsterLabel.TextColor = Color.Red;
+                MonsterLabel.Text = "Monster*";
+                monsterValid = false;
+                return;
+            }
+            if (!isNumeric(MonsterEntry.Text))
+            {
+                MonsterLabel.TextColor = Color.Red;
+                MonsterLabel.Text = "Monster*";
+                monsterValid = false;
+                return;
+            }
 
+            MonsterLabel.TextColor = Color.White;
+            MonsterLabel.Text = "Monster";
+            monsterValid = true;
+        }
         /// <summary>
         /// Checks if the string is only numeric values.
         /// </summary>
