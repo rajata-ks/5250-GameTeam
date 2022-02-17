@@ -55,7 +55,7 @@ namespace Game.GameRules
         public static string GetMonsterImage()
         {
 
-            List<string> FirstNameList = new List<string> { "zombieTeacher.png" };
+            List<string> FirstNameList = new List<string> { "zombieTeacher.png", "zombieTeacher.png", "zombieTeacher.png", "zombieTeacher.png", "zombieTeacher.png", "zombieTeacher.png" };
 
             var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
 
@@ -69,7 +69,7 @@ namespace Game.GameRules
         public static string GetCharacterImage()
         {
 
-            List<string> FirstNameList = new List<string> { "character__nerd.png", "character_athlete.png" };
+            List<string> FirstNameList = new List<string> { "character__nerd.png", "character_athlete.png", "character__nerd.png", "character_athlete.png", "character__nerd.png", "character_athlete.png" };
 
             var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
 
