@@ -409,5 +409,44 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void ScoreCreatePage_image_text_change_invalid_ending_Should_Pass()
+        {
+            // Arrange
+            var ImageEntry = page.FindByName("ImageEntry");
+            ((Entry)ImageEntry).Text = "asdasd";
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ScoreCreatePage_image_text_change_invalid_text_Should_Pass()
+        {
+            // Arrange
+            var ImageEntry = page.FindByName("ImageEntry");
+            ((Entry)ImageEntry).Text = " ";
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ScoreCreatePage_image_text_change_empty_string_text_Should_Pass()
+        {
+            // Arrange
+            var ImageEntry = page.FindByName("ImageEntry");
+            ((Entry)ImageEntry).Text = string.Empty;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
