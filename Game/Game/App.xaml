@@ -543,7 +543,7 @@
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
-            
+
             <Style TargetType="StackLayout"
                 x:Key="AttributeStyle"
                    BasedOn="{StaticResource HorizontalStack}">
@@ -922,6 +922,14 @@
                 <Setter Property="VerticalOptions" Value="Fill" />
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
             </Style>
+
+            <Style TargetType="Grid"
+                x:Key="IndexGrid">
+                <Setter Property="ColumnSpacing" Value="5" />
+                <Setter Property="RowSpacing" Value="1" />
+            </Style>
+
+
 
             <!-- Entry -->
             <Style TargetType="Entry"
