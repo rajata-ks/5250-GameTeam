@@ -58,7 +58,7 @@
                                         <Label Grid.Column="1" Grid.Row="2"
                                        Text="{Binding Description}" 
                                        Style="{StaticResource ListStyle}"
-                                       FontSize="Micro"/>
+                                      />
 
                             </Grid>
                             </Frame>
