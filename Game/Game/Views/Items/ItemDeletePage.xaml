@@ -48,26 +48,22 @@
             <Frame Style="{StaticResource NarratorFrame}"
                    Grid.Row="1" Grid.ColumnSpan="2">
 
-                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
+                <StackLayout Style="{StaticResource CenterVerticalStack}" >
 
-                    <Label Text="Are you sure you want to delete this Item?" Style="{StaticResource ListStyle}" 
-                           Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" FontSize="Medium"
-                            Padding="10" LineBreakMode="WordWrap" HorizontalTextAlignment="Center"/>
+                    <Label Text="Are you sure you want to delete this Item?" Style="{StaticResource UpdateStyle}" />
 
 
-                    <StackLayout Style="{StaticResource CenterHorizontalStack}">
-                        <Button x:Name="CancelButton" 
-                            Text="Cancel"  Clicked="Cancel_Clicked"  HorizontalOptions="Center" 
-                            Style="{StaticResource UpdateButton}"
-                            Margin="-5,0,10,0">
-                        </Button>
-                        
+                    <StackLayout Style="{StaticResource CenterHorizontalStack}"  >
                         <Button 
-                            Text="Delete"  Clicked="Delete_Clicked"  HorizontalOptions="Center"
-                            Style="{StaticResource UpdateButton}" Margin="10,0,0,0">
+                            Text="Yes"  Clicked="Delete_Clicked"
+                            Style="{StaticResource UpdateButton}">
                         </Button>
-
+                        <Button 
+                            Text="No"  Clicked="Cancel_Clicked"   
+                            Style="{StaticResource UpdateButton}">
+                        </Button>
                     </StackLayout>
+                    
                 </StackLayout>
             </Frame>
 

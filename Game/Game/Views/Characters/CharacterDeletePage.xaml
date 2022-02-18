@@ -51,22 +51,18 @@
                     <Label Text="Are you sure you want to delete this Character?" Style="{StaticResource UpdateStyle}"/>
 
 
-                    <StackLayout Style="{StaticResource CenterHorizontalStack}">
-                            <Button 
-                            Text="Yes"
-                                Style="{StaticResource UpdateButton}"
-                                Clicked="Delete_Clicked"
-                                Margin="10,0,10,0">
-                            </Button>
-                            <Button 
-                                Text="No"
-                                Style="{StaticResource UpdateButton}"
-                                Clicked="Cancel_Clicked"
-                                Margin="10,0,10,0">
-                            </Button>
-                        </StackLayout>
-                        
+                    <StackLayout Style="{StaticResource CenterHorizontalStack}"  >
+                        <Button 
+                            Text="Yes"  Clicked="Delete_Clicked"
+                            Style="{StaticResource UpdateButton}">
+                        </Button>
+                        <Button 
+                            Text="No"  Clicked="Cancel_Clicked"   
+                            Style="{StaticResource UpdateButton}">
+                        </Button>
                     </StackLayout>
+
+                </StackLayout>
                 </Frame>
             <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="2" Grid.Column="0"/>
         </Grid>
