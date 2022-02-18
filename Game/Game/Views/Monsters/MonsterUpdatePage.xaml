@@ -42,9 +42,7 @@
                         </StackLayout>
 
                         <Grid
-                            RowSpacing="1"
-                            ColumnSpacing="2"
-                            VerticalOptions="Center">
+                            Style="{StaticResource CenterGrid}">
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto" />
@@ -208,7 +206,7 @@
 
                 <StackLayout Style="{StaticResource PopupBox}">
 
-                    <Frame  BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
+                    <Frame  BorderColor="{StaticResource TriciaryTextColor}" >
                         <StackLayout Style="{StaticResource VerticalStacks}" >
                             <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupItemTextStyle}" />
                             <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyle}" />
