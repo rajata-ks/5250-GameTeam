@@ -29,9 +29,7 @@
                 <Label Text="Create Page" Style="{StaticResource HeaderStyle}"/>
 
                 <Grid
-                    RowSpacing="1"
-                    ColumnSpacing="2"
-                    VerticalOptions="Center">
+                  Style="{StaticResource CenterGrid}">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
