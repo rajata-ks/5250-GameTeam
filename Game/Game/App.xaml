@@ -259,6 +259,8 @@
                 BasedOn="{StaticResource PopupItemTextStyle}">
                 <Setter Property="Margin" Value="20" />
                 <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
 
             <Style TargetType="Label"
