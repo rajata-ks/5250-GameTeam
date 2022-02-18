@@ -40,8 +40,7 @@
 
                     <Image  Grid.Column="0" Grid.Row="0"
                                         Source="leftarrow.png"
-                                        Style="{StaticResource ImageMediumStyle}"
-                                        HorizontalOptions="Center"/>
+                                        Style="{StaticResource ImageMediumStyleCenter}"/>
 
                     <CarouselView ItemsSource="{Binding Dataset}" IndicatorView="{x:Reference itemIndicator}" Grid.Row="0" Grid.Column="1" x:Name="carouselItem">
                         <CarouselView.ItemTemplate>
