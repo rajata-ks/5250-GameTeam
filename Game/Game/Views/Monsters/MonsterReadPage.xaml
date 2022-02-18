@@ -11,11 +11,6 @@
         <Label Text="Read Page" Style="{StaticResource HeaderCenterStyle}"/>
     </NavigationPage.TitleView>
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
-        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
-    </ContentPage.ToolbarItems>
-
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
