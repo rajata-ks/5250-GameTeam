@@ -15,6 +15,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+            <local_helpers:ItemLocationEnumConverter x:Key="ItemLocationEnumConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -94,8 +95,8 @@
                                                        x:Name="LocationLabel"/>
 
                                             <Picker Grid.Row="2" Grid.Column="1"
-                                                    ItemsSource="{x:Static local:ItemLocationEnumHelper.GetListCharacter}" 
-                                                    SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                                                    ItemsSource="{x:Static local:ItemLocationEnumHelper.GetListItemMessage}" 
+                                                    SelectedItem="{Binding Data.Location, Converter={StaticResource ItemLocationEnumConverter}, Mode=TwoWay}" 
                                                     x:Name="LocationPicker"/>
                                         </StackLayout>
                                         <StackLayout Spacing="8" Grid.Column="1">
