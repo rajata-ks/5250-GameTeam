@@ -156,7 +156,7 @@
                 <StackLayout Style="{StaticResource PopupBox}">
 
                     <Frame Style="{StaticResource ItemFrame}">
-                        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
+                        <StackLayout Style="{StaticResource VerticalStacks}" >
                             <Image x:Name="PopupItemImage" Style="{StaticResource ImageLargeStyle}"/>
 
                             <Label x:Name="PopupItemName" Style="{StaticResource ItemPopup} "/>

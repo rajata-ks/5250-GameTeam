@@ -79,7 +79,7 @@
                     <Frame 
                              BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
 
-                        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
+                        <StackLayout Style="{StaticResource VerticalStacks}" >
                             <Image x:Name="PopupItemImage" Style="{StaticResource ImageLargeStyle}"/>
 
                             <Label x:Name="PopupItemName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" />

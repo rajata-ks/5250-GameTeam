@@ -209,7 +209,7 @@
                 <StackLayout Style="{StaticResource PopupBox}">
 
                     <Frame  BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
-                        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
+                        <StackLayout Style="{StaticResource VerticalStacks}" >
                             <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupItemTextStyle}" />
                             <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyle}" />
 
