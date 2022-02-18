@@ -62,7 +62,7 @@
 
 
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center" >
+                    <StackLayout Style="{StaticResource CenterHorizontalStack}"  >
                         <Button 
                             Text="Yes"  Clicked="Delete_Clicked"
                             Style="{StaticResource UpdateButton}">
