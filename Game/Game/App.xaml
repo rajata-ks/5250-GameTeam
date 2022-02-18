@@ -591,6 +591,12 @@
             </Style>
 
             <Style TargetType="StackLayout"
+                x:Key="OuterBoxStacks"
+                BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="Spacing" Value="10"/>
+            </Style>
+
+            <Style TargetType="StackLayout"
                 x:Key="CardImageTextBox">
                 <Setter Property="Orientation" Value="Vertical" />
                 <Setter Property="HorizontalOptions" Value="Center" />
