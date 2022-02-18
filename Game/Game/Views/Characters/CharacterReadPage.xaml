@@ -35,7 +35,7 @@
                 <ColumnDefinition  Width="*" />
             </Grid.ColumnDefinitions>
 
-            <StackLayout Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="3">
+            <StackLayout Grid.Row="0" Grid.ColumnSpan="3">
                 <StackLayout Style="{StaticResource HorizontalCenterStack}">
 
                     <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>

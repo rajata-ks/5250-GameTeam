@@ -753,6 +753,8 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
+            
+            
 
             <Style TargetType="StackLayout"
                 x:Key="PopupBox">
