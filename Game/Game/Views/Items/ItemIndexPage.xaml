@@ -23,7 +23,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <Frame Style="{StaticResource ListIndexFrameCells}">
-                                <Grid ColumnSpacing="5" RowSpacing="1">
+                                <Grid Style="{StaticResource IndexGrid}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="200"/>
                                         <ColumnDefinition Width="auto"/>

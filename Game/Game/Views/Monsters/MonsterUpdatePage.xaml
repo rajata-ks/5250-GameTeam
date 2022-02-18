@@ -221,7 +221,7 @@
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
-                                            <Grid ColumnSpacing="5" RowSpacing="1">
+                                            <Grid Style="{StaticResource IndexGrid}">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="auto"/>
                                                     <ColumnDefinition Width="*"/>
