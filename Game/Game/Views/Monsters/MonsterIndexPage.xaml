@@ -7,7 +7,7 @@
              x:Name="BrowseItemsPage"
              x:Class="Game.Views.MonsterIndexPage"
              Title="{Binding Title}">
- 
+
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="icon_add.png"/>
@@ -21,40 +21,38 @@
                     CachingStrategy="RecycleElement"
                     ItemSelected="OnItemSelected"
                     >
-                
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Frame Style="{StaticResource ListIndexFrameCells}">
                                 <Grid Style="{StaticResource IndexGrid}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
 
                                     <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                                         Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageMediumStyle}"
-                                        HorizontalOptions="Center"/>
-                                    
+                                        Style="{StaticResource ImageMediumStyle}"/>
+
                                     <Label Grid.Column="1" Grid.Row="0"
                                     Text="{Binding Name}" 
                                     Style="{StaticResource ListStyle}"/>
 
 
-                                <Label Grid.Column="1" Grid.Row="1"
+                                    <Label Grid.Column="1" Grid.Row="1"
                                     Text="{Binding Difficulty}" 
                                     Style="{StaticResource ListStyle}"/>
-                                
-                                <Label Grid.Column="1" Grid.Row="2"
+
+                                    <Label Grid.Column="1" Grid.Row="2"
                                     Text="{Binding Description}" 
-                                    Style="{StaticResource ListStyle}"
-                                    FontSize="Micro"/>
+                                    Style="{StaticResource ListStyle}"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>
