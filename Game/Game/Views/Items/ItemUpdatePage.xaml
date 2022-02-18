@@ -41,7 +41,7 @@
                     <Image  Grid.Column="0" Grid.Row="0"
                                         Source="leftarrow.png"
                                         Style="{StaticResource ImageMediumStyle}"
-                                        HorizontalOptions="Center"/>
+                                       />
 
                     <CarouselView ItemsSource="{Binding Dataset}" IndicatorView="{x:Reference itemIndicator}" Grid.Row="0" Grid.Column="1" x:Name="carouselItem"
                                   CurrentItemChanged="carouselItem_CurrentItemChanged">
@@ -49,7 +49,7 @@
                             <DataTemplate>
                                 <StackLayout>
                                     <Frame Style="{StaticResource CarouselViewFrame}">
-                                        <Image Source="{Binding ImageURI}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" />
+                                        <Image Source="{Binding ImageURI}" Style="{StaticResource ImageLargeStyle}" />
                                     </Frame>
                                 </StackLayout>
                             </DataTemplate>
@@ -64,21 +64,20 @@
                 </Grid>
 
                 <Grid x:Name="MainGrid">
-                    <ScrollView VerticalOptions="FillAndExpand">
-                        <StackLayout Padding="24" Spacing="0">
-                            <StackLayout VerticalOptions="CenterAndExpand">
-                                <StackLayout x:Name="FormLayout" Spacing="16" VerticalOptions="CenterAndExpand">
-                                    <StackLayout Spacing="8">
+                    <ScrollView Style="{StaticResource ScrollViews}">
+                        <StackLayout Style="{StaticResource ItemStacks}">
+                            <StackLayout Style="{StaticResource Verticalcenter}">
+                                <StackLayout x:Name="FormLayout" Style="{StaticResource Verticalcenters}">
+                                    <StackLayout >
                                         <Label Text="Name" 
                                                         Style="{StaticResource LabelBaseStyle}"
                                                         x:Name="NameLabel"/>
                                         <Entry Text="{Binding Data.Name}" 
                                                         Style="{StaticResource EntryStyle}"
                                                         x:Name="NameEntry"
-                                                        TextChanged="Name_TextChanged" Placeholder="Awesome names only."
-                                                           />
+                                                        TextChanged="Name_TextChanged" Placeholder="Awesome names only."/>
                                     </StackLayout>
-                                    <StackLayout Spacing="8">
+                                    <StackLayout >
                                         <Label Text="Description" 
                                                     Style="{StaticResource LabelBaseStyle}"
                                                        x:Name="DescriptionLabel"/>
@@ -88,25 +87,25 @@
                                                     TextChanged="Description_TextChanged" Placeholder="Describe me!"/>
                                     </StackLayout>
                                     <Grid ColumnSpacing="16">
-                                        <StackLayout Spacing="8" Grid.Column="0">
+                                        <StackLayout  Grid.Column="0">
                                             <Label Grid.Row="2" Grid.Column="0"
                                                     Text="Location" 
                                                     Style="{StaticResource LabelStyle}"
                                                        x:Name="LocationLabel"/>
 
                                             <Picker Grid.Row="2" Grid.Column="1"
-                                                    ItemsSource="{x:Static local:ItemLocationEnumHelper.GetListItemMessage}" 
+                                                    ItemsSource="{x:Static local_enum:ItemLocationEnumHelper.GetListItemMessage}" 
                                                     SelectedItem="{Binding Data.Location, Converter={StaticResource ItemLocationEnumConverter}, Mode=TwoWay}" 
                                                     x:Name="LocationPicker"/>
                                         </StackLayout>
-                                        <StackLayout Spacing="8" Grid.Column="1">
+                                        <StackLayout  Grid.Column="1">
                                             <Label Grid.Row="3" Grid.Column="0"
                                                     Text="Attribute" 
                                                     Style="{StaticResource LabelStyle}"
                                                        x:Name="AttributeLabel"/>
 
                                             <Picker Grid.Row="3" Grid.Column="1"
-                                                    ItemsSource="{x:Static local:AttributeEnumHelper.GetListCharacter}" 
+                                                    ItemsSource="{x:Static local_enum:AttributeEnumHelper.GetListCharacter}" 
                                                     SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                                                     x:Name="AttributePicker"/>
                                         </StackLayout>
