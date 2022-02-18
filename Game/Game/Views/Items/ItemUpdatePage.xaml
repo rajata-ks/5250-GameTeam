@@ -120,7 +120,7 @@
                     <Frame Style="{StaticResource ListIndexFrameCells}">
 
                         <StackLayout Style="{StaticResource VerticalStackHorizontalFillExpand}">
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="20">
+                            <StackLayout Style="{StaticResource HorizontalStack}" >
 
                                 <Label Text="Damage: " Style="{StaticResource ListStyle}"/>
                                 <Label 
@@ -135,7 +135,7 @@
                                      Style="{StaticResource DefaultSlider}"
                                 ValueChanged="Damage_OnStepperValueChanged" Value="{Binding Data.Damage}"/>
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="20">
+                            <StackLayout Style="{StaticResource HorizontalStack}" >
 
                                 <Label Text="Range: " Style="{StaticResource ListStyle}"/>
 
@@ -149,7 +149,7 @@
                             <Slider x:Name="rangeSilder" Style="{StaticResource DefaultSlider}"
                                 ValueChanged="Range_OnStepperValueChanged" Value="{Binding Data.Range}" />
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="20">
+                            <StackLayout Style="{StaticResource HorizontalStack}" >
 
                                 <Label Text="Value: " Style="{StaticResource ListStyle}"/>
 
