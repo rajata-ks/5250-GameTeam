@@ -241,7 +241,7 @@
                                                     Text="{Binding Name}" 
                                                     Style="{StaticResource ListStyle}"/>
 
-                                                <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                                                <StackLayout Grid.Column="1" Grid.Row="1" >
                                                     <Label Text="{Binding Attribute}" Style="{StaticResource ListStyle}"/>
                                                     <Label Text="{Binding Value}" Style="{StaticResource ListStyle}"/>
                                                 </StackLayout>

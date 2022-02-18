@@ -543,6 +543,12 @@
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
+            
+            <Style TargetType="StackLayout"
+                x:Key="AttributeStyle"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="Orientation" Value="Vertical" />
+            </Style>
 
             <Style TargetType="StackLayout"
                 x:Key="VerticalStacks"
