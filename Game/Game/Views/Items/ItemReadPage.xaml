@@ -39,7 +39,7 @@
                 <ColumnDefinition  Width="*" />
             </Grid.ColumnDefinitions>
 
-            <StackLayout Orientation="Vertical" Grid.Row="0" Grid.ColumnSpan="3">
+            <StackLayout  Grid.Row="0" Grid.ColumnSpan="3">
                 <StackLayout Style="{StaticResource HorizontalCenterStack}">
                     <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
 
@@ -72,12 +72,12 @@
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Padding="30">
+                <StackLayout Grid.Row="1" Grid.ColumnSpan="3" >
                     <Label Text="Description : " Style="{StaticResource DescriptionStyle}"/>
                     <Label Text="{Binding Data.Description}" Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
 
-                <StackLayout Orientation="Vertical" Grid.Row="2" Grid.ColumnSpan="3">
+                <StackLayout  Grid.Row="2" Grid.ColumnSpan="3">
                     <Label Text="Attributes" Style="{StaticResource AttributeHeaderStyle}"/>
 
                     <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">

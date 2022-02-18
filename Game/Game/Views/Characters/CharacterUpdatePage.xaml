@@ -180,17 +180,29 @@
                         x:Name="ItemBox">
                         </FlexLayout>
 
-                        <Grid>
-                            <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                                <Button 
-                                Text="Cancel" Clicked="Cancel_Clicked"
-                                Style="{StaticResource GridRoundedButton}"/>
+                        <StackLayout Style="{StaticResource VerticalStackSaveCancelButtons}">
+                            <Grid>
 
-                                <Button
-                                Text="Save" Clicked="Save_Clicked"
-                                Style="{StaticResource GridRoundedButton}"/>
-                            </StackLayout>
-                        </Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Button 
+                            Text="Cancel"  Clicked="Cancel_Clicked"  Grid.Row="0" Grid.Column="0"
+                            Style="{StaticResource GridRoundedButton}"/>
+
+                                <Button 
+                            Text="Save"  Clicked="Save_Clicked"  Grid.Row="0" Grid.Column="1"
+                            Style="{StaticResource GridRoundedButton}"/>
+
+                            </Grid>
+
+                        </StackLayout>
+
 
                     </StackLayout>
                 </ScrollView>
@@ -205,7 +217,7 @@
 
                 <StackLayout Style="{StaticResource PopupBox}">
 
-                    <Frame  BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
+                    <Frame  BorderColor="{StaticResource TriciaryTextColor}" >
                         <StackLayout Style="{StaticResource VerticalStacks}">
                             <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupItemTextStyle}" />
                             <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyle}" />
@@ -246,7 +258,7 @@
                                                 <Label Grid.Column="1" Grid.Row="2"
                                                 Text="{Binding Description}" 
                                                 Style="{StaticResource ListStyle}"
-                                                FontSize="Micro"/>
+                                               />
                                             </Grid>
                                         </ViewCell>
                                     </DataTemplate>
