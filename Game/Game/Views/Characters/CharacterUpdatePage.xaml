@@ -13,11 +13,6 @@
         <Label Text="{Binding Title}"  Style="{StaticResource HeaderCenterStyle}"/>
     </NavigationPage.TitleView>
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
-    </ContentPage.ToolbarItems>
-
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:StringEnumConverter x:Key="StringEnum"/>
@@ -26,10 +21,7 @@
 
     <ContentPage.Content>
         <AbsoluteLayout
-                Style="{StaticResource AbsHorizontalStackFillAndExpand}"
-
-        >
-
+                Style="{StaticResource AbsHorizontalStackFillAndExpand}">
             <StackLayout Style="{StaticResource VerticalStack}"
                     AbsoluteLayout.LayoutBounds="1,1,1,1" 
                     AbsoluteLayout.LayoutFlags="All">
@@ -52,7 +44,7 @@
                         <Grid
                             RowSpacing="1"
                             ColumnSpacing="2"
-                            VerticalOptions="Center">
+                            Style="{StaticResource CenterGrid}">
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto" />
@@ -210,14 +202,13 @@
 
             <!--The Item Popup-->
             <StackLayout x:Name="PopupItemSelector" 
-                 BackgroundColor="{StaticResource PageBackgroundColor}" 
-                 IsVisible="false" 
+                  Style="{StaticResource PopupLoadingView}"
                  AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
                  AbsoluteLayout.LayoutFlags="All">
 
                 <StackLayout Style="{StaticResource PopupBox}">
 
-                    <Frame  BorderColor="{StaticResource TriciaryTextColor}" >
+                    <Frame  Style="{StaticResource PopupBox}" >
                         <StackLayout Style="{StaticResource VerticalStacks}">
                             <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupItemTextStyle}" />
                             <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyle}" />
