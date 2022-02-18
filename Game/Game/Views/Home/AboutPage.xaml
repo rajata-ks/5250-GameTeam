@@ -33,10 +33,9 @@
                     </StackLayout>
                 </StackLayout>
             </Grid>
-                
-            <Label Text="This game is made by the very passionate students of Seattle University in the Master's of science program.
-                          The game is about high school girls who are stuck in a monster's zone where they will need to fight to survive and 
-                   escape by the following morning before the evil catches them. If they fail, they will be forever stuck in the zone and lose the game. Are you up to the challenge?"
+
+            <Label FormattedText="This game is made by the very passionate students of Seattle University in the Master's of science program.
+                          The game is about high school girls who are stuck in a monster's zone where they will need to fight to survive and escape by the following morning before the evil catches them. If they fail, they will be forever stuck in the zone and lose the game. Are you up to the challenge?"
                    Style="{StaticResource AboutUsText}"/>
 
             <!--Database Settings Frame-->
