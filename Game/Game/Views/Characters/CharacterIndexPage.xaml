@@ -8,15 +8,10 @@
              x:Class="Game.Views.CharacterIndexPage"
              Title="{Binding Title}">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="icon_add.png"/>
-    </ContentPage.ToolbarItems>
-
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
-          
-             <ListView x:Name="CharactersListView" 
+            <ListView x:Name="CharactersListView" 
                     Style="{StaticResource DefaultListView}"
                     CachingStrategy="RecycleElement"
                     ItemSelected="OnItemSelected"
