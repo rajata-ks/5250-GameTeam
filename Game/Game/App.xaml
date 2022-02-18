@@ -87,6 +87,12 @@
                 <Setter Property="Orientation" Value="Vertical"/>
             </Style>
 
+
+            <Style TargetType="ScrollView"
+                   x:Key="ScrollViews">
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
             <!-- Silder -->
 
             <Style TargetType="Slider"
@@ -229,6 +235,8 @@
                 <Setter Property="HorizontalOptions" Value="Fill" />
                 <Setter Property="Padding" Value="3" />
             </Style>
+            
+            
 
             <Style TargetType="Label"
                 x:Key="GridValueStyle"
@@ -543,6 +551,27 @@
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Orientation" Value="Vertical" />
             </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="ItemStacks"
+                  >
+                <Setter Property="Padding" Value="24" />
+                <Setter Property="Spacing" Value="0" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="Verticalcenter"
+                  >
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="Verticalcenters"
+                  BasedOn="{StaticResource Verticalcenter}">
+                <Setter Property="Spacing" Value="16" />
+            </Style>
+
+          
 
             <Style TargetType="StackLayout"
                 x:Key="AttributeStyle"

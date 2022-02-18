@@ -48,7 +48,7 @@
                             <DataTemplate>
                                 <StackLayout>
                                     <Frame Style="{StaticResource CarouselViewFrame}">
-                                        <Image Source="{Binding ImageURI}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" />
+                                        <Image Source="{Binding ImageURI}" Style="{StaticResource ImageLargeStyle}" />
                                     </Frame>
                                 </StackLayout>
                             </DataTemplate>
@@ -63,21 +63,20 @@
                 </Grid>
 
                 <Grid x:Name="MainGrid">
-                    <ScrollView VerticalOptions="FillAndExpand">
-                        <StackLayout Padding="24" Spacing="0">
-                            <StackLayout VerticalOptions="CenterAndExpand">
-                                <StackLayout x:Name="FormLayout" Spacing="16" VerticalOptions="CenterAndExpand">
-                                    <StackLayout Spacing="8">
+                    <ScrollView Style="{StaticResource ScrollViews}">
+                        <StackLayout Style="{StaticResource ItemStacks}">
+                            <StackLayout Style="{StaticResource Verticalcenter}">
+                                <StackLayout x:Name="FormLayout" Style="{StaticResource Verticalcenters}">
+                                    <StackLayout >
                                         <Label Text="Name" 
                                                         Style="{StaticResource LabelBaseStyle}"
                                                         x:Name="NameLabel"/>
                                         <Entry Text="{Binding Data.Name}" 
                                                         Style="{StaticResource EntryStyle}"
                                                         x:Name="NameEntry"
-                                                        TextChanged="Name_TextChanged" Placeholder="Awesome names only."
-                                                           />
+                                                        TextChanged="Name_TextChanged" Placeholder="Awesome names only."/>
                                     </StackLayout>
-                                    <StackLayout Spacing="8">
+                                    <StackLayout >
                                         <Label Text="Description" 
                                                     Style="{StaticResource LabelBaseStyle}"
                                                        x:Name="DescriptionLabel"/>
@@ -87,7 +86,7 @@
                                                     TextChanged="Description_TextChanged" Placeholder="Describe me!"/>
                                     </StackLayout>
                                     <Grid ColumnSpacing="16">
-                                        <StackLayout Spacing="8" Grid.Column="0">
+                                        <StackLayout  Grid.Column="0">
                                             <Label Grid.Row="2" Grid.Column="0"
                                                     Text="Location" 
                                                     Style="{StaticResource LabelStyle}"
@@ -98,7 +97,7 @@
                                                     SelectedItem="{Binding Data.Location, Converter={StaticResource ItemLocationEnumConverter}, Mode=TwoWay}" 
                                                     x:Name="LocationPicker"/>
                                         </StackLayout>
-                                        <StackLayout Spacing="8" Grid.Column="1">
+                                        <StackLayout  Grid.Column="1">
                                             <Label Grid.Row="3" Grid.Column="0"
                                                     Text="Attribute" 
                                                     Style="{StaticResource LabelStyle}"
@@ -124,7 +123,7 @@
 
                         <StackLayout Orientation="Vertical">
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="10">
+                            <StackLayout Style="{StaticResource HorizontalStack}" >
 
                                 <Label Text="Damage: " Style="{StaticResource ListStyle}"/>
 
@@ -140,7 +139,7 @@
                                      Style="{StaticResource DefaultSlider}"
                                 ValueChanged="Damage_OnStepperValueChanged" Value="{Binding Data.Damage}"/>
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="20">
+                            <StackLayout Style="{StaticResource HorizontalStack}" >
 
                                 <Label Text="Range: " Style="{StaticResource ListStyle}"/>
 
@@ -154,7 +153,7 @@
                             <Slider x:Name="rangeSilder" Style="{StaticResource DefaultSlider}"
                                 ValueChanged="Range_OnStepperValueChanged" Value="{Binding Data.Range}" />
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" Padding="20">
+                            <StackLayout Style="{StaticResource HorizontalStack}" >
 
                                 <Label Text="Value: " Style="{StaticResource ListStyle}"/>
 
