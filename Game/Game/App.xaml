@@ -545,6 +545,15 @@
             </Style>
 
             <Style TargetType="StackLayout"
+                x:Key="VerticalStacks"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="Padding" Value="2" />
+            </Style>
+
+
+            <Style TargetType="StackLayout"
                 x:Key="VerticalStackSaveCancelButtons">
                 <Setter Property="VerticalOptions" Value="End" />
                 <Setter Property="Spacing" Value="0" />
