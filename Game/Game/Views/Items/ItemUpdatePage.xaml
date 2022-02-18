@@ -49,7 +49,7 @@
                             <DataTemplate>
                                 <StackLayout>
                                     <Frame Style="{StaticResource CarouselViewFrame}">
-                                        <Image Source="{Binding ImageURI}" Style="{StaticResource ImageLargeStyle}" />
+                                        <Image Source="{Binding ImageURI}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" />
                                     </Frame>
                                 </StackLayout>
                             </DataTemplate>
@@ -75,7 +75,8 @@
                                         <Entry Text="{Binding Data.Name}" 
                                                         Style="{StaticResource EntryStyle}"
                                                         x:Name="NameEntry"
-                                                        TextChanged="Name_TextChanged" Placeholder="Awesome names only."/>
+                                                        TextChanged="Name_TextChanged" Placeholder="Awesome names only."
+                                                           />
                                     </StackLayout>
                                     <StackLayout >
                                         <Label Text="Description" 
@@ -87,14 +88,14 @@
                                                     TextChanged="Description_TextChanged" Placeholder="Describe me!"/>
                                     </StackLayout>
                                     <Grid ColumnSpacing="16">
-                                        <StackLayout  Grid.Column="0">
+                                        <StackLayout Spacing="8" Grid.Column="0">
                                             <Label Grid.Row="2" Grid.Column="0"
                                                     Text="Location" 
                                                     Style="{StaticResource LabelStyle}"
                                                        x:Name="LocationLabel"/>
 
                                             <Picker Grid.Row="2" Grid.Column="1"
-                                                    ItemsSource="{x:Static local_enum:ItemLocationEnumHelper.GetListItemMessage}" 
+                                                    ItemsSource="{x:Static local:ItemLocationEnumHelper.GetListItemMessage}" 
                                                     SelectedItem="{Binding Data.Location, Converter={StaticResource ItemLocationEnumConverter}, Mode=TwoWay}" 
                                                     x:Name="LocationPicker"/>
                                         </StackLayout>
@@ -105,7 +106,7 @@
                                                        x:Name="AttributeLabel"/>
 
                                             <Picker Grid.Row="3" Grid.Column="1"
-                                                    ItemsSource="{x:Static local_enum:AttributeEnumHelper.GetListCharacter}" 
+                                                    ItemsSource="{x:Static local:AttributeEnumHelper.GetListCharacter}" 
                                                     SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                                                     x:Name="AttributePicker"/>
                                         </StackLayout>
