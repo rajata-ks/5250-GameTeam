@@ -145,6 +145,28 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Gets the list of Message strings of the locations that an Item can have.
+        /// Does not include the Left and Right Finger 
+        /// </summary>
+        public static List<string> GetListItemMessage
+        {
+            get
+            {
+                var myList = new List<string>();
+                foreach (ItemLocationEnum item in Enum.GetValues(typeof(ItemLocationEnum)))
+                {
+                    if (item != ItemLocationEnum.Unknown &&
+                        item != ItemLocationEnum.LeftFinger &&
+                        item != ItemLocationEnum.RightFinger
+                    )
+                        myList.Add(item.ToMessage());
+                }
+
+                return myList;
+            }
+        }
+
+        /// <summary>
         ///  Gets the list of locations a character can use
         ///  Removes Finger for example, and allows for left and right finger
         /// </summary>
