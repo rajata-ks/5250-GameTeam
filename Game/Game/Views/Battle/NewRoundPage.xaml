@@ -8,28 +8,27 @@
 
             <StackLayout Style="{StaticResource VerticalStack}">
 
-                <Label Text="Beginning a Round" Style="{StaticResource CenterMessageLargeStyle}"/>
+                <StackLayout VerticalOptions="Start" x:Name="TopPlayerDisplay">
+                    <StackLayout Style="{StaticResource VerticalStack}"
+                        x:Name="GamePlayersTopDisplay" 
+                        IsVisible="true" 
+                        VerticalOptions="Start" 
+                        HorizontalOptions="CenterAndExpand">
 
-                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
 
-                <Label Text="Characters" Style="{StaticResource MessageLargeStyle}"/>
+                        <StackLayout x:Name="CharacterBox"  Style="{StaticResource BoxStyle}" />
 
-                <FlexLayout x:Name="PartyListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
 
-                <Label Text="Monsters" Style="{StaticResource MessageLargeStyle}"/>
+                        <Label Text="Beginning a Round"   Style="{StaticResource CenterMessageLargeStyle}"/>
 
-                <FlexLayout x:Name="MonsterListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
+                        <Button Clicked="BeginButton_Clicked" Text="Fight"   Style="{StaticResource CreateBottomButton}"/>
 
-                <StackLayout Padding="1"></StackLayout>
 
-                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
-                
+                        <StackLayout x:Name="MonsterBox"  Style="{StaticResource BoxStyle}" />
+
+                    </StackLayout>
+
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
