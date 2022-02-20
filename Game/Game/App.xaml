@@ -527,6 +527,7 @@
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
                 <Setter Property="VerticalOptions" Value="End"/>
                 <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
             </Style>
 
             <!-- AbsoluteLayout-->
@@ -614,6 +615,13 @@
                 x:Key="HomePageCenterVerticalStack"
                    BasedOn="{StaticResource CenterVerticalStack}">
                 <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="BoxStyle"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="100" />
             </Style>
 
 
