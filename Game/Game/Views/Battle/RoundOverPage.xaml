@@ -18,22 +18,33 @@
 
                     <StackLayout Style="{StaticResource VerticalStack}">
 
-                        <Label Text="Round Cleared" Style="{StaticResource CenterMessageLargeStyle}"/>
-
-                        <Button Clicked="CloseButton_Clicked" Text="Close"/>
-
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label Text="Round : " Style="{StaticResource MessageStyle}"/>
-                            <Label Text="0" x:Name="TotalRound" Style="{StaticResource MessageStyle}"/>
+                        <StackLayout Style="{StaticResource CenterHorizontalStack}">
+                            <Label Text="Round  " Style="{StaticResource CenterMessageLargeStyle}"/>
+                            <Label Text="{Binding BattleScore.RoundCount}" Style="{StaticResource CenterMessageLargeStyle}"/>
                         </StackLayout>
 
-                        <Label Text="Characters" Style="{StaticResource MessageStyle}"/>
+                        <StackLayout Style="{StaticResource CenterHorizontalStack}">
+                            <Label Text="{Binding BattleScore.ExperienceGainedTotal}" Style="{StaticResource CenterMessageLargeStyle}"/>
+                            <Image Source="GRADE.png" Style="{StaticResource PlayerBattleSmallStyle}"/>
+                        </StackLayout>
+
+                        <Frame Style="{StaticResource UpdateFrame}">
+                            <Image x:Name="CharacterImage" Source="" Style="{StaticResource ImageLargeStyleCenter}"/>
+                        </Frame>
+
+                        <Label Text="Characters" Style="{StaticResource HeaderStyle}"/>
                         <FlexLayout x:Name="CharacterListFrame"
                                     JustifyContent="Start"
                                     AlignContent="Start"
                                     Wrap="Wrap"/>
+                        
+                        <Label Text="Monster Defeated" Style="{StaticResource HeaderStyle}"/>
+                        <FlexLayout x:Name="MonsterListFrame"
+                                    JustifyContent="Start"
+                                    AlignContent="Start"
+                                    Wrap="Wrap"/>
 
-                        <Label Text="Items Found" Style="{StaticResource MessageStyle}"/>
+                        <Label Text="Items Found" Style="{StaticResource HeaderStyle}"/>
                         <StackLayout Style="{StaticResource HorizontalStack}">
                             <Label Text="Found : " Style="{StaticResource LabelStyle}"/>
                             <Label Text="0" x:Name="TotalFound" Style="{StaticResource ValueStyle}"/>
@@ -45,7 +56,7 @@
 
                         <Button Clicked="AutoAssignButton_Clicked" Text="Assign Items"/>
 
-                        <Label Text="Items Selected" Style="{StaticResource MessageStyle}"/>
+                        <Label Text="Items Selected" Style="{StaticResource HeaderStyle}"/>
                         <StackLayout Style="{StaticResource HorizontalStack}">
                             <Label Text="Selected : " Style="{StaticResource LabelStyle}"/>
                             <Label Text="0" x:Name="TotalSelected" Style="{StaticResource ValueStyle}"/>
