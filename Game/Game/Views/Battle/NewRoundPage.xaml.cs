@@ -27,13 +27,13 @@ namespace Game.Views
             // Draw the Characters
             foreach (var data in EngineViewModel.Engine.EngineSettings.CharacterList)
             {
-                PartyListFrame.Children.Add(CreatePlayerDisplayBox(data));
+               CharacterBox.Children.Add(CreatePlayerDisplayBox(data));
             }
 
             // Draw the Monsters
             foreach (var data in EngineViewModel.Engine.EngineSettings.MonsterList)
             {
-                MonsterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                MonsterBox.Children.Add(CreatePlayerDisplayBox(data));
             }
 
         }
@@ -98,13 +98,13 @@ namespace Game.Views
             var PlayerNameLabel = new Label()
             {
                 Text = data.Name,
-                Style = (Style)Application.Current.Resources["ValueStyle"],
+                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
                 Padding = 0,
                 LineBreakMode = LineBreakMode.TailTruncation,
                 CharacterSpacing = 1,
-                LineHeight = 1,
+                LineHeight = 0,
                 MaxLines = 1,
             };
 
@@ -117,9 +117,8 @@ namespace Game.Views
                 Spacing = 0,
                 Children = {
                     PlayerImage,
-                    PlayerNameLabel,
-                    PlayerLevelLabel,
-                    PlayerHPLabel,
+              
+                   
                 },
             };
 
