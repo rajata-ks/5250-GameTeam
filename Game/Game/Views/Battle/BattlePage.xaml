@@ -1,29 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Game.Views.BattlePage">
+             x:Class="Game.Views.BattlePage"
+             BackgroundImageSource="sampleImage.jpg"
+             BackgroundColor="Transparent">
 
     <NavigationPage.TitleView>
         <!--Menu Bar-->
         <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
             <Frame Padding="10,0,0,0"/>
-            <Label Text="Elves vs Monsters" Style="{StaticResource CenterMessageLargeStyle}"/>
+            <Label Text="Girls vs Ghouls" Style="{StaticResource CenterMessageLargeStyle}"/>
             <Frame Padding="10,0,0,0"/>
             <ImageButton Source="icon_edit.png" Clicked="Setttings_Clicked" Style="{StaticResource BattleToolbarStyle}"/>
             <ImageButton Source="icon_cancel.png" Clicked="ExitButton_Clicked" Style="{StaticResource BattleToolbarStyle}"/>
             <Frame Padding="10,0,0,0"/>
-            <Label x:Name="BattleModeValue" Text="" Style="{StaticResource ValueStyleMicro}" HorizontalTextAlignment="Center"/>
+            <Label x:Name="BattleModeValue" Text="" Style="{StaticResource HeaderCenterStyle}"/>
         </StackLayout>
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
         <AbsoluteLayout
                 IsVisible="True"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand">
+                Style="{StaticResource AbsHorizontalStackFillAndExpand}">
 
             <!--The Game UI Screen -->
-            <StackLayout VerticalOptions="FillAndExpand"
+            <StackLayout Style="{StaticResource VerticalStackHorizontalFillExpand}"
                         x:Name="GameUIDisplay" 
                         IsVisible="True" 
                         AbsoluteLayout.LayoutBounds="1,1,1,1" 
@@ -111,17 +112,6 @@
                                     Style="{StaticResource LabelStyle}"
                                     FontSize="Micro"/>
 
-                            <!--<WebView
-                        x:Name="HtmlBox"
-                        WidthRequest="100"
-                        MinimumWidthRequest="100"
-                        HeightRequest="100"
-                        MinimumHeightRequest="100"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="Start"
-                        BackgroundColor="Transparent"
-                        IsVisible="false"
-                        />-->
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
@@ -129,23 +119,26 @@
 
             <!--The Game Over Screen -->
             <StackLayout 
-                    Style="{StaticResource VerticalStack}"
+                    VerticalOptions="CenterAndExpand"
                     AbsoluteLayout.LayoutBounds="1,1,1,1" 
                     AbsoluteLayout.LayoutFlags="All"
-                    HorizontalOptions="FillAndExpand"
                     x:Name="GameOverDisplay" 
                     IsVisible="false">
 
-                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="10">
-                    <Label Text="Thank you for Playing" Style="{StaticResource CenterMessageLargeStyle}"/>
+                <Frame Style="{StaticResource UpdateFrame}"  Grid.Row="4" Grid.ColumnSpan="3" VerticalOptions="CenterAndExpand">
 
-                    <Label Text="Check your score, or click Exit and return soon" Style="{StaticResource MessageStyle}" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" MaxLines="5" Padding="20"/>
+                    <StackLayout Style="{StaticResource VerticalCenterStack}">
 
-                    <Button x:Name="ShowScoreButton" Clicked="ShowScoreButton_Clicked" Text="Score" WidthRequest="50"/>
+                        <Label Text="YOU DIED" Style="{StaticResource UpdateStyle}"/>
+                        <StackLayout Style="{StaticResource HorizontalCenterStack}">
+                            <Button x:Name="ShowScoreButton" Clicked="ShowScoreButton_Clicked" Text="Score"
+                                     Style="{StaticResource UpdateButton}"/>
 
-                    <Button x:Name="ExitButton" Clicked="ExitButton_Clicked" Text="Exit" WidthRequest="50"></Button>
-
-                </StackLayout>
+                            <Button x:Name="ExitButton" Clicked="ExitButton_Clicked" Text="Exit"
+                                     Style="{StaticResource UpdateButton}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
