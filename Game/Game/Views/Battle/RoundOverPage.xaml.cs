@@ -20,9 +20,6 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            // Update the Round Count
-            TotalRound.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount.ToString();
-
             // Update the Found Number
             TotalFound.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Count().ToString();
 
@@ -32,6 +29,31 @@ namespace Game.Views
             DrawCharacterList();
 
             DrawItemLists();
+
+            DrawMonsterList();
+
+            BindingContext = BattleEngineViewModel.Instance.Engine.EngineSettings;
+            CharacterImage.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault().ImageURI.ToString();
+        }
+
+
+        /// <summary>
+        /// Clear and Add the Characters that survived
+        /// </summary>
+        public void DrawMonsterList()
+        {
+            // Clear and Populate the Characters Remaining
+            var FlexList = CharacterListFrame.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                _ = MonsterListFrame.Children.Remove(data);
+            }
+
+            // Draw the Characters
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterModelDeathList)
+            {
+                MonsterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+            }
         }
 
         /// <summary>
