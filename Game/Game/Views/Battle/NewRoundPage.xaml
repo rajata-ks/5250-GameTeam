@@ -19,7 +19,7 @@
                         <StackLayout x:Name="CharacterBox"  Style="{StaticResource BoxStyle}" />
 
 
-                        <Label Text="Beginning a Round"   Style="{StaticResource CenterMessageLargeStyle}"/>
+                        <Label Text="New Round"   Style="{StaticResource CenterMessageLargeStyle}"/>
 
                         <Button Clicked="BeginButton_Clicked" Text="Fight"   Style="{StaticResource CreateBottomButton}"/>
 
