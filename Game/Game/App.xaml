@@ -264,6 +264,18 @@
             </Style>
 
             <Style TargetType="Label"
+                x:Key="GameMessageText"
+                BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="MaxLines" Value="3" />
+                <Setter Property="LineHeight" Value="1" />
+                <Setter Property="CharacterSpacing" Value="1" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style TargetType="Label"
                 x:Key="AttributeLabelStyle"
                 BasedOn="{StaticResource ValueStyle}">
                 <Setter Property="Padding" Value="0,0,10,0" />
