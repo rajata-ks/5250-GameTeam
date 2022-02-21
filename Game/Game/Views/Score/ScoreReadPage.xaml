@@ -86,9 +86,11 @@
 
                         <StackLayout Style="{StaticResource HorizontalCenterStack}">
                             <Button 
-                            Text="Yes"  Clicked="Update_Clicked"
-                            Style="{StaticResource UpdateButton}">
-                            </Button>
+                            Text="Update"  Clicked="Update_Clicked" 
+                            Style="{StaticResource UpdateButton}"/>
+                            <Button 
+                            Text="Delete"  Clicked="Delete_Clicked" 
+                            Style="{StaticResource UpdateButton}"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
