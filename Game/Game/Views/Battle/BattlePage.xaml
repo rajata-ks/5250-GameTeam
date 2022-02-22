@@ -113,7 +113,9 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions >
                                 <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="1"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="1"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
@@ -152,23 +154,27 @@
                                 </ListView.ItemTemplate>
                             </ListView>
 
-                            <StackLayout Style="{StaticResource Verticalcenter}"  Grid.Column="1" Grid.Row="0">
-                                <Button x:Name="AttackButton" Clicked="AttackButton_Clicked" Text="Next Attack" IsVisible="False"/>
-                                <Button x:Name="NextRoundButton" Clicked="NextRoundButton_Clicked" Text="Next Round" IsVisible="False"/>
-                                <Button x:Name="StartBattleButton" Clicked="StartButton_Clicked" Text="Start Battle" IsVisible="False"/>
-                                <Button x:Name="Attack" Clicked="NextRoundButton_Clicked" Text="Attack" IsVisible="False"/>
-                                <Button x:Name="Defend" Clicked="NextRoundButton_Clicked" Text="Defend" IsVisible="False"/>
-                                <Button x:Name="Special" Clicked="NextRoundButton_Clicked" Text="Special" IsVisible="False"/>
-                            </StackLayout>
+                            <BoxView Grid.Column="1" Grid.Row="0" Grid.RowSpan="1" Style="{StaticResource BoxViewDivider}"/>
 
-                            <ListView   Grid.Column="2" Grid.Row="0"
+                            <StackLayout Style="{StaticResource Verticalcenter}"  Grid.Column="2" Grid.Row="0">
+                                <Button x:Name="AttackButton" Clicked="AttackButton_Clicked" Text="Next Attack" IsVisible="False" Style="{StaticResource UpdateButton}"/>
+                                <Button x:Name="NextRoundButton" Clicked="NextRoundButton_Clicked" Text="Next Round" IsVisible="False" Style="{StaticResource UpdateButton}"/>
+                                <Button x:Name="StartBattleButton" Clicked="StartButton_Clicked" Text="Start Battle" IsVisible="False" Style="{StaticResource UpdateButton}"/>
+                                <Button x:Name="Attack" Clicked="NextRoundButton_Clicked" Text="Attack" IsVisible="False" Style="{StaticResource UpdateButton}"/>
+                                <Button x:Name="Defend" Clicked="NextRoundButton_Clicked" Text="Defend" IsVisible="False" Style="{StaticResource UpdateButton}"/>
+                                <Button x:Name="Special" Clicked="NextRoundButton_Clicked" Text="Special" IsVisible="False" Style="{StaticResource UpdateButton}"/>
+                            </StackLayout>
+                            
+                            <BoxView Grid.Column="3" Grid.Row="0" Grid.RowSpan="1" Style="{StaticResource BoxViewDivider}"/>
+                            
+                            <ListView   Grid.Column="4" Grid.Row="0"
                                 x:Name="MonsterListView" 
                                 ItemsSource="{Binding Engine.EngineSettings.MonsterList}"
                                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                                 RefreshCommand="{Binding LoadItemsCommand}"
                                 CachingStrategy="RecycleElement"
                                 Margin="0"
-                                RowHeight="60">
+                                RowHeight="65">
 
                                 <ListView.ItemTemplate >
                                     <DataTemplate>
