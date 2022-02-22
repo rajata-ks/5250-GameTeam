@@ -27,6 +27,7 @@ namespace Game.Views
     public partial class PickCharactersPage : ContentPage
     {
         private CharacterModel currentItem;
+        private int itemcount;
 
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
@@ -45,6 +46,8 @@ namespace Game.Views
 
 
             currentItem = BattleEngineViewModel.Instance.DatabaseCharacterList.First();
+            
+            itemcount = BattleEngineViewModel.Instance.DatabaseCharacterList.Count;
 
             // Clear the Database List and the Party List to start
             BattleEngineViewModel.Instance.PartyCharacterList.Clear();
@@ -53,6 +56,36 @@ namespace Game.Views
         }
 
 
+        /// <summary>
+        /// Next Character button 
+        /// 
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void nextPage(object sender, EventArgs e)
+        {
+            if (CarouselCharacters.Position + 1 != itemcount)
+            {
+                CarouselCharacters.Position = CarouselCharacters.Position + 1;
+                //PropertyChanged.Invoke(this, new PropertyChangedEventArgs("CarouselPosition"));
+            }
+        }
+
+        /// <summary>
+        /// Pre Character button 
+        /// 
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void prePage(object sender, EventArgs e)
+        {
+            if (CarouselCharacters.Position != 0)
+            {
+                CarouselCharacters.Position = CarouselCharacters.Position - 1;
+            }
+        }
 
         /// <summary>
         /// The row selected from the list
