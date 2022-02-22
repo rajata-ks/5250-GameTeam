@@ -156,10 +156,10 @@
                             x:Name="PartyCountLabel"/>
 
                     <Button 
-                            x:Name="BeginBattleButton"
-                            Clicked="BattleButton_Clicked" 
-                            Text="Begin"
-                            IsEnabled="False"/>
+                            x:Name="NextButton"
+                            Clicked="NextButton_Clicked" 
+                            Text="Next"
+                            IsEnabled="False" />
 
                 </StackLayout>
 
