@@ -1,20 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              mc:Ignorable="d"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.ShowMonstersPage">
+
+
+    <NavigationPage.TitleView>
+        <Label Text="Monsters"  Style="{StaticResource HeaderCenterStyle}"/>
+    </NavigationPage.TitleView>
+
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}">
 
             <ListView x:Name="MonstersListView" 
                     Style="{StaticResource DefaultListView}"
                     ItemsSource="{Binding DatabaseMonsterList}"
-                    CachingStrategy="RecycleElement">
+                    CachingStrategy="RecycleElement"
+                 
+                    >
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Frame Style="{StaticResource ListIndexFrameCells}">
-
                                 <Grid Style="{StaticResource IndexGrid}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -48,7 +58,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
             <Grid>
                 <Button 
                     Text="Begin Battle"  Clicked="BattleButton_Clicked"
@@ -57,3 +66,4 @@
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
