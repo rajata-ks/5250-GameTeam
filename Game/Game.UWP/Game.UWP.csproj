@@ -135,10 +135,13 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="athlete_headshot.png" />
     <Content Include="battleboard.png" />
     <Content Include="character_athlete.png" />
     <Content Include="character_nerd_headshot.png" />
     <Content Include="character__nerd.png" />
+    <Content Include="classclown.png" />
+    <Content Include="classclown_headshot.png" />
     <Content Include="d10.png" />
     <Content Include="d20_2.png" />
     <Content Include="dice.png" />
@@ -152,6 +155,8 @@
     <Content Include="elf7.png" />
     <Content Include="feet1.png" />
     <Content Include="feet2.png" />
+    <Content Include="goth.png" />
+    <Content Include="goth_headshot.png" />
     <Content Include="GRADE.png" />
     <Content Include="hat1.png" />
     <Content Include="hat2.png" />
@@ -169,6 +174,8 @@
     <Content Include="neck1.png" />
     <Content Include="neck2.png" />
     <Content Include="pen.png" />
+    <Content Include="procrastinator.png" />
+    <Content Include="procrastinator_headshot.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="rightarrow.png" />
     <Content Include="ring1.png" />
@@ -179,6 +186,8 @@
     <Content Include="shield2.png" />
     <Content Include="shield3.png" />
     <Content Include="shield4.png" />
+    <Content Include="skater.png" />
+    <Content Include="skater_headshot.png" />
     <Content Include="startbutton.png" />
     <Content Include="sword1.png" />
     <Content Include="sword10.png" />

@@ -343,4 +343,31 @@
   <ItemGroup>
     <BundleResource Include="Resources\GRADE.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\goth_headshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\classclown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\goth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\classclown_headshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\athlete_headshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\skater_headshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\skater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\procrastinator_headshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\procrastinator.png" />
+  </ItemGroup>
 </Project>
