@@ -83,11 +83,11 @@
                         <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
 
+                    <ImageButton x:Name="pre"   Grid.Column="0" Grid.Row="0" Source="leftarrow.png"
+                                  Style="{StaticResource ImageMediumStyleCenter}" Pressed="prePage"/>
 
-                    <Image  Grid.Column="0" Grid.Row="0" Source="leftarrow.png"
-                                        Style="{StaticResource ImageMediumStyleCenter}"/>
-
-                    <CarouselView ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"  CurrentItemChanged="OnCurrentCharacterSelected"  HorizontalOptions="Center">
+                    <CarouselView x:Name="CarouselCharacters" Position="{Binding CarouselPosition}" ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"   CurrentItemChanged="OnCurrentCharacterSelected"
+                                  PositionChanged="OnPositionChanged">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
 
@@ -142,14 +142,13 @@
                         </CarouselView.ItemTemplate>
                     </CarouselView>
 
-                    <Image Grid.Row="0" Grid.Column="2"
-                                        Source="rightarrow.png"
-                                        Style="{StaticResource ImageMediumStyleCenter}"/>
+                    <ImageButton  x:Name="next" Grid.Column="2" Grid.Row="0" Source="rightarrow.png"
+                                  Style="{StaticResource ImageMediumStyleCenter}" Pressed="nextPage"/>
 
                 </Grid>
 
 
-                <Button Clicked="SelectButton_Clicked" Text="Select Character"   Style="{StaticResource CreateBottomButton}"/>
+                <Button Clicked="SelectButton_Clicked" Text="Select Character"   Style="{StaticResource CreateBottomButton}" />
 
 
                 <StackLayout HorizontalOptions="CenterAndExpand">
