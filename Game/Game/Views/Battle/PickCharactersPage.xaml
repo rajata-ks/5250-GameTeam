@@ -12,7 +12,19 @@
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout Style="{StaticResource OuterBoxStack}">
 
-                <ListView 
+                <Grid HorizontalOptions="Start"
+              Margin="5"
+			  Padding="5">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="120"/>
+                    </Grid.RowDefinitions>
+
+                    <ListView 
                                 x:Name="PartyListView" 
                                 Rotation="270"  SeparatorVisibility="None"
                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
@@ -32,24 +44,25 @@
                                 RowHeight="100"
                                  WidthRequest="100">
 
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
 
-                                <ContentView Rotation="90">
-                                    <StackLayout HeightRequest="100"
+                                    <ContentView Rotation="90">
+                                        <StackLayout HeightRequest="100"
 												 WidthRequest="100">
-                                        <Image  
+                                            <Image  
                                                     Source="{Binding ImageURI}"
                                                     Style="{StaticResource ImageMediumStyle}"/>
-                                    </StackLayout>
-                                </ContentView>
+                                        </StackLayout>
+                                    </ContentView>
 
 
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
 
                 <Grid>
                     <Grid.RowDefinitions>
