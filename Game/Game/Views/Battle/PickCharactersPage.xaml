@@ -23,8 +23,11 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="120"/>
                     </Grid.RowDefinitions>
+                    <RelativeLayout Grid.Row="0" 
+							HeightRequest="100"
+							VerticalOptions="Start">
 
-                    <ListView 
+                        <ListView 
                                 x:Name="PartyListView" 
                                 Rotation="270"  SeparatorVisibility="None"
                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
@@ -44,24 +47,25 @@
                                 RowHeight="100"
                                  WidthRequest="100">
 
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
 
-                                    <ContentView Rotation="90">
-                                        <StackLayout HeightRequest="100"
+                                        <ContentView Rotation="90">
+                                            <StackLayout HeightRequest="100"
 												 WidthRequest="100">
-                                            <Image  
+                                                <Image  
                                                     Source="{Binding ImageURI}"
                                                     Style="{StaticResource ImageMediumStyle}"/>
-                                        </StackLayout>
-                                    </ContentView>
+                                            </StackLayout>
+                                        </ContentView>
 
 
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </RelativeLayout>
                 </Grid>
 
                 <Grid>
