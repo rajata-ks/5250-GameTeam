@@ -12,6 +12,45 @@
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout Style="{StaticResource OuterBoxStack}">
 
+                <ListView 
+                                x:Name="PartyListView" 
+                                Rotation="270"  SeparatorVisibility="None"
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                             
+                            
+                                ItemsSource="{Binding PartyCharacterList}"
+                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                RefreshCommand="{Binding LoadItemsCommand}"
+                                CachingStrategy="RecycleElement"
+                              
+                                ItemSelected="OnPartyCharacterItemSelected"
+                                HasUnevenRows="true"
+                               HorizontalOptions="Center"
+                                RowHeight="100"
+                                 WidthRequest="100">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <ContentView Rotation="90">
+                                    <StackLayout HeightRequest="100"
+												 WidthRequest="100">
+                                        <Image  
+                                                    Source="{Binding ImageURI}"
+                                                    Style="{StaticResource ImageMediumStyle}"/>
+                                    </StackLayout>
+                                </ContentView>
+
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="250" />
@@ -107,45 +146,7 @@
 
                 <StackLayout HorizontalOptions="End">
 
-                    <Label Text="Party" Style="{StaticResource CenterMessageStyle}"/>
 
-                    <ListView 
-                                x:Name="PartyListView" 
-                                ItemsSource="{Binding PartyCharacterList}"
-                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                                RefreshCommand="{Binding LoadItemsCommand}"
-                                CachingStrategy="RecycleElement"
-                                ItemSelected="OnPartyCharacterItemSelected"
-                                HasUnevenRows="true"
-                                Margin="5,0,5,0"
-                                RowHeight="80">
-
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid>
-                                        <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
-                                                    Source="{Binding ImageURI}"
-                                                    Style="{StaticResource ImageMediumStyle}"/>
-
-                                        <Label Grid.Column="1" Grid.Row="0"
-                                                   Text="{Binding Name}" 
-                                                   Style="{StaticResource ListStyle}"
-                                                   FontAttributes="Bold"/>
-
-                                        <Label Grid.Column="1" Grid.Row="1"
-                                                   Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
-                                                   Style="{StaticResource ListStyle}"/>
-
-                                        <Label Grid.Column="1" Grid.Row="2"
-                                                    Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
-                                                    Style="{StaticResource ListStyle}"/>
-
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
