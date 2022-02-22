@@ -48,6 +48,12 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            <Grid>
+                <Button 
+                    Text="Begin Battle"  Clicked="BattleButton_Clicked"
+                    Style="{StaticResource StickyBottomButtons}" />
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
