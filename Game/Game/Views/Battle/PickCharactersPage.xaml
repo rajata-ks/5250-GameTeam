@@ -27,7 +27,7 @@
                     <Image  Grid.Column="0" Grid.Row="0" Source="leftarrow.png"
                                         Style="{StaticResource ImageMediumStyleCenter}"/>
 
-                    <CarouselView ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"   HorizontalOptions="Center">
+                    <CarouselView ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"  CurrentItemChanged="OnCurrentCharacterSelected"  HorizontalOptions="Center">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
 
