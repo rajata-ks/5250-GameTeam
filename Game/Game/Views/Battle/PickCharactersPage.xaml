@@ -145,6 +145,9 @@
                 </Grid>
 
 
+                <Button Clicked="SelectButton_Clicked" Text="Select Character"   Style="{StaticResource CreateBottomButton}"/>
+
+
                 <StackLayout HorizontalOptions="CenterAndExpand">
 
                     <Label Text="Count" Style="{StaticResource CenterMessageStyle}"/>
