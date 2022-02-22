@@ -12,6 +12,24 @@
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout Style="{StaticResource OuterBoxStack}">
 
+             
+
+
+
+                    <CarouselView ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"   HorizontalOptions="Center">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+
+                                <StackLayout>
+                                    
+                                        <Image Source="{Binding ImageURI}" Style="{StaticResource CarouselImageSyle}" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+
+
+        
 
 
                 <StackLayout HorizontalOptions="CenterAndExpand">
