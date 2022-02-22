@@ -28,8 +28,43 @@
                                     <Frame Style="{StaticResource ListIndexFrameCells}" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center">
 
 
-                                      
-                                      
+                                        <Grid Style="{StaticResource IndexGrid}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                        Source="{Binding ImageURI}"
+                                        Style="{StaticResource ImageMediumStyle}"
+                                        VerticalOptions="CenterAndExpand"/>
+
+                                            <Label Grid.Column="1" Grid.Row="0"
+                                       Text="{Binding Name}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                            <StackLayout Grid.Column="1" Grid.Row="1"
+                                    Orientation="Horizontal">
+
+                                                <Label 
+                                       Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                                <Label Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
+                                        Style="{StaticResource ListStyle}"/>
+
+                                            </StackLayout>
+
+                                            <Label Grid.Column="1" Grid.Row="2"
+                                       Text="{Binding Description}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                        </Grid>
                                     </Frame>
                                 </StackLayout>
                             </DataTemplate>
