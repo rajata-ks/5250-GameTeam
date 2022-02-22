@@ -129,12 +129,12 @@ namespace Game.Views
         public void UpdateNextButtonState()
         {
             // If no characters disable Next button
-            BeginBattleButton.IsEnabled = true;
+            NextButton.IsEnabled = true;
 
             var currentCount = BattleEngineViewModel.Instance.PartyCharacterList.Count();
             if (currentCount == 0)
             {
-                BeginBattleButton.IsEnabled = false;
+                NextButton.IsEnabled = false;
             }
 
           
@@ -147,7 +147,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void BattleButton_Clicked(object sender, EventArgs e)
+        public async void NextButton_Clicked(object sender, EventArgs e)
         {
             CreateEngineCharacterList();
 
