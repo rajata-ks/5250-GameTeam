@@ -21,10 +21,10 @@
                             <DataTemplate>
 
                                 <StackLayout>
-                                    
+                                    <Frame Style="{StaticResource CarouselViewFrame}">
                                         <Image Source="{Binding ImageURI}" Style="{StaticResource CarouselImageSyle}" />
 
-                                
+                                    </Frame>
                                     <Frame Style="{StaticResource ListIndexFrameCells}" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center">
 
 
