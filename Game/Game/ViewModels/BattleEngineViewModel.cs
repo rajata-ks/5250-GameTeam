@@ -51,8 +51,14 @@ namespace Game.ViewModels
         // Hold the View Model to the CharacterIndexViewModel
         public CharacterIndexViewModel DatabaseCharacterViewModel = CharacterIndexViewModel.Instance;
 
+        // Hold the View Model to the MonsterIndexViewModel
+        public MonsterIndexViewModel DatabaseMonsterViewModel = MonsterIndexViewModel.Instance;
+
         // Have the Database Character List point to the Character View Model List
         public ObservableCollection<CharacterModel> DatabaseCharacterList { get; set; } = CharacterIndexViewModel.Instance.Dataset;
+
+        // Have the Database Monster List point to the Character View Model List
+        public ObservableCollection<MonsterModel> DatabaseMonsterList { get; set; } = MonsterIndexViewModel.Instance.Dataset;
 
 
         #region Constructor
