@@ -150,11 +150,8 @@
 
                 <StackLayout HorizontalOptions="CenterAndExpand">
 
-                    <Label Text="Count" Style="{StaticResource CenterMessageStyle}"/>
-
-                    <Label Style="{StaticResource CenterMessageStyle}" 
-                            x:Name="PartyCountLabel"
-                            Text="0"/>
+                    <Label  
+                            x:Name="PartyCountLabel"/>
 
                     <Button 
                             x:Name="BeginBattleButton"
