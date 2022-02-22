@@ -334,7 +334,7 @@ namespace Game.GameRules
                     Description = "Don't get in my way",
                     Level = 1,
                     MaxHealth = 8,
-                    ImageURI = "character_athlete.png",
+                    ImageURI = "goth.png",
                     Head = HeadString,
                     Necklass = NecklassString,
                     PrimaryHand = PrimaryHandString,
@@ -349,7 +349,7 @@ namespace Game.GameRules
                     Description = "I still got a lot of shoes left",
                     Level = 4,
                     MaxHealth = 38,
-                    ImageURI = "character_athlete.png"
+                    ImageURI = "skater.png"
                 },
 
                 new CharacterModel {
@@ -357,7 +357,7 @@ namespace Game.GameRules
                     Description = "Come and get me",
                     Level = 5,
                     MaxHealth = 43,
-                    ImageURI = "character_athlete.png"
+                    ImageURI = "procastinator.png"
                 },
 
                 new CharacterModel {
@@ -365,7 +365,7 @@ namespace Game.GameRules
                     Description = "You dont fear me ? then you'll die braver than most!",
                     Level = 5,
                     MaxHealth = 43,
-                    ImageURI = "character_athlete.png"
+                    ImageURI = "classclown.png"
                 }
             };
 
