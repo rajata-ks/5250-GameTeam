@@ -22,6 +22,28 @@ namespace Game.Views
         public ShowMonstersPage()
         {
             InitializeComponent();
+
+            BindingContext = EngineViewModel;
+
+
         }
+
+        /// <summary>
+        /// Jump to the Battle
+        /// 
+        /// Its Modal because don't want user to come back...
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void BattleButton_Clicked(object sender, EventArgs e)
+        {
+
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+            _ = await Navigation.PopAsync();
+        }
+
+
+
+
     }
 }
