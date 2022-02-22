@@ -84,10 +84,9 @@
                     </Grid.ColumnDefinitions>
 
                     <ImageButton x:Name="pre"   Grid.Column="0" Grid.Row="0" Source="leftarrow.png"
-                                  Style="{StaticResource ImageMediumStyleCenter}" Pressed="prePage"/>
+                                  Style="{StaticResource ImageMediumStyleCenter}" Clicked="prePage"/>
 
-                    <CarouselView x:Name="CarouselCharacters" Position="{Binding CarouselPosition}" ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"   CurrentItemChanged="OnCurrentCharacterSelected"
-                                  PositionChanged="OnPositionChanged">
+                    <CarouselView x:Name="CarouselCharacters" Position="{Binding CarouselPosition}" ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"   CurrentItemChanged="OnCurrentCharacterSelected">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
 
@@ -143,7 +142,7 @@
                     </CarouselView>
 
                     <ImageButton  x:Name="next" Grid.Column="2" Grid.Row="0" Source="rightarrow.png"
-                                  Style="{StaticResource ImageMediumStyleCenter}" Pressed="nextPage"/>
+                                  Style="{StaticResource ImageMediumStyleCenter}" Clicked="nextPage"/>
 
                 </Grid>
 
