@@ -729,7 +729,7 @@
 
             <Style TargetType="StackLayout"
                 x:Key="BattleMapBox"
-                BasedOn="{StaticResource VerticalStack}">
+               >
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="VerticalOptions" Value="Start" />
             </Style>
@@ -934,6 +934,14 @@
                 <Setter Property="Padding" Value="50" />
                 <Setter Property="BorderColor" Value="Black" />
                 <Setter Property="BackgroundColor" Value="AliceBlue" />
+            </Style>
+
+            <Style TargetType="Frame"
+                x:Key="BattleUIBar"
+                   BasedOn="{StaticResource UpdateFrame}">
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
             </Style>
 
             <Style TargetType="Frame"
