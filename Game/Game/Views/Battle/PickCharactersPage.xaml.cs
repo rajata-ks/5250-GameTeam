@@ -26,6 +26,7 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PickCharactersPage : ContentPage
     {
+        private CharacterModel currentItem;
 
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
@@ -41,6 +42,9 @@ namespace Game.Views
 
             BindingContext = BattleEngineViewModel.Instance;
             //BindingContext = BattleEngineViewModel.Instance;
+
+
+            currentItem = BattleEngineViewModel.Instance.DatabaseCharacterList.First();
 
             // Clear the Database List and the Party List to start
             BattleEngineViewModel.Instance.PartyCharacterList.Clear();
@@ -71,6 +75,15 @@ namespace Game.Views
 
             UpdateNextButtonState();
         }
+
+
+
+        void OnCurrentCharacterSelected(object sender, CurrentItemChangedEventArgs e)
+        {
+            //   CharacterModel previousItem = e.PreviousItem as CharacterModel;
+            currentItem = e.CurrentItem as CharacterModel;
+        }
+
 
         /// <summary>
         /// Next Button is based on the count
