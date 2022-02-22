@@ -123,6 +123,25 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Select party Character
+        /// 
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void SelectButton_Clicked(object sender, EventArgs e)
+        {
+            if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
+            {
+                BattleEngineViewModel.Instance.PartyCharacterList.Add(currentItem);
+            }
+
+            UpdateNextButtonState();
+
+        }
+
+
+        /// <summary>
         /// Clear out the old list and make the new list
         /// </summary>
         public void CreateEngineCharacterList()
