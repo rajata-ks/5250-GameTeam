@@ -3,10 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.ShowMonstersPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Style="{StaticResource OuterBoxStack}">
+
+            <ListView x:Name="MonstersListView" 
+                    Style="{StaticResource DefaultListView}"
+                    ItemsSource="{Binding DatabaseMonsterList}"
+                    CachingStrategy="RecycleElement">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
