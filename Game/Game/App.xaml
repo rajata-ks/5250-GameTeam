@@ -958,7 +958,16 @@
                 <Setter Property="Padding" Value="1" />
             </Style>
 
+            <!-- BoxView -->
+            <Style TargetType="BoxView"
+                   x:Key="BoxViewDivider">
+                <Setter Property="BackgroundColor" Value="{StaticResource TriciaryBackgroundColor}" />
+                <Setter Property="WidthRequest" Value="2" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="End" />
 
+            </Style>
+            
             <!-- Grid -->
             <Style TargetType="Grid"
                    x:Key="Grid">
