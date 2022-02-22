@@ -47,7 +47,7 @@
                 </StackLayout>
 
                 <!--The Battle Map Display -->
-                <StackLayout x:Name="BattleMapDisplay" Style="{StaticResource BattleMapBox}"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start">
+                <StackLayout x:Name="BattleMapDisplay" Style="{StaticResource BattleMapBox}"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start"  HeightRequest="20">
                     <AbsoluteLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         <Image Source="battleboard.png" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="Fill"/>
                         <Grid x:Name="MapGrid" HorizontalOptions="Center" VerticalOptions="Start" ColumnSpacing="0" RowSpacing="0" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
@@ -55,8 +55,8 @@
                 </StackLayout>
 
                 <!--The Bottom of the Battle UI  Holds the Player to Player boxes, Buttons, and the Messages-->
-                <StackLayout x:Name="BattleBottomBox" Style="{StaticResource BattleUIBottomBox}">
-
+                <StackLayout x:Name="BattleBottomBox" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <!-- 
                     <Frame x:Name="BattlePlayerInfomationBox"
                                 Style="{StaticResource PlayerBattleOuterFrame}"
                                 IsVisible="False">
@@ -83,6 +83,7 @@
                             </StackLayout>
                         </StackLayout>
                     </Frame>
+                    
 
                     <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
 
@@ -91,29 +92,112 @@
                         <Button x:Name="StartBattleButton" Clicked="StartButton_Clicked" Text="Start Battle" IsVisible="False"/>
 
                     </StackLayout>
-
+-->
                     <StackLayout 
-                            Style="{StaticResource VerticalStack}" 
-                            HeightRequest="100"
-                            HorizontalOptions="CenterAndExpand">
+                            Style="{StaticResource CenterVerticalStack}">
 
                         <StackLayout x:Name="MessageDisplayBox" 
                             IsVisible="false"
-                            Style="{StaticResource VerticalStack}" 
-                                    VerticalOptions="StartAndExpand"
-                                    HorizontalOptions="CenterAndExpand">
+                            Style="{StaticResource CenterHorizontalStack}">
 
                             <Label x:Name="BattleMessages" 
-                                    HorizontalOptions="FillAndExpand" 
-                                    LineBreakMode="WordWrap" 
-                                    MaxLines="3"
-                                    LineHeight="1"
-                                    CharacterSpacing="1"
-                                    Style="{StaticResource LabelStyle}"
-                                    FontSize="Micro"/>
+                                    Style="{StaticResource GameMessageText}"
+                                    />
 
                         </StackLayout>
                     </StackLayout>
+                    <Frame Style="{StaticResource BattleUIBar}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <ListView   Grid.Column="0" Grid.Row="0"
+                                x:Name="CharactersListView" 
+                                ItemsSource="{Binding PartyCharacterList}"
+                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                RefreshCommand="{Binding LoadItemsCommand}"
+                                CachingStrategy="RecycleElement"
+                                Margin="0"
+                                RowHeight="60">
+
+                                <ListView.ItemTemplate >
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid>
+                                                <StackLayout HorizontalOptions="Start"
+                                                       VerticalOptions="Start">
+                                                    <Label Grid.Column="1" Grid.Row="0"
+                                                   Text="{Binding Name}" 
+                                                   TextColor="{StaticResource SecondaryTextColor}"
+                                                       HorizontalTextAlignment="Start"
+                                                       VerticalTextAlignment="Start"
+                                                   FontAttributes="Bold"/>
+
+                                                    <Label Grid.Column="1" Grid.Row="1"
+                                                   Text="{Binding MaxHealth}" 
+                                                   Style="{StaticResource LabelBaseStyle}"
+                                                       TextColor="{StaticResource SecondaryTextColor}"/>
+
+                                                </StackLayout>
+
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <StackLayout Style="{StaticResource Verticalcenter}"  Grid.Column="1" Grid.Row="0">
+                                <Button x:Name="AttackButton" Clicked="AttackButton_Clicked" Text="Next Attack" IsVisible="False"/>
+                                <Button x:Name="NextRoundButton" Clicked="NextRoundButton_Clicked" Text="Next Round" IsVisible="False"/>
+                                <Button x:Name="StartBattleButton" Clicked="StartButton_Clicked" Text="Start Battle" IsVisible="False"/>
+                                <Button x:Name="Attack" Clicked="NextRoundButton_Clicked" Text="Attack" IsVisible="False"/>
+                                <Button x:Name="Defend" Clicked="NextRoundButton_Clicked" Text="Defend" IsVisible="False"/>
+                                <Button x:Name="Special" Clicked="NextRoundButton_Clicked" Text="Special" IsVisible="False"/>
+                            </StackLayout>
+
+                            <ListView   Grid.Column="2" Grid.Row="0"
+                                x:Name="MonsterListView" 
+                                ItemsSource="{Binding Engine.EngineSettings.MonsterList}"
+                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                RefreshCommand="{Binding LoadItemsCommand}"
+                                CachingStrategy="RecycleElement"
+                                Margin="0"
+                                RowHeight="60">
+
+                                <ListView.ItemTemplate >
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid>
+                                                <StackLayout HorizontalOptions="Start"
+                                                       VerticalOptions="Start">
+                                                    <Label Grid.Column="1" Grid.Row="0"
+                                                   Text="{Binding Name}" 
+                                                   TextColor="{StaticResource SecondaryTextColor}"
+                                                       HorizontalTextAlignment="Start"
+                                                       VerticalTextAlignment="Start"
+                                                   FontAttributes="Bold"/>
+
+                                                    <Label Grid.Column="1" Grid.Row="1"
+                                                   Text="{Binding MaxHealth}" 
+                                                   Style="{StaticResource LabelBaseStyle}"
+                                                       TextColor="{StaticResource SecondaryTextColor}"/>
+
+                                                </StackLayout>
+
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </Grid>
+                    </Frame>
                 </StackLayout>
             </StackLayout>
 
