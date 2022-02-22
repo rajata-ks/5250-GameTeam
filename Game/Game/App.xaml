@@ -372,8 +372,8 @@
 
             <Style TargetType="Image"
                 x:Key="CarouselImageSyle">
-                <Setter Property="HeightRequest" Value="150" />
-                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="HeightRequest" Value="250" />
+                <Setter Property="WidthRequest" Value="250" />
                 <Setter Property="Aspect" Value="AspectFill" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>

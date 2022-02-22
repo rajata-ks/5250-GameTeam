@@ -45,7 +45,7 @@
                                 HasUnevenRows="true"
                                HorizontalOptions="Center"
                                 RowHeight="100"
-                                 WidthRequest="100">
+                                 WidthRequest="160">
 
                             <ListView.ItemTemplate>
                                 <DataTemplate>
@@ -54,10 +54,14 @@
                                         <ContentView Rotation="90">
                                             <StackLayout HeightRequest="100"
 												 WidthRequest="100">
+
+                                                <Frame CornerRadius="10" HasShadow="True" BorderColor="Red">
                                                 <Image  
                                                     Source="{Binding ImageURI}"
                                                     Style="{StaticResource ImageMediumStyle}"/>
+                                                </Frame>
                                             </StackLayout>
+                                                
                                         </ContentView>
 
 
@@ -70,7 +74,7 @@
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="250" />
+                        <RowDefinition Height="400" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -92,7 +96,7 @@
                                         <Image Source="{Binding ImageURI}" Style="{StaticResource CarouselImageSyle}" />
 
                                     </Frame>
-                                    <Frame Style="{StaticResource ListIndexFrameCells}" Grid.Column="1" Grid.Row="1" HorizontalOptions="Center">
+                                    <Frame Style="{StaticResource ListIndexFrameCells}" Grid.Column="1" Grid.Row="8" HorizontalOptions="Center">
 
 
                                         <Grid Style="{StaticResource IndexGrid}">
