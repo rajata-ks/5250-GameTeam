@@ -68,12 +68,12 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void PickCharactersPage_BattleButton_Clicked_Default_Should_Pass()
+        public void PickCharactersPage_NextButton_Clicked_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            page.BattleButton_Clicked(null, null);
+            page.NextButton_Clicked(null, null);
 
             // Reset
 

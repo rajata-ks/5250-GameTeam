@@ -57,7 +57,7 @@ namespace Game.ViewModels
         // Have the Database Character List point to the Character View Model List
         public ObservableCollection<CharacterModel> DatabaseCharacterList { get; set; } = CharacterIndexViewModel.Instance.Dataset;
 
-        // Have the Database Monster List point to the Character View Model List
+        // Have the Database Monster List point to the Monster View Model List
         public ObservableCollection<MonsterModel> DatabaseMonsterList { get; set; } = MonsterIndexViewModel.Instance.Dataset;
 
 
