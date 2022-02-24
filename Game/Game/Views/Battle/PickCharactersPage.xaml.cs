@@ -45,7 +45,7 @@ namespace Game.Views
             //BindingContext = BattleEngineViewModel.Instance;
 
 
-            currentItem = BattleEngineViewModel.Instance.DatabaseCharacterList.First();
+            currentItem = BattleEngineViewModel.Instance.DatabaseCharacterList.FirstOrDefault();
             
             itemcount = BattleEngineViewModel.Instance.DatabaseCharacterList.Count;
 
