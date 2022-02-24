@@ -78,14 +78,6 @@ namespace Game.Views
         }
 
 
-
-        void OnCurrentCharacterSelected(object sender, CurrentItemChangedEventArgs e)
-        {
-            //   CharacterModel previousItem = e.PreviousItem as CharacterModel;
-            currentItem = e.CurrentItem as CharacterModel;
-        }
-
-
         /// <summary>
         /// Next Button is based on the count
         /// 
@@ -156,6 +148,7 @@ namespace Game.Views
         {
             if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
             {
+                this.currentItem = CarouselCharacters.CurrentItem as CharacterModel;
                 BattleEngineViewModel.Instance.PartyCharacterList.Add(currentItem);
             }
 
