@@ -152,7 +152,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void SelectButton_Clicked(object sender, EventArgs e)
+        public void SelectButton_Clicked(object sender, EventArgs e)
         {
             if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
             {
