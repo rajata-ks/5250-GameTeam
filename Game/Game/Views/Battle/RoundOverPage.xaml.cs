@@ -316,6 +316,16 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Go to the assign item page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+       public async void AssignItem_Clicked(object sender, EventArgs e)
+       {
+            await Navigation.PushModalAsync(new PickItemsPage());
+        }
+
+        /// <summary>
         /// Start next Round, returning to the battle screen
         /// </summary>
         /// <param name="sender"></param>
