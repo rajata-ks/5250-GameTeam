@@ -56,43 +56,6 @@
 
                 <!--The Bottom of the Battle UI  Holds the Player to Player boxes, Buttons, and the Messages-->
                 <StackLayout x:Name="BattleBottomBox" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <!-- 
-                    <Frame x:Name="BattlePlayerInfomationBox"
-                                Style="{StaticResource PlayerBattleOuterFrame}"
-                                IsVisible="False">
-
-                        <StackLayout x:Name="BattlePlayerBox" Style="{StaticResource PlayerBattleOuterBox}">
-
-                            <StackLayout x:Name="AttackerBox" Style="{StaticResource PlayerBattleInfoBox}" HorizontalOptions="Start">
-                                <Image x:Name="AttackerImage" Source="knight.png" Style="{StaticResource ImageBattleMediumStyle}"/>
-                                <Label x:Name="AttackerName" Text="" Style="{StaticResource ValueStyleBattleMicro}"/>
-                                <Label x:Name="AttackerHealth" Text="" Style="{StaticResource ValueStyleBattleMicro}"/>
-                            </StackLayout>
-
-                            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                <Label x:Name="BattlePlayerBoxVersus" Text="vs" Style="{StaticResource ValueStyleBattleMicro}"
-                                    Padding="0,5,0,0"
-                                    VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
-                                <Image x:Name="AttackerAttack" Source="mapcell.png" Style="{StaticResource ImageSmallStyle}"/>
-                            </StackLayout>
-
-                            <StackLayout x:Name="DefenderBox" Style="{StaticResource PlayerBattleInfoBox}" HorizontalOptions="End">
-                                <Image x:Name="DefenderImage" Source="troll.png" Style="{StaticResource ImageBattleMediumStyle}"/>
-                                <Label x:Name="DefenderName" Text="" Style="{StaticResource ValueStyleBattleMicro}"/>
-                                <Label x:Name="DefenderHealth" Text="" Style="{StaticResource ValueStyleBattleMicro}"/>
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
-                    
-
-                    <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
-
-                        <Button x:Name="AttackButton" Clicked="AttackButton_Clicked" Text="Next Attack" IsVisible="False"/>
-                        <Button x:Name="NextRoundButton" Clicked="NextRoundButton_Clicked" Text="Next Round" IsVisible="False"/>
-                        <Button x:Name="StartBattleButton" Clicked="StartButton_Clicked" Text="Start Battle" IsVisible="False"/>
-
-                    </StackLayout>
--->
                     <StackLayout 
                             Style="{StaticResource CenterVerticalStack}">
 
