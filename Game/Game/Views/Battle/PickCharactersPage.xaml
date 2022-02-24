@@ -85,7 +85,7 @@
                     <Image x:Name="pre"   Grid.Column="0" Grid.Row="0" Source="leftarrow.png"
                                   Style="{StaticResource ImageMediumStyleCenter}"/>
 
-                    <CarouselView x:Name="CarouselCharacters" Position="{Binding CarouselPosition}" ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"   CurrentItemChanged="OnCurrentCharacterSelected">
+                    <CarouselView x:Name="CarouselCharacters" Position="{Binding CarouselPosition}" ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
 
