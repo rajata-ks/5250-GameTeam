@@ -210,5 +210,20 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void PickCharactersPage_SelectButton_Clickedd_Should_Pass()
+        {
+            // Get the current valute
+
+            // Act
+            page.SelectButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
     }
 }
