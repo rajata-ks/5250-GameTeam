@@ -54,7 +54,7 @@
                                     AlignContent="Start"
                                     Wrap="Wrap"/>
 
-                        <Button Clicked="AutoAssignButton_Clicked" Text="Assign Items"/>
+                        <Button Clicked="AssignItem_Clicked" Text="Assign Items"/>
 
                         <Label Text="Items Selected" Style="{StaticResource HeaderStyle}"/>
                         <StackLayout Style="{StaticResource HorizontalStack}">
