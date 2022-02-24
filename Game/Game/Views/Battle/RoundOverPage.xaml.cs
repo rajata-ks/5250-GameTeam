@@ -33,7 +33,12 @@ namespace Game.Views
             DrawMonsterList();
 
             BindingContext = BattleEngineViewModel.Instance.Engine.EngineSettings;
-            CharacterImage.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault().ImageURI.ToString();
+
+            var characterImage = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault();
+            if (characterImage != null)
+            {
+                CharacterImage.Source = characterImage.ImageURI;
+            }
         }
 
 
