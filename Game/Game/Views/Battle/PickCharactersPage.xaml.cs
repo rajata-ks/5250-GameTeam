@@ -55,38 +55,6 @@ namespace Game.Views
             UpdateNextButtonState();
         }
 
-
-        /// <summary>
-        /// Next Character button 
-        /// 
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void nextPage(object sender, EventArgs e)
-        {
-            if (CarouselCharacters.Position + 1 != itemcount)
-            {
-                CarouselCharacters.Position = CarouselCharacters.Position + 1;
-                //PropertyChanged.Invoke(this, new PropertyChangedEventArgs("CarouselPosition"));
-            }
-        }
-
-        /// <summary>
-        /// Pre Character button 
-        /// 
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void prePage(object sender, EventArgs e)
-        {
-            if (CarouselCharacters.Position != 0)
-            {
-                CarouselCharacters.Position = CarouselCharacters.Position - 1;
-            }
-        }
-
         /// <summary>
         /// The row selected from the list
         /// </summary>
