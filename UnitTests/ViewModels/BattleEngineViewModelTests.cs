@@ -97,13 +97,14 @@ namespace UnitTests.ViewModels
             // Act
             result.DatabaseCharacterList = new ObservableCollection<CharacterModel>();
             result.PartyCharacterList = new ObservableCollection<CharacterModel>();
-
+            result.DatabaseMonsterList = new ObservableCollection<MonsterModel>();
 
             // Reset
 
             // Assert
             Assert.AreEqual(0, result.DatabaseCharacterList.Count);
             Assert.AreEqual(0, result.PartyCharacterList.Count);
+            Assert.AreEqual(0, result.DatabaseMonsterList.Count);
         }
     }
 }
