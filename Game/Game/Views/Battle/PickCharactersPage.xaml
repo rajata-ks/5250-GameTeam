@@ -9,8 +9,11 @@
              Title="{Binding Title}">
 
     <ContentPage.Content>
-        <ScrollView VerticalScrollBarVisibility="Never">
+        <FlexLayout Direction="Column"
+                AlignItems="Center"
+                JustifyContent="SpaceEvenly">
             <StackLayout Style="{StaticResource OuterBoxStack}">
+                <Label Text="Click to remove me! or Drag and Hold to scroll." Style="{StaticResource CenterMessageStyle}"/>
 
                 <Grid HorizontalOptions="Start"
               Margin="5"
@@ -26,7 +29,6 @@
                     <RelativeLayout Grid.Row="0" 
 							HeightRequest="100"
 							VerticalOptions="Start">
-
                         <ListView 
                                 x:Name="PartyListView" 
                                 Rotation="270"  SeparatorVisibility="None"
@@ -34,37 +36,34 @@
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
                               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                             
                             
                                 ItemsSource="{Binding PartyCharacterList}"
                                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                                 RefreshCommand="{Binding LoadItemsCommand}"
                                 CachingStrategy="RecycleElement"
-                              
+                              BackgroundColor="White"
+                            VerticalScrollBarVisibility="Always"
+                            HorizontalScrollBarVisibility="Always"
                                 ItemSelected="OnPartyCharacterItemSelected"
                                 HasUnevenRows="true"
-                               HorizontalOptions="Center"
-                                RowHeight="100"
-                                 WidthRequest="160">
+                               
+                                RowHeight="75"
+                                 WidthRequest="100">
 
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
+                                        <ContentView Rotation="90" Margin="0,0,20,0">
+                                            <StackLayout HeightRequest="100" 
+												 WidthRequest="200">
 
-                                        <ContentView Rotation="90">
-                                            <StackLayout HeightRequest="100"
-												 WidthRequest="100">
-
-                                                <Frame CornerRadius="10" HasShadow="True" BorderColor="Red">
-                                                <Image  
+                                                <Frame CornerRadius="10" HasShadow="True" BorderColor="White">
+                                                    <Image  
                                                     Source="{Binding ImageURI}"
                                                     Style="{StaticResource ImageMediumStyle}"/>
                                                 </Frame>
                                             </StackLayout>
-                                                
                                         </ContentView>
-
-
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -74,17 +73,17 @@
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="400" />
+                        <RowDefinition Height="350" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="70"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="70"/>
                     </Grid.ColumnDefinitions>
 
-                    <ImageButton x:Name="pre"   Grid.Column="0" Grid.Row="0" Source="leftarrow.png"
-                                  Style="{StaticResource ImageMediumStyleCenter}" Clicked="prePage"/>
+                    <Image x:Name="pre"   Grid.Column="0" Grid.Row="0" Source="leftarrow.png"
+                                  Style="{StaticResource ImageMediumStyleCenter}"/>
 
                     <CarouselView x:Name="CarouselCharacters" Position="{Binding CarouselPosition}" ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"   CurrentItemChanged="OnCurrentCharacterSelected">
                         <CarouselView.ItemTemplate>
@@ -100,7 +99,7 @@
 
                                         <Grid Style="{StaticResource IndexGrid}">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
@@ -141,33 +140,19 @@
                         </CarouselView.ItemTemplate>
                     </CarouselView>
 
-                    <ImageButton  x:Name="next" Grid.Column="2" Grid.Row="0" Source="rightarrow.png"
-                                  Style="{StaticResource ImageMediumStyleCenter}" Clicked="nextPage"/>
+                    <Image  x:Name="next" Grid.Column="2" Grid.Row="0" Source="rightarrow.png"
+                                  Style="{StaticResource ImageMediumStyleCenter}" />
 
                 </Grid>
 
 
                 <Button Clicked="SelectButton_Clicked" Text="Select Character"   Style="{StaticResource CreateBottomButton}" />
-
-
-                <StackLayout HorizontalOptions="CenterAndExpand">
-
-                    <Label  
-                            x:Name="PartyCountLabel"/>
-
-                    <Button 
+                <Button 
                             x:Name="NextButton"
                             Clicked="NextButton_Clicked" 
                             Text="Next"
                             IsEnabled="False" />
-
-                </StackLayout>
-
-                <StackLayout HorizontalOptions="End">
-
-
-                </StackLayout>
             </StackLayout>
-        </ScrollView>
+        </FlexLayout>
     </ContentPage.Content>
 </ContentPage>
