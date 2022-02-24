@@ -140,6 +140,28 @@ namespace Game.Views
           
         }
 
+
+        public void OnDatabaseCharacterItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            CharacterModel data = args.SelectedItem as CharacterModel;
+            if (data == null)
+            {
+                return;
+            }
+
+
+
+            // Don't add more than the party max
+            if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
+            {
+                BattleEngineViewModel.Instance.PartyCharacterList.Add(data);
+            }
+
+            UpdateNextButtonState();
+        }
+
+
+
         /// <summary>
         /// Jump to the Battle
         /// 
