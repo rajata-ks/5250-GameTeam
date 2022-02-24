@@ -161,7 +161,8 @@ namespace UnitTests.Views
         public void RoundOverPage_DrawCharacterList_Valid_Should_Pass()
         {
             // Arrange
-
+            var frame = page.FindByName("CharacterListFrame");
+            ((FlexLayout)frame).Children.Add(page.CreatePlayerDisplayBox(null));
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
 
             // Draw the Monsters
