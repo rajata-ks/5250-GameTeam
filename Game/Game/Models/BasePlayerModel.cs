@@ -181,6 +181,18 @@ namespace Game.Models
             return dc;
         }
 
+        //returns the percentage current health to max
+        private Decimal ProgressBarPercentConverter(int Progress)
+        {
+            if(Progress == 0)
+            {
+                return 1;
+            }
+            Decimal d = Progress / (Decimal)this.MaxHealth;
+            Decimal dc = Math.Round(d, 1);
+            return dc;
+        }
+
         #region Attack        
         [Ignore]
         // Return the attack value
@@ -213,6 +225,9 @@ namespace Game.Models
                 return result;
             }
         }
+
+        //return current health percentage
+        public decimal CurrentHealthPercentage { get { return ProgressBarPercentConverter(this.CurrentHealth); } }
 
         // Return the Attack value in decimal as we can only provide value to Progress Bar from 0-1
         public Decimal GetAttackProgress{ get { return ProgressRangeConverter(Attack); } }
