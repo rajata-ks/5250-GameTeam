@@ -28,18 +28,7 @@
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
                               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
                             
-                                ItemsSource="{Binding PartyCharacterList}"
-                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                                RefreshCommand="{Binding LoadItemsCommand}"
-                                CachingStrategy="RecycleElement"
-                              BackgroundColor="White"
-                            VerticalScrollBarVisibility="Always"
-                            HorizontalScrollBarVisibility="Always"
-                                ItemSelected="OnPartyCharacterItemSelected"
-                                HasUnevenRows="true"
-                               
-                                RowHeight="75"
-                                 WidthRequest="100">
+                               Style="{StaticResource PartyListView}">
 
                             <ListView.ItemTemplate>
                                 <DataTemplate>
