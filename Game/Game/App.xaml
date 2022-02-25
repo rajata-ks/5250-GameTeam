@@ -530,9 +530,9 @@
 
             <Style TargetType="Button" 
                    x:Key="NextButtonStyle">
-                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BackgroundColor" Value="White" />
                 <Setter Property="WidthRequest" Value="50" />
-                <Setter Property="HorizontalOptions" Value="Centerd"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
             </Style>
 
 

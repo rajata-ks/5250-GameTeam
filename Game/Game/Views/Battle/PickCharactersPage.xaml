@@ -18,8 +18,7 @@
                 <Grid Style="{StaticResource CarouselViewGrid}">
 
                     <RelativeLayout Grid.Row="0" 
-							HeightRequest="100"
-							VerticalOptions="Start">
+							Style="{StaticResource CarouselRealativeStyle}">
                         <ListView 
                                 x:Name="PartyListView" 
                                 Style="{StaticResource PartyListView}" 
@@ -31,11 +30,11 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
-                                        <ContentView Rotation="90" Margin="0,0,20,0">
+                                        <ContentView Style="{StaticResource ContentView}" >
                                             <StackLayout HeightRequest="100" 
 												 WidthRequest="200">
 
-                                                <Frame CornerRadius="10" HasShadow="True" BorderColor="White">
+                                                <Frame Style="{StaticResource PartyListFrame}" >
                                                     <Image  
                                                     Source="{Binding ImageURI}"
                                                     Style="{StaticResource ImageMediumStyle}"/>
@@ -129,7 +128,7 @@
                             x:Name="NextButton"
                             Clicked="NextButton_Clicked" 
                             Text="Next"
-                            IsEnabled="False" />
+                            IsEnabled="False" Style="{StaticResource NextButtonStyle}"  />
             </StackLayout>
         </FlexLayout>
     </ContentPage.Content>
