@@ -1054,6 +1054,7 @@
                 BasedOn="{StaticResource EntryStyle}">
                 <Setter Property="Text" Value="{Binding Data.ImageURI, Mode=TwoWay}" />
             </Style>
+            
             <!-- Editor-->
             <Style TargetType="Editor">
                 <Setter Property="FontSize" Value="Small" />
@@ -1086,6 +1087,13 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
             </Style>
 
+            <Style TargetType="Picker"
+                   x:Key="BattleSettingPicker">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Micro" />
+
+            </Style>
             <!-- ProgressBar -->
             <Style TargetType="ProgressBar"
                 x:Key="AttributeProgressBar">
