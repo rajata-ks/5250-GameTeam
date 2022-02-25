@@ -857,6 +857,15 @@
                 <Setter Property="VerticalOptions" Value="Start"/>
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
             </Style>
+
+            <Style TargetType="RelativeLayout"
+                x:Key="CarouselRealativeStyle">
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+
+
+          
             <!--List View-->
             <Style TargetType="ListView" 
                    x:Key="DefaultListView">
@@ -1095,6 +1104,11 @@
                 <Setter Property="Increment" Value="1" />
             </Style>
 
+
+
+            
+            
+            
             <!-- Picker -->
             <Style TargetType="Picker">
                 <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
