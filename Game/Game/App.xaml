@@ -876,7 +876,21 @@
                 <Setter Property="IsRefreshing" Value="{Binding IsBusy, Mode=OneWay}" />
                 <Setter Property="RefreshCommand" Value="{Binding LoadItemsCommand}" />
             </Style>
-
+            
+            
+            <Style TargetType="ListView" 
+                   x:Key="PartyListView">
+                <Setter Property="HasUnevenRows" Value="true" />
+                <Setter Property="VerticalScrollBarVisibility" Value="Always" />
+                <Setter Property="HorizontalScrollBarVisibility" Value="Always" />
+                <Setter Property="RowHeight" Value="75" />
+                <Setter Property="WidthRequest" Value="100" />
+                <Setter Property="CachingStraegy" Value="RecycleElement" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="ItemsSource" Value="{Binding PartyCharacterList}" />
+                <Setter Property="IsRefreshing" Value="{Binding IsBusy, Mode=OneWay}" />
+                <Setter Property="RefreshCommand" Value="{Binding LoadItemsCommand}" />
+            </Style>
 
             <Style TargetType="ListView" 
                    x:Key="ScoreListView">
