@@ -955,7 +955,11 @@
                 <Setter Property="BorderColor" Value="{StaticResource PrimaryBackgroundColor}" />
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBackgroundColor}" />
             </Style>
-
+            <Style TargetType="Frame"
+                   x:Key="BattleFrame">
+                <Setter Property="Padding" Value="10,0,0,0"/>
+            </Style>
+                
             <Style TargetType="Frame" 
                    x:Key="CarouselViewFrame">
                 <Setter Property="HasShadow" Value="false" />
