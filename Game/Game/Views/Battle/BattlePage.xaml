@@ -7,13 +7,13 @@
 
     <NavigationPage.TitleView>
         <!--Menu Bar-->
-        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
-            <Frame Padding="10,0,0,0"/>
+        <StackLayout Style="{StaticResource BattleLayout}" >
+            <Frame Style="{StaticResource BattleFrame}"/>
             <Label Text="Girls vs Ghouls" Style="{StaticResource CenterMessageLargeStyle}"/>
-            <Frame Padding="10,0,0,0"/>
+            <Frame Style="{StaticResource BattleFrame}"/>
             <ImageButton Source="icon_edit.png" Clicked="Setttings_Clicked" Style="{StaticResource BattleToolbarStyle}"/>
             <ImageButton Source="icon_cancel.png" Clicked="ExitButton_Clicked" Style="{StaticResource BattleToolbarStyle}"/>
-            <Frame Padding="10,0,0,0"/>
+            <Frame Style="{StaticResource BattleFrame}"/>
             <Label x:Name="BattleModeValue" Text="" Style="{StaticResource HeaderCenterStyle}"/>
         </StackLayout>
     </NavigationPage.TitleView>
