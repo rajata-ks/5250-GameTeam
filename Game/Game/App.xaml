@@ -1142,7 +1142,13 @@
                 <Setter Property="AlignContent" Value="SpaceAround"/>
             </Style>
 
-            <!-- FlexLayout -->
+            <Style TargetType="FlexLayout"
+                x:Key="ScoreStyle">
+                <Setter Property="Wrap" Value="Wrap"/>
+                <Setter Property="JustifyContent" Value="Start"/>
+                <Setter Property="AlignContent" Value="Start"/>
+            </Style>
+            
             <Style TargetType="FlexLayout"
                 x:Key="MonsterItemLayout">
                 <Setter Property="Margin" Value="0" />
