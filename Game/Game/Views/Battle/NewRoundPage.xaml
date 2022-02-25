@@ -12,8 +12,7 @@
                     <StackLayout Style="{StaticResource VerticalStack}"
                         x:Name="GamePlayersTopDisplay" 
                         IsVisible="true" 
-                        VerticalOptions="Start" 
-                        HorizontalOptions="CenterAndExpand">
+                        Style="{StaticResource NewRoundStyle}">
 
 
                         <StackLayout x:Name="CharacterBox"  Style="{StaticResource BoxStyle}" />
