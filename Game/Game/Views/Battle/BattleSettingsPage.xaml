@@ -28,9 +28,7 @@
 
                 <Picker 
                     Grid.Row="0" Grid.Column="1"
-                    HorizontalOptions="Start" 
-                    VerticalOptions="Center"
-                    FontSize="Micro"
+                    Style="{StaticResource BattleSettingPicker}"
                     x:Name="BattleModePicker"
                     SelectedItem="{Binding SelectedItemProperty, Mode=TwoWay}" 
                     SelectedIndexChanged="BattleModePicker_Changed"/>
@@ -38,12 +36,7 @@
 
             <Label Text ="Control Hit Actions" Style="{StaticResource HeaderStyle}" />
 
-            <Grid
-                HorizontalOptions="StartAndExpand" 
-                Padding="10"
-                RowSpacing="1"
-                ColumnSpacing="2"
-                VerticalOptions="Center">
+            <Grid Style= "{StaticResource BattleSettings}">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -61,9 +54,7 @@
                 
                 <Picker 
                     Grid.Row="0" Grid.Column="1"
-                    HorizontalOptions="Start" 
-                    VerticalOptions="Center"
-                    FontSize="Micro"
+                    Style="{StaticResource BattleSettingPicker}"
                     x:Name="MonsterHitPicker"
                     SelectedItem="{Binding SelectedItemProperty, Mode=TwoWay}" 
                     SelectedIndexChanged="MonsterHitPicker_Changed"/>
@@ -76,9 +67,7 @@
 
                 <Picker 
                     Grid.Row="1" Grid.Column="1"
-                    HorizontalOptions="Start" 
-                    VerticalOptions="Center"
-                    FontSize="Micro"
+                    Style="{StaticResource BattleSettingPicker}"
                     x:Name="CharacterHitPicker"
                     SelectedItem="{Binding SelectedItemProperty, Mode=TwoWay}" 
                     SelectedIndexChanged="CharacterHitPicker_Changed"/>
