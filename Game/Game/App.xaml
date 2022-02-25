@@ -130,6 +130,14 @@
             </Style>
 
             <Style TargetType="Label"
+                x:Key="StartLabel"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="VerticalTextAlignment" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="FontSize" Value="50" />
+            </Style>
+
+            <Style TargetType="Label"
                 x:Key="HorizontalMenuLabelRight"
                 BasedOn="{StaticResource LabelBaseStyle}">
                 <Setter Property="HorizontalOptions" Value="End" />
@@ -236,7 +244,13 @@
                 <Setter Property="Padding" Value="3" />
             </Style>
 
-
+            <Style TargetType="Label"
+                x:Key="BattleUILabels">
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="VerticalTextAlignment" Value="Start" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
 
             <Style TargetType="Label"
                 x:Key="GridValueStyle"
@@ -589,6 +603,12 @@
             </Style>
 
             <Style TargetType="StackLayout"
+                x:Key="StartStack">
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+
+            <Style TargetType="StackLayout"
                 x:Key="VerticalStack"
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Orientation" Value="Vertical" />
@@ -613,6 +633,12 @@
                 <Setter Property="Spacing" Value="16" />
             </Style>
 
+            <Style TargetType="StackLayout"
+                x:Key="BattleUIListView">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="WidthRequest" Value="200" />
+            </Style>
 
 
             <Style TargetType="StackLayout"
