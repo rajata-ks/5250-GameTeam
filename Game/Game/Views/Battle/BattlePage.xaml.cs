@@ -67,7 +67,6 @@ namespace Game.Views
 
             BindingContext = BattleEngineViewModel.Instance;
             MonsterListView.ItemsSource = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList;
-
         }
 
         /// <summary>
@@ -611,6 +610,17 @@ namespace Game.Views
         public void AttackButton_Clicked(object sender, EventArgs e)
         {
             NextAttackExample();
+            UpdateListView();
+        }
+
+        /// <summary>
+        /// get the current data and refresh the listviews
+        /// </summary>
+        public void UpdateListView()
+        {
+            MonsterListView.ItemsSource = BattleEngineViewModel.Instance.Engine.Round.PlayerList().Where(x => x.PlayerType == PlayerTypeEnum.Monster);
+            CharactersListView.ItemsSource = BattleEngineViewModel.Instance.Engine.Round.PlayerList().Where(x => x.PlayerType == PlayerTypeEnum.Character);
+
         }
 
         /// <summary>
