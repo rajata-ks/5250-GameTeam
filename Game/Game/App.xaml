@@ -850,6 +850,13 @@
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
+
+            <Style TargetType="StackLayout"
+                    x:Key="NewRoundStyle"
+                   BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            </Style>
             <!--List View-->
             <Style TargetType="ListView" 
                    x:Key="DefaultListView">
