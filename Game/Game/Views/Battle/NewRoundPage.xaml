@@ -9,7 +9,7 @@
             <StackLayout Style="{StaticResource VerticalStack}">
 
                 <StackLayout VerticalOptions="Start" x:Name="TopPlayerDisplay">
-                    <StackLayout Style="{StaticResource VerticalStack}"
+                    <StackLayout"
                         x:Name="GamePlayersTopDisplay" 
                         IsVisible="true" 
                         Style="{StaticResource NewRoundStyle}">
