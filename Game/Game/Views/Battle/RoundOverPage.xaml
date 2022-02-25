@@ -34,15 +34,11 @@
 
                         <Label Text="Characters" Style="{StaticResource HeaderStyle}"/>
                         <FlexLayout x:Name="CharacterListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
-                        
+                                    Style="{StaticResource ScoreStyle}"/>
+
                         <Label Text="Monster Defeated" Style="{StaticResource HeaderStyle}"/>
                         <FlexLayout x:Name="MonsterListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
+                                    Style="{StaticResource ScoreStyle}"/>
 
                         <Label Text="Items Found" Style="{StaticResource HeaderStyle}"/>
                         <StackLayout Style="{StaticResource HorizontalStack}">
@@ -50,9 +46,7 @@
                             <Label Text="0" x:Name="TotalFound" Style="{StaticResource ValueStyle}"/>
                         </StackLayout>
                         <FlexLayout x:Name="ItemListFoundFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
+                                    Style="{StaticResource ScoreStyle}"/>
 
                         <Button Clicked="AssignItem_Clicked" Text="Assign Items"/>
 
@@ -62,9 +56,7 @@
                             <Label Text="0" x:Name="TotalSelected" Style="{StaticResource ValueStyle}"/>
                         </StackLayout>
                         <FlexLayout x:Name="ItemListSelectedFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
+                                    Style="{StaticResource ScoreStyle}"/>
 
                         <Button Clicked="CloseButton_Clicked" Text="Close"/>
 
@@ -81,10 +73,7 @@
                     AbsoluteLayout.LayoutFlags="All">
 
                 <StackLayout 
-                        VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand"
-                        WidthRequest="300"
-                        HeightRequest="300"
+                        Style="{StaticResource PopupBox}"
                         >
 
                     <Frame 
