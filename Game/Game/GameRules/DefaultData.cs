@@ -357,7 +357,7 @@ namespace Game.GameRules
                     Description = "Come and get me",
                     Level = 5,
                     MaxHealth = 43,
-                    ImageURI = "procastinator.png"
+                    ImageURI = "procrastinator.png"
                 },
 
                 new CharacterModel {
