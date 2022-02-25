@@ -1019,6 +1019,16 @@
             </Style>
 
             <Style TargetType="Grid"
+                   x:Key="CarouselViewGrid">
+                <Setter Property="RowSpacing" Value="50" />
+                <Setter Property="RowSpacing" Value="120" />
+                <Setter Property="ColumnSpacing" Value="0" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="Padding" Value="5" />
+            </Style>
+
+            <Style TargetType="Grid"
                 x:Key="IndexGrid">
                 <Setter Property="ColumnSpacing" Value="5" />
                 <Setter Property="RowSpacing" Value="1" />
