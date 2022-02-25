@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 using Game.Models;
 using Game.ViewModels;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Game.Views
 {
@@ -28,6 +29,7 @@ namespace Game.Views
     {
         private CharacterModel currentItem;
         private int itemcount;
+        HashSet<CharacterModel> characterSet;
 
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
@@ -46,11 +48,12 @@ namespace Game.Views
 
 
             currentItem = BattleEngineViewModel.Instance.DatabaseCharacterList.FirstOrDefault();
-            
+
             itemcount = BattleEngineViewModel.Instance.DatabaseCharacterList.Count;
 
             // Clear the Database List and the Party List to start
             BattleEngineViewModel.Instance.PartyCharacterList.Clear();
+            characterSet = new HashSet<CharacterModel>();
 
             UpdateNextButtonState();
         }
@@ -97,7 +100,7 @@ namespace Game.Views
                 NextButton.IsEnabled = false;
             }
 
-          
+
         }
 
 
@@ -149,7 +152,11 @@ namespace Game.Views
             if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
             {
                 this.currentItem = CarouselCharacters.CurrentItem as CharacterModel;
-                BattleEngineViewModel.Instance.PartyCharacterList.Add(currentItem);
+                if (!characterSet.Contains(this.currentItem))
+                {
+                    BattleEngineViewModel.Instance.PartyCharacterList.Add(currentItem);
+                    characterSet.Add(this.currentItem);
+                }
             }
 
             UpdateNextButtonState();
