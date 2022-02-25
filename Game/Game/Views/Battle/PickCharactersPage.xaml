@@ -15,17 +15,8 @@
             <StackLayout Style="{StaticResource OuterBoxStack}">
                 <Label Text="Click to remove me! or Drag and Hold to scroll." Style="{StaticResource CenterMessageStyle}"/>
 
-                <Grid HorizontalOptions="Start"
-              Margin="5"
-			  Padding="5">
+                <Grid Style="{StaticResource CarouselViewGrid}">
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="120"/>
-                    </Grid.RowDefinitions>
                     <RelativeLayout Grid.Row="0" 
 							HeightRequest="100"
 							VerticalOptions="Start">
