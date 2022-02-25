@@ -18,9 +18,7 @@
 
             <Label Text="Characters" Style="{StaticResource MessageStyle}"/>
             <FlexLayout x:Name="CharacterListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
+                                    Style="{StaticResource ScoreStyle}"/>
 
             <Label Text="Monsters" Style="{StaticResource MessageStyle}"/>
                 <StackLayout Style="{StaticResource HorizontalStack}">
@@ -28,9 +26,7 @@
                     <Label Text="0" x:Name="TotalKilled" Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
                 <FlexLayout x:Name="MonsterListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
+                                    Style="{StaticResource ScoreStyle}"/>
 
             <Label Text="Items" Style="{StaticResource MessageStyle}"/>
                 <StackLayout Style="{StaticResource HorizontalStack}">
@@ -38,9 +34,7 @@
                     <Label Text="0" x:Name="TotalCollected" Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
                 <FlexLayout x:Name="ItemListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
+                                    Style="{StaticResource ScoreStyle}"/>
                 
                 <Button Clicked="CloseButton_Clicked" Text="Close"/>
 
