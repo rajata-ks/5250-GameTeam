@@ -11,12 +11,7 @@
 
             <Label Text ="Battle Mode" Style="{StaticResource HeaderStyle}" />
 
-            <Grid 
-                HorizontalOptions="StartAndExpand" 
-                Padding="10"
-                RowSpacing="1"
-                ColumnSpacing="2"
-                VerticalOptions="Center">
+            <Grid  Style="{StaticResource BattleSettings}">
                 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
