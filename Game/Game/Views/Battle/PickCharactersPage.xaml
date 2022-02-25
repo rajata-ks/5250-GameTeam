@@ -22,13 +22,11 @@
 							VerticalOptions="Start">
                         <ListView 
                                 x:Name="PartyListView" 
-                                Rotation="270"  SeparatorVisibility="None"
+                                Style="{StaticResource PartyListView}" 
                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
-                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                            
-                               Style="{StaticResource PartyListView}">
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"   CachingStrategy="RecycleElement" >
 
                             <ListView.ItemTemplate>
                                 <DataTemplate>
