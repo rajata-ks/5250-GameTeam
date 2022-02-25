@@ -79,8 +79,7 @@
 
                 <Switch 
                     Grid.Row="2" Grid.Column="1"
-                    HorizontalOptions="Start" 
-                    VerticalOptions="Center"
+                    Style="{StaticResource BattleSettingSwitch}"
                     x:Name="AllowCriticalHitSwitch"
                     Toggled="AllowCriticalHit_Toggled"/>
 
@@ -91,8 +90,7 @@
 
                 <Switch 
                     Grid.Row="3" Grid.Column="1"
-                    HorizontalOptions="Start" 
-                    VerticalOptions="Center"
+                    Style="{StaticResource BattleSettingSwitch}"
                     x:Name="AllowCriticalMissSwitch"
                     Toggled="AllowCriticalMiss_Toggled"/>
 
@@ -103,8 +101,7 @@
 
                 <Switch 
                     Grid.Row="4" Grid.Column="1"
-                    HorizontalOptions="Start" 
-                    VerticalOptions="Center"
+                    Style="{StaticResource BattleSettingSwitch}"
                     x:Name="AllowMonsterItemsSwitch"
                     Toggled="AllowMonsterItems_Toggled"/>
             </Grid>
