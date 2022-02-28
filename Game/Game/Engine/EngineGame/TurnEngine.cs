@@ -8,6 +8,7 @@ using Game.ViewModels;
 using Game.GameRules;
 using Game.Engine.EngineInterfaces;
 using Game.Engine.EngineModels;
+using System;
 
 namespace Game.Engine.EngineGame
 {
@@ -477,13 +478,21 @@ namespace Game.Engine.EngineGame
         }
 
         /// <summary>
-        /// Determine what Actions to do
+        /// Determine what Actions to do based on even or odd
         /// </summary>
         /// <param name="Attacker"></param>
         /// <returns></returns>
         public override ActionEnum DetermineActionChoice(PlayerInfoModel Attacker)
         {
-            return base.DetermineActionChoice(Attacker);
+            var d20 = DiceHelper.RollDice(1, 20);
+
+
+            if (d20 % 2 == 0)
+            {
+                return ActionEnum.Attack;
+            }
+
+            return ActionEnum.Move;
         }
 
         /// <summary>
