@@ -312,7 +312,7 @@ namespace UnitTests.Views
             // Has no monster, so should show next round.
 
             // Act
-            page.NextAttackExample();
+            page.NextAction();
 
             // Reset
 
@@ -336,7 +336,7 @@ namespace UnitTests.Views
             // Has no Character, so should show end game
 
             // Act
-            page.NextAttackExample();
+            page.NextAction();
 
             // Reset
 
