@@ -246,6 +246,24 @@ namespace UnitTests.Engine.EngineBase
             //Assert
             Assert.AreEqual(6, AutoBattleEngine.Battle.EngineSettings.CharacterList.Count);
         }
+
+        [Test]
+        public void AutoBattleEngine_CreateCharacterParty_Valid_Characters_CharacterIndex_None_Should_Create_6_minus_1_should_pass()
+        {
+            //Arrange
+            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyCharacters = 6;
+
+            CharacterIndexViewModel.Instance.Dataset.Clear();
+            CharacterIndexViewModel.Instance.Dataset.Add(new CharacterModel());
+
+            //Act
+            var result = AutoBattleEngine.CreateCharacterParty();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(6, AutoBattleEngine.Battle.EngineSettings.CharacterList.Count);
+        }
         #endregion CreateCharacterParty   
 
         #region DetectInfinateLoop
