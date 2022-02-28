@@ -181,8 +181,8 @@ namespace Game.Models
             return dc;
         }
 
-        //returns the percentage current health to max
-        private Decimal ProgressBarPercentConverter(int Progress)
+        //returns the percentage current health to max  
+        public Decimal ProgressBarPercentConverter(int Progress)
         {
             if(Progress == 0)
             {
