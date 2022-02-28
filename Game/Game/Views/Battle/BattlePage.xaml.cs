@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -606,8 +607,35 @@ namespace Game.Views
         /// <param name="e"></param>
         public void AttackButton_Clicked(object sender, EventArgs e)
         {
-            NextAction(ActionEnum.Attack);
-            UpdateListView();
+            //auto move for monsters
+
+            var setup = true;
+            var keepAutoMove = false;
+            var action = ActionEnum.Attack;
+
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker == null)
+            {
+                SetAttackerAndDefender();
+                setup = false;
+            }
+
+            PlayerTypeEnum postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+            do
+            {
+                if (postBattle == PlayerTypeEnum.Monster)
+                {
+                    action = ActionEnum.Unknown;
+                }
+                var before = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+                keepAutoMove = NextAction(action, setup);
+                postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+
+                UpdateListView();
+                //Pause
+                //int milliseconds = 1000;
+                //    Thread.Sleep(milliseconds);
+            } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
+
         }
 
         /// <summary>
@@ -666,12 +694,17 @@ namespace Game.Views
         /// So the pattern is Click Next, Next, Next until game is over
         /// 
         /// </summary>
-        public void NextAction(ActionEnum action = ActionEnum.Unknown)
+        public bool NextAction(ActionEnum action = ActionEnum.Unknown, bool setAttackersDefenders = true)
         {
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
 
             // Get the turn, set the current player and attacker to match
-            SetAttackerAndDefender();
+            if (setAttackersDefenders == true)
+            {
+                SetAttackerAndDefender();
+            }
+
+            var test = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
 
             // Hold the current state
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = action;
@@ -685,6 +718,7 @@ namespace Game.Views
 
             if (RoundCondition == RoundEnum.NewRound)
             {
+
                 BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.NewRound;
 
                 // Pause
@@ -694,7 +728,7 @@ namespace Game.Views
 
                 // Show the Round Over, after that is cleared, it will show the New Round Dialog
                 ShowModalRoundOverPage();
-                return;
+                return false;
             }
 
             // Check for Game Over
@@ -711,8 +745,10 @@ namespace Game.Views
                 Debug.WriteLine("Game Over");
 
                 GameOver();
-                return;
+                return false;
             }
+
+            return true;
         }
 
         /// <summary>
@@ -890,7 +926,7 @@ namespace Game.Views
             NextRoundButton.IsVisible = false;
             StartBattleButton.IsVisible = false;
             MessageDisplayBox.IsVisible = false;
-           // BattlePlayerInfomationBox.IsVisible = false;
+            // BattlePlayerInfomationBox.IsVisible = false;
         }
 
         /// <summary>
