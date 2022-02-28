@@ -4,6 +4,10 @@ using Game;
 using Game.Views;
 using Xamarin.Forms.Mocks;
 using Xamarin.Forms;
+using Game.Models;
+using System.Linq;
+using Game.ViewModels;
+using System.Collections.Generic;
 
 namespace UnitTests.Views
 {
@@ -52,6 +56,113 @@ namespace UnitTests.Views
             // Arrange
             // Act
             page.CloseButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PickItemsPage_ClosePopup_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.ClosePopup_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PickItemsPage_GetItemToDisplay_Null_Should_Pass()
+        {
+            // Arrange
+            // Act
+            var ret = page.GetItemToDisplay(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(typeof(StackLayout), ret.GetType());
+        }
+
+        [Test]
+        public void PickItemsPage_GetItemToDisplay_empty_id_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel();
+            item.Id = string.Empty;
+            // Act
+            var ret = page.GetItemToDisplay(item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(typeof(StackLayout), ret.GetType());
+        }
+
+        [Test]
+        public void PickItemsPage_GetItemToDisplay_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel();
+
+            // Act
+            var ret = page.GetItemToDisplay(item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(typeof(StackLayout), ret.GetType());
+        }
+
+        [Test]
+        public void PickItemsPage_Item_ShowPopup_Default_Should_Pass()
+        {
+            // Arrange
+            var item = page.GetItemToDisplay(new ItemModel());
+
+            // Act
+            var itemButton = item.Children.FirstOrDefault(m => m.GetType().Name.Equals("ImageButton"));
+            var dataImage = item.Children[0];
+            ((ImageButton)dataImage).PropagateUpClicked();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCratePage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
+        {
+            // Arrange
+            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
+            var StackItem = page.GetItemToDisplay(item);
+            var dataImage = StackItem.Children[0];
+
+            // Act
+            ((ImageButton)dataImage).PropagateUpClicked();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCratePage_DrawDroppedItems_Valid_Should_Pass()
+        {
+            // Arrange
+            var flexview = page.FindByName("ItemListFoundFrame") as FlexLayout;
+            flexview.Children.Add(new StackLayout());
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel());
+
+            // Act
+            page.DrawDroppedItems();
 
             // Reset
 
