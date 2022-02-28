@@ -113,8 +113,7 @@ namespace Game.Engine.EngineGame
              * 
              */
 
-            if (Attacker.PlayerType == PlayerTypeEnum.Monster)
-            {
+            
                 // For Attack, Choose Who
                 EngineSettings.CurrentDefender = AttackChoice(Attacker);
 
@@ -146,7 +145,7 @@ namespace Game.Engine.EngineGame
                 EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " moves closer to " + EngineSettings.CurrentDefender.Name;
 
                 return EngineSettings.MapModel.MovePlayerOnMap(locationAttacker, openSquare);
-            }
+            
 
             return true;
         }
