@@ -87,10 +87,10 @@ namespace Game.Engine.EngineModels
         public int MaxNumberPartyMonsters { get; set; } = 6;
 
         // Max Number of Rounds for AutoBattle
-        public int MaxRoundCount { get; set; } = 100;
+        public int MaxRoundCount { get; set; } = 200;
 
         // Max Number of Turns for AutoBattle
-        public int MaxTurnCount { get; set; } = 1000;
+        public int MaxTurnCount { get; set; } = 2000;
 
         // Hold the MapModel
         public MapModel MapModel { get; set; } = new MapModel();
