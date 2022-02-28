@@ -9,6 +9,7 @@ using Game;
 using Game.Views;
 using Game.Models;
 using Game.ViewModels;
+using System.Linq;
 
 namespace UnitTests.Views
 {
@@ -84,6 +85,139 @@ namespace UnitTests.Views
 
             // Act
             page.AttackButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_AttackButton_Clicked_Monster_turn_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel() { PlayerType = PlayerTypeEnum.Monster};
+
+            // Act
+            page.AttackButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_MoveButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.MoveButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_MoveButton_Clicked_Monster_turn_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel() { PlayerType = PlayerTypeEnum.Monster };
+
+            // Act
+            page.MoveButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_SpecialButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.SpecialButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_SpecialButton_Clicked_Monster_turn_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel() { PlayerType = PlayerTypeEnum.Monster };
+
+            // Act
+            page.SpecialButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_SpecialButton_Clicked_While_Loop_Should_Pass()
+        {
+            // Arrange
+            var data = BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Where(x => x.PlayerType == PlayerTypeEnum.Monster).FirstOrDefault();
+            var monster = BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Where(x => x.PlayerType == PlayerTypeEnum.Character).FirstOrDefault();
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = data;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = monster;
+
+            // Act
+            page.SpecialButton_Clicked(null, null);
+            var test = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_AttackButton_Clicked_While_Loop_Should_Pass()
+        {
+            // Arrange
+            var data = BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Where(x => x.PlayerType == PlayerTypeEnum.Monster).FirstOrDefault();
+            var monster = BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Where(x => x.PlayerType == PlayerTypeEnum.Character).FirstOrDefault();
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = data;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = monster;
+
+            // Act
+            page.AttackButton_Clicked(null, null);
+            var test = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_MoveButton_Clicked_While_Loop_Should_Pass()
+        {
+            // Arrange
+            var data = BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Where(x => x.PlayerType == PlayerTypeEnum.Monster).FirstOrDefault();
+            var monster = BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Where(x => x.PlayerType == PlayerTypeEnum.Character).FirstOrDefault();
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = data;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = monster;
+
+            // Act
+            page.MoveButton_Clicked(null, null);
+            var test = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender;
 
             // Reset
 
