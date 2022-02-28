@@ -557,6 +557,7 @@ namespace UnitTests.Engine.EngineGame
         {
             // Arrange
             var PlayerInfo = new PlayerInfoModel(new CharacterModel());
+            EngineSettingsModel.Instance.CurrentAction = ActionEnum.Attack;
 
             // Act
             var result = Engine.Round.Turn.TakeTurn(PlayerInfo);
@@ -564,7 +565,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, result);
         }
 
         [Test]
