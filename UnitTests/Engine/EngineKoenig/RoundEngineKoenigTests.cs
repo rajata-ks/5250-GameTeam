@@ -796,6 +796,15 @@ namespace UnitTests.Engine.EngineKoenig
 
         #region GetNextPlayerInList
         [Test]
+        public void RoundEngine_GetNextPlayerInList_invalid_Should_Return_zero()
+        {
+            Engine.EngineSettings.PlayerList.Clear();
+            var result = Engine.Round.GetNextPlayerInList();
+
+            Assert.IsNull(result);
+        }
+
+        [Test]
         public void RoundEngine_GetNextPlayerInList_Valid_Mike_Should_Return_Doug()
         {
             Engine.EngineSettings.MonsterList.Clear();
