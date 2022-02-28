@@ -80,7 +80,7 @@ namespace Game.Engine.EngineGame
                     return false;
                 }
 
-                Debug.WriteLine("Next Turn");
+                Debug.WriteLine($"Next Turn {Battle.EngineSettings.BattleScore.TurnCount}");
 
                 // Do the turn...
                 // If the round is over start a new one...
