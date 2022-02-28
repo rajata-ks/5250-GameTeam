@@ -1,15 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-
+using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using Game.Models;
-using Game.ViewModels;
-using System.Collections.ObjectModel;
 
 namespace Game.Views
 {
@@ -609,9 +606,32 @@ namespace Game.Views
         /// <param name="e"></param>
         public void AttackButton_Clicked(object sender, EventArgs e)
         {
-            NextAttackExample();
+            NextAction(ActionEnum.Attack);
             UpdateListView();
         }
+
+        /// <summary>
+        /// Move Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void MoveButton_Clicked(object sender, EventArgs e)
+        {
+            NextAction(ActionEnum.Move);
+            UpdateListView();
+        }
+
+        /// <summary>
+        /// Special Ability Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void SpecialButton_Clicked(object sender, EventArgs e)
+        {
+            NextAction(ActionEnum.Ability);
+            UpdateListView();
+        }
+
 
         /// <summary>
         /// get the current data and refresh the listviews
@@ -646,7 +666,7 @@ namespace Game.Views
         /// So the pattern is Click Next, Next, Next until game is over
         /// 
         /// </summary>
-        public void NextAttackExample()
+        public void NextAction(ActionEnum action = ActionEnum.Unknown)
         {
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
 
@@ -654,6 +674,7 @@ namespace Game.Views
             SetAttackerAndDefender();
 
             // Hold the current state
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = action;
             var RoundCondition = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
 
             // Output the Message of what happened.
@@ -868,7 +889,6 @@ namespace Game.Views
             Defend.IsVisible = false;
             NextRoundButton.IsVisible = false;
             StartBattleButton.IsVisible = false;
-            AttackButton.IsVisible = false;
             MessageDisplayBox.IsVisible = false;
            // BattlePlayerInfomationBox.IsVisible = false;
         }
@@ -931,7 +951,6 @@ namespace Game.Views
                     GameUIDisplay.IsVisible = true;
                     //BattlePlayerInfomationBox.IsVisible = true;
                     MessageDisplayBox.IsVisible = true;
-                    AttackButton.IsVisible = true;
                     Attack.IsVisible = true;
                     Special.IsVisible = true;
                     Defend.IsVisible = true;
