@@ -64,7 +64,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(null, result);
+            Assert.NotNull(result);
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(null, result);
+            Assert.NotNull(result);
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(null, result);
+            Assert.NotNull(result);
         }
 
         [Test]
@@ -106,7 +106,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(null, result);
+            Assert.NotNull(result);
         }
 
         [Test]
@@ -120,7 +120,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(null, result);
+            Assert.NotNull(result);
         }
         #endregion OrderPlayListByTurnOrder
 
@@ -234,20 +234,22 @@ namespace UnitTests.Engine.EngineGame
         public void RoundEngine_RoundNextTurn_Valid_No_Characters_Should_Return_GameOver()
         {
             // Arrange
-
+            Engine.EngineSettings.CharacterList.Clear();
             // Act
             var result = Engine.Round.RoundNextTurn();
 
             // Reset
 
             // Assert
-            Assert.AreEqual(RoundEnum.Unknown, result);
+            Assert.AreEqual(RoundEnum.GameOver, result);
         }
 
         [Test]
         public void RoundEngine_RoundNextTurn_Valid_No_Monsters_Should_Return_NewRound()
         {
             // Arrange
+            Engine.EngineSettings.MonsterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel());
 
             // Act
             var result = Engine.Round.RoundNextTurn();
@@ -255,7 +257,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(RoundEnum.Unknown, result);
+            Assert.AreEqual(RoundEnum.NewRound, result);
         }
 
         [Test]
@@ -269,7 +271,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(RoundEnum.Unknown, result);
+            Assert.AreEqual(RoundEnum.NewRound, result);
         }
         #endregion RoundNextTurn
 
@@ -279,14 +281,14 @@ namespace UnitTests.Engine.EngineGame
         public void RoundEngine_GetNextPlayerInList_Valid_Sue_Should_Return_Monster()
         {
             // Arrange
-
+            
             // Act
             var result = Engine.Round.GetNextPlayerInList();
 
             // Reset
 
             // Assert
-            Assert.AreEqual(null, result);
+            Assert.NotNull(result);
         }
 
         [Test]
@@ -301,7 +303,7 @@ namespace UnitTests.Engine.EngineGame
 
 
             // Assert
-            Assert.AreEqual(null, result);
+            Assert.NotNull(result);
         }
 
         #endregion GetNextPlayerInList
@@ -325,14 +327,28 @@ namespace UnitTests.Engine.EngineGame
         public void RoundEngine_SwapCharacterItem_Valid_Default_Should_Pass()
         {
             // Arrange 
+            var CharacterPlayerMike = new PlayerInfoModel(
+                          new CharacterModel
+                          {
+                              Speed = 100,
+                              Attack = 100,
+                              Defense = 100,
+                              Level = 1,
+                              CurrentHealth = 111,
+                              ExperienceTotal = 1,
+                              ExperienceRemaining = 1,
+                              Name = "Mike",
+                              ListOrder = 1,
+                          });
+            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand); ;
 
             // Act
-            var result = Engine.Round.SwapCharacterItem(null, ItemLocationEnum.Head, null);
+            var result = Engine.Round.SwapCharacterItem(CharacterPlayerMike, ItemLocationEnum.PrimaryHand, item);
 
             // Reset
 
             // Assert
-            Assert.AreEqual(null, result);
+            Assert.Null(result);
         }
         #endregion SwapCharacterItem
 
@@ -364,7 +380,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(null, result);
+            Assert.NotNull(result);
         }
         #endregion RemoveDeadPlayersFromList
 
@@ -380,7 +396,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, result);
         }
         #endregion PickupItemsFromPool
 
@@ -396,7 +412,7 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(null, result);
+            Assert.NotNull(result);
         }
         #endregion GetNextPlayerTurn
     }
