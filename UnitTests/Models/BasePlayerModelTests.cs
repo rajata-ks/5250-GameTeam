@@ -1264,5 +1264,32 @@ namespace UnitTests.Models
 
             Assert.AreEqual(2, Result);
         }
+
+        [Test]
+        public void BasePlayerModel_CurrentHealthPercentage_Valid_Item_Should_Pass()
+        {
+
+            var data = new BasePlayerModel<CharacterModel>() { CurrentHealth = 1, MaxHealth = 1};
+
+            Assert.IsTrue(data.ProgressBarPercentConverter(data.CurrentHealth) == 1);
+        }
+
+        [Test]
+        public void BasePlayerModel_CurrentHealthPercentage_Valid_Item__Default_should_return_1_Should_Pass()
+        {
+
+            var data = new BasePlayerModel<CharacterModel>() {};
+
+            Assert.IsTrue(data.ProgressBarPercentConverter(data.CurrentHealth) == 1);
+        }
+
+        [Test]
+        public void BasePlayerModel_CurrentHealthPercentage_get_percentage_Valid_Item_Should_Pass()
+        {
+
+            var data = new BasePlayerModel<CharacterModel>() { CurrentHealth = 1, MaxHealth = 1 };
+
+            Assert.IsTrue(data.CurrentHealthPercentage == 1);
+        }
     }
 }
