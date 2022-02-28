@@ -72,20 +72,6 @@ namespace UnitTests.Engine.EngineGame
 
         #region RunAutoBattle
         [Test]
-        public async Task AutoBattleEngine_RunAutoBattle_Valid_Default_Should_Pass()
-        {
-            //Arrange
-
-            //Act
-            var result = await AutoBattleEngine.RunAutoBattle();
-
-            //Reset
-
-            //Assert
-            Assert.AreEqual(true, result);
-        }
-
-        [Test]
         public async Task AutoBattleEngine_RunAutoBattle_InValid_DetectInfinateLoop_Should_Return_False()
         {
             //Arrange
@@ -109,8 +95,8 @@ namespace UnitTests.Engine.EngineGame
         {
             //Arrange
 
-            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyMonsters = 1;
-            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
+            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyMonsters = 6;
+            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyCharacters = 6;
 
             var CharacterPlayerMike = new PlayerInfoModel(
                             new CharacterModel
@@ -232,6 +218,24 @@ namespace UnitTests.Engine.EngineGame
 
             // Assert
             Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void AutoBattleEngine_CreateCharacterParty_Valid_Characters_CharacterIndex_None_Should_Create_6_minus_1_should_pass()
+        {
+            //Arrange
+            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyCharacters = 6;
+
+            CharacterIndexViewModel.Instance.Dataset.Clear();
+            CharacterIndexViewModel.Instance.Dataset.Add(new CharacterModel());
+
+            //Act
+            var result = AutoBattleEngine.CreateCharacterParty();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(6, AutoBattleEngine.Battle.EngineSettings.CharacterList.Count);
         }
         #endregion DetectInfinateLoop
     }
