@@ -231,20 +231,6 @@ namespace UnitTests.Engine.EngineGame
 
         #region RoundNextTurn
         [Test]
-        public void RoundEngine_RoundNextTurn_Valid_No_Characters_Should_Return_GameOver()
-        {
-            // Arrange
-            Engine.EngineSettings.CharacterList.Clear();
-            // Act
-            var result = Engine.Round.RoundNextTurn();
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(RoundEnum.GameOver, result);
-        }
-
-        [Test]
         public void RoundEngine_RoundNextTurn_Valid_No_Monsters_Should_Return_NewRound()
         {
             // Arrange
@@ -282,6 +268,7 @@ namespace UnitTests.Engine.EngineGame
         {
             // Arrange
             
+
             // Act
             var result = Engine.Round.GetNextPlayerInList();
 
@@ -307,6 +294,38 @@ namespace UnitTests.Engine.EngineGame
         }
 
         #endregion GetNextPlayerInList
+
+        [Test]
+        public void RoundEngine_RoundNextTurn_Valid_No_Characters_Should_Return_GameOver()
+        {
+            // Arrange
+            Engine.EngineSettings.CharacterList.Clear();
+            // Act
+            var result = Engine.Round.RoundNextTurn();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(RoundEnum.GameOver, result);
+        }
+
+        [Test]
+        public void RoundEngine_GetNextPlayerInList_invalid_Should_Return_zero()
+        {
+            var curr = Engine.EngineSettings.PlayerList.ToList();
+
+
+            //act
+            Engine.EngineSettings.PlayerList.Clear();
+
+            var result = Engine.Round.GetNextPlayerInList();
+
+
+            Assert.IsNull(result);
+
+            //reset
+            Engine.EngineSettings.PlayerList.AddRange(curr);
+        }
 
         #region PlayerList
         //[Test]
