@@ -198,9 +198,9 @@ namespace Game.Engine.EngineGame
                 return null;
             }
 
-            // Select first in the list
+            // Select min level Chr in the list
 
-            // TODO: Teams, You need to implement your own Logic can not use mine.
+            //  Done - TODO: Teams, You need to implement your own Logic can not use mine.
             var Defender = EngineSettings.PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
                 .OrderBy(m => m.Level).FirstOrDefault();
@@ -224,9 +224,9 @@ namespace Game.Engine.EngineGame
             }
 
             // Select first one to hit in the list for now...
-            // Attack the Weakness (lowest HP) MonsterModel first 
+            // Attack the Weakness (lowest Max Health) MonsterModel first 
 
-            // TODO: Teams, You need to implement your own Logic can not use mine.
+            //Done - TODO: Teams, You need to implement your own Logic can not use mine.
 
             var Defender = EngineSettings.PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Monster)
