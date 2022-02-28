@@ -645,8 +645,34 @@ namespace Game.Views
         /// <param name="e"></param>
         public void MoveButton_Clicked(object sender, EventArgs e)
         {
-            NextAction(ActionEnum.Move);
-            UpdateListView();
+            //auto move for monsters
+
+            var setup = true;
+            var keepAutoMove = false;
+            var action = ActionEnum.Move;
+
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker == null)
+            {
+                SetAttackerAndDefender();
+                setup = false;
+            }
+
+            PlayerTypeEnum postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+            do
+            {
+                if (postBattle == PlayerTypeEnum.Monster)
+                {
+                    action = ActionEnum.Unknown;
+                }
+                var before = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+                keepAutoMove = NextAction(action, setup);
+                postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+
+                UpdateListView();
+                //Pause
+                //int milliseconds = 1000;
+                //    Thread.Sleep(milliseconds);
+            } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
         }
 
         /// <summary>
@@ -656,8 +682,34 @@ namespace Game.Views
         /// <param name="e"></param>
         public void SpecialButton_Clicked(object sender, EventArgs e)
         {
-            NextAction(ActionEnum.Ability);
-            UpdateListView();
+            //auto move for monsters
+
+            var setup = true;
+            var keepAutoMove = false;
+            var action = ActionEnum.Ability;
+
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker == null)
+            {
+                SetAttackerAndDefender();
+                setup = false;
+            }
+
+            PlayerTypeEnum postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+            do
+            {
+                if (postBattle == PlayerTypeEnum.Monster)
+                {
+                    action = ActionEnum.Unknown;
+                }
+                var before = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+                keepAutoMove = NextAction(action, setup);
+                postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+
+                UpdateListView();
+                //Pause
+                //int milliseconds = 1000;
+                //    Thread.Sleep(milliseconds);
+            } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
         }
 
 
@@ -703,8 +755,6 @@ namespace Game.Views
             {
                 SetAttackerAndDefender();
             }
-
-            var test = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
 
             // Hold the current state
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = action;
