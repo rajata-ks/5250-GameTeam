@@ -304,6 +304,7 @@ namespace Game.GameRules
                     Description = " A geek girl",
                     Level = 1,
                     MaxHealth = 5,
+                    Speed=2,
                     ImageURI = "character__nerd.png",
                     Head = HeadString,
                     Necklass = NecklassString,
