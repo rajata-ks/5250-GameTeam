@@ -276,6 +276,64 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Walk the Map and Find the Location within the attacker's  speed range (where distance is less than or equal to speed )
+        /// max an attacker can move is eqaul to speed or less
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <param name="nearLocation"></param>
+        /// <param name="speed"></param>
+        /// <returns></returns>
+        public MapModelLocation ReturnClosest(MapModelLocation Attacker, int speed, List<MapModelLocation> nearLocation)
+        {
+            MapModelLocation Result = null;
+            foreach (var data in nearLocation)
+            {
+                var distance = CalculateDistance(data, Attacker);
+                if (distance <= speed)
+                {
+                    Result = data;
+                    return Result;
+                }
+            }
+            return Result;
+        }
+
+
+        public SortedDictionary<int, List<MapModelLocation>> calculateDistances(MapModelLocation Target)
+        {
+            SortedDictionary<int, List<MapModelLocation>> distanceMap = new SortedDictionary<int, List<MapModelLocation>>(new AscendingComparer<int>());
+            foreach (var data in GetEmptyLocations())
+            {
+                var distance = CalculateDistance(data, Target);
+                if(distanceMap.ContainsKey(distance))
+                {
+                    List<MapModelLocation> listOfLocations = distanceMap[distance];
+                    listOfLocations.Add(data);
+                    distanceMap.Remove(distance);
+                    distanceMap.Add(distance, listOfLocations);
+                } else
+                {
+                    List<MapModelLocation> listOfLocations = new List<MapModelLocation>();
+                    listOfLocations.Add(data);
+                    distanceMap.Add(distance, listOfLocations);
+                }
+            }
+            return distanceMap;
+        }
+
+        class AscendingComparer<T> : IComparer<T> where T : IComparable<T>
+        {
+            public int Compare(T x, T y)
+            {
+                return x.CompareTo(y);
+            }
+        }
+        public int distanceToMonster(MapModelLocation character, MapModelLocation emptyLocation)
+        {
+            return CalculateDistance(character, emptyLocation);
+        }
+
+        /// <summary>
         /// See if the Attacker is next to the Defender by the distance of Range
         /// 
         /// If either the X or Y distance is less than or equal the range, then they can hit
