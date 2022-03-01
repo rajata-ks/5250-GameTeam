@@ -142,7 +142,7 @@ namespace Game.Engine.EngineGame
                 }
 
             }
-            return false;
+            return true;
 
         }
 

@@ -21,6 +21,7 @@ namespace Game.Models
             Name = "New Character";
             Description = "Character Description";
             Level = 1;
+            Speed = 0;
             ImageURI = "character__nerd.png";
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
