@@ -319,6 +319,7 @@ namespace Game.GameRules
                     Description = "Not a runner? Now you are..",
                     Level = 1,
                     MaxHealth = 5,
+                    Speed=2,
                     ImageURI = "character_athlete.png",
                     Head = HeadString,
                     Necklass = NecklassString,
@@ -334,6 +335,7 @@ namespace Game.GameRules
                     Description = "Don't get in my way",
                     Level = 1,
                     MaxHealth = 8,
+                     Speed=3,
                     ImageURI = "goth.png",
                     Head = HeadString,
                     Necklass = NecklassString,
@@ -348,6 +350,7 @@ namespace Game.GameRules
                     Name = "Skater",
                     Description = "I still got a lot of shoes left",
                     Level = 4,
+                     Speed=1,
                     MaxHealth = 38,
                     ImageURI = "skater.png"
                 },
@@ -355,6 +358,7 @@ namespace Game.GameRules
                 new CharacterModel {
                     Name = "Procastinator",
                     Description = "Come and get me",
+                      Speed=5,
                     Level = 5,
                     MaxHealth = 43,
                     ImageURI = "procrastinator.png"
@@ -364,6 +368,7 @@ namespace Game.GameRules
                     Name = "Class Clown",
                     Description = "You dont fear me ? then you'll die braver than most!",
                     Level = 5,
+                    Speed=6,
                     MaxHealth = 43,
                     ImageURI = "classclown.png"
                 }
