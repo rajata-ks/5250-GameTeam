@@ -718,8 +718,10 @@ namespace Game.Views
         /// </summary>
         public void UpdateListView()
         {
-            MonsterListView.ItemsSource = BattleEngineViewModel.Instance.Engine.Round.PlayerList().Where(x => x.PlayerType == PlayerTypeEnum.Monster);
-            CharactersListView.ItemsSource = BattleEngineViewModel.Instance.Engine.Round.PlayerList().Where(x => x.PlayerType == PlayerTypeEnum.Character);
+            //need to update the list so we can update the ability or hp bar
+
+            //MonsterListView.ItemsSource = BattleEngineViewModel.Instance.Engine.Round.PlayerList().Where(x => x.PlayerType == PlayerTypeEnum.Monster);
+            //CharactersListView.ItemsSource = BattleEngineViewModel.Instance.Engine.Round.PlayerList().Where(x => x.PlayerType == PlayerTypeEnum.Character);
 
         }
 
