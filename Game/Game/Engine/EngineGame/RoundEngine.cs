@@ -329,13 +329,10 @@ namespace Game.Engine.EngineGame
         public override bool PickupItemsFromPool(PlayerInfoModel character)
         {
 
-            // TODO: Teams, You need to implement your own Logic if not using auto apply
-
-            // I use the same logic for Auto Battle as I do for Manual Battle
 
             //if (BaseEngine.BattleScore.AutoBattle)
             {
-                // Have the character, walk the items in the pool, and decide if any are better than current one.
+                // Have the character, walk the items in the pool, and decide if any are making better damage than current one.
 
                 _ = GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
                 _ = GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklass);
@@ -349,7 +346,7 @@ namespace Game.Engine.EngineGame
         }
 
         /// <summary>
-        /// Swap out the item if it is better
+        /// Swap out the item if it is making better damage 
         /// 
         /// Uses Value to determine
         /// </summary>
@@ -387,7 +384,7 @@ namespace Game.Engine.EngineGame
 
             foreach (var PoolItem in myList)
             {
-                if (PoolItem.Value > CharacterItem.Value)
+                if (PoolItem.Damage > CharacterItem.Damage)
                 {
                     _ = SwapCharacterItem(character, setLocation, PoolItem);
                     return true;
