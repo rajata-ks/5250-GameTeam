@@ -91,58 +91,59 @@ namespace Game.Engine.EngineGame
         }
 
         /// <summary>
+        /// Move Based on Speed 
+        /// Limit the distance a player can move to their speed (max limit : speed )
         /// Find a Desired Target
-        /// Move close to them
         /// Get to move the number of Speed
         /// </summary>
         /// <param name="Attacker"></param>
         /// <returns></returns>
         public override bool MoveAsTurn(PlayerInfoModel Attacker)
         {
-            /*
-             * TODO: TEAMS Work out your own move logic if you are implementing move
-             * 
-             * Mike's Logic
-             * The monster or charcter will move to a different square if one is open
-             * Find the Desired Target
-             * Jump to the closest space near the target that is open
-             * 
-             * If no open spaces, return false
-             * 
-             */
 
-            
-                // For Attack, Choose Who
-                EngineSettings.CurrentDefender = AttackChoice(Attacker);
+            // For Attack, Choose Who
+            EngineSettings.CurrentDefender = AttackChoice(Attacker);
 
-                if (EngineSettings.CurrentDefender == null)
+            if (EngineSettings.CurrentDefender == null)
+            {
+                return false;
+            }
+
+            // Get X, Y for Defender
+            var locationDefender = EngineSettings.MapModel.GetLocationForPlayer(EngineSettings.CurrentDefender);
+            if (locationDefender == null)
+            {
+                return false;
+            }
+
+            var locationAttacker = EngineSettings.MapModel.GetLocationForPlayer(Attacker);
+            if (locationAttacker == null)
+            {
+                return false;
+            }
+
+            // Find Location Nearest to Defender that is Open.
+
+            // store all the empty locations to list (distance map)
+
+            SortedDictionary<int, List<MapModelLocation>> distanceMap = EngineSettings.MapModel.calculateDistances(locationDefender);
+            var speed = Attacker.Speed;
+
+            //Traverse the distanceMap list to find the best spot according to speed 
+            foreach (KeyValuePair<int, List<MapModelLocation>> entry in distanceMap)
+            {
+                var result = EngineSettings.MapModel.ReturnClosest(locationAttacker, speed, entry.Value);
+                if (result != null)
                 {
-                    return false;
+                    MapModelLocation targetLocation = result;
+                    Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4} with speed {5}", locationAttacker.Player.Name, locationAttacker.Column, locationAttacker.Row, targetLocation.Column, targetLocation.Row, speed));
+                    EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " moves closer to " + EngineSettings.CurrentDefender.Name;
+                    return EngineSettings.MapModel.MovePlayerOnMap(locationAttacker, targetLocation);
                 }
 
-                // Get X, Y for Defender
-                var locationDefender = EngineSettings.MapModel.GetLocationForPlayer(EngineSettings.CurrentDefender);
-                if (locationDefender == null)
-                {
-                    return false;
-                }
+            }
+            return false;
 
-                var locationAttacker = EngineSettings.MapModel.GetLocationForPlayer(Attacker);
-                if (locationAttacker == null)
-                {
-                    return false;
-                }
-
-                // Find Location Nearest to Defender that is Open.
-
-                // Get the Open Locations
-                var openSquare = EngineSettings.MapModel.ReturnClosestEmptyLocation(locationDefender);
-
-                Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4}", locationAttacker.Player.Name, locationAttacker.Column, locationAttacker.Row, openSquare.Column, openSquare.Row));
-
-                EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " moves closer to " + EngineSettings.CurrentDefender.Name;
-
-                return EngineSettings.MapModel.MovePlayerOnMap(locationAttacker, openSquare);
         }
 
         /// <summary>
