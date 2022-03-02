@@ -3,6 +3,7 @@
 using Game.Models;
 using System.Threading.Tasks;
 using Game.ViewModels;
+using Game.Helpers;
 
 namespace Scenario
 {
@@ -254,5 +255,312 @@ namespace Scenario
         }
 
         #endregion Scenario5
+
+        #region Scenario17
+        [Test]
+        public void HackathonScenario_Scenario_17_Default_Setting_False_Should_NOT_Zombie_Valid_Roll_Default_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      17
+            *      
+            * Description: 
+            *    17.	Sleepless Zombies in Seattle
+                    When you kill a monster, there is a chance it returns from the dead and continues attacking as a zombie monster.  
+                    Set the alive back to True, set HP to ½ original HP, update Name to Zombie <Monster> and continue the battle.
+                    Set a debug setting to enable the feature, and a % chance for occurrence.
+
+
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Add a new setting on battlesettingpage.xaml and the cs file
+            *      baseplayermodel.cs
+            *      battlesettingpage model
+            * 
+            * Test Algrorithm:
+            *      Create Character 
+            *      create a dead monster 
+            *  
+            *      Startup Battle
+            *      run a turn where attack is character and defend is monster
+            *      monster dies, removed from list
+            * 
+            * Test Conditions:
+            *      monster alive = false
+            *      current health = 0
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify Monster is dead
+            *      Verify Monster name does not contains "zombie"
+            *      Verify monster current health 0
+            *       verify current monster list is empty
+            *       
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+            EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayerMike = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 1,
+                                Attack = 100,
+                                CurrentHealth = 1,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                            });
+
+            EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
+
+            // Set Monster Conditions
+            //make a dead monster
+            var monsterTest = new PlayerInfoModel(
+                           new MonsterModel
+                           {
+                               Speed = -1,
+                               Alive = false,
+                               Level = 1,
+                               Attack = 1,
+                               CurrentHealth = 1,
+                               ExperienceTotal = 1,
+                               ExperienceRemaining = 1,
+                               Name = "test",
+                               MaxHealth = 20
+                           });
+            EngineViewModel.Engine.EngineSettings.MonsterList.Clear();
+            EngineViewModel.Engine.EngineSettings.MonsterList.Add(monsterTest);
+
+            //force dice roll 20
+            _ = DiceHelper.EnableForcedRolls();
+            _ = DiceHelper.SetForcedRollValue(20);
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode = false;
+
+            // Act
+            //character attacks, monster defend
+            var result = BattleEngineViewModel.Instance.Engine.Round.Turn.TurnAsAttack(CharacterPlayerMike, monsterTest);
+
+            // Reset
+            _ = DiceHelper.DisableForcedRolls();
+
+            // Assert
+            var postBattleMonster = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList;
+            var deadMonster = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterModelDeathList.Find(x => x.Name == monsterTest.Name);
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(false, deadMonster.Alive);
+            Assert.AreEqual(false, deadMonster.Name.Contains("Zombie"));
+            Assert.AreEqual(0, deadMonster.CurrentHealth);
+            Assert.IsEmpty(postBattleMonster);
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_17_Setting_On_Should_Zombie_Valid_Roll_Default_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      17
+            *      
+            * Description: 
+            *    17.	Sleepless Zombies in Seattle
+                    When you kill a monster, there is a chance it returns from the dead and continues attacking as a zombie monster.  
+                    Set the alive back to True, set HP to ½ original HP, update Name to Zombie <Monster> and continue the battle.
+                    Set a debug setting to enable the feature, and a % chance for occurrence.
+
+
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Add a new setting on battlesettingpage.xaml and the cs file
+            *      baseplayermodel.cs
+            *      battlesettingpage model
+            * 
+            * Test Algrorithm:
+            *      Create Character 
+            *      create a dead monster 
+            *  
+            *      Startup Battle
+            *      run a turn where attack is character and defend is monster
+            *      monster dies, and become a zombie
+            * 
+            * Test Conditions:
+            *      monster alive = true
+            *      current health = half of max health
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify Monster is alive
+            *      Verify Monster name contains "zombie"
+            *      Verify monster current health is half of max
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+            EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayerMike = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 1,
+                                Attack = 100,
+                                CurrentHealth = 1,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                            });
+
+            EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
+
+            // Set Monster Conditions
+            //make a dead monster
+            var monsterTest = new PlayerInfoModel(
+                           new MonsterModel
+                           {
+                               Speed = -1,
+                               Alive = false,
+                               Level = 1,
+                               Attack = 1,
+                               CurrentHealth = 1,
+                               ExperienceTotal = 1,
+                               ExperienceRemaining = 1,
+                               Name = "test",
+                               MaxHealth = 20
+                           });
+            EngineViewModel.Engine.EngineSettings.MonsterList.Clear();
+            EngineViewModel.Engine.EngineSettings.MonsterList.Add(monsterTest);
+
+            //force dice roll 20
+            _ = DiceHelper.EnableForcedRolls();
+            _ = DiceHelper.SetForcedRollValue(20);
+
+            var oldSetting = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode = true;
+
+
+            // Act
+            //character attacks, monster defend
+            var result = BattleEngineViewModel.Instance.Engine.Round.Turn.TurnAsAttack(CharacterPlayerMike, monsterTest);
+
+            // Reset
+            _ = DiceHelper.DisableForcedRolls();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowCriticalHit = oldSetting;
+
+            // Assert
+            var postBattleMonster = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Find(x => x.Name == monsterTest.Name);
+
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, postBattleMonster.Alive);
+            Assert.IsTrue(postBattleMonster.Name.Contains("Zombie"));
+            Assert.AreEqual(monsterTest.MaxHealth / 2, postBattleMonster.CurrentHealth);
+        }
+        #endregion Scenario17
+
+        #region Scenario19
+        [Test]
+        public void HackathonScenario_Scenario_19_Setting_On_Should_apply_bonus_damage_Valid_Roll_Default_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      17
+            *      
+            * Description: 
+            *     I feel good…
+                    When everyone feels good, all characters get a D20 added to their Attack Score, Monsters get a D20 subtracted to their defense.
+                    Add a debug switch to control the setting and a % chance.
+                    When the % happens output “I feel good”, and if audio is enabled, play a clip from James Brown
+
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Add a new setting, logic for zombie set on current health and name
+            * 
+            * Test Algrorithm:
+            *      Create Character named Mike
+            *      Set speed to -1 so he is really slow
+            *      Set Max health to 1 so he is weak
+            *      Set Current Health to 1 so he is weak
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            * Test Conditions:
+            *      Default condition is sufficient
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify Mike is not in the Player List
+            *      Verify Round Count is 1
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+            EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayerMike = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 1,
+                                Attack = 1,
+                                CurrentHealth = 1,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                            });
+
+            EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
+
+            // Set Monster Conditions
+            //make a dead monster
+            var monsterTest = new PlayerInfoModel(
+                           new MonsterModel
+                           {
+                               Speed = -1,
+                               Alive = false,
+                               Level = 1,
+                               Attack = 1,
+                               CurrentHealth = 1,
+                               ExperienceTotal = 1,
+                               ExperienceRemaining = 1,
+                               Name = "test",
+                               MaxHealth = 20,
+                               Defense = 100
+                           });
+            EngineViewModel.Engine.EngineSettings.MonsterList.Clear();
+            EngineViewModel.Engine.EngineSettings.MonsterList.Add(monsterTest);
+
+            //force dice roll 20
+            _ = DiceHelper.EnableForcedRolls();
+            _ = DiceHelper.SetForcedRollValue(20);
+
+            var oldSetting = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode = true;
+
+
+            // Act
+            //character attacks, monster defend
+            var result = BattleEngineViewModel.Instance.Engine.Round.Turn.TurnAsAttack(CharacterPlayerMike, monsterTest);
+
+            // Reset
+            _ = DiceHelper.DisableForcedRolls();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowCriticalHit = oldSetting;
+
+            // Assert
+            var postBattleMonster = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Find(x => x.Name == monsterTest.Name);
+
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, postBattleMonster.Alive);
+            Assert.IsTrue(postBattleMonster.Name.Contains("Zombie"));
+            //Assert.IsTrue(BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.AttackStatus.Contains("I feel good"));
+            Assert.AreEqual(monsterTest.MaxHealth / 2, postBattleMonster.CurrentHealth);
+        }
+        #endregion Scenario19
     }
 }
