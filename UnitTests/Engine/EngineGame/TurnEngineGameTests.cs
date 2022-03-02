@@ -615,7 +615,9 @@ namespace UnitTests.Engine.EngineGame
             Engine.EngineSettings.CurrentAction = ActionEnum.Move;
 
             var character = new PlayerInfoModel(new CharacterModel());
+            character.Speed = 1;
             var monster = new PlayerInfoModel(new CharacterModel());
+            monster.Speed = 1;
 
             Engine.EngineSettings.PlayerList.Add(character);
             Engine.EngineSettings.PlayerList.Add(monster);
@@ -640,7 +642,8 @@ namespace UnitTests.Engine.EngineGame
 
             var character = new PlayerInfoModel(new CharacterModel());
             var monster = new PlayerInfoModel(new CharacterModel());
-
+            character.Speed = 1;
+            monster.Speed = 1;
             Engine.EngineSettings.PlayerList.Add(character);
             Engine.EngineSettings.PlayerList.Add(monster);
 
@@ -1519,8 +1522,9 @@ namespace UnitTests.Engine.EngineGame
         public void TurnEngine_MoveAsTurn_Valid_Character_Should_Pass()
         {
             // Arrange
-
-            var CharacterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+            var characterModel = new CharacterModel { Job = CharacterJobEnum.Cleric };
+            characterModel.Speed = 1;
+            var CharacterPlayer = new PlayerInfoModel(characterModel);
 
             Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
 
@@ -1539,11 +1543,36 @@ namespace UnitTests.Engine.EngineGame
         }
 
         [Test]
+        public void TurnEngine_MoveAsTurn_Valid_Character_Should_Fail()
+        {
+            // Arrange
+            var characterModel = new CharacterModel { Job = CharacterJobEnum.Cleric };
+            characterModel.Speed = 0;
+            var CharacterPlayer = new PlayerInfoModel(characterModel);
+
+            Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+
+            _ = Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            Engine.EngineSettings.BattleScore.AutoBattle = true;
+
+            // Act
+            var result = Engine.Round.Turn.MoveAsTurn(CharacterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
         public void TurnEngine_MoveAsTurn_Valid_Monster_Should_Pass()
         {
             // Arrange
 
             var MonsterPlayer = new PlayerInfoModel(new MonsterModel());
+            MonsterPlayer.Speed = 1;
             Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
 
             var CharacterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
@@ -1561,6 +1590,32 @@ namespace UnitTests.Engine.EngineGame
 
             // Assert
             Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void TurnEngine_MoveAsTurn_Valid_Monster_Should_Fail()
+        {
+            // Arrange
+
+            var MonsterPlayer = new PlayerInfoModel(new MonsterModel());
+            MonsterPlayer.Speed = 0;
+            Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
+
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+            Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+
+            _ = Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            Engine.EngineSettings.BattleScore.AutoBattle = true;
+
+            // Act
+            var result = Engine.Round.Turn.MoveAsTurn(MonsterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
         }
 
         [Test]
