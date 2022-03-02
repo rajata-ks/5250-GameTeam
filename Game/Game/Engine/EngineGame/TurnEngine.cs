@@ -342,7 +342,7 @@ namespace Game.Engine.EngineGame
                     {
                         var bonusAttack = DiceHelper.RollDice(1, 20);
                         var chanceForBonus = DiceHelper.RollDice(1, 20);
-                        if (chanceForBonus > 1)
+                        if (chanceForBonus > 10)
                         {
                             EngineSettings.BattleMessagesModel.AttackStatus += " I Feel Good...";
                             EngineSettings.BattleMessagesModel.DamageAmount += bonusAttack;
