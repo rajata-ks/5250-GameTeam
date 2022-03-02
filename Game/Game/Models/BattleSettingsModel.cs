@@ -25,5 +25,8 @@
 
         // Can monsters become zombies?
         public bool AllowZombieMode = false;
+
+        // I feel good…
+        public bool IFeelGood = false;
     }
 }
