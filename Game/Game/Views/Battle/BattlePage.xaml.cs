@@ -717,6 +717,26 @@ namespace Game.Views
             } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
         }
 
+        /// <summary>
+        /// Rest Ability Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void RestButton_Clicked(object sender, EventArgs e)
+        {
+            var setup = true;
+            var keepAutoMove = false;
+            var action = ActionEnum.Rest;
+
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker == null)
+            {
+                SetAttackerAndDefender();
+                setup = false;
+            }
+
+            NextAction(action);
+
+        }
 
         /// <summary>
         /// get the current data and refresh the listviews
@@ -980,6 +1000,7 @@ namespace Game.Views
             Attack.IsVisible = false;
             Special.IsVisible = false;
             Defend.IsVisible = false;
+            Rest.IsVisible = false;
             NextRoundButton.IsVisible = false;
             StartBattleButton.IsVisible = false;
             MessageDisplayBox.IsVisible = false;
@@ -1047,6 +1068,7 @@ namespace Game.Views
                     Attack.IsVisible = true;
                     Special.IsVisible = true;
                     Defend.IsVisible = true;
+                    Rest.IsVisible = true;
                     break;
 
                 // Based on the State disable buttons
