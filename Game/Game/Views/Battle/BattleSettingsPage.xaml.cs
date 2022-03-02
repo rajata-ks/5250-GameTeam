@@ -62,6 +62,10 @@ namespace Game.Views
             #region ZombieToggles
             AllowZombieModeSwitch.IsToggled = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode;
             #endregion
+
+            #region FeelGoodToggle
+            FeelGoodSwitch.IsToggled = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.IFeelGood;
+            #endregion
         }
 
         /// <summary>
@@ -184,13 +188,30 @@ namespace Game.Views
         public void AllowZombieMode_Toggled(object sender, EventArgs e)
         {
             // Flip the settings
-            if (AllowMonsterItemsSwitch.IsToggled == true)
+            if (AllowZombieModeSwitch.IsToggled == true)
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode = true;
                 return;
             }
 
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode = false;
+        }
+
+        /// <summary>
+        /// Toggle Monster Items
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void FeelGood_Toggled(object sender, EventArgs e)
+        {
+            // Flip the settings
+            if (FeelGoodSwitch.IsToggled == true)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.IFeelGood = true;
+                return;
+            }
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.IFeelGood = false;
         }
 
     }
