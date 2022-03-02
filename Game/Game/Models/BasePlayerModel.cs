@@ -571,6 +571,16 @@ namespace Game.Models
             }
 
             CurrentHealth -= damage;
+
+            //zombie mode
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode == true)
+            {
+                if (PlayerType == PlayerTypeEnum.Monster && CurrentHealth <= 0)
+                {
+                    calculateZombieChance();
+                }
+            }
+
             if (CurrentHealth <= 0)
             {
                 CurrentHealth = 0;
@@ -581,6 +591,19 @@ namespace Game.Models
 
             return true;
         }
+        public void calculateZombieChance()
+        {
+           var dice = DiceHelper.RollDice(1, 20);
+
+            if (dice > 1)
+            {
+                CurrentHealth = MaxHealth / 2;
+                Alive = true;
+                Name = $"Zombie {Name}";
+                Description = "bogus";
+            }
+        }
+
 
         /// <summary>
         /// Roll the Damage Dice, and add to the Damage
