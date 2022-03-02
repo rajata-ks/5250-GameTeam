@@ -9,6 +9,8 @@ using Game.Views;
 using Xamarin.Forms.Mocks;
 using static System.Net.Mime.MediaTypeNames;
 using Game;
+using Game.Engine.EngineGame;
+using Game.Engine.EngineModels;
 
 namespace Scenario
 {
@@ -19,6 +21,7 @@ namespace Scenario
         readonly BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
         BattlePage page;
         App app;
+        BattleEngine Engine;
 
         [SetUp]
         public void Setup()
@@ -54,6 +57,9 @@ namespace Scenario
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));
             _ = BattleEngineViewModel.Instance.Engine.Round.MakePlayerList();
+
+            Engine = new BattleEngine();
+            _ = Engine.StartBattle(true);
 
         }
 
@@ -718,5 +724,207 @@ namespace Scenario
             Assert.AreEqual(true, result);
         }
         #endregion Scenario31
+
+        #region Scenario34
+        [Test]
+        public void HackathonScenario_Scenario_34_TurnEngine_TakeTurn_Move_Should_Pass()
+        {
+
+            /* 
+           * Scenario Number:  
+           *      34
+           *      
+           * Description: 
+           *    Move based on speed
+                Limit the distance a player can move to their speed attribute.  If a player has speed of 3, then 
+                they can move 3 squares, a speed of 6 can move 6 etc.
+
+
+           * 
+           * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+           *       Add a new setting, logic for distance<= speed 
+           *      calculateDistances() :  This pre computes distances of all emptyLocations from the target
+           *      Creating a SortedDictionary to store all the Empty locations sorted by distance from the target 
+           *      ReturnClosest(): finds the best location based on player's speed 
+           * 
+           * Test Algrorithm:
+           *      Create Character and set speed 
+           *      create  monster  and set speed 
+           *      Set current action to move/unknown
+           *      
+           *      Startup Battle
+           *      
+           * 
+           * Test Conditions:
+           *      Move to to the target position if distance is less than or equal to speed of player 
+           * 
+           * Validation:
+           *      Verify Move is true when player's speed is greater than 0
+           *      Verify move is false when player's speed is less than or equal to 0
+           *   
+           *  
+           */
+
+            // Arrange
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Move;
+
+            var character = new PlayerInfoModel(new CharacterModel());
+            character.Speed = 1;
+            var monster = new PlayerInfoModel(new CharacterModel());
+            monster.Speed = 1;
+
+            Engine.EngineSettings.PlayerList.Add(character);
+            Engine.EngineSettings.PlayerList.Add(monster);
+
+            _ = Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            // Act
+            var result = Engine.Round.Turn.TakeTurn(character);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_34_TurnEngine_TakeTurn_InValid_ActionEnum_Unknown_Should_Set_Action_To_Attack()
+        {
+            // Arrange
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Move;
+
+            var character = new PlayerInfoModel(new CharacterModel());
+            var monster = new PlayerInfoModel(new CharacterModel());
+
+            character.Speed = 1;
+            monster.Speed = 1;
+            Engine.EngineSettings.PlayerList.Add(character);
+            Engine.EngineSettings.PlayerList.Add(monster);
+
+            _ = Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            // Set current action to unknonw
+            EngineSettingsModel.Instance.CurrentAction = ActionEnum.Unknown;
+
+            // Set Autobattle to false
+            EngineSettingsModel.Instance.BattleScore.AutoBattle = false;
+
+
+            // Act
+            var result = Engine.Round.Turn.TakeTurn(character);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+      
+        [Test]
+        public void HackathonScenario_Scenario_34_TurnEngine_MoveAsTurn_Valid_Character_Should_Pass()
+        {
+            // Arrange
+            var characterModel = new CharacterModel { Job = CharacterJobEnum.Cleric };
+            characterModel.Speed = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(characterModel);
+            Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+
+            _ = Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            Engine.EngineSettings.BattleScore.AutoBattle = true;
+
+            // Act
+            var result = Engine.Round.Turn.MoveAsTurn(CharacterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_34_TurnEngine_MoveAsTurn_Valid_Character_Should_Fail()
+        {
+            // Arrange
+            var characterModel = new CharacterModel { Job = CharacterJobEnum.Cleric };
+            characterModel.Speed = 0;
+            var CharacterPlayer = new PlayerInfoModel(characterModel);
+
+            Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+
+            _ = Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            Engine.EngineSettings.BattleScore.AutoBattle = true;
+
+            // Act
+            var result = Engine.Round.Turn.MoveAsTurn(CharacterPlayer);
+
+            // Reset
+
+            // Assert
+
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_34_TurnEngine_MoveAsTurn_Valid_Monster_Should_Pass()
+        {
+            // Arrange
+
+            var MonsterPlayer = new PlayerInfoModel(new MonsterModel());
+            MonsterPlayer.Speed = 1;
+            Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
+
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+            Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+
+            _ = Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            Engine.EngineSettings.BattleScore.AutoBattle = true;
+
+            // Act
+            var result = Engine.Round.Turn.MoveAsTurn(MonsterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_34_TurnEngine_MoveAsTurn_Valid_Monster_Should_Fail()
+        {
+            // Arrange
+
+            var MonsterPlayer = new PlayerInfoModel(new MonsterModel());
+            MonsterPlayer.Speed = 0;
+            Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
+
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+            Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+
+            _ = Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            Engine.EngineSettings.BattleScore.AutoBattle = true;
+
+            // Act
+            var result = Engine.Round.Turn.MoveAsTurn(MonsterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+
+        #endregion Scenario34
+
     }
 }
