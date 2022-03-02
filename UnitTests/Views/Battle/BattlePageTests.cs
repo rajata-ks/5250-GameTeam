@@ -778,7 +778,7 @@ namespace UnitTests.Views
             // Make Map in Engine
 
             var MonsterPlayer = new PlayerInfoModel(new MonsterModel());
-
+            MonsterPlayer.Speed = 1;
             BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
 
             _ = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.PopulateMapModel(BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList);
