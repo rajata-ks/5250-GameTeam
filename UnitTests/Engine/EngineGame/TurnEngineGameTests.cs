@@ -104,6 +104,26 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(true, result);
         }
+        /*
+        [Test]
+        public void TurnEngine_Attack_Doug_Always_Misses_Correct_List_Should_Pass()
+        {
+            // Arrange
+            var PlayerInfo = new PlayerInfoModel();
+            PlayerInfo.Name = "Doug";
+            
+            Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));
+
+            // Act
+            var result = Engine.Round.Turn.Attack(PlayerInfo);
+
+            // Reset
+            _ = Engine.StartBattle(false);   // Clear the Engine
+
+            // Assert
+            Assert.AreEqual(HitStatusEnum.Miss, Engine.EngineSettings.BattleMessagesModel.HitStatus);
+        }
+        */
         #endregion Attack
 
         #region SelectMonsterToAttack
