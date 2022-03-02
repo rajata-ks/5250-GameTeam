@@ -4,6 +4,8 @@ using Game.Models;
 using System.Threading.Tasks;
 using Game.ViewModels;
 using Game.Helpers;
+using System;
+using Game.Views;
 
 namespace Scenario
 {
@@ -12,6 +14,7 @@ namespace Scenario
     {
         #region TestSetup
         readonly BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+        BattlePage page;
 
         [SetUp]
         public void Setup()
@@ -291,7 +294,6 @@ namespace Scenario
             * 
             * Validation:
             *      Verify Battle Returned True
-            *      verify setting is false by default
             *      Verify Monster is dead
             *      Verify Monster name does not contains "zombie"
             *      Verify monster current health 0
@@ -316,7 +318,6 @@ namespace Scenario
                                 Name = "Mike",
                             });
 
-            EngineViewModel.Engine.EngineSettings.CharacterList.Clear();
             EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
 
             // Set Monster Conditions
@@ -341,6 +342,8 @@ namespace Scenario
             _ = DiceHelper.EnableForcedRolls();
             _ = DiceHelper.SetForcedRollValue(20);
 
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode = false;
+
             // Act
             //character attacks, monster defend
             var result = BattleEngineViewModel.Instance.Engine.Round.Turn.TurnAsAttack(CharacterPlayerMike, monsterTest);
@@ -352,7 +355,6 @@ namespace Scenario
             var postBattleMonster = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList;
             var deadMonster = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterModelDeathList.Find(x => x.Name == monsterTest.Name);
             Assert.AreEqual(true, result);
-            Assert.AreEqual(false, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode);
             Assert.AreEqual(false, deadMonster.Alive);
             Assert.AreEqual(false, deadMonster.Name.Contains("Zombie"));
             Assert.AreEqual(0, deadMonster.CurrentHealth);
@@ -416,7 +418,6 @@ namespace Scenario
                                 Name = "Mike",
                             });
 
-            EngineViewModel.Engine.EngineSettings.CharacterList.Clear();
             EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
 
             // Set Monster Conditions
@@ -451,7 +452,7 @@ namespace Scenario
 
             // Reset
             _ = DiceHelper.DisableForcedRolls();
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode = oldSetting;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowCriticalHit = oldSetting;
 
             // Assert
             var postBattleMonster = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Find(x => x.Name == monsterTest.Name);
@@ -464,107 +465,6 @@ namespace Scenario
         #endregion Scenario17
 
         #region Scenario19
-        [Test]
-        public void HackathonScenario_Scenario_19_Default_Should_Not_Apply_Valid_Roll_Default_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      17
-            *      
-            * Description: 
-            *     I feel good…
-                    When everyone feels good, all characters get a D20 added to their Attack Score, Monsters get a D20 subtracted to their defense.
-                    Add a debug switch to control the setting and a % chance.
-                    When the % happens output “I feel good”, and if audio is enabled, play a clip from James Brown
-
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      Add a new setting, logic for zombie set on current health and name
-            * 
-            * Test Algrorithm:
-            *      Create Character named Mike
-            *      create monster at high defence and health so it doesnt die
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            *      Apply the attack bonus
-            *      Apply debuff on defence
-            * 
-            * Test Conditions:
-            *      attack plus dice roll
-            *      defense deducted by dice roll
-            *      attack status contains I feel good
-            * 
-            * Validation:
-            *       verify default setting is false
-            *      Verify Battle Returned True
-            *      Verify character attack is same
-            *      verify monster defense is same
-            *      verify attack message does not contains I feel good
-            *  
-            */
-
-            //Arrange
-
-            // Set Character Conditions
-            EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
-
-            var CharacterPlayerMike = new PlayerInfoModel(
-                            new CharacterModel
-                            {
-                                Speed = 10,
-                                Level = 1,
-                                Attack = 1,
-                                CurrentHealth = 100,
-                                ExperienceTotal = 1,
-                                ExperienceRemaining = 1,
-                                Name = "Mike",
-                                MaxHealth = 100
-                            });
-            EngineViewModel.Engine.EngineSettings.CharacterList.Clear();
-            EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
-
-            // Set Monster Conditions
-            var monsterTest = new PlayerInfoModel(
-                           new MonsterModel
-                           {
-                               Speed = -1,
-                               Alive = true,
-                               Level = 1,
-                               Attack = 1,
-                               CurrentHealth = 200,
-                               ExperienceTotal = 1,
-                               ExperienceRemaining = 1,
-                               Name = "test",
-                               MaxHealth = 200,
-                               Defense = 100
-                           });
-            EngineViewModel.Engine.EngineSettings.MonsterList.Clear();
-            EngineViewModel.Engine.EngineSettings.MonsterList.Add(monsterTest);
-
-            //force dice roll 20
-            _ = DiceHelper.EnableForcedRolls();
-            _ = DiceHelper.SetForcedRollValue(20);
-            var dice = DiceHelper.RollDice(1, 20);
-
-            // Act
-            //character attacks, monster defend
-            var result = BattleEngineViewModel.Instance.Engine.Round.Turn.TurnAsAttack(CharacterPlayerMike, monsterTest);
-
-            // Reset
-            _ = DiceHelper.DisableForcedRolls();
-
-            // Assert
-            var postBattleMonster = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Find(x => x.Name == monsterTest.Name);
-            var postBattleCharacter = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Find(x => x.Name == CharacterPlayerMike.Name);
-
-            Assert.AreEqual(true, result);
-            Assert.AreEqual(false, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.IFeelGood);
-            Assert.AreEqual(CharacterPlayerMike.Attack += dice, postBattleCharacter.Attack);
-            Assert.AreEqual(monsterTest.Defense -= dice, postBattleMonster.Defense);
-            Assert.IsFalse(BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.AttackStatus.Contains("I Feel Good"));
-        }
-
         [Test]
         public void HackathonScenario_Scenario_19_Setting_On_Should_apply_bonus_damage_Valid_Roll_Default_Should_Pass()
         {
@@ -584,23 +484,20 @@ namespace Scenario
             * 
             * Test Algrorithm:
             *      Create Character named Mike
-            *      create monster at high defence and health so it doesnt die
+            *      Set speed to -1 so he is really slow
+            *      Set Max health to 1 so he is weak
+            *      Set Current Health to 1 so he is weak
             *  
             *      Startup Battle
             *      Run Auto Battle
-            *      Apply the attack bonus
-            *      Apply debuff on defence
             * 
             * Test Conditions:
-            *      attack plus dice roll
-            *      defense deducted by dice roll
-            *      attack status contains I feel good
+            *      Default condition is sufficient
             * 
             * Validation:
             *      Verify Battle Returned True
-            *      Verify character increased attacked
-            *      verify monster defense decrease
-            *      verify attack message contains I feel good
+            *      Verify Mike is not in the Player List
+            *      Verify Round Count is 1
             *  
             */
 
@@ -615,28 +512,28 @@ namespace Scenario
                                 Speed = 10,
                                 Level = 1,
                                 Attack = 1,
-                                CurrentHealth = 100,
+                                CurrentHealth = 1,
                                 ExperienceTotal = 1,
                                 ExperienceRemaining = 1,
                                 Name = "Mike",
-                                MaxHealth = 100
                             });
-            EngineViewModel.Engine.EngineSettings.CharacterList.Clear();
+
             EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
 
             // Set Monster Conditions
+            //make a dead monster
             var monsterTest = new PlayerInfoModel(
                            new MonsterModel
                            {
                                Speed = -1,
-                               Alive = true,
+                               Alive = false,
                                Level = 1,
                                Attack = 1,
-                               CurrentHealth = 200,
+                               CurrentHealth = 1,
                                ExperienceTotal = 1,
                                ExperienceRemaining = 1,
                                Name = "test",
-                               MaxHealth = 200,
+                               MaxHealth = 20,
                                Defense = 100
                            });
             EngineViewModel.Engine.EngineSettings.MonsterList.Clear();
@@ -645,10 +542,9 @@ namespace Scenario
             //force dice roll 20
             _ = DiceHelper.EnableForcedRolls();
             _ = DiceHelper.SetForcedRollValue(20);
-            var dice = DiceHelper.RollDice(1,20);
 
-            var oldSetting = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.IFeelGood;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.IFeelGood = true;
+            var oldSetting = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode = true;
 
 
             // Act
@@ -657,17 +553,143 @@ namespace Scenario
 
             // Reset
             _ = DiceHelper.DisableForcedRolls();
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.IFeelGood = oldSetting;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowCriticalHit = oldSetting;
 
             // Assert
             var postBattleMonster = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Find(x => x.Name == monsterTest.Name);
-            var postBattleCharacter = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Find(x => x.Name == CharacterPlayerMike.Name);
 
-            Assert.IsTrue(BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.AttackStatus.Contains("I Feel Good"));
             Assert.AreEqual(true, result);
-            Assert.AreEqual(CharacterPlayerMike.Attack, postBattleCharacter.Attack);
-            Assert.AreEqual(monsterTest.Defense, postBattleMonster.Defense);
+            Assert.AreEqual(true, postBattleMonster.Alive);
+            Assert.IsTrue(postBattleMonster.Name.Contains("Zombie"));
+            //Assert.IsTrue(BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.AttackStatus.Contains("I feel good"));
+            Assert.AreEqual(monsterTest.MaxHealth / 2, postBattleMonster.CurrentHealth);
         }
         #endregion Scenario19
+
+        #region Scenario31
+        [Test]
+        public void HackathonScenario_Scenario_31_SyncPage_StartTimerEvent_Default_Should_Pass()
+        {
+            /* 
+           * Scenario Number:  
+           *      31
+           *      
+           * Description: 
+           *     I feel good…
+                   When everyone feels good, all characters get a D20 added to their Attack Score, Monsters get a D20 subtracted to their defense.
+                   Add a debug switch to control the setting and a % chance.
+                   When the % happens output “I feel good”, and if audio is enabled, play a clip from James Brown
+
+           * 
+           * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+           *      Add a new setting, logic for zombie set on current health and name
+           * 
+           * Test Algrorithm:
+           *      Create Character named Mike
+           *      Set speed to -1 so he is really slow
+           *      Set Max health to 1 so he is weak
+           *      Set Current Health to 1 so he is weak
+           *  
+           *      Startup Battle
+           *      Run Auto Battle
+           * 
+           * Test Conditions:
+           *      Default condition is sufficient
+           * 
+           * Validation:
+           *      Verify Battle Returned True
+           *      Verify Mike is not in the Player List
+           *      Verify Round Count is 1
+           *  
+           */
+
+            //Arrange
+            page.IsEnableTimer = true;
+
+            //Act
+            var result = page.StartTimerEvent();
+
+            //Reset
+            page.StopTimerEvent();
+            page.IsEnableTimer = false;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_31_SyncPage_StartTimerEvent_TimeUp_Should_Return_TimeUp()
+        {
+            //Arrange
+            var oldDuration = page.TimerDuration;
+            page.TimerDuration = 5;
+            page.IsEnableTimer = true;
+
+            //Act
+            _ = page.StartTimerEvent();
+            await Task.Delay(10);
+            var result = page.StartTimerEvent();
+
+            //Reset
+            page.StopTimerEvent();
+            page.IsEnableTimer = false;
+            page.TimerDuration = oldDuration;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_31_SyncPage_StartTimerEvent_TimeRemaining_Should_Return_TimeRemaining()
+        {
+            //Arrange
+            var oldDuration = page.TimerDuration;
+            page.TimerDuration = 500;
+            page.IsEnableTimer = true;
+
+            //Act
+            _ = page.StartTimerEvent();
+            await Task.Delay(1);
+            var result = page.StartTimerEvent();
+
+            //Reset
+            page.StopTimerEvent();
+            page.IsEnableTimer = false;
+            page.TimerDuration = oldDuration;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_31_SyncPage_StartTimerEvent_TimeRemaining_TimerEndTime_Expired_Should_Return_false()
+        {
+            //Arrange
+            page.TimerEndTime = DateTime.Now.AddMinutes(-1);
+
+            //Act
+            var result = page.TimeRemaining();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_31_SyncPage_StartTimerEvent_TimeRemaining_TimerEndTime_Remaining_Should_Return_true()
+        {
+            //Arrange
+            page.TimerEndTime = DateTime.Now.AddMinutes(1);
+
+            //Act
+            var result = page.TimeRemaining();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+        #endregion Scenario31
     }
 }
