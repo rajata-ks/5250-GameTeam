@@ -595,12 +595,12 @@ namespace Game.Models
         {
            var dice = DiceHelper.RollDice(1, 20);
 
-            if (dice > 1)
+            if (dice > 10)
             {
                 CurrentHealth = MaxHealth / 2;
                 Alive = true;
                 Name = $"Zombie {Name}";
-                Description = "bogus";
+                Description = "I now eat brains.";
             }
         }
 
