@@ -1152,6 +1152,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got Here
         }
 
+        /*
         #region TimerExample
         [Test]
         public void SyncPage_StartTimerEvent_Default_Should_Pass()
@@ -1244,5 +1245,6 @@ namespace UnitTests.Views
             Assert.AreEqual(true, result);
         }
         #endregion TimerExample
+        */
     }
 }
