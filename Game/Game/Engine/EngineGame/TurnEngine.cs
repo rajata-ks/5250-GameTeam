@@ -333,6 +333,18 @@ namespace Game.Engine.EngineGame
                         EngineSettings.BattleMessagesModel.DamageAmount *= 2;
                     }
 
+                    if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.IFeelGood == true && Attacker.PlayerType == PlayerTypeEnum.Character)
+                    {
+                        var bonusAttack = DiceHelper.RollDice(1, 20);
+                        var chanceForBonus = DiceHelper.RollDice(1, 20);
+                        if (chanceForBonus > 1)
+                        {
+                            EngineSettings.BattleMessagesModel.AttackStatus += " I Feel Good...";
+                            EngineSettings.BattleMessagesModel.DamageAmount += bonusAttack;
+                            Target.Defense -= bonusAttack;
+                        }
+                    }
+
                     // Apply the Damage
                     _ = ApplyDamage(Target);
 
