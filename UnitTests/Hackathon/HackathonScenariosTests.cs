@@ -238,57 +238,6 @@ namespace Scenario
 
         #endregion Scenario2
 
-        #region Scenario5
-        [Test]
-        public void HackathonScenario_Scenario_5_Critical_Miss()
-        {
-            /* 
-            * Scenario Number:  
-            *      5
-            *      
-            * Description: 
-            *      Oops, I can’t believe I missed. On a roll of 1, not only will the attacker miss the target, but 
-            *      something bad happens.
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      Added condition in TurnEngine.cs to check if Attack name is Doug. If the Attacker name is Doug,
-            *      attack will miss.
-            * 
-            * Test Algrorithm:
-            *      Create Character named Doug
-            *      Create a Monster to attack
-            *      Set Character name to Doug.
-            *      
-            *  
-            *      Startup Battle
-            *      Make Doug Attack.
-            * 
-            * Test Conditions:
-            *      Default condition is sufficient
-            * 
-            * Validation:
-            *      Verify that Dougs attack was a Miss.
-            *  
-            */
-            // Arrange
-            var PlayerInfo = new PlayerInfoModel();
-            PlayerInfo.Name = "Doug";
-
-            EngineViewModel.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));
-            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.AllowCriticalMiss = true;
-
-
-            // Act
-            var result = EngineViewModel.Engine.Round.Turn.Attack(PlayerInfo);
-
-            // Reset
-            _ = EngineViewModel.Engine.StartBattle(false);   // Clear the Engine
-
-            // Assert
-            Assert.AreEqual(HitStatusEnum.Miss, EngineViewModel.Engine.EngineSettings.BattleMessagesModel.HitStatus);
-        }
-
-        #endregion Scenario5
 
         #region Scenario17
         [Test]
@@ -827,6 +776,178 @@ namespace Scenario
         }
         #endregion Scenario31
 
+        #region Scenario33 
+        [Test]
+        public void HackathonScenario_Scenario_33_Character_Rest_Action_Heal_By_Two()
+        {
+            /* 
+            * Scenario Number:  
+            *      33
+            *      
+            * Description: 
+            *    17.Why is it that a character must take an action?  Can’t a hard-working character just sit back and 
+            *    take a break? Allow characters to choose to do nothing for their turn, they just sit back and take 
+            *    in all that is happening around them. Resting restores 2 health per rest.
+
+
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Changed BattlePage.xaml to have a Rest Button
+            *      Changed BattlePage.xaml.cs to have Rest button logic
+            *      Added Rest Enum in ActionEnum.cs
+            *      Added Rest logic in TurnEngine.cs
+            * 
+            * Test Algrorithm:
+            *    Set up a character
+            *    Set up a monster
+            *    Head character
+            * 
+            * Test Conditions:
+            *    Character must not be full health.
+            * 
+            * Validation:
+            *    Character current health increased by two.
+            *       
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+            EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayerMike = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 1,
+                                Attack = 1,
+                                CurrentHealth = 1,
+                                MaxHealth = 100,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                            });
+
+            EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
+
+            // Set Monster Conditions
+            //make a dead monster
+            var monsterTest = new PlayerInfoModel(
+                           new MonsterModel
+                           {
+                               Speed = -1,
+                               Alive = false,
+                               Level = 1,
+                               Attack = 1,
+                               CurrentHealth = 1,
+                               ExperienceTotal = 1,
+                               ExperienceRemaining = 1,
+                               Name = "test",
+                               MaxHealth = 20
+                           });
+            EngineViewModel.Engine.EngineSettings.MonsterList.Clear();
+            EngineViewModel.Engine.EngineSettings.MonsterList.Add(monsterTest);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Rest;
+
+
+            // Act
+            //character heal
+            var result = BattleEngineViewModel.Instance.Engine.Round.Turn.TakeTurn(CharacterPlayerMike);
+
+            // Reset
+
+
+            // Assert
+            Assert.AreEqual(3, CharacterPlayerMike.CurrentHealth);
+
+        }
+
+        [Test]
+        public void HackathonScenario_Scenario_33_Character_Rest_Action_Heal_By_Two_But_Max()
+        {
+            /* 
+            * Scenario Number:  
+            *      33
+            *      
+            * Description: 
+            *    17.Why is it that a character must take an action?  Can’t a hard-working character just sit back and 
+            *    take a break? Allow characters to choose to do nothing for their turn, they just sit back and take 
+            *    in all that is happening around them. Resting restores 2 health per rest.
+
+
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Changed BattlePage.xaml to have a Rest Button
+            *      Changed BattlePage.xaml.cs to have Rest button logic
+            *      Added Rest Enum in ActionEnum.cs
+            *      Added Rest logic in TurnEngine.cs
+            * 
+            * Test Algrorithm:
+            *    Set up a character
+            *    Set up a monster
+            *    Head character
+            * 
+            * Test Conditions:
+            *    Character must not be full health.
+            * 
+            * Validation:
+            *    Character current health increased to full hp.
+            *       
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+            EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayerMike = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 1,
+                                Attack = 1,
+                                CurrentHealth = 99,
+                                MaxHealth = 100,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                            });
+
+            EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
+
+            // Set Monster Conditions
+            //make a dead monster
+            var monsterTest = new PlayerInfoModel(
+                           new MonsterModel
+                           {
+                               Speed = -1,
+                               Alive = false,
+                               Level = 1,
+                               Attack = 1,
+                               CurrentHealth = 1,
+                               ExperienceTotal = 1,
+                               ExperienceRemaining = 1,
+                               Name = "test",
+                               MaxHealth = 20
+                           });
+            EngineViewModel.Engine.EngineSettings.MonsterList.Clear();
+            EngineViewModel.Engine.EngineSettings.MonsterList.Add(monsterTest);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Rest;
+
+
+            // Act
+            //character heal
+            var result = BattleEngineViewModel.Instance.Engine.Round.Turn.TakeTurn(CharacterPlayerMike);
+
+            // Reset
+
+
+            // Assert
+            Assert.AreEqual(100, CharacterPlayerMike.CurrentHealth);
+
+        }
+        #endregion Scenario33
+
         #region Scenario34
         [Test]
         public void HackathonScenario_Scenario_34_TurnEngine_TakeTurn_Move_Should_Pass()
@@ -1200,6 +1321,7 @@ namespace Scenario
 
 
         #endregion Scenario34
+
 
     }
 }
