@@ -10,6 +10,7 @@ using Game.Views;
 using Game.Models;
 using Game.ViewModels;
 using System.Linq;
+using System;
 
 namespace UnitTests.Views
 {
@@ -1150,5 +1151,98 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got Here
         }
+
+        #region TimerExample
+        [Test]
+        public void SyncPage_StartTimerEvent_Default_Should_Pass()
+        {
+            //Arrange
+            page.IsEnableTimer = true;
+
+            //Act
+            var result = page.StartTimerEvent();
+
+            //Reset
+            page.StopTimerEvent();
+            page.IsEnableTimer = false;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public async Task SyncPage_StartTimerEvent_TimeUp_Should_Return_TimeUp()
+        {
+            //Arrange
+            var oldDuration = page.TimerDuration;
+            page.TimerDuration = 5;
+            page.IsEnableTimer = true;
+
+            //Act
+            _ = page.StartTimerEvent();
+            await Task.Delay(10);
+            var result = page.StartTimerEvent();
+
+            //Reset
+            page.StopTimerEvent();
+            page.IsEnableTimer = false;
+            page.TimerDuration = oldDuration;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public async Task SyncPage_StartTimerEvent_TimeRemaining_Should_Return_TimeRemaining()
+        {
+            //Arrange
+            var oldDuration = page.TimerDuration;
+            page.TimerDuration = 500;
+            page.IsEnableTimer = true;
+
+            //Act
+            _ = page.StartTimerEvent();
+            await Task.Delay(1);
+            var result = page.StartTimerEvent();
+
+            //Reset
+            page.StopTimerEvent();
+            page.IsEnableTimer = false;
+            page.TimerDuration = oldDuration;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void SyncPage_StartTimerEvent_TimeRemaining_TimerEndTime_Expired_Should_Return_false()
+        {
+            //Arrange
+            page.TimerEndTime = DateTime.Now.AddMinutes(-1);
+
+            //Act
+            var result = page.TimeRemaining();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void SyncPage_StartTimerEvent_TimeRemaining_TimerEndTime_Remaining_Should_Return_true()
+        {
+            //Arrange
+            page.TimerEndTime = DateTime.Now.AddMinutes(1);
+
+            //Act
+            var result = page.TimeRemaining();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+        #endregion TimerExample
     }
 }
