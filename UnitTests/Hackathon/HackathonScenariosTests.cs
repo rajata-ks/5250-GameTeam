@@ -675,6 +675,40 @@ namespace Scenario
         [Test]
         public async Task HackathonScenario_Scenario_31_SyncPage_StartTimerEvent_TimeRemaining_Should_Return_TimeRemaining()
         {
+            /* 
+          * Scenario Number:  
+          *      31
+          *      
+          * Description: 
+          *     Just like a good final exam, there needs to be time pressure added to cause the ultimate experience
+                Add a debug switch that enables a timer.  The timer begins when the round starts, and the 
+                player has until the time expires to complete the round or a randomly chosen character 
+                instantly dies, the timer resets, and the timer starts again.  If all players die during the round, 
+                then the game is over.
+
+          * 
+          * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+          *      Add a new setting, logic for timer when the battle begins it will stay for 5 mins 
+          *      StartTimerEvent(), TimerEvent(),TimeRemaining(),StopTimerEvent()
+          *      
+          * 
+          * Test Algrorithm:
+          *      
+          *      Set Battle time for 5min
+          *      
+          *      
+          *  
+          *  
+          * 
+          * Test Conditions:
+          *      Default condition is sufficient
+          * 
+          * Validation:
+          *      Verify StartTimerEvent should enable timer 
+          *      Verify TimeRemaining is false when -1
+          *      Verify TimeRemaining is false when greater 
+          *  
+          */
             //Arrange
             var oldDuration = page.TimerDuration;
             page.TimerDuration = 500;
@@ -697,6 +731,40 @@ namespace Scenario
         [Test]
         public void HackathonScenario_Scenario_31_SyncPage_StartTimerEvent_TimeRemaining_TimerEndTime_Expired_Should_Return_false()
         {
+            /* 
+          * Scenario Number:  
+          *      31
+          *      
+          * Description: 
+          *     Just like a good final exam, there needs to be time pressure added to cause the ultimate experience
+                Add a debug switch that enables a timer.  The timer begins when the round starts, and the 
+                player has until the time expires to complete the round or a randomly chosen character 
+                instantly dies, the timer resets, and the timer starts again.  If all players die during the round, 
+                then the game is over.
+
+          * 
+          * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+          *      Add a new setting, logic for timer when the battle begins it will stay for 5 mins 
+          *      StartTimerEvent(), TimerEvent(),TimeRemaining(),StopTimerEvent()
+          *      
+          * 
+          * Test Algrorithm:
+          *      
+          *      Set Battle time for 5min
+          *      
+          *      
+          *  
+          *  
+          * 
+          * Test Conditions:
+          *      Default condition is sufficient
+          * 
+          * Validation:
+          *      Verify StartTimerEvent should enable timer 
+          *      Verify TimeRemaining is false when -1
+          *      Verify TimeRemaining is false when greater 
+          *  
+          */
             //Arrange
             page.TimerEndTime = DateTime.Now.AddMinutes(-1);
 
@@ -712,6 +780,40 @@ namespace Scenario
         [Test]
         public void HackathonScenario_Scenario_31_SyncPage_StartTimerEvent_TimeRemaining_TimerEndTime_Remaining_Should_Return_true()
         {
+            /* 
+          * Scenario Number:  
+          *      31
+          *      
+          * Description: 
+          *     Just like a good final exam, there needs to be time pressure added to cause the ultimate experience
+                Add a debug switch that enables a timer.  The timer begins when the round starts, and the 
+                player has until the time expires to complete the round or a randomly chosen character 
+                instantly dies, the timer resets, and the timer starts again.  If all players die during the round, 
+                then the game is over.
+
+          * 
+          * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+          *      Add a new setting, logic for timer when the battle begins it will stay for 5 mins 
+          *      StartTimerEvent(), TimerEvent(),TimeRemaining(),StopTimerEvent()
+          *      
+          * 
+          * Test Algrorithm:
+          *      
+          *      Set Battle time for 5min
+          *      
+          *      
+          *  
+          *  
+          * 
+          * Test Conditions:
+          *      Default condition is sufficient
+          * 
+          * Validation:
+          *      Verify StartTimerEvent should enable timer 
+          *      Verify TimeRemaining is false when -1
+          *      Verify TimeRemaining is false when greater 
+          *  
+          */
             //Arrange
             page.TimerEndTime = DateTime.Now.AddMinutes(1);
 
@@ -791,6 +893,40 @@ namespace Scenario
         [Test]
         public void HackathonScenario_Scenario_34_TurnEngine_TakeTurn_InValid_ActionEnum_Unknown_Should_Set_Action_To_Attack()
         {
+            /* 
+         * Scenario Number:  
+         *      34
+         *      
+         * Description: 
+         *    Move based on speed
+              Limit the distance a player can move to their speed attribute.  If a player has speed of 3, then 
+              they can move 3 squares, a speed of 6 can move 6 etc.
+
+
+         * 
+         * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+         *       Add a new setting, logic for distance<= speed 
+         *      calculateDistances() :  This pre computes distances of all emptyLocations from the target
+         *      Creating a SortedDictionary to store all the Empty locations sorted by distance from the target 
+         *      ReturnClosest(): finds the best location based on player's speed 
+         * 
+         * Test Algrorithm:
+         *      Create Character and set speed 
+         *      create  monster  and set speed 
+         *      Set current action to move/unknown
+         *      
+         *      Startup Battle
+         *      
+         * 
+         * Test Conditions:
+         *      Move to to the target position if distance is less than or equal to speed of player 
+         * 
+         * Validation:
+         *      Verify Move is true when player's speed is greater than 0
+         *      Verify move is false when player's speed is less than or equal to 0
+         *   
+         *  
+         */
             // Arrange
 
             Engine.EngineSettings.CurrentAction = ActionEnum.Move;
@@ -825,6 +961,40 @@ namespace Scenario
         [Test]
         public void HackathonScenario_Scenario_34_TurnEngine_MoveAsTurn_Valid_Character_Should_Pass()
         {
+            /* 
+         * Scenario Number:  
+         *      34
+         *      
+         * Description: 
+         *    Move based on speed
+              Limit the distance a player can move to their speed attribute.  If a player has speed of 3, then 
+              they can move 3 squares, a speed of 6 can move 6 etc.
+
+
+         * 
+         * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+         *       Add a new setting, logic for distance<= speed 
+         *      calculateDistances() :  This pre computes distances of all emptyLocations from the target
+         *      Creating a SortedDictionary to store all the Empty locations sorted by distance from the target 
+         *      ReturnClosest(): finds the best location based on player's speed 
+         * 
+         * Test Algrorithm:
+         *      Create Character and set speed 
+         *      create  monster  and set speed 
+         *      Set current action to move/unknown
+         *      
+         *      Startup Battle
+         *      
+         * 
+         * Test Conditions:
+         *      Move to to the target position if distance is less than or equal to speed of player 
+         * 
+         * Validation:
+         *      Verify Move is true when player's speed is greater than 0
+         *      Verify move is false when player's speed is less than or equal to 0
+         *   
+         *  
+         */
             // Arrange
             var characterModel = new CharacterModel { Job = CharacterJobEnum.Cleric };
             characterModel.Speed = 1;
@@ -848,7 +1018,42 @@ namespace Scenario
 
         [Test]
         public void HackathonScenario_Scenario_34_TurnEngine_MoveAsTurn_Valid_Character_Should_Fail()
+
         {
+            /* 
+         * Scenario Number:  
+         *      34
+         *      
+         * Description: 
+         *    Move based on speed
+              Limit the distance a player can move to their speed attribute.  If a player has speed of 3, then 
+              they can move 3 squares, a speed of 6 can move 6 etc.
+
+
+         * 
+         * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+         *       Add a new setting, logic for distance<= speed 
+         *      calculateDistances() :  This pre computes distances of all emptyLocations from the target
+         *      Creating a SortedDictionary to store all the Empty locations sorted by distance from the target 
+         *      ReturnClosest(): finds the best location based on player's speed 
+         * 
+         * Test Algrorithm:
+         *      Create Character and set speed 
+         *      create  monster  and set speed 
+         *      Set current action to move/unknown
+         *      
+         *      Startup Battle
+         *      
+         * 
+         * Test Conditions:
+         *      Move to to the target position if distance is less than or equal to speed of player 
+         * 
+         * Validation:
+         *      Verify Move is true when player's speed is greater than 0
+         *      Verify move is false when player's speed is less than or equal to 0
+         *   
+         *  
+         */
             // Arrange
             var characterModel = new CharacterModel { Job = CharacterJobEnum.Cleric };
             characterModel.Speed = 0;
@@ -873,7 +1078,42 @@ namespace Scenario
 
         [Test]
         public void HackathonScenario_Scenario_34_TurnEngine_MoveAsTurn_Valid_Monster_Should_Pass()
+   
         {
+            /* 
+         * Scenario Number:  
+         *      34
+         *      
+         * Description: 
+         *    Move based on speed
+              Limit the distance a player can move to their speed attribute.  If a player has speed of 3, then 
+              they can move 3 squares, a speed of 6 can move 6 etc.
+
+
+         * 
+         * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+         *       Add a new setting, logic for distance<= speed 
+         *      calculateDistances() :  This pre computes distances of all emptyLocations from the target
+         *      Creating a SortedDictionary to store all the Empty locations sorted by distance from the target 
+         *      ReturnClosest(): finds the best location based on player's speed 
+         * 
+         * Test Algrorithm:
+         *      Create Character and set speed 
+         *      create  monster  and set speed 
+         *      Set current action to move/unknown
+         *      
+         *      Startup Battle
+         *      
+         * 
+         * Test Conditions:
+         *      Move to to the target position if distance is less than or equal to speed of player 
+         * 
+         * Validation:
+         *      Verify Move is true when player's speed is greater than 0
+         *      Verify move is false when player's speed is less than or equal to 0
+         *   
+         *  
+         */
             // Arrange
 
             var MonsterPlayer = new PlayerInfoModel(new MonsterModel());
@@ -899,7 +1139,42 @@ namespace Scenario
 
         [Test]
         public void HackathonScenario_Scenario_34_TurnEngine_MoveAsTurn_Valid_Monster_Should_Fail()
+
         {
+            /* 
+         * Scenario Number:  
+         *      34
+         *      
+         * Description: 
+         *    Move based on speed
+              Limit the distance a player can move to their speed attribute.  If a player has speed of 3, then 
+              they can move 3 squares, a speed of 6 can move 6 etc.
+
+
+         * 
+         * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+         *       Add a new setting, logic for distance<= speed 
+         *      calculateDistances() :  This pre computes distances of all emptyLocations from the target
+         *      Creating a SortedDictionary to store all the Empty locations sorted by distance from the target 
+         *      ReturnClosest(): finds the best location based on player's speed 
+         * 
+         * Test Algrorithm:
+         *      Create Character and set speed 
+         *      create  monster  and set speed 
+         *      Set current action to move/unknown
+         *      
+         *      Startup Battle
+         *      
+         * 
+         * Test Conditions:
+         *      Move to to the target position if distance is less than or equal to speed of player 
+         * 
+         * Validation:
+         *      Verify Move is true when player's speed is greater than 0
+         *      Verify move is false when player's speed is less than or equal to 0
+         *   
+         *  
+         */
             // Arrange
 
             var MonsterPlayer = new PlayerInfoModel(new MonsterModel());
