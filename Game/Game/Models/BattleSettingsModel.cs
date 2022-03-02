@@ -22,5 +22,8 @@
 
         // Can monsters have Items and weapons?
         public bool AllowMonsterItems = false;
+
+        // Can monsters become zombies?
+        public bool AllowZombieMode = false;
     }
 }
