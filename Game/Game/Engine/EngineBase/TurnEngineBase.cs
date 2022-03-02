@@ -273,7 +273,6 @@ namespace Game.Engine.EngineBase
                     return false;
                 }
             }
-
             // Do Attack
             _ = TurnAsAttack(Attacker, EngineSettings.CurrentDefender);
 
@@ -362,6 +361,7 @@ namespace Game.Engine.EngineBase
         /// <returns></returns>
         public virtual bool TurnAsAttack(PlayerInfoModel Attacker, PlayerInfoModel Target)
         {
+
             if (Attacker == null)
             {
                 return false;
@@ -380,12 +380,6 @@ namespace Game.Engine.EngineBase
 
             // See if the Battle Settings Overrides the Roll
             EngineSettings.BattleMessagesModel.HitStatus = BattleSettingsOverride(Attacker);
-
-            if(Attacker.Name == "Doug")
-            {
-                EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
-
-            }
 
             switch (EngineSettings.BattleMessagesModel.HitStatus)
             {
