@@ -58,6 +58,10 @@ namespace Game.Views
             #region MonsterToggles
             AllowMonsterItemsSwitch.IsToggled = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowMonsterItems;
             #endregion
+
+            #region ZombieToggles
+            AllowZombieModeSwitch.IsToggled = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode;
+            #endregion
         }
 
         /// <summary>
@@ -170,6 +174,23 @@ namespace Game.Views
             }
 
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowMonsterItems = false;
+        }
+
+        /// <summary>
+        /// Toggle Monster Items
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AllowZombieMode_Toggled(object sender, EventArgs e)
+        {
+            // Flip the settings
+            if (AllowMonsterItemsSwitch.IsToggled == true)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode = true;
+                return;
+            }
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowZombieMode = false;
         }
 
     }
