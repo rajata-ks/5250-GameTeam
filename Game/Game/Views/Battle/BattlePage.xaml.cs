@@ -65,6 +65,11 @@ namespace Game.Views
 
             BindingContext = BattleEngineViewModel.Instance;
             MonsterListView.ItemsSource = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList;
+
+
+
+            // Turn on Timer
+            ConfigureTimerOn();
         }
 
         /// <summary>
@@ -1074,5 +1079,108 @@ namespace Game.Views
                     break;
             }
         }
+
+        #region TimerExample
+        // Check Timer on or off
+        public bool TimerStateOn;
+
+        // The time interval for checking sync state in miliseconds
+        public int TimerDuration = 50000;   // 5 minutes
+
+        // Holds the time when the game needs to end
+        public DateTime TimerEndTime;
+
+        // Is the Timer Enabed
+        public bool IsEnableTimer = false;
+
+        /// <summary>
+        /// Turn on the Timer
+        /// 
+        /// Fire the Start Timer every duration
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public bool ConfigureTimerOn()
+        {
+            TimerStateOn = true;
+            IsEnableTimer = true;
+            TimerDuration = 50000;
+            TimerEndTime = DateTime.Now.AddMilliseconds(TimerDuration);
+            StartTimerEvent();
+            return true;
+        }
+
+        /// <summary>
+        /// Turn on the Timer
+        /// 
+        /// Fire the Start Timer every duration
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public bool StartTimerEvent()
+        {
+
+            // Only enable the Timer if it is enabled
+            if (IsEnableTimer)
+            {
+
+                _ = TimerEvent();
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// The Timer Event
+        /// </summary>
+        /// <returns></returns>
+        public bool TimerEvent()
+        {
+            // Start a Timer that fires every duraction 
+            Device.StartTimer(TimeSpan.FromMilliseconds(TimerDuration), () =>
+            {
+                TimerStateOn = true;
+
+                return TimeRemaining();
+            });
+
+            // Return from the method
+            return true;
+        }
+
+        /// <summary>
+        /// Checks to see if Time is Remaining or not
+        /// </summary>
+        /// <returns></returns>
+        public bool TimeRemaining()
+        {
+            // Time up
+            if (DateTime.Now > TimerEndTime)
+            {
+                GameUIDisplay.IsVisible = false;
+                TimeUpDisplay.IsVisible = true;
+                TimerStateOn = false;
+                _ = StopTimerEvent();
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Turn of the Timer
+        /// </summary>
+        /// <returns></returns>
+        public bool StopTimerEvent()
+        {
+            TimerStateOn = false;
+
+            return true;
+        }
+
+        #endregion TimerExample
+
     }
 }
+
+
