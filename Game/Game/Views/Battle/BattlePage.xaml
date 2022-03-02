@@ -157,6 +157,22 @@
                 </StackLayout>
             </StackLayout>
 
+            <StackLayout 
+                    Style="{StaticResource VerticalStack}"
+                    AbsoluteLayout.LayoutBounds="1,1,1,1" 
+                    AbsoluteLayout.LayoutFlags="All"
+                    HorizontalOptions="FillAndExpand"
+                    x:Name="TimeUpDisplay" 
+                    IsVisible="false">
+
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="10">
+                    <Label Text="Time UP, you Loose" Style="{StaticResource CenterMessageLargeStyle}"/>
+
+                    <Button x:Name="ExitButtonTimer" Clicked="ExitButton_Clicked" Text="Exit" WidthRequest="50"></Button>
+
+                </StackLayout>
+            </StackLayout>
+
             <!--The Game Over Screen -->
             <StackLayout 
                     VerticalOptions="CenterAndExpand"
