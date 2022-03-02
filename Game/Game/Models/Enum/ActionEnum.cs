@@ -19,7 +19,10 @@
         Ability = 20,
 
         //Focused Attack
-        Focused = 30
+        Focused = 30,
+
+        //Rest
+        Rest = 40
     }
 
     /// <summary>
