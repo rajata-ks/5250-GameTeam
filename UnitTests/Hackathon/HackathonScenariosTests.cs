@@ -6,6 +6,9 @@ using Game.ViewModels;
 using Game.Helpers;
 using System;
 using Game.Views;
+using Xamarin.Forms.Mocks;
+using static System.Net.Mime.MediaTypeNames;
+using Game;
 
 namespace Scenario
 {
@@ -15,6 +18,7 @@ namespace Scenario
         #region TestSetup
         readonly BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
         BattlePage page;
+        App app;
 
         [SetUp]
         public void Setup()
@@ -30,6 +34,27 @@ namespace Scenario
 
             EngineViewModel.Engine.EngineSettings.BattleSettingsModel.AllowCriticalHit = false;
             EngineViewModel.Engine.EngineSettings.BattleSettingsModel.AllowCriticalMiss = false;
+
+
+            // Initilize Xamarin Forms
+            MockForms.Init();
+
+            //This is your App.xaml and App.xaml.cs, which can have resources, etc.
+            app = new App();
+           
+
+            page = new BattlePage();
+
+            // Put seed data into the system for all tests
+            _ = BattleEngineViewModel.Instance.Engine.Round.ClearLists();
+
+            //Start the Engine in AutoBattle Mode
+            _ = BattleEngineViewModel.Instance.Engine.StartBattle(false);
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));
+            _ = BattleEngineViewModel.Instance.Engine.Round.MakePlayerList();
+
         }
 
         [TearDown]
@@ -575,31 +600,33 @@ namespace Scenario
            *      31
            *      
            * Description: 
-           *     I feel good…
-                   When everyone feels good, all characters get a D20 added to their Attack Score, Monsters get a D20 subtracted to their defense.
-                   Add a debug switch to control the setting and a % chance.
-                   When the % happens output “I feel good”, and if audio is enabled, play a clip from James Brown
+           *     Just like a good final exam, there needs to be time pressure added to cause the ultimate experience
+                 Add a debug switch that enables a timer.  The timer begins when the round starts, and the 
+                 player has until the time expires to complete the round or a randomly chosen character 
+                 instantly dies, the timer resets, and the timer starts again.  If all players die during the round, 
+                 then the game is over.
 
            * 
            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-           *      Add a new setting, logic for zombie set on current health and name
+           *      Add a new setting, logic for timer when the battle begins it will stay for 5 mins 
+           *      StartTimerEvent(), TimerEvent(),TimeRemaining(),StopTimerEvent()
+           *      
            * 
            * Test Algrorithm:
-           *      Create Character named Mike
-           *      Set speed to -1 so he is really slow
-           *      Set Max health to 1 so he is weak
-           *      Set Current Health to 1 so he is weak
+           *      
+           *      Set Battle time for 5min
+           *      
+           *      
            *  
-           *      Startup Battle
-           *      Run Auto Battle
+           *  
            * 
            * Test Conditions:
            *      Default condition is sufficient
            * 
            * Validation:
-           *      Verify Battle Returned True
-           *      Verify Mike is not in the Player List
-           *      Verify Round Count is 1
+           *      Verify StartTimerEvent should enable timer 
+           *      Verify TimeRemaining is false when -1
+           *      Verify TimeRemaining is false when greater 
            *  
            */
 
