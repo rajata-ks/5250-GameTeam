@@ -78,6 +78,9 @@ namespace Game.Engine.EngineGame
                 case ActionEnum.Focused:
                     result = FocusedAttack(Attacker);
                     break;
+                case ActionEnum.Rest:
+                    result = Rest(Attacker);
+                    break;
             }
 
             if (Attacker.PlayerType == PlayerTypeEnum.Character)
@@ -93,7 +96,26 @@ namespace Game.Engine.EngineGame
 
             return result;
         }
+         
+        /// <summary>
+        /// Restore Attacker health by a bonus amount.
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool Rest(PlayerInfoModel Attacker)
+        {
+            var restBonus = 2;
+            if (Attacker.CurrentHealth + restBonus > Attacker.MaxHealth)
+            {
+                Attacker.CurrentHealth = Attacker.MaxHealth;
+            } 
+            else 
+            { 
+                Attacker.CurrentHealth += restBonus;
+            }
 
+            return true;
+        }
         /// <summary>
         /// Determines if the Attacker can make a focused attack. If they can, perform action, if not, perform normal attack
         /// </summary>
