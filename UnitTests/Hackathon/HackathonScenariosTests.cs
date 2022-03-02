@@ -149,5 +149,110 @@ namespace Scenario
             Assert.AreEqual(1, EngineViewModel.Engine.EngineSettings.BattleScore.RoundCount);
         }
         #endregion Scenario1
+
+
+        #region Scenario2
+        [Test]
+        public void HackathonScenario_Scenario_2_Doug_Always_Misses__Should_Miss()
+        {
+            /* 
+            * Scenario Number:  
+            *      2
+            *      
+            * Description: 
+            *      Everyone loves to have Doug as part of their adventure party, however Doug has yet to 
+            *      work out the fine motor skills needed for a good attack, and always misses.  Update the 
+            *      game engine to force Doug to always miss. Doug can do other action such as move or use 
+            *      abilities as appropriate.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Added condition in TurnEngine.cs to check if Attack name is Doug. If the Attacker name is Doug,
+            *      attack will miss.
+            * 
+            * Test Algrorithm:
+            *      Create Character named Doug
+            *      Create a Monster to attack
+            *      Set Character name to Doug.
+            *      
+            *  
+            *      Startup Battle
+            *      Make Doug Attack.
+            * 
+            * Test Conditions:
+            *      Default condition is sufficient
+            * 
+            * Validation:
+            *      Verify that Dougs attack was a Miss.
+            *  
+            */
+            // Arrange
+            var PlayerInfo = new PlayerInfoModel();
+            PlayerInfo.Name = "Doug";
+
+            EngineViewModel.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));
+
+            // Act
+            var result = EngineViewModel.Engine.Round.Turn.Attack(PlayerInfo);
+
+            // Reset
+            _ = EngineViewModel.Engine.StartBattle(false);   // Clear the Engine
+
+            // Assert
+            Assert.AreEqual(HitStatusEnum.Miss, EngineViewModel.Engine.EngineSettings.BattleMessagesModel.HitStatus);
+        }
+
+        #endregion Scenario2
+
+        #region Scenario5
+        [Test]
+        public void HackathonScenario_Scenario_5_Critical_Miss()
+        {
+            /* 
+            * Scenario Number:  
+            *      5
+            *      
+            * Description: 
+            *      Oops, I can’t believe I missed. On a roll of 1, not only will the attacker miss the target, but 
+            *      something bad happens.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Added condition in TurnEngine.cs to check if Attack name is Doug. If the Attacker name is Doug,
+            *      attack will miss.
+            * 
+            * Test Algrorithm:
+            *      Create Character named Doug
+            *      Create a Monster to attack
+            *      Set Character name to Doug.
+            *      
+            *  
+            *      Startup Battle
+            *      Make Doug Attack.
+            * 
+            * Test Conditions:
+            *      Default condition is sufficient
+            * 
+            * Validation:
+            *      Verify that Dougs attack was a Miss.
+            *  
+            */
+            // Arrange
+            var PlayerInfo = new PlayerInfoModel();
+            PlayerInfo.Name = "Doug";
+
+            EngineViewModel.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));
+            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.AllowCriticalMiss = true;
+
+
+            // Act
+            var result = EngineViewModel.Engine.Round.Turn.Attack(PlayerInfo);
+
+            // Reset
+            _ = EngineViewModel.Engine.StartBattle(false);   // Clear the Engine
+
+            // Assert
+            Assert.AreEqual(HitStatusEnum.Miss, EngineViewModel.Engine.EngineSettings.BattleMessagesModel.HitStatus);
+        }
+
+        #endregion Scenario5
     }
 }
