@@ -16,7 +16,10 @@
         Move = 10,
 
         // Ability
-        Ability = 20
+        Ability = 20,
+
+        //Focused Attack
+        Focused = 30
     }
 
     /// <summary>
