@@ -137,7 +137,6 @@ namespace Game.Views
             CreateEngineCharacterList();
 
             await Navigation.PushModalAsync(new NavigationPage(new ShowMonstersPage()));
-            _ = await Navigation.PopAsync();
         }
 
         /// <summary>

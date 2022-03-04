@@ -38,8 +38,7 @@ namespace Game.Views
         public async void BattleButton_Clicked(object sender, EventArgs e)
         {
 
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
-            _ = await Navigation.PopAsync();
+            await Navigation.PushModalAsync(new BattlePage());
         }
 
 
