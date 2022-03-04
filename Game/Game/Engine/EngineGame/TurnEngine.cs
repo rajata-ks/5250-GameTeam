@@ -534,25 +534,43 @@ namespace Game.Engine.EngineGame
         }
 
         /// <summary>
-        /// Will drop between 1 and 4 items from the ItemModel set...
+        /// Each round, the monsters will be able to drop from 0 - 12 items in the item pool.
         /// </summary>
         public override List<ItemModel> GetRandomMonsterItemDrops(int round)
         {
-            // TODO: Teams, You need to implement your own modification to the Logic cannot use mine as is.
+            // Done TODO: Teams, You need to implement your own modification to the Logic cannot use mine as is.
 
             // You decide how to drop monster items, level, etc.
 
-            // The Number drop can be Up to the Round Count, but may be less.  
-            // Negative results in nothing dropped
-            var NumberToDrop = (DiceHelper.RollDice(1, round + 1) - 1);
+            //Every monster will have a chance to drop items.
+            var NumberToDrop = 6;
 
             var result = new List<ItemModel>();
 
             for (var i = 0; i < NumberToDrop; i++)
             {
+                //Determine how manyy items the monster drops.
+                var itemDrop = DiceHelper.RollDice(1, 3);
+                
                 // Get a random Unique Item
-                var data = ItemIndexViewModel.Instance.GetItem(RandomPlayerHelper.GetMonsterUniqueItem());
-                result.Add(data);
+                switch (itemDrop) {
+                    case 1:
+                        //Monster dropped two items.
+                        var dropOne = ItemIndexViewModel.Instance.GetItem(RandomPlayerHelper.GetMonsterUniqueItem());
+                        result.Add(dropOne);
+                        break;
+                    case 2:
+                        //Monster dropped two items.
+                        var dropTwo = ItemIndexViewModel.Instance.GetItem(RandomPlayerHelper.GetMonsterUniqueItem());
+                        result.Add(dropTwo);
+                        dropTwo = ItemIndexViewModel.Instance.GetItem(RandomPlayerHelper.GetMonsterUniqueItem());
+                        result.Add(dropTwo);
+                        break;
+                    default:
+                        //Monster will drop no items.
+                        break;
+                }
+                
             }
 
             return result;
