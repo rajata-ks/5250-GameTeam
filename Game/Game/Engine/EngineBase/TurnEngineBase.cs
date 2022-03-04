@@ -313,12 +313,11 @@ namespace Game.Engine.EngineBase
                 return null;
             }
 
-            // Select first in the list
+            // Select fastest speed
 
-            // TODO: Teams, You need to implement your own Logic can not use mine.
             var Defender = EngineSettings.PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
-                .OrderBy(m => m.ListOrder).FirstOrDefault();
+                .OrderBy(m => m.Speed).FirstOrDefault();
 
             return Defender;
         }
@@ -339,14 +338,11 @@ namespace Game.Engine.EngineBase
                 return null;
             }
 
-            // Select first one to hit in the list for now...
-            // Attack the Weakness (lowest HP) MonsterModel first 
-
-            // TODO: Teams, You need to implement your own Logic can not use mine.
+            // Select lowest level to hit
 
             var Defender = EngineSettings.PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Monster)
-                .OrderBy(m => m.CurrentHealth).FirstOrDefault();
+                .OrderBy(m => m.Level).FirstOrDefault();
 
             return Defender;
         }
@@ -626,10 +622,10 @@ namespace Game.Engine.EngineBase
 
             // Drop Items to ItemModel Pool
             var myItemList = Target.DropAllItems();
-
+            var itemCount = ((int)BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault().Difficulty) / 10;
             // I feel generous, even when characters die, random drops happen :-)
             // If Random drops are enabled, then add some....
-            myItemList.AddRange(GetRandomMonsterItemDrops(EngineSettings.BattleScore.RoundCount));
+            myItemList.AddRange(GetRandomMonsterItemDrops(itemCount));
 
             // Add to ScoreModel
             foreach (var ItemModel in myItemList)
@@ -712,15 +708,12 @@ namespace Game.Engine.EngineBase
         /// </summary>
         /// <param name="round"></param>
         /// <returns></returns>
-        public virtual List<ItemModel> GetRandomMonsterItemDrops(int round)
+        public virtual List<ItemModel> GetRandomMonsterItemDrops(int itemCount)
         {
-            // TODO: Teams, You need to implement your own modification to the Logic cannot use mine as is.
 
-            // You decide how to drop monster items, level, etc.
-
-            // The Number drop can be Up to the Round Count, but may be less.  
+            // The Number drop can be Up to the Round Count
             // Negative results in nothing dropped
-            var NumberToDrop = (DiceHelper.RollDice(1, round + 1) - 1);
+            var NumberToDrop = (DiceHelper.RollDice(1, itemCount + 1) - 1);
 
             var result = new List<ItemModel>();
 
