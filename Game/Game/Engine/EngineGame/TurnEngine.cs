@@ -75,9 +75,6 @@ namespace Game.Engine.EngineGame
                     result = MoveAsTurn(Attacker);
                     break;
 
-                case ActionEnum.Focused:
-                    result = FocusedAttack(Attacker);
-                    break;
                 case ActionEnum.Rest:
                     result = Rest(Attacker);
                     break;
@@ -116,49 +113,7 @@ namespace Game.Engine.EngineGame
 
             return true;
         }
-        /// <summary>
-        /// Determines if the Attacker can make a focused attack. If they can, perform action, if not, perform normal attack
-        /// </summary>
-        /// <param name="Attacker"></param>
-        /// <returns></returns>
-        public bool FocusedAttack(PlayerInfoModel Attacker)
-        {
-            var result = false;
-
-            bool canFocus = false;
-
-            string minItem = "";
-            int minVal = 0;
-            List<(ItemLocationEnum,int)> collectedVal = new List<(ItemLocationEnum,int)>();
-
-            //Create a list of all items on character.
-            collectedVal.Add((ItemLocationEnum.Head, Attacker.GetItem(Attacker.Head).Value));
-            collectedVal.Add((ItemLocationEnum.Necklass, Attacker.GetItem(Attacker.Necklass).Value));
-            collectedVal.Add((ItemLocationEnum.PrimaryHand, Attacker.GetItem(Attacker.PrimaryHand).Value));
-            collectedVal.Add((ItemLocationEnum.OffHand, Attacker.GetItem(Attacker.OffHand).Value));
-            collectedVal.Add((ItemLocationEnum.RightFinger, Attacker.GetItem(Attacker.RightFinger).Value));
-            collectedVal.Add((ItemLocationEnum.LeftFinger, Attacker.GetItem(Attacker.LeftFinger).Value));
-            collectedVal.Add((ItemLocationEnum.Feet, Attacker.GetItem(Attacker.Feet).Value));
-
-            //Find the minimum item to destroy.
-
-            if (minItem != "")
-            {
-                canFocus = true;
-            }
-            //Can perform focused attack
-            if (canFocus == true)
-            {
-
-            }
-            else
-            {
-                //Can't perform focused attack
-                result = Attack(Attacker);
-            }
-          
-            return result;
-        }
+       
         /// <summary>
         /// Move Based on Speed 
         /// Limit the distance a player can move to their speed (max limit : speed )
