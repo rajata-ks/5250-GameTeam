@@ -97,14 +97,12 @@ namespace Game.Engine.EngineBase
         /// <returns></returns>
         public virtual int AddMonstersToRound()
         {
-            // TODO: Teams, You need to implement your own Logic can not use mine.
-
             var TargetLevel = 1;
 
             if (EngineSettings.CharacterList.Count() > 0)
             {
                 // Get the Min Character Level (linq is soo cool....)
-                TargetLevel = Convert.ToInt32(EngineSettings.CharacterList.Min(m => m.Level));
+                TargetLevel = Convert.ToInt32(EngineSettings.CharacterList.Average(m => m.Level));
             }
 
             for (var i = 0; i < EngineSettings.MaxNumberPartyMonsters; i++)
