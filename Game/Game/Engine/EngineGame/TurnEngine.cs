@@ -224,8 +224,6 @@ namespace Game.Engine.EngineGame
             }
 
             // Select min level Chr in the list
-
-            //  Done - TODO: Teams, You need to implement your own Logic can not use mine.
             var Defender = EngineSettings.PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
                 .OrderBy(m => m.Level).FirstOrDefault();
@@ -250,9 +248,6 @@ namespace Game.Engine.EngineGame
 
             // Select first one to hit in the list for now...
             // Attack the Weakness (lowest Max Health) MonsterModel first 
-
-            //Done - TODO: Teams, You need to implement your own Logic can not use mine.
-
             var Defender = EngineSettings.PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Monster)
                 .OrderBy(m => m.MaxHealth).FirstOrDefault();
@@ -493,8 +488,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override List<ItemModel> GetRandomMonsterItemDrops(int round)
         {
-            // Done TODO: Teams, You need to implement your own modification to the Logic cannot use mine as is.
-
             // You decide how to drop monster items, level, etc.
 
             //Every monster will have a chance to drop items.
