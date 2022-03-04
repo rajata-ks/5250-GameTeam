@@ -14,7 +14,7 @@ namespace Game.Views
     /// <summary>
     /// Selecting Characters for the Game
     /// 
-    /// TODO: Team
+    /// 
     /// Mike's game allows duplicate characters in a party (6 Mikes can all fight)
     /// If you do not allow duplicates, change the code below
     /// Instead of using the database list directly make a copy of it in the viewmodel
