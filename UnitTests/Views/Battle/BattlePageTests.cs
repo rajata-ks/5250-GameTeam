@@ -94,6 +94,20 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void BattlePage_RestButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.RestButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
         public void BattlePage_AttackButton_Clicked_Monster_turn_Should_Pass()
         {
             // Arrange
