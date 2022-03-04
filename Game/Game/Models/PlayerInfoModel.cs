@@ -109,7 +109,6 @@ namespace Game.Models
             // Set current experience to be 1 above minimum.
             ExperienceTotal = LevelTableHelper.LevelDetailsList[Level - 1].Experience + 1;
 
-            // TODO: Mike, Refactor this, so it is in a helper, and call it on level up as well.
             switch (Job)
             {
                 case CharacterJobEnum.Cleric:
