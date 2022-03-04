@@ -529,8 +529,8 @@ namespace UnitTests.Engine.EngineGame
 
             Engine.EngineSettings.BattleSettingsModel.IFeelGood = true;
             Engine.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
-             
-           var Character = new CharacterModel();
+
+           var Character = new CharacterModel() {Attack = 30 };
             var CharacterPlayer = new PlayerInfoModel(Character);
             Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
 
