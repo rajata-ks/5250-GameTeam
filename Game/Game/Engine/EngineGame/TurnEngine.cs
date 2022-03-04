@@ -405,10 +405,10 @@ namespace Game.Engine.EngineGame
 
             // Drop Items to ItemModel Pool
             var myItemList = Target.DropAllItems();
-
+            var itemCount = ((int)BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault().Difficulty) / 10;
             // I feel generous, even when characters die, random drops happen :-)
             // If Random drops are enabled, then add some....
-            myItemList.AddRange(GetRandomMonsterItemDrops(EngineSettings.BattleScore.RoundCount));
+            myItemList.AddRange(GetRandomMonsterItemDrops(itemCount));
 
             // Add to ScoreModel
             foreach (var ItemModel in myItemList)
@@ -486,12 +486,12 @@ namespace Game.Engine.EngineGame
         /// <summary>
         /// Each round, the monsters will be able to drop from 0 - 12 items in the item pool.
         /// </summary>
-        public override List<ItemModel> GetRandomMonsterItemDrops(int round)
+        public override List<ItemModel> GetRandomMonsterItemDrops(int itemCount)
         {
             // You decide how to drop monster items, level, etc.
 
             //Every monster will have a chance to drop items.
-            var NumberToDrop = 6;
+            var NumberToDrop = ((int)BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault().Difficulty) / 10;
 
             var result = new List<ItemModel>();
 
