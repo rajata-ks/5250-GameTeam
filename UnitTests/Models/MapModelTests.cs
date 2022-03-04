@@ -913,5 +913,40 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void MapModel_distanceToMonster_1_Distance_Away_Return_1()
+        {
+            // Arrange
+            var map = new MapModel();
+
+            map.MapXAxiesCount = 3;
+            map.MapYAxiesCount = 3;
+            map.MapGridLocation = new MapModelLocation[map.MapXAxiesCount, map.MapYAxiesCount];
+
+            var PlayerList = new List<PlayerInfoModel>();
+
+            var Character = new CharacterModel();
+            PlayerList.Add(new PlayerInfoModel(Character));
+            PlayerList.Add(new PlayerInfoModel(Character));
+            PlayerList.Add(new PlayerInfoModel(Character));
+
+            var Monster = new MonsterModel();
+            PlayerList.Add(new PlayerInfoModel(Monster));
+            PlayerList.Add(new PlayerInfoModel(Monster));
+            PlayerList.Add(new PlayerInfoModel(Monster));
+
+            _ = map.PopulateMapModel(PlayerList);
+            var start = map.GetPlayerAtLocation(0, 0);
+            var end = map.GetPlayerAtLocation(2, 2);
+
+            // Act
+            var result = map.distanceToMonster(map.GetLocationForPlayer(start), map.GetLocationForPlayer(end));
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(2, result);
+        }
     }
 }
