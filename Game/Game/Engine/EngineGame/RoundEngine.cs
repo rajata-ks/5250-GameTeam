@@ -90,7 +90,6 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public override int AddMonstersToRound()
         {
-            //  Done - TODO: Teams, You need to implement your own Logic can not use mine.
 
             var TargetLevel = 1;
             for (var i = 0; i < EngineSettings.MaxNumberPartyMonsters; i++)
