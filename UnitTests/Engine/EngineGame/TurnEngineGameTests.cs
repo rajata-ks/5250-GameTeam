@@ -523,6 +523,36 @@ namespace UnitTests.Engine.EngineGame
         }
 
         [Test]
+        public void TurnEngine_IFeelGood_Monster_Defense_Return_10()
+        {
+            // Arrange
+
+            Engine.EngineSettings.BattleSettingsModel.IFeelGood = true;
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+             
+           var Character = new CharacterModel();
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
+
+            var Monster = new MonsterModel();
+            var MonsterPlayer = new PlayerInfoModel(Monster);
+            MonsterPlayer.Defense = 21;
+            Engine.EngineSettings.MonsterList.Add(MonsterPlayer);
+
+            _ = DiceHelper.EnableForcedRolls();
+            _ = DiceHelper.SetForcedRollValue(11);
+
+            
+            // Act
+            var result = Engine.Round.Turn.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+
+            // Reset
+            _ = DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(10, MonsterPlayer.Defense);
+        }
+        [Test]
         public void TurnEngine_RolltoHitTarget_Valid_Forced_1_Critical_Miss_Should_Return_CriticalMiss()
         {
             // Arrange
