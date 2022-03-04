@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Game.Helpers;
 using Game.Engine.EngineBase;
 using Game.Engine.EngineInterfaces;
 using Game.Engine.EngineModels;
@@ -18,6 +18,8 @@ namespace Game.Engine.EngineGame
         // Hold the BaseEngine
         public new EngineSettingsModel EngineSettings = EngineSettingsModel.Instance;
 
+        //Used for choosing monster level.
+        private Random rnd = new Random();
         // The Turn Engine
         public new ITurnEngineInterface Turn
         {
@@ -88,21 +90,21 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public override int AddMonstersToRound()
         {
-            // TODO: Teams, You need to implement your own Logic can not use mine.
+            //  Done - TODO: Teams, You need to implement your own Logic can not use mine.
 
             var TargetLevel = 1;
-
-            if (EngineSettings.CharacterList.Count() > 0)
-            {
-                // Get the Min Character Level (linq is soo cool....)
-                TargetLevel = Convert.ToInt32(EngineSettings.CharacterList.Min(m => m.Level));
-            }
-
             for (var i = 0; i < EngineSettings.MaxNumberPartyMonsters; i++)
             {
+                int minLevel = 1;
+                int maxLevel = 1;
+                if (EngineSettings.CharacterList.Count() > 0)
+                {
+                    minLevel = Convert.ToInt32(EngineSettings.CharacterList.Min(m => m.Level));
+                    maxLevel = Convert.ToInt32(EngineSettings.CharacterList.Max(m => m.Level));
+                }
+                //Get the monster level to a random value based on the lowest and higher character in the party.
+                TargetLevel = rnd.Next(minLevel, maxLevel);
                 var data = RandomPlayerHelper.GetRandomMonster(TargetLevel, EngineSettings.BattleSettingsModel.AllowMonsterItems);
-
-                // Help identify which Monster it is
                 data.Name += " " + EngineSettings.MonsterList.Count() + 1;
 
                 EngineSettings.MonsterList.Add(new PlayerInfoModel(data));
@@ -115,6 +117,7 @@ namespace Game.Engine.EngineGame
         /// At the end of the round
         /// Clear the ItemModel List
         /// Clear the MonsterModel List
+        /// </summary>
         /// </summary>
         /// <returns></returns>
         public override bool EndRound()
