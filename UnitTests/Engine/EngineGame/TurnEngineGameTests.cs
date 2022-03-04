@@ -714,7 +714,7 @@ namespace UnitTests.Engine.EngineGame
         }
 
         [Test]
-        public void TurnEngine_DropItems_Valid_Monster_Items_0_Random_Drop_1_Should_Return_1()
+        public void TurnEngine_DropItems_Valid_Monster_Items_0_Random_Drop_0_Should_Return_0()
         {
             // Arrange
             var player = new CharacterModel();
@@ -724,7 +724,7 @@ namespace UnitTests.Engine.EngineGame
             _ = DiceHelper.EnableForcedRolls();
 
             // Drop is 0-Number, so 2 will yield 1
-            _ = DiceHelper.SetForcedRollValue(2);
+            _ = DiceHelper.SetForcedRollValue(0);
 
             // Act
             var result = Engine.Round.Turn.DropItems(PlayerInfo);
@@ -733,7 +733,7 @@ namespace UnitTests.Engine.EngineGame
             _ = DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual(1, result);
+            Assert.AreEqual(0, result);
         }
         #endregion DropItems
 
