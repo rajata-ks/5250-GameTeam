@@ -167,7 +167,7 @@
                     IsVisible="false">
 
                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="10">
-                    <Label Text="Time UP, you Loose" Style="{StaticResource CenterMessageLargeStyle}"/>
+                    <Label Text="You ran out of time! You Lose!" Style="{StaticResource CenterMessageLargeStyle}"/>
 
                     <Button x:Name="ExitButtonTimer" Clicked="ExitButton_Clicked" Text="Exit" WidthRequest="50"></Button>
 
