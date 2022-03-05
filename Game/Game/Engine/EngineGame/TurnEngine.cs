@@ -161,7 +161,7 @@ namespace Game.Engine.EngineGame
                 {
                     MapModelLocation targetLocation = result;
                     Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4} with speed {5}", locationAttacker.Player.Name, locationAttacker.Column, locationAttacker.Row, targetLocation.Column, targetLocation.Row, speed));
-                    EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " moves closer to " + EngineSettings.CurrentDefender.Name;
+                    EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " approaches " + EngineSettings.CurrentDefender.Name;
                     return EngineSettings.MapModel.MovePlayerOnMap(locationAttacker, targetLocation);
                 }
 
@@ -354,7 +354,7 @@ namespace Game.Engine.EngineGame
             bool found;
 
             // Mark Status in output
-            EngineSettings.BattleMessagesModel.TurnMessageSpecial = " and causes death. ";
+            EngineSettings.BattleMessagesModel.TurnMessageSpecial = " and causes death on the spot. ";
 
             // Removing the 
             _ = EngineSettings.MapModel.RemovePlayerFromMap(Target);
@@ -441,7 +441,7 @@ namespace Game.Engine.EngineGame
             if (d20 == 1)
             {
                 EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
-                EngineSettings.BattleMessagesModel.AttackStatus = " rolls 1 to miss ";
+                EngineSettings.BattleMessagesModel.AttackStatus = " rolls a 1 to fail miserably and miss ";
 
                 if (EngineSettings.BattleSettingsModel.AllowCriticalMiss)
                 {
@@ -454,12 +454,12 @@ namespace Game.Engine.EngineGame
 
             if (d20 == 20)
             {
-                EngineSettings.BattleMessagesModel.AttackStatus = " rolls 20 for hit ";
+                EngineSettings.BattleMessagesModel.AttackStatus = " rolls 20 for guaranteed hit ";
                 EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
 
                 if (EngineSettings.BattleSettingsModel.AllowCriticalHit)
                 {
-                    EngineSettings.BattleMessagesModel.AttackStatus = " rolls 20 for lucky hit ";
+                    EngineSettings.BattleMessagesModel.AttackStatus = " rolls 20 for critical damage ";
                     EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.CriticalHit;
                 }
                 return EngineSettings.BattleMessagesModel.HitStatus;
@@ -468,7 +468,7 @@ namespace Game.Engine.EngineGame
             var ToHitScore = d20 + AttackScore;
             if (ToHitScore < DefenseScore)
             {
-                EngineSettings.BattleMessagesModel.AttackStatus = " rolls " + d20 + " and misses ";
+                EngineSettings.BattleMessagesModel.AttackStatus = " rolls " + d20 + " and fails the attack on ";
 
                 // Miss
                 EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
@@ -476,7 +476,7 @@ namespace Game.Engine.EngineGame
                 return EngineSettings.BattleMessagesModel.HitStatus;
             }
 
-            EngineSettings.BattleMessagesModel.AttackStatus = " rolls " + d20 + " and hits ";
+            EngineSettings.BattleMessagesModel.AttackStatus = " rolls " + d20 + " and strikes ";
 
             // Hit
             EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
