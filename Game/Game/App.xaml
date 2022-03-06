@@ -874,9 +874,17 @@
                 x:Key="VerticalCenterStack">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Orientation" Value="Vertical" />
-                <Setter Property="Padding" Value="10" />
+           
                 
             </Style>
+            <Style TargetType="StackLayout"
+                x:Key="VerticalCenterStackScore">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="Padding" Value="20" />
+
+            </Style>
+
 
 
 
@@ -1067,6 +1075,14 @@
                 <Setter Property="BorderColor" Value="Black" />
                 <Setter Property="BackgroundColor" Value="AliceBlue" />
             </Style>
+
+            <Style TargetType="Frame"
+                x:Key="ScoreFrame">
+                <Setter Property="CornerRadius" Value="100" />
+            
+                
+            </Style>
+
 
             <Style TargetType="Frame"
                 x:Key="BattleUIBar"
