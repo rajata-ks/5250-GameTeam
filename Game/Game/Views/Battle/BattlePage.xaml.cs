@@ -186,8 +186,34 @@ namespace Game.Views
         /// <returns></returns>
         public bool UpdateMapGrid()
         {
+            var open = new PlayerInfoModel() { PlayerType = PlayerTypeEnum.openSpace };
+            var empty = new PlayerInfoModel() { PlayerType = PlayerTypeEnum.Unknown };
+
+            //set any open space to empty so that it can be re populated
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation)
             {
+                if (data.Player.PlayerType == PlayerTypeEnum.openSpace)
+                {
+                    data.Player = empty;
+                }
+            }
+
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation)
+            {
+
+                //set openspace
+                if (data.Player.PlayerType == PlayerTypeEnum.Character)
+                {
+                    foreach (var openspace in BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation)
+                    {
+                        if (BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.CalculateDistance(data, openspace) == 1
+                            && BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.IsEmptySquare(openspace.Row, openspace.Column))
+                        {
+                            openspace.Player = open;
+                        }
+                    }
+                }
+
                 // Use the ImageButton from the dictionary because that represents the player object
                 var MapObject = GetMapGridObject(GetDictionaryImageButtonName(data));
                 if (MapObject == null)
@@ -419,13 +445,20 @@ namespace Game.Views
                     break;
                 case PlayerTypeEnum.Monster:
                     data.Clicked += (sender, args) => SetSelectedMonster(MapLocationModel);
+                    data.IsEnabled = false;
                     break;
                 case PlayerTypeEnum.Unknown:
-                default:
+                    data.IsEnabled = false;
+                    data.BackgroundColor = Color.Red;
+                    break;
+                case PlayerTypeEnum.openSpace:
                     data.Clicked += (sender, args) => SetSelectedEmpty(MapLocationModel);
-
+                    data.BackgroundColor = Color.Green;
                     // Use the blank cell
                     data.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.EmptySquare.ImageURI;
+                    break;
+                default:
+                    data.IsEnabled = false;
                     break;
             }
 
@@ -449,6 +482,9 @@ namespace Game.Views
                     break;
                 case PlayerTypeEnum.Monster:
                     BattleMapBackgroundColor = "BattleMapMonsterColor";
+                    break;
+                case PlayerTypeEnum.openSpace:
+                    BattleMapBackgroundColor = "BattleMapDeathColor";
                     break;
                 case PlayerTypeEnum.Unknown:
                 default:
@@ -476,6 +512,12 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
+            var currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
+
+            var location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(location, data);
+
+            _ = UpdateMapGrid();
 
             return true;
         }
