@@ -45,6 +45,25 @@ namespace Game.Models
 
         // Heal Self
         Heal = 54,
+
+
+        //Nerd Abilities
+        Reduce = 61,
+           
+        //Athlete Abilities
+        Buff = 71,
+
+        //Goth Abilities
+        Kill = 81,
+
+        //Skater Abilities
+        Splash = 91,
+
+        //Procrastinator Abilities
+        Steroid = 101,
+
+        //Class Clown Abilities
+        MassHeal = 111,
     }
 
     public enum ImageNames
@@ -102,6 +121,30 @@ namespace Game.Models
 
                 case AbilityEnum.Heal:
                     Message = "Heal Self";
+                    break;
+
+                case AbilityEnum.Reduce:
+                    Message = "Weakness";
+                    break;
+
+                case AbilityEnum.Buff:
+                    Message = "Huge";
+                    break;
+
+                case AbilityEnum.Kill:
+                    Message = "Requiem";
+                    break;
+
+                case AbilityEnum.Splash:
+                    Message = "Splash";
+                    break;
+
+                case AbilityEnum.Steroid:
+                    Message = "Steroid";
+                    break;
+
+                case AbilityEnum.MassHeal:
+                    Message = "Blessing";
                     break;
 
                 case AbilityEnum.None:
