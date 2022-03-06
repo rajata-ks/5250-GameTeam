@@ -58,6 +58,8 @@ namespace Game.Views
             monsterValid = true;
             scoreValid = true;
             this.ViewModel.Title = "Update " + data.Title;
+
+            this.ViewModel.Title = "Delete " + data.Title;
         }
 
         /// <summary>
@@ -106,6 +108,17 @@ namespace Game.Views
             _ = await Navigation.PopModalAsync();
         }
 
+
+        /// <summary>
+        /// Delete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void Delete_Clicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "Delete", ViewModel.Data);
+            _ = await Navigation.PopModalAsync();
+        }
 
         /// <summary>
         /// Validate the entry for image.
