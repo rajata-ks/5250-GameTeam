@@ -328,14 +328,8 @@ namespace Game.Engine.EngineKoenig
         /// <param name="character"></param>
         public override bool PickupItemsFromPool(PlayerInfoModel character)
         {
-
-            // TODO: Teams, You need to implement your own Logic if not using auto apply
-
-            // I use the same logic for Auto Battle as I do for Manual Battle
-
-            //if (BaseEngine.BattleScore.AutoBattle)
+            //using auto apply
             {
-                // Have the character, walk the items in the pool, and decide if any are better than current one.
 
                 _ = GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
                 _ = GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklass);
