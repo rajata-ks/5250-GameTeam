@@ -447,16 +447,13 @@ namespace Game.Views
                     data.Clicked += (sender, args) => SetSelectedMonster(MapLocationModel);
                     data.IsEnabled = false;
                     break;
-                case PlayerTypeEnum.Unknown:
-                    data.IsEnabled = false;
-                    data.BackgroundColor = Color.Red;
-                    break;
                 case PlayerTypeEnum.openSpace:
                     data.Clicked += (sender, args) => SetSelectedEmpty(MapLocationModel);
                     data.BackgroundColor = Color.Green;
                     // Use the blank cell
                     data.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.EmptySquare.ImageURI;
                     break;
+                case PlayerTypeEnum.Unknown:
                 default:
                     data.IsEnabled = false;
                     break;
