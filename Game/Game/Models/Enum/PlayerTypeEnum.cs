@@ -13,5 +13,8 @@
 
         // The Monster
         Monster = 2,
+
+        //set open space for the character to move
+        openSpace = 3
     }
 }
