@@ -207,7 +207,7 @@ namespace Game.Views
                     foreach (var openspace in BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation)
                     {
                         if (BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.CalculateDistance(data, openspace) == 1
-                            && BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.IsEmptySquare(openspace.Row, openspace.Column))
+                            && BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.IsEmptySquare(openspace.Column, openspace.Row))
                         {
                             openspace.Player = open;
                         }
