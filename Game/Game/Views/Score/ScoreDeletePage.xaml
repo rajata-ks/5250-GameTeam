@@ -10,9 +10,9 @@
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -74,7 +74,10 @@
 
                 
             </Frame>
-            <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="2" Grid.Column="0"/>
+
+            <StackLayout Grid.Row="2">
+                <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" />
+            </StackLayout>
         </Grid>
     </ScrollView>
 </ContentPage>
