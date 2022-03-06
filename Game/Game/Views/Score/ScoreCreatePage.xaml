@@ -36,7 +36,7 @@
                     <Label Grid.Row="0" Grid.Column="0"
                         x:Name="NameLabel"
                         Text="Name" 
-                        Style="{StaticResource LabelStyle}"/>
+                        Style="{StaticResource LabelStyleMedium}"/>
                     
                     <Entry Grid.Row="0" Grid.Column="1"
                         x:Name="NameEntry"

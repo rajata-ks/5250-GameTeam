@@ -120,7 +120,7 @@
                         </StackLayout>
                     </StackLayout>
                 </Frame>
-                <StackLayout Grid.Row="2" Padding="20">
+                <StackLayout Grid.Row="2" >
                     <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" />
                 </StackLayout>
                 </Grid>
