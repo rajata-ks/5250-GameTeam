@@ -100,6 +100,16 @@ namespace Game.Models
         /// <returns></returns>
         public bool MovePlayerOnMap(MapModelLocation data, MapModelLocation target)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
+            if (target == null)
+            {
+                return false;
+            }
+
             if (target.Column < 0)
             {
                 return false;
