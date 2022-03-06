@@ -185,9 +185,23 @@
             </Style>
 
             <Style TargetType="Label"
+                x:Key="LabelStyleMedium"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+            
+
+            <Style TargetType="Label"
                 x:Key="ValueStyle"
                 BasedOn="{StaticResource LabelStyle}">
                 <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="ValueStyleMedium"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+                <Setter Property="FontSize" Value="Medium" />
             </Style>
 
             <Style TargetType="Label"
@@ -1049,7 +1063,7 @@
             <Style TargetType="Frame"
                 x:Key="UpdateFrame">
                 <Setter Property="CornerRadius" Value="10" />
-                <Setter Property="Padding" Value="50" />
+                <Setter Property="Padding" Value="20" />
                 <Setter Property="BorderColor" Value="Black" />
                 <Setter Property="BackgroundColor" Value="AliceBlue" />
             </Style>
