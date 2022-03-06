@@ -59,6 +59,70 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void MapModel_pass_null_target_Invalid_Should_Return_False()
+        {
+            // Arrange
+
+            var map = new MapModel();
+
+            map.MapXAxiesCount = 3;
+            map.MapYAxiesCount = 3;
+            map.MapGridLocation = new MapModelLocation[map.MapXAxiesCount, map.MapYAxiesCount];
+
+            var PlayerList = new List<PlayerInfoModel>();
+
+            var Character = new CharacterModel();
+            var Monster = new MonsterModel();
+
+            PlayerList.Add(new PlayerInfoModel(Character));
+            PlayerList.Add(new PlayerInfoModel(Monster));
+
+            _ = map.PopulateMapModel(PlayerList);
+
+            var MapLocationData = map.MapGridLocation[0, 0];
+
+            // Act
+            var result = map.MovePlayerOnMap(MapLocationData, null);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void MapModel_pass_null_From_Invalid_Should_Return_False()
+        {
+            // Arrange
+
+            var map = new MapModel();
+
+            map.MapXAxiesCount = 3;
+            map.MapYAxiesCount = 3;
+            map.MapGridLocation = new MapModelLocation[map.MapXAxiesCount, map.MapYAxiesCount];
+
+            var PlayerList = new List<PlayerInfoModel>();
+
+            var Character = new CharacterModel();
+            var Monster = new MonsterModel();
+
+            PlayerList.Add(new PlayerInfoModel(Character));
+            PlayerList.Add(new PlayerInfoModel(Monster));
+
+            _ = map.PopulateMapModel(PlayerList);
+
+            var MapLocationData = map.MapGridLocation[0, 0];
+
+            // Act
+            var result = map.MovePlayerOnMap(null, new MapModelLocation { Column = -1, Row = 0 });
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
         public void MapModel_ClearSelection_Should_Pass()
         {
             // Arrange
