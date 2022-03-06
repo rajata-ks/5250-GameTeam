@@ -361,6 +361,10 @@
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="Aspect" Value="Fill" />
             </Style>
+            
+            
+            
+            
 
             <Style TargetType="Image"
                 x:Key="LogoImageLarge"
@@ -856,6 +860,8 @@
                 x:Key="VerticalCenterStack">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="Padding" Value="10" />
+                
             </Style>
 
 
