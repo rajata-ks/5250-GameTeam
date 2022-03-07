@@ -1288,9 +1288,7 @@ namespace UnitTests.Engine.EngineGame
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Goth });
-
-            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Goth });
 
             // Act
             var result = Engine.Round.Turn.UseAbility(characterPlayer);
@@ -1334,14 +1332,14 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(true, result);
         }
+
         [Test]
-        public void TurnEngine_UseAbility_Valid_Ability_ClassClown_1_Should_Pass()
+        public void TurnEngine_UseAbility_Valid_Ability_ClassClown_Heal_Over_MaxHealth_Should_Return_MaxHealth()
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.ClassClown });
-
-            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.ClassClown, CurrentHealth = 1, MaxHealth = 5 });
+            Engine.EngineSettings.CharacterList.Add(characterPlayer);
 
             // Act
             var result = Engine.Round.Turn.UseAbility(characterPlayer);
@@ -1349,7 +1347,25 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(5, characterPlayer.CurrentHealth);
+        }
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_ClassClown_Heal_For_Amount_Return_CurrentHP_Plus_21()
+        {
+            // Arrange
+
+            var playerOne = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.ClassClown, CurrentHealth = 1, MaxHealth = 100 });
+            var playerTwo = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.ClassClown, CurrentHealth = 2, MaxHealth = 100 });
+            Engine.EngineSettings.CharacterList.Add(playerOne);
+            Engine.EngineSettings.CharacterList.Add(playerTwo);
+            // Act
+            var result = Engine.Round.Turn.UseAbility(playerOne);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(22, playerOne.CurrentHealth);
+            Assert.AreEqual(23, playerTwo.CurrentHealth);
         }
         #endregion UseAbility
 
