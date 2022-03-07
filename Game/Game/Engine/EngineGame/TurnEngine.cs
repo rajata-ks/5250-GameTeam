@@ -647,7 +647,7 @@ namespace Game.Engine.EngineGame
                     break;
               
             }
-            return base.UseAbility(Attacker) ;
+            return true;
         }
 
         /// <summary>
