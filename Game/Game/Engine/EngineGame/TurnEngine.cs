@@ -679,6 +679,17 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool GothAbility(PlayerInfoModel Attacker)
         {
+            //Goth will lose 3/4 of current hp when triggering ability
+            Attacker.CurrentHealth -= Attacker.CurrentHealth * 3 / 4;
+            
+            //Kill all monsters on battlefield
+            foreach(var monster in EngineSettings.MonsterList.ToList())
+            {
+                if (monster.Alive)
+                {
+                    TargetDied(monster);
+                }
+            }
             return true;
         }
 
