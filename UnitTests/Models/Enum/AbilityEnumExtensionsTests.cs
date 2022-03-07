@@ -132,5 +132,89 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("Toughen Up", result);
         }
+
+        [Test]
+        public void AbilityEnumExtensionsTests_Reduce_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnum.Reduce.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Weakness", result);
+        }
+
+        [Test]
+        public void AbilityEnumExtensionsTests_Buff_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnum.Buff.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Huge", result);
+        }
+
+        [Test]
+        public void AbilityEnumExtensionsTests_Kill_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnum.Kill.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Requiem", result);
+        }
+
+        [Test]
+        public void AbilityEnumExtensionsTests_Splash_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnum.Splash.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Splash", result);
+        }
+
+        [Test]
+        public void AbilityEnumExtensionsTests_Steroid_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnum.Steroid.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Steroid", result);
+        }
+
+        [Test]
+        public void AbilityEnumExtensionsTests_MassHealth_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = AbilityEnum.MassHeal.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Blessing", result);
+        }
     }
 }
