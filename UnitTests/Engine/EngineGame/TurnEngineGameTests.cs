@@ -1128,6 +1128,7 @@ namespace UnitTests.Engine.EngineGame
         #endregion TurnAsAttack
 
         #region UseAbility
+        
         [Test]
         public void TurnEngine_UseAbility_InValid_Ability_Null_Should_Fail()
         {
@@ -1145,9 +1146,9 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, result);
         }
-
+        
         [Test]
         public void TurnEngine_UseAbility_InValid_Ability_Count_0_Should_Fail()
         {
@@ -1165,9 +1166,9 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, result);
         }
-
+        
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Heal_1_Should_Pass()
         {
@@ -1238,6 +1239,109 @@ namespace UnitTests.Engine.EngineGame
             // remove it so it is not found
             characterPlayer.AbilityTracker.Add(AbilityEnum.Curse, 1);
             Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Curse;
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Nerd_1_Should_Pass()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Nerd });
+
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Athlete_1_Should_Pass()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Athlete });
+
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Goth_1_Should_Pass()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Goth });
+
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Skater_1_Should_Pass()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Skater });
+
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Procrastinator_1_Should_Pass()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Procrastinator });
+
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_ClassClown_1_Should_Pass()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.ClassClown });
+
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
 
             // Act
             var result = Engine.Round.Turn.UseAbility(characterPlayer);
