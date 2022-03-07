@@ -48,6 +48,8 @@
                         <FlexLayout x:Name="ItemListFoundFrame"
                                     Style="{StaticResource ScoreStyle}"/>
 
+                        <Button Clicked="AmazonInstantDelivery_Clicked" Text="Item Delivery"/>
+                        
                         <Button Clicked="AssignItem_Clicked" Text="Assign Items"/>
 
                         <Label Text="Items Selected" Style="{StaticResource HeaderStyle}"/>
