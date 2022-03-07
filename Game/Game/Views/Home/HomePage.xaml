@@ -5,20 +5,25 @@
              BackgroundImageSource="sampleImage.jpg">
 
     <ContentPage.Content>
-        <StackLayout  Style="{StaticResource HomePageCenterVerticalStack}">
 
-            <StackLayout Style="{StaticResource CenterHorizontalStack}">
 
-                <Image Source="logo.png" Style="{StaticResource LogoImageLarge}" />
 
+        <StackLayout  Style="{StaticResource HomePageCenterVerticalStack}"  >
+
+            <StackLayout Style="{StaticResource CenterHorizontalStack}" Spacing="5">
+
+                <Image Source="logo.png" Style="{StaticResource LogoImageLarge}"  />
             </StackLayout>
 
-            <Button
+
+            <Button 
                     Text="Start Game"
                     Clicked="GameButton_Clicked"
-                    Style="{StaticResource StickyBottomButtons}"
+                    Style="{StaticResource HomeBottomButtons}"
                    />
 
+           
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>
