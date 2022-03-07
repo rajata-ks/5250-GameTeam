@@ -1332,6 +1332,24 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(true, result);
         }
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Goth_Kill_Return_No_Monsters()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Goth, CurrentHealth = 10, MaxHealth = 15});
+            Engine.EngineSettings.CharacterList.Add(characterPlayer);
+
+            var MonsterPlayer = new PlayerInfoModel(new MonsterModel { Name = "Li" });
+            Engine.EngineSettings.MonsterList.Add(MonsterPlayer);
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, Engine.EngineSettings.MonsterList.Count);
+        }
 
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_ClassClown_Heal_Over_MaxHealth_Should_Return_MaxHealth()
