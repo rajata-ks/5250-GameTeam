@@ -3,9 +3,11 @@ using Game.Models;
 using Game.Services;
 using Game.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Threading.Tasks;
 
 namespace Game.Views
 {
@@ -15,6 +17,8 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RoundOverPage : ContentPage
     {
+        private int value;
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -69,23 +73,81 @@ namespace Game.Views
         /// <returns></returns>
         public async void AmazonInstantDelivery_Clicked(object sender, EventArgs e)
         {
-            var number = DiceHelper.RollDice(1, 6); // Get up to 6 random items
-            var level = BattleEngineViewModel.Instance.PartyCharacterList.Min(m => m.Level); // The Min level of character
-            var attribute = AttributeEnum.Unknown;  // Any Attribute
-            var location = ItemLocationEnum.Unknown;    // Any Location
-            var random = true;  // Random between 1 and Level
-            var updateDataBase = true;  // Add them to the DB
+            var EmptyItemLocation = new SortedDictionary<String, int>();
+             
+            foreach(var character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            {
+                ItemLocationEnumHelper.GetListItem.ForEach(name =>
+                {
+                    if (character.GetItemByLocation(ItemLocationEnumHelper.ConvertMessageToEnum(name)) == null)
+                    {
+                        if (EmptyItemLocation.ContainsKey(name))
+                        {
 
-            var category = 0;   // What category to filter down to, 0 is all, what team is your team?
+                            int value = EmptyItemLocation[name];
+                            value++;
 
-            var dataList = await ItemService.GetItemsFromServerPostAsync(number, level, attribute, location, category, random, updateDataBase);
+                            EmptyItemLocation.Remove(name);
+                            EmptyItemLocation.Add(name, value);
+                        }
+                        else
+
+                        {
+                            EmptyItemLocation.Add(name, 1);
+                        }
+
+                        
+                    }
+
+                    else
+                    {
+
+                    }
+                    
+                });
+            }
+            List<ItemModel> dataList = new List<ItemModel>();
+            foreach (KeyValuePair<String, int> entry in EmptyItemLocation)
+            {
+                var number = entry.Value;
+                var level = BattleEngineViewModel.Instance.PartyCharacterList.Min(m => m.Level); // The Min level of character
+                var attribute = AttributeEnum.Unknown;  // Any Attribute
+                var location = ItemLocationEnumHelper.ConvertMessageToEnum(entry.Key);    // Any Location
+                var random = true;  // Random between 1 and Level
+                var updateDataBase = true;  // Add them to the DB
+
+                var category = 6;
+                dataList.AddRange(await fetchItemModel(number, level, attribute, location, category, random, updateDataBase));
+               
+            }
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.AddRange(dataList);
 
-            // Redraw items
             DrawItemLists();
+
+            /* var number = DiceHelper.RollDice(1, 6); // Get up to 6 random items
+             var level = BattleEngineViewModel.Instance.PartyCharacterList.Min(m => m.Level); // The Min level of character
+             var attribute = AttributeEnum.Unknown;  // Any Attribute
+             var location = ItemLocationEnum.Unknown;    // Any Location
+             var random = true;  // Random between 1 and Level
+             var updateDataBase = true;  // Add them to the DB
+
+             var category = 0;   // What category to filter down to, 0 is all, what team is your team?
+
+             var dataList = await ItemService.GetItemsFromServerPostAsync(number, level, attribute, location, category, random, updateDataBase);
+             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.AddRange(dataList);
+
+             // Redraw items
+             DrawItemLists();
+            */
         }
 
-
+        public async Task<List<ItemModel>> fetchItemModel(int number, int level, AttributeEnum attribute, ItemLocationEnum location, int category, bool random, bool updateDataBase)
+        {
+            List<ItemModel> result = new List<ItemModel>();
+            result.AddRange(await ItemService.GetItemsFromServerPostAsync(number, level, attribute, location, category, random, updateDataBase));
+            
+            return result;
+        }
         /// <summary>
         /// Clear and Add the Characters that survived
         /// </summary>
