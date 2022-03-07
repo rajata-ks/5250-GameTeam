@@ -620,34 +620,35 @@ namespace Game.Engine.EngineGame
 
             }*/
             var ability = Attacker.Job;
+            bool result = true;
             switch(ability) 
             {
                 case CharacterJobEnum.Nerd:
-                    NerdAbility(Attacker);
-                    break;
+                    result = NerdAbility(Attacker);
+                    break; 
 
                 case CharacterJobEnum.Athlete:
-                    AthelteAbility(Attacker);
+                    result = AthelteAbility(Attacker);
                     break;
 
                 case CharacterJobEnum.Goth:
-                    GothAbility(Attacker);
+                    result = GothAbility(Attacker);
                     break;
 
                 case CharacterJobEnum.Skater:
-                    SkaterAbility(Attacker);
+                    result = SkaterAbility(Attacker);
                     break;
 
                 case CharacterJobEnum.Procrastinator:
-                    ProcrastinatorAbility(Attacker);
+                    result = ProcrastinatorAbility(Attacker);
                     break;
 
                 case CharacterJobEnum.ClassClown:
-                    ClassClownAbility(Attacker);
+                    result = ClassClownAbility(Attacker);
                     break;
               
             }
-            return true;
+            return result;
         }
 
         /// <summary>
@@ -678,6 +679,17 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool GothAbility(PlayerInfoModel Attacker)
         {
+            //Goth will lose 3/4 of current hp when triggering ability
+            Attacker.CurrentHealth -= Attacker.CurrentHealth * 3 / 4;
+            
+            //Kill all monsters on battlefield
+            foreach(var monster in EngineSettings.MonsterList.ToList())
+            {
+                if (monster.Alive)
+                {
+                    TargetDied(monster);
+                }
+            }
             return true;
         }
 
@@ -710,6 +722,22 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool ClassClownAbility(PlayerInfoModel Attacker)
         {
+            int healAmount = 20 + Attacker.Level;
+            foreach (var character in EngineSettings.CharacterList)
+            {
+                //Only heal characters still in game
+                if(character.Alive)
+                {
+                    //Heal for the amount
+                    if(character.GetCurrentHealth() + healAmount <= character.GetMaxHealth())
+                    {
+                        character.CurrentHealth += healAmount;
+                        continue;
+                    }
+                    //Heal will overcap, heal to full
+                    character.CurrentHealth = character.MaxHealth;
+                }
+            }
             return true;
         }
 
