@@ -15,6 +15,17 @@
         // Clerics defend well and have buff abilities
         Cleric = 12,
 
+        Nerd = 14,
+
+        Athlete = 16,
+
+        Goth = 18,
+
+        Skater = 20,
+
+        Procrastinator = 22,
+
+        ClassClown = 24,
     }
 
     /// <summary>
