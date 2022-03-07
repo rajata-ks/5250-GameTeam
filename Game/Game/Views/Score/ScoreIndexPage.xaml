@@ -26,6 +26,7 @@
                                 <Grid ColumnSpacing="3" RowSpacing="3">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto"/>
