@@ -601,11 +601,116 @@ namespace Game.Engine.EngineGame
         }
 
         /// <summary>
-        /// Use the Ability
+        /// Use the Ability. Since abilities in game are board based and not player based,
+        /// We need to trigger the effects in the TurnEngine rather than in PlayerInfoModel like the 
+        /// default abilities. The reason being, we need to access other players on the board when the effect
+        /// is triggered.
         /// </summary>
         public override bool UseAbility(PlayerInfoModel Attacker)
         {
-            return base.UseAbility(Attacker);
+            //Logic to check if ability is available
+
+            /*Cast ability
+
+            var ability = Attacker.UseAbility(EngineSettings.CurrentActionAbility);
+            switch (ability)
+            {
+                case AbilityEnum.Reduce:
+                    break;
+
+            }*/
+            var ability = Attacker.Job;
+            switch(ability) 
+            {
+                case CharacterJobEnum.Nerd:
+                    NerdAbility(Attacker);
+                    break;
+
+                case CharacterJobEnum.Athlete:
+                    AthelteAbility(Attacker);
+                    break;
+
+                case CharacterJobEnum.Goth:
+                    GothAbility(Attacker);
+                    break;
+
+                case CharacterJobEnum.Skater:
+                    SkaterAbility(Attacker);
+                    break;
+
+                case CharacterJobEnum.Procrastinator:
+                    ProcrastinatorAbility(Attacker);
+                    break;
+
+                case CharacterJobEnum.ClassClown:
+                    ClassClownAbility(Attacker);
+                    break;
+              
+            }
+            return base.UseAbility(Attacker) ;
+        }
+
+        /// <summary>
+        /// Trigger Nerd Ability
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool NerdAbility(PlayerInfoModel Attacker) 
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Trigger Athelte Ability
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool AthelteAbility(PlayerInfoModel Attacker)
+        {
+            return true;
+        }
+
+
+        /// <summary>
+        /// Trigger Goth Ability
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool GothAbility(PlayerInfoModel Attacker)
+        {
+            return true;
+        }
+
+
+        /// <summary>
+        /// Trigger Skater Ability
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool SkaterAbility(PlayerInfoModel Attacker)
+        {
+            return true;
+        }
+        
+        /// <summary>
+        /// Trigger Procrastinator Ability
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool ProcrastinatorAbility(PlayerInfoModel Attacker)
+        {
+            return true;
+        }
+
+
+        /// <summary>
+        /// Trigger Class Clown Ability
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool ClassClownAbility(PlayerInfoModel Attacker)
+        {
+            return true;
         }
 
         /// <summary>
