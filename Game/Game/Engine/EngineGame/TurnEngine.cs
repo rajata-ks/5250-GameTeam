@@ -38,6 +38,15 @@ namespace Game.Engine.EngineGame
         */
         #endregion Algrorithm
 
+        #region AbilityCost
+        const int NerdCost = 3;
+        const int AthleteCost = 3;
+        const int GothCost = 3;
+        const int SkaterCost = 3;
+        const int ProcrastinatorCost = 3;
+        const int ClassClownCost = 3;
+
+        #endregion AbilityCost
         // Hold the BaseEngine
         public new EngineSettingsModel EngineSettings = EngineSettingsModel.Instance;
 
@@ -53,6 +62,12 @@ namespace Game.Engine.EngineGame
             // INFO: Teams, if you have other actions they would go here.
 
             var result = false;
+
+            //Add 1 to ability counter
+            if(Attacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                Attacker.AbilityProgress += 1;
+            }
 
             // If the action is not set, then try to set it or use Attact
             if (EngineSettings.CurrentAction == ActionEnum.Unknown)
@@ -658,7 +673,15 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool NerdAbility(PlayerInfoModel Attacker) 
         {
+            //Ability not ready yet
+            if(Attacker.AbilityProgress != NerdCost)
+            {
+                //most likely have to put a battle message here
+                return false;
+            }
 
+            //Consume ability progress. Set to 0.
+            Attacker.AbilityProgress = 0;
             foreach (var monster in EngineSettings.MonsterList.ToList())
             {
                 if (monster.Alive)
@@ -676,9 +699,18 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool AthelteAbility(PlayerInfoModel Attacker)
         {
-            int statBonus = 3;
 
-            foreach(var character in EngineSettings.CharacterList.ToList())
+            int statBonus = 3;
+            //Ability not ready yet
+            if (Attacker.AbilityProgress != AthleteCost)
+            {
+                //most likely have to put a battle message here
+                return false;
+            }
+
+            //Consume ability progress. Set to 0.
+            Attacker.AbilityProgress = 0;
+            foreach (var character in EngineSettings.CharacterList.ToList())
             {
                 if(character.Alive)
                 {
@@ -697,6 +729,17 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool GothAbility(PlayerInfoModel Attacker)
         {
+
+            //Ability not ready yet
+            if (Attacker.AbilityProgress != GothCost)
+            {
+                //most likely have to put a battle message here
+                return false;
+            }
+
+            //Consume ability progress. Set to 0.
+            Attacker.AbilityProgress = 0;
+
             //Goth will lose 3/4 of current hp when triggering ability
             Attacker.CurrentHealth -= Attacker.CurrentHealth * 3 / 4;
             
@@ -719,7 +762,19 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool SkaterAbility(PlayerInfoModel Attacker)
         {
+
             int damageAmount = 20 + Attacker.Level;
+
+            //Ability not ready yet
+            if (Attacker.AbilityProgress != SkaterCost)
+            {
+                //most likely have to put a battle message here
+                return false;
+            }
+
+            //Consume ability progress. Set to 0.
+            Attacker.AbilityProgress = 0;
+
             //Kill all monsters on battlefield
             foreach (var monster in EngineSettings.MonsterList.ToList())
             {
@@ -742,6 +797,16 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool ProcrastinatorAbility(PlayerInfoModel Attacker)
         {
+            //Ability not ready yet
+            if (Attacker.AbilityProgress != ProcrastinatorCost)
+            {
+                //most likely have to put a battle message here
+                return false;
+            }
+
+            //Consume ability progress. Set to 0.
+            Attacker.AbilityProgress = 0;
+
             Attacker.BuffAttackValue = Attacker.Attack * 2;
             return true;
         }
@@ -755,6 +820,16 @@ namespace Game.Engine.EngineGame
         public bool ClassClownAbility(PlayerInfoModel Attacker)
         {
             int healAmount = 20 + Attacker.Level;
+            //Ability not ready yet
+            if (Attacker.AbilityProgress != ClassClownCost)
+            {
+                //most likely have to put a battle message here
+                return false;
+            }
+
+            //Consume ability progress. Set to 0.
+            Attacker.AbilityProgress = 0;
+
             foreach (var character in EngineSettings.CharacterList)
             {
                 //Only heal characters still in game
