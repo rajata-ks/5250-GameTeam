@@ -130,6 +130,8 @@ namespace Game.Models
         // The natural range for this Player, 1 is normal
         public int Range { get; set; } = 1;
 
+        //Count the number of turns, if ability is ready use. 
+        public int AbilityProgress { get; set; } = 0;
         // The Difficulty scale to use when creating examples
         public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
 
