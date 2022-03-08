@@ -658,6 +658,14 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool NerdAbility(PlayerInfoModel Attacker) 
         {
+
+            foreach (var monster in EngineSettings.MonsterList.ToList())
+            {
+                if (monster.Alive)
+                {
+                    monster.Defense = monster.Defense / 2;
+                }
+            }
             return true;
         }
 
