@@ -10,20 +10,17 @@
     <ScrollView
       Style="{StaticResource NeverScrollView}">
         <StackLayout>
-            <Grid
-                Style="{StaticResource CenterGrid}">
+           
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="400"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                
+                    <StackLayout  Style="{StaticResource HomePageCenterVerticalStack}"  >
 
-                <StackLayout Orientation="Horizontal">
-                    <StackLayout Style="{StaticResource CenterVerticalStack}" Grid.Column="2" Grid.Row="0">
-                        <Image Source="logo.png" Style="{StaticResource LogoImageLarge}" />
+                    <StackLayout Style="{StaticResource CenterHorizontalStack}" >
+
+                        <Image Source="logo.png" Style="{StaticResource LogoImageLarge}"  />
+                        </StackLayout>
+
+                   
                         <Label Text="Team OKAY" Style="{StaticResource CenterMessageStyle}"/>
                         <Label Text="Rajata Kumar Shankarling" Style="{StaticResource CenterMessageStyle}" />
                         <Label Text="Nichlos Ho" Style="{StaticResource CenterMessageStyle}"/>
@@ -31,8 +28,8 @@
                         <Label Text="Mateo Barrales Godino" Style="{StaticResource CenterMessageStyle}" />
                         <Label Text="Kora Burns" Style="{StaticResource CenterMessageStyle}"/>
                     </StackLayout>
-                </StackLayout>
-            </Grid>
+            
+ 
 
             <Label FormattedText="This game is made by the very passionate students of Seattle University in the Master's of science program.
                           The game is about high school girls who are stuck in a monster's zone where they will need to fight to survive and escape by the following morning before the evil catches them. If they fail, they will be forever stuck in the zone and lose the game. Are you up to the challenge?"
