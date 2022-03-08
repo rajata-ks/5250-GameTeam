@@ -153,6 +153,8 @@ namespace Game.Views
                 this.currentItem = CarouselCharacters.CurrentItem as CharacterModel;
                 if (!characterSet.Contains(this.currentItem))
                 {
+                    currentItem.PlayerType = PlayerTypeEnum.Character;
+                    currentItem.Job = CharacterJobEnum.Goth;
                     BattleEngineViewModel.Instance.PartyCharacterList.Add(currentItem);
                     characterSet.Add(this.currentItem);
                 }
