@@ -738,6 +738,16 @@ namespace Game.Views
                 setup = false;
             }
 
+            var attacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
+
+            if (attacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Ability;
+              
+                BattleEngineViewModel.Instance.Engine.Round.Turn.TakeTurn(attacker);
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            }
+
             PlayerTypeEnum postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
             do
             {
