@@ -1254,7 +1254,7 @@ namespace UnitTests.Engine.EngineGame
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Nerd });
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Nerd});
 
             Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
 
@@ -1264,14 +1264,14 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(false, result);
         }
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Athlete_1_Should_Pass()
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Athlete });
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Athlete});
 
             Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
 
@@ -1281,14 +1281,14 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(false, result);
         }
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Goth_1_Should_Pass()
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Goth });
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Goth});
 
             // Act
             var result = Engine.Round.Turn.UseAbility(characterPlayer);
@@ -1296,14 +1296,14 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(false, result);
         }
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Skater_1_Should_Pass()
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Skater });
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Skater});
 
             Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
 
@@ -1313,14 +1313,14 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(false, result);
         }
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Nerd_Return_5()
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Nerd, CurrentHealth = 10, MaxHealth = 15 });
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Nerd, AbilityProgress = 3, CurrentHealth = 10, MaxHealth = 15 });
             Engine.EngineSettings.CharacterList.Add(characterPlayer);
 
             var MonsterPlayer = new PlayerInfoModel(new MonsterModel { Name = "Li", Defense = 10 });
@@ -1334,8 +1334,25 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(5, MonsterPlayer.Defense);
         }
+
         [Test]
-        public void TurnEngine_UseAbility_Valid_Ability_Procrastinator_Return_10()
+        public void TurnEngine_UseAbility_Valid_Ability_ClassClown_Should_Fail()
+        {
+            // Arrange
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.ClassClown, Attack = 5, MaxHealth = 15 });
+            Engine.EngineSettings.CharacterList.Add(characterPlayer);
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Procrastinator_Should_Fail()
         {
             // Arrange
 
@@ -1348,14 +1365,31 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
+            Assert.AreEqual(false, result);
+        }
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Procrastinator_Return_10()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Procrastinator, AbilityProgress = 3, Attack = 5, MaxHealth = 15 });
+            Engine.EngineSettings.CharacterList.Add(characterPlayer);
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
             Assert.AreEqual(10, characterPlayer.BuffAttackValue);
         }
+
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Skater_Return_10()
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Skater, CurrentHealth = 10, MaxHealth = 15 });
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Skater, AbilityProgress = 3, CurrentHealth = 10, MaxHealth = 15 });
             Engine.EngineSettings.CharacterList.Add(characterPlayer);
 
             var MonsterPlayer = new PlayerInfoModel(new MonsterModel { Name = "Li", CurrentHealth = 31});
@@ -1375,7 +1409,7 @@ namespace UnitTests.Engine.EngineGame
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Skater, CurrentHealth = 10, MaxHealth = 15 });
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Skater, AbilityProgress = 3, CurrentHealth = 10, MaxHealth = 15 });
             Engine.EngineSettings.CharacterList.Add(characterPlayer);
 
             var MonsterPlayer = new PlayerInfoModel(new MonsterModel { Name = "Li", CurrentHealth = 1 });
@@ -1394,7 +1428,7 @@ namespace UnitTests.Engine.EngineGame
         public void TurnEngine_UseAbility_Valid_Ability_Athlete_Should_Increase_Speed_Defense_By_3()
         {
             // Arrange
-            var playerOne = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Athlete, Defense = 1, Speed = 1});
+            var playerOne = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Athlete, AbilityProgress = 3, Defense = 1, Speed = 1});
             var playerTwo = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.ClassClown, Defense = 1, Speed = 1 });
             Engine.EngineSettings.CharacterList.Add(playerOne);
             Engine.EngineSettings.CharacterList.Add(playerTwo);
@@ -1415,7 +1449,7 @@ namespace UnitTests.Engine.EngineGame
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Goth, CurrentHealth = 10, MaxHealth = 15});
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Goth, AbilityProgress = 3, CurrentHealth = 10, MaxHealth = 15});
             Engine.EngineSettings.CharacterList.Add(characterPlayer);
 
             var MonsterPlayer = new PlayerInfoModel(new MonsterModel { Name = "Li" });
@@ -1434,7 +1468,7 @@ namespace UnitTests.Engine.EngineGame
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.ClassClown, CurrentHealth = 1, MaxHealth = 5 });
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.ClassClown, AbilityProgress = 3, CurrentHealth = 1, MaxHealth = 5 });
             Engine.EngineSettings.CharacterList.Add(characterPlayer);
 
             // Act
@@ -1450,7 +1484,7 @@ namespace UnitTests.Engine.EngineGame
         {
             // Arrange
 
-            var playerOne = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.ClassClown, CurrentHealth = 1, MaxHealth = 100 });
+            var playerOne = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.ClassClown, AbilityProgress = 3, CurrentHealth = 1, MaxHealth = 100 });
             var playerTwo = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.ClassClown, CurrentHealth = 2, MaxHealth = 100 });
             Engine.EngineSettings.CharacterList.Add(playerOne);
             Engine.EngineSettings.CharacterList.Add(playerTwo);
