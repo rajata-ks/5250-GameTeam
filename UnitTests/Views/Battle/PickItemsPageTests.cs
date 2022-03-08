@@ -82,7 +82,7 @@ namespace UnitTests.Views
         {
             // Arrange
             // Act
-            var ret = page.GetItemToDisplay(null);
+            var ret = page.GetItemToDisplayPool(null);
 
             // Reset
 
@@ -97,7 +97,7 @@ namespace UnitTests.Views
             var item = new ItemModel();
             item.Id = string.Empty;
             // Act
-            var ret = page.GetItemToDisplay(item);
+            var ret = page.GetItemToDisplayPool(item);
 
             // Reset
 
@@ -112,7 +112,7 @@ namespace UnitTests.Views
             var item = new ItemModel();
 
             // Act
-            var ret = page.GetItemToDisplay(item);
+            var ret = page.GetItemToDisplayPool(item);
 
             // Reset
 
@@ -124,7 +124,7 @@ namespace UnitTests.Views
         public void PickItemsPage_Item_ShowPopup_Default_Should_Pass()
         {
             // Arrange
-            var item = page.GetItemToDisplay(new ItemModel());
+            var item = page.GetItemToDisplayPool(new ItemModel());
 
             // Act
             var itemButton = item.Children.FirstOrDefault(m => m.GetType().Name.Equals("ImageButton"));
@@ -142,7 +142,7 @@ namespace UnitTests.Views
         {
             // Arrange
             var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
-            var StackItem = page.GetItemToDisplay(item);
+            var StackItem = page.GetItemToDisplayPool(item);
             var dataImage = StackItem.Children[0];
 
             // Act
