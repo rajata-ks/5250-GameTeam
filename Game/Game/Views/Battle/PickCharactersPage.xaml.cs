@@ -155,8 +155,6 @@ namespace Game.Views
                 {
                     if (currentItem != null)
                     {
-                        currentItem.PlayerType = PlayerTypeEnum.Character;
-                        currentItem.Job = CharacterJobEnum.Goth;
                         BattleEngineViewModel.Instance.PartyCharacterList.Add(currentItem);
                         characterSet.Add(this.currentItem);
                     }
