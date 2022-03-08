@@ -189,6 +189,7 @@ namespace Game.Views
             var open = new PlayerInfoModel() { PlayerType = PlayerTypeEnum.openSpace };
             var empty = new PlayerInfoModel() { PlayerType = PlayerTypeEnum.Unknown };
 
+
             //set any open space to empty so that it can be re populated
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation)
             {
@@ -202,7 +203,7 @@ namespace Game.Views
             {
 
                 //set openspace
-                if (data.Player.PlayerType == PlayerTypeEnum.Character)
+                if (data.Player.PlayerType == PlayerTypeEnum.Character && BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Battling)
                 {
                     foreach (var openspace in BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation)
                     {
@@ -986,7 +987,7 @@ namespace Game.Views
         public async void StartButton_Clicked(object sender, EventArgs e)
         {
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
-
+            _ = UpdateMapGrid();
             ShowBattleMode();
             await Navigation.PushModalAsync(new NewRoundPage());
         }
