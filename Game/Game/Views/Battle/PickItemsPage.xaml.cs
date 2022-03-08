@@ -63,6 +63,9 @@ namespace Game.Views
             PlayerInfoModel data = characterList[e.SelectedItemIndex];
             currentCharacterIndex = e.SelectedItemIndex;
             CharacterImage.Source = data.ImageURI;
+            
+            AddItemsToDisplay();
+
         }
 
         /// <summary>
