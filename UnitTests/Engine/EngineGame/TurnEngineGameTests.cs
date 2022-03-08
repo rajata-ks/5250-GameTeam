@@ -1316,13 +1316,15 @@ namespace UnitTests.Engine.EngineGame
             Assert.AreEqual(true, result);
         }
         [Test]
-        public void TurnEngine_UseAbility_Valid_Ability_Procrastinator_1_Should_Pass()
+        public void TurnEngine_UseAbility_Valid_Ability_Skater_Return_10()
         {
             // Arrange
 
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Procrastinator });
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Skater, CurrentHealth = 10, MaxHealth = 15 });
+            Engine.EngineSettings.CharacterList.Add(characterPlayer);
 
-            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
+            var MonsterPlayer = new PlayerInfoModel(new MonsterModel { Name = "Li", CurrentHealth = 31});
+            Engine.EngineSettings.MonsterList.Add(MonsterPlayer);
 
             // Act
             var result = Engine.Round.Turn.UseAbility(characterPlayer);
@@ -1330,7 +1332,27 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(10, MonsterPlayer.CurrentHealth);
+        }
+
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Skater_Kill_Return_0()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Skater, CurrentHealth = 10, MaxHealth = 15 });
+            Engine.EngineSettings.CharacterList.Add(characterPlayer);
+
+            var MonsterPlayer = new PlayerInfoModel(new MonsterModel { Name = "Li", CurrentHealth = 1 });
+            Engine.EngineSettings.MonsterList.Add(MonsterPlayer);
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, Engine.EngineSettings.MonsterList.Count);
         }
 
         [Test]
