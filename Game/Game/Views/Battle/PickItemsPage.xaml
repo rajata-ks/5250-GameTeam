@@ -54,6 +54,9 @@
                 </ScrollView>
                 <StackLayout>
                     <Image x:Name="CharacterImage" Source="{Binding ImageURI}"/>
+                    <FlexLayout Style="{StaticResource ItemLayout}"
+                        x:Name="ItemBox">
+                    </FlexLayout>
                 </StackLayout>
                 <StackLayout>
                     <Label  x:Name="Test" Text="Items Found" Style="{StaticResource HeaderStyle}"/>
@@ -70,8 +73,70 @@
                 </StackLayout>
             </StackLayout>
 
+            <!--The Item Popup-->
+            <StackLayout x:Name="PopupItemSelector" 
+                 Style="{StaticResource PopupLoadingView}"
+                 AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
+                 AbsoluteLayout.LayoutFlags="All">
 
-        <!--The Item Popup-->
+                <StackLayout Style="{StaticResource PopupBox}">
+
+                    <Frame  Style="{StaticResource ItemFrame}">
+                        <StackLayout Style="{StaticResource VerticalStacks}" >
+                            <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupItemTextStyle}" />
+                            <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyle}" />
+
+                            <ListView x:Name="PopupLocationItemListView" 
+                                CachingStrategy="RecycleElement"
+                                ItemSelected="OnPopupItemSelected"
+                                Style="{StaticResource DefaultListView}">
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Style="{StaticResource IndexGrid}">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+
+                                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                            Source="{Binding ImageURI}"
+                                            Style="{StaticResource ImageSmallStyle}"/>
+
+                                                <Label Grid.Column="1" Grid.Row="0"
+                                            Text="{Binding Name}" 
+                                            Style="{StaticResource ListStyle}"/>
+
+                                                <StackLayout Grid.Column="1" Grid.Row="1" >
+                                                    <Label Text="{Binding Attribute}" Style="{StaticResource ListStyle}"/>
+                                                    <Label Text="{Binding Value}" Style="{StaticResource ListStyle}"/>
+                                                </StackLayout>
+
+                                                <Label Grid.Column="1" Grid.Row="2"
+                                                Text="{Binding Description}" 
+                                                Style="{StaticResource ListStyle}"/>
+
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <Button x:Name="PopupCloseButton" 
+                                Clicked="ClosePopup_Clicked" 
+                                Text="Close"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            
+        <!--The Pool Item Popup-->
         <StackLayout 
             x:Name="PopupPoolItem" 
             BackgroundColor="{StaticResource PageBackgroundColor}" 
@@ -105,8 +170,8 @@
                             <Label x:Name="PopupItemValue" Style="{StaticResource ValueStyle}" />
                         </StackLayout>
 
-                        <Button x:Name="PopupCloseButton" 
-                        Clicked="ClosePopup_Clicked" 
+                        <Button x:Name="PopupClosePoolButton" 
+                        Clicked="ClosePoolPopup_Clicked" 
                         Text="Close"/>
                     </StackLayout>
                 </Frame>
