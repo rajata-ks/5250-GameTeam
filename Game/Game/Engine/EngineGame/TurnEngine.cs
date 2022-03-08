@@ -39,12 +39,12 @@ namespace Game.Engine.EngineGame
         #endregion Algrorithm
 
         #region AbilityCost
-        const int NerdCost = 3;
-        const int AthleteCost = 3;
-        const int GothCost = 3;
-        const int SkaterCost = 3;
-        const int ProcrastinatorCost = 3;
-        const int ClassClownCost = 3;
+        const int NerdCost = 1;
+        const int AthleteCost = 1;
+        const int GothCost = 1;
+        const int SkaterCost = 1;
+        const int ProcrastinatorCost = 1;
+        const int ClassClownCost = 1;
 
         #endregion AbilityCost
         // Hold the BaseEngine
@@ -674,7 +674,7 @@ namespace Game.Engine.EngineGame
         public bool NerdAbility(PlayerInfoModel Attacker) 
         {
             //Ability not ready yet
-            if(Attacker.AbilityProgress != NerdCost)
+            if(Attacker.AbilityProgress > NerdCost)
             {
                 //most likely have to put a battle message here
                 return false;
@@ -702,7 +702,7 @@ namespace Game.Engine.EngineGame
 
             int statBonus = 3;
             //Ability not ready yet
-            if (Attacker.AbilityProgress != AthleteCost)
+            if (Attacker.AbilityProgress > AthleteCost)
             {
                 //most likely have to put a battle message here
                 return false;
@@ -731,7 +731,7 @@ namespace Game.Engine.EngineGame
         {
 
             //Ability not ready yet
-            if (Attacker.AbilityProgress != GothCost)
+            if (Attacker.AbilityProgress > GothCost)
             {
                 //most likely have to put a battle message here
                 return false;
@@ -742,7 +742,7 @@ namespace Game.Engine.EngineGame
 
             //Goth will lose 3/4 of current hp when triggering ability
             Attacker.CurrentHealth -= Attacker.CurrentHealth * 3 / 4;
-            
+
             //Kill all monsters on battlefield
             foreach(var monster in EngineSettings.MonsterList.ToList())
             {
@@ -766,7 +766,7 @@ namespace Game.Engine.EngineGame
             int damageAmount = 20 + Attacker.Level;
 
             //Ability not ready yet
-            if (Attacker.AbilityProgress != SkaterCost)
+            if (Attacker.AbilityProgress > SkaterCost)
             {
                 //most likely have to put a battle message here
                 return false;
@@ -798,7 +798,7 @@ namespace Game.Engine.EngineGame
         public bool ProcrastinatorAbility(PlayerInfoModel Attacker)
         {
             //Ability not ready yet
-            if (Attacker.AbilityProgress != ProcrastinatorCost)
+            if (Attacker.AbilityProgress > ProcrastinatorCost)
             {
                 //most likely have to put a battle message here
                 return false;
@@ -821,7 +821,7 @@ namespace Game.Engine.EngineGame
         {
             int healAmount = 20 + Attacker.Level;
             //Ability not ready yet
-            if (Attacker.AbilityProgress != ClassClownCost)
+            if (Attacker.AbilityProgress > ClassClownCost)
             {
                 //most likely have to put a battle message here
                 return false;
