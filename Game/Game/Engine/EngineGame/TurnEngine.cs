@@ -668,6 +668,16 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool AthelteAbility(PlayerInfoModel Attacker)
         {
+            int statBonus = 3;
+
+            foreach(var character in EngineSettings.CharacterList.ToList())
+            {
+                if(character.Alive)
+                {
+                    character.Speed += statBonus;
+                    character.Defense += statBonus;
+                }
+            }
             return true;
         }
 
