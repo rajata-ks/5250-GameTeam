@@ -711,6 +711,19 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool SkaterAbility(PlayerInfoModel Attacker)
         {
+            int damageAmount = 20 + Attacker.Level;
+            //Kill all monsters on battlefield
+            foreach (var monster in EngineSettings.MonsterList.ToList())
+            {
+                if (monster.Alive)
+                {
+                    monster.CurrentHealth -= damageAmount;
+                }
+                if(monster.CurrentHealth <= 0)
+                {
+                    TargetDied(monster);
+                }
+            }
             return true;
         }
         
