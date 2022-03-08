@@ -510,10 +510,28 @@ namespace Game.Views
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
             var currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
+            var curr = currentMover;
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(currentMover);
 
-            var location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(location, data);
+            if (currentMover.PlayerType == PlayerTypeEnum.Character)
+            {
+                var location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
+                BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(location, data);
 
+                var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
+            }
+            var count = 0;
+            do
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+                NextAction(ActionEnum.Unknown);
+                curr = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList();
+                count++;
+            } while (curr.PlayerType == PlayerTypeEnum.Monster && count < 6);
+
+            var test = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList().PlayerType;
+
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList());
             _ = UpdateMapGrid();
 
             return true;
@@ -674,10 +692,6 @@ namespace Game.Views
                 keepAutoMove = NextAction(action, setup);
                 postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
 
-                UpdateListView();
-                //Pause
-                //int milliseconds = 1000;
-                //    Thread.Sleep(milliseconds);
             } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
 
         }
@@ -712,10 +726,6 @@ namespace Game.Views
                 keepAutoMove = NextAction(action, setup);
                 postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
 
-                UpdateListView();
-                //Pause
-                //int milliseconds = 1000;
-                //    Thread.Sleep(milliseconds);
             } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
         }
 
@@ -759,10 +769,6 @@ namespace Game.Views
                 keepAutoMove = NextAction(action, setup);
                 postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
 
-                UpdateListView();
-                //Pause
-                //int milliseconds = 1000;
-                //    Thread.Sleep(milliseconds);
             } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
         }
 
@@ -784,18 +790,6 @@ namespace Game.Views
             }
 
             NextAction(action);
-
-        }
-
-        /// <summary>
-        /// get the current data and refresh the listviews
-        /// </summary>
-        public void UpdateListView()
-        {
-            //need to update the list so we can update the ability or hp bar
-
-            //MonsterListView.ItemsSource = BattleEngineViewModel.Instance.Engine.Round.PlayerList().Where(x => x.PlayerType == PlayerTypeEnum.Monster);
-            //CharactersListView.ItemsSource = BattleEngineViewModel.Instance.Engine.Round.PlayerList().Where(x => x.PlayerType == PlayerTypeEnum.Character);
 
         }
 
