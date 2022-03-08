@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using System.Collections.Generic;
 
 namespace Game.Views
 {
@@ -14,6 +14,8 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PickItemsPage : ContentPage
     {
+        //Parallel list used to get characters from list view.
+        public List<PlayerInfoModel> characterList;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -21,12 +23,30 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            //DrawCharacterList();
+            characterList = new List<PlayerInfoModel>();
+            
+            DrawCharacterList();
+            
             DrawDroppedItems();
         }
 
-      
 
+        /// <summary>
+        /// Populate the list with all the characters.
+        /// </summary>
+        public void DrawCharacterList()
+        {
+
+            foreach(PlayerInfoModel character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            {
+                characterList.Add(character);
+            }
+            PartyListView.ItemsSource = characterList;
+
+            //Display first character at the start
+            PlayerInfoModel data = characterList[0];
+            CharacterImage.Source = data.ImageURI;
+        }
 
         /// <summary>
         /// Add the Dropped Items to the Display
@@ -44,6 +64,13 @@ namespace Game.Views
             {
                 ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
             }
+        }
+
+        public void OnPartyCharacterSelected(object s, SelectedItemChangedEventArgs e)
+        {
+            Test.Text = e.SelectedItemIndex.ToString();
+            PlayerInfoModel data = characterList[e.SelectedItemIndex];
+            CharacterImage.Source = data.ImageURI;
         }
         /// <summary>
         /// Look up the Item to Display
