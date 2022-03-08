@@ -689,6 +689,7 @@ namespace Game.Engine.EngineGame
                     monster.Defense = monster.Defense / 2;
                 }
             }
+            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " uses her ability and cuts her enemies defense in half!";
             return true;
         }
 
@@ -718,6 +719,7 @@ namespace Game.Engine.EngineGame
                     character.BuffSpeedValue += statBonus;
                 }
             }
+            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " gives a moral boost and gives her team +" + statBonus + " to their defense and speed!";
             return true;
         }
 
@@ -751,6 +753,9 @@ namespace Game.Engine.EngineGame
                     TargetDied(monster);
                 }
             }
+
+            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " uses her ability Requiem and kills all monsters!";
+
             return true;
         }
 
@@ -787,6 +792,7 @@ namespace Game.Engine.EngineGame
                     TargetDied(monster);
                 }
             }
+            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " uses her ability Splash and deals " + damageAmount.ToString() + " to all monsters!"; 
             return true;
         }
         
@@ -808,6 +814,7 @@ namespace Game.Engine.EngineGame
             Attacker.AbilityProgress = 0;
 
             Attacker.BuffAttackValue = Attacker.Attack * 2;
+            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " uses her ability Steroid and buffs her attack by " + Attacker.BuffAttackValue.ToString() +"!";
             return true;
         }
 
@@ -845,6 +852,7 @@ namespace Game.Engine.EngineGame
                     character.CurrentHealth = character.MaxHealth;
                 }
             }
+            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " makes her team laugh and heals them for " + healAmount.ToString() + "!";
             return true;
         }
 
