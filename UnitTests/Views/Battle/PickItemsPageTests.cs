@@ -26,7 +26,8 @@ namespace UnitTests.Views
             //This is your App.xaml and App.xaml.cs, which can have resources, etc.
             app = new App();
             Application.Current = app;
-
+            var character = new PlayerInfoModel(new CharacterModel());
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(character);
             page = new PickItemsPage();
         }
 
