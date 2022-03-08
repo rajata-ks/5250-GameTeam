@@ -44,7 +44,7 @@ namespace Game.Models
             Attack = data.Attack;
             MaxHealth = data.MaxHealth;
             CurrentHealth = data.CurrentHealth;
-
+            AbilityProgress = data.AbilityProgress;
             ImageURI = data.ImageURI;
 
             // Set the strings for the items
@@ -86,7 +86,7 @@ namespace Game.Models
             Attack = data.Attack;
             MaxHealth = data.MaxHealth;
             CurrentHealth = data.CurrentHealth;
-
+            AbilityProgress = data.AbilityProgress;
             ImageURI = data.ImageURI;
 
             // Set the strings for the items
