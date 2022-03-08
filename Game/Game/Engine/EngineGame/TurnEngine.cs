@@ -682,8 +682,8 @@ namespace Game.Engine.EngineGame
             {
                 if(character.Alive)
                 {
-                    character.Speed += statBonus;
-                    character.Defense += statBonus;
+                    character.BuffDefenseValue += statBonus;
+                    character.BuffSpeedValue += statBonus;
                 }
             }
             return true;
@@ -742,6 +742,7 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public bool ProcrastinatorAbility(PlayerInfoModel Attacker)
         {
+            Attacker.BuffAttackValue = Attacker.Attack * 2;
             return true;
         }
 
