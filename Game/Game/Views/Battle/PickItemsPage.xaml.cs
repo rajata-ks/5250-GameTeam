@@ -48,6 +48,30 @@ namespace Game.Views
             CharacterImage.Source = data.ImageURI;
         }
 
+        public void OnPartyCharacterSelected(object s, SelectedItemChangedEventArgs e)
+        {
+            Test.Text = e.SelectedItemIndex.ToString();
+            PlayerInfoModel data = characterList[e.SelectedItemIndex];
+            CharacterImage.Source = data.ImageURI;
+        }
+
+        /// <summary>
+        /// Quit the Battle
+        /// 
+        /// Quitting out
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void CloseButton_Clicked(object sender, EventArgs e)
+        {
+            _ = await Navigation.PopModalAsync();
+        }
+
+        #region CharaterItems
+
+        #endregion CharacterItems
+
+        #region ItemPool
         /// <summary>
         /// Add the Dropped Items to the Display
         /// </summary>
@@ -62,22 +86,16 @@ namespace Game.Views
 
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
             {
-                ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
+                ItemListFoundFrame.Children.Add(GetItemToDisplayPool(data));
             }
         }
 
-        public void OnPartyCharacterSelected(object s, SelectedItemChangedEventArgs e)
-        {
-            Test.Text = e.SelectedItemIndex.ToString();
-            PlayerInfoModel data = characterList[e.SelectedItemIndex];
-            CharacterImage.Source = data.ImageURI;
-        }
         /// <summary>
         /// Look up the Item to Display
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public StackLayout GetItemToDisplay(ItemModel item)
+        public StackLayout GetItemToDisplayPool(ItemModel item)
         {
             if (item == null)
             {
@@ -112,7 +130,7 @@ namespace Game.Views
             if (ClickableButton)
             {
                 // Add a event to the user can click the item and see more
-                ItemButton.Clicked += (sender, args) => ShowPopup(data);
+                ItemButton.Clicked += (sender, args) => ShowPoolPopup(data);
             }
 
             // Put the Image Button and Text inside a layout
@@ -133,9 +151,9 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool ShowPopup(ItemModel data)
+        public bool ShowPoolPopup(ItemModel data)
         {
-            PopupLoadingView.IsVisible = true;
+            PopupPoolItem.IsVisible = true;
             PopupItemImage.Source = data.ImageURI;
 
             PopupItemName.Text = data.Name;
@@ -153,21 +171,8 @@ namespace Game.Views
         /// <param name="e"></param>
         public void ClosePopup_Clicked(object sender, EventArgs e)
         {
-            PopupLoadingView.IsVisible = false;
+            PopupPoolItem.IsVisible = false;
         }
-
-        /// <summary>
-        /// Quit the Battle
-        /// 
-        /// Quitting out
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void CloseButton_Clicked(object sender, EventArgs e)
-        {
-            _ = await Navigation.PopModalAsync();
-        }
-
-
+        #endregion ItemPool
     }
 }
