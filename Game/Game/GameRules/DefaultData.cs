@@ -301,6 +301,8 @@ namespace Game.GameRules
             {
                 new CharacterModel {
                     Name = "Nerd",
+                    Job = CharacterJobEnum.Nerd,
+                    PlayerType = PlayerTypeEnum.Character,
                     Description = " A geek girl",
                     Level = 1,
                     MaxHealth = 5,
@@ -317,6 +319,8 @@ namespace Game.GameRules
 
                 new CharacterModel {
                     Name = "Athlete",
+                    Job = CharacterJobEnum.Athlete,
+                    PlayerType = PlayerTypeEnum.Character,
                     Description = "Not a runner? Now you are..",
                     Level = 1,
                     MaxHealth = 5,
@@ -333,6 +337,8 @@ namespace Game.GameRules
 
                 new CharacterModel {
                     Name = "Goth",
+                    Job = CharacterJobEnum.Goth,
+                    PlayerType = PlayerTypeEnum.Character,
                     Description = "Don't get in my way",
                     Level = 1,
                     MaxHealth = 8,
@@ -349,17 +355,21 @@ namespace Game.GameRules
 
                 new CharacterModel {
                     Name = "Skater",
+                    Job = CharacterJobEnum.Skater,
+                    PlayerType = PlayerTypeEnum.Character,
                     Description = "I still got a lot of shoes left",
                     Level = 4,
-                     Speed=1,
+                    Speed=1,
                     MaxHealth = 38,
                     ImageURI = "skater.png"
                 },
 
                 new CharacterModel {
                     Name = "Procastinator",
+                    Job = CharacterJobEnum.Procrastinator,
+                    PlayerType = PlayerTypeEnum.Character,
                     Description = "Come and get me",
-                      Speed=5,
+                     Speed=5,
                     Level = 5,
                     MaxHealth = 43,
                     ImageURI = "procrastinator.png"
@@ -367,6 +377,8 @@ namespace Game.GameRules
 
                 new CharacterModel {
                     Name = "Class Clown",
+                    Job = CharacterJobEnum.ClassClown,
+                    PlayerType = PlayerTypeEnum.Character,
                     Description = "You dont fear me ? then you'll die braver than most!",
                     Level = 5,
                     Speed=6,
