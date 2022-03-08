@@ -1335,6 +1335,22 @@ namespace UnitTests.Engine.EngineGame
             Assert.AreEqual(5, MonsterPlayer.Defense);
         }
         [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Procrastinator_Return_10()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Procrastinator, Attack = 5, MaxHealth = 15 });
+            Engine.EngineSettings.CharacterList.Add(characterPlayer);
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(10, characterPlayer.BuffAttackValue);
+        }
+        [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Skater_Return_10()
         {
             // Arrange
@@ -1388,10 +1404,10 @@ namespace UnitTests.Engine.EngineGame
             // Reset
 
             // Assert
-            Assert.AreEqual(4, playerOne.Speed);
-            Assert.AreEqual(4, playerOne.Defense);
-            Assert.AreEqual(4, playerTwo.Speed);
-            Assert.AreEqual(4, playerTwo.Defense);
+            Assert.AreEqual(3, playerOne.BuffSpeedValue);
+            Assert.AreEqual(3, playerOne.BuffDefenseValue);
+            Assert.AreEqual(3, playerTwo.BuffSpeedValue);
+            Assert.AreEqual(3, playerTwo.BuffDefenseValue);
         }
 
         [Test]
