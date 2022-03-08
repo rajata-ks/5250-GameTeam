@@ -1316,6 +1316,25 @@ namespace UnitTests.Engine.EngineGame
             Assert.AreEqual(true, result);
         }
         [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Nerd_Return_5()
+        {
+            // Arrange
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Name = "Brad", Job = CharacterJobEnum.Nerd, CurrentHealth = 10, MaxHealth = 15 });
+            Engine.EngineSettings.CharacterList.Add(characterPlayer);
+
+            var MonsterPlayer = new PlayerInfoModel(new MonsterModel { Name = "Li", Defense = 10 });
+            Engine.EngineSettings.MonsterList.Add(MonsterPlayer);
+
+            // Act
+            var result = Engine.Round.Turn.UseAbility(characterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(5, MonsterPlayer.Defense);
+        }
+        [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Skater_Return_10()
         {
             // Arrange
