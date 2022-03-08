@@ -1146,7 +1146,7 @@ namespace Game.Views
         public bool TimerStateOn;
 
         // The time interval for checking sync state in miliseconds
-        public int TimerDuration = 50000;   // 5 minutes
+        public int TimerDuration = 100000;   // 5 minutes
 
         // Holds the time when the game needs to end
         public DateTime TimerEndTime;
@@ -1165,7 +1165,7 @@ namespace Game.Views
         {
             TimerStateOn = true;
             IsEnableTimer = true;
-            TimerDuration = 50000;
+            TimerDuration = 100000;
             TimerEndTime = DateTime.Now.AddMilliseconds(TimerDuration);
             StartTimerEvent();
             return true;
