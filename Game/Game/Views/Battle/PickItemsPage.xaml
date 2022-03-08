@@ -16,32 +16,60 @@
                 <ScrollView x:Name="ScrollView">
 
                     <StackLayout Style="{StaticResource VerticalStack}">
+                        <Label Text="Party" Style="{StaticResource CenterMessageStyle}"/>
+                        <Grid Style="{StaticResource CarouselViewGrid}">
 
-                        <Frame Style="{StaticResource UpdateFrame}">
-                            <Image x:Name="CharacterImage" Source="" Style="{StaticResource ImageLargeStyleCenter}"/>
-                        </Frame>
+                            <RelativeLayout Grid.Row="0" 
+							Style="{StaticResource CarouselRealativeStyle}">
+                                <ListView 
+                                x:Name="PartyListView" 
+                                Style="{StaticResource PartyListView}" 
+                                ItemSelected="OnPartyCharacterSelected"
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"   CachingStrategy="RecycleElement" >
 
-                        <Label Text="Characters" Style="{StaticResource HeaderStyle}"/>
-                        <FlexLayout x:Name="CharacterListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <ContentView Style="{StaticResource ContentView}" >
+                                                    <StackLayout HeightRequest="100" 
+												 WidthRequest="200">
 
+                                                        <Frame Style="{StaticResource PartyListFrame}" >
+                                                            <Image  
+                                                    Source="{Binding ImageURI}"
+                                                    Style="{StaticResource ImageMediumStyle}"/>
+                                                        </Frame>
+                                                    </StackLayout>
+                                                </ContentView>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </RelativeLayout>
+                        </Grid>
                     </StackLayout>
                 </ScrollView>
-
-                <Label Text="Items Found" Style="{StaticResource HeaderStyle}"/>
-                <FlexLayout x:Name="ItemListFoundFrame"
+                <StackLayout>
+                    <Image x:Name="CharacterImage" Source="{Binding ImageURI}"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label  x:Name="Test" Text="Items Found" Style="{StaticResource HeaderStyle}"/>
+                    <FlexLayout x:Name="ItemListFoundFrame"
                                     JustifyContent="Start"
                                     AlignContent="Start"
                                     Wrap="Wrap"/>
-            </StackLayout>
-            
-            <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Pick Items Page..."></Label>
+                </StackLayout>
 
-            <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
-        </StackLayout>
+                <StackLayout Style="{StaticResource VerticalStack}">
+                    <Label Text="Pick Items Page..."></Label>
+
+                    <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
+                </StackLayout>
+            </StackLayout>
+
 
         <!--The Item Popup-->
         <StackLayout 
