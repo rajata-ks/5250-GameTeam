@@ -1332,6 +1332,27 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Ability_Athlete_Should_Increase_Speed_Defense_By_3()
+        {
+            // Arrange
+            var playerOne = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Athlete, Defense = 1, Speed = 1});
+            var playerTwo = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.ClassClown, Defense = 1, Speed = 1 });
+            Engine.EngineSettings.CharacterList.Add(playerOne);
+            Engine.EngineSettings.CharacterList.Add(playerTwo);
+            // Act
+            var result = Engine.Round.Turn.UseAbility(playerOne);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(4, playerOne.Speed);
+            Assert.AreEqual(4, playerOne.Defense);
+            Assert.AreEqual(4, playerTwo.Speed);
+            Assert.AreEqual(4, playerTwo.Defense);
+        }
+
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Goth_Kill_Return_No_Monsters()
         {
