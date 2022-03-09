@@ -19,6 +19,8 @@ namespace Game.Views
     {
         private int value;
 
+      
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -54,16 +56,16 @@ namespace Game.Views
         public void DrawMonsterList()
         {
             // Clear and Populate the Characters Remaining
-            var FlexList = CharacterListFrame.Children.ToList();
-            foreach (var data in FlexList)
+           
+            foreach (var data in CharacterBox.Children.ToList())
             {
-                _ = MonsterListFrame.Children.Remove(data);
+                _ = MonsterBox.Children.Remove(data);
             }
 
             // Draw the Characters
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterModelDeathList)
             {
-                MonsterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                MonsterBox.Children.Add(CreatePlayerDisplayBox(data));
             }
         }
 
@@ -154,16 +156,16 @@ namespace Game.Views
         public void DrawCharacterList()
         {
             // Clear and Populate the Characters Remaining
-            var FlexList = CharacterListFrame.Children.ToList();
+            var FlexList = CharacterBox.Children.ToList();
             foreach (var data in FlexList)
             {
-                _ = CharacterListFrame.Children.Remove(data);
+                _ = CharacterBox.Children.Remove(data);
             }
 
             // Draw the Characters
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
             {
-                CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                CharacterBox.Children.Add(CreatePlayerDisplayBox(data));
             }
         }
 
@@ -347,8 +349,7 @@ namespace Game.Views
                 Children = {
                     PlayerImage,
                     PlayerNameLabel,
-                    PlayerLevelLabel,
-                    PlayerHPLabel,
+                    
                 },
             };
 
