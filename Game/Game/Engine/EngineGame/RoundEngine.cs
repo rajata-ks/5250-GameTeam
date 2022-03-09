@@ -427,6 +427,38 @@ namespace Game.Engine.EngineGame
         }
 
         /// <summary>
+        /// Swap the Item the character has for one from the dropped items 
+        /// 
+        /// 
+        /// 
+        /// </summary>
+        /// <param name="character"></param>
+        /// <param name="setLocation"></param>
+        /// <param name="PoolItem"></param>
+        /// <returns></returns>
+        public virtual ItemModel SwapCharacterItemWithDroppedItem(PlayerInfoModel character, ItemLocationEnum setLocation, ItemModel PoolItem)
+        {
+            // Put on the new ItemModel, which drops the one back to the pool
+            var droppedItem = character.AddItem(setLocation, PoolItem.Id);
+
+            // Add the PoolItem to the list of selected items
+            EngineSettings.BattleScore.ItemModelSelectList.Add(PoolItem);
+
+            // Remove the ItemModel just put on from the pool
+            _ = EngineSettings.BattleScore.ItemModelDropList.Remove(PoolItem);
+
+            if (droppedItem != null)
+            {
+                // Add the dropped ItemModel to the pool
+                EngineSettings.ItemPool.Add(droppedItem);
+            }
+
+            return droppedItem;
+        }
+
+
+
+        /// <summary>
         /// For all characters in player list, remove their buffs
         /// </summary>
         /// <returns></returns>

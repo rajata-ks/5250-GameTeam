@@ -13,7 +13,7 @@ namespace Game.Engine.EngineInterfaces
         int AddMonstersToRound();
         bool EndRound();
         bool PickupItemsForAllCharacters();
-
+        bool PickupDroppedItemsForAllCharacters();
         bool SetCurrentAttacker(PlayerInfoModel player);
         bool SetCurrentDefender(PlayerInfoModel player);
 
