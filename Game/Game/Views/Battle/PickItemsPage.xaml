@@ -13,12 +13,9 @@
                     AbsoluteLayout.LayoutBounds="1,1,1,1" 
                     AbsoluteLayout.LayoutFlags="All">
 
-                <ScrollView x:Name="ScrollView">
-
+                <ScrollView>
                     <StackLayout Style="{StaticResource VerticalStack}">
-                        <Label Text="Party" Style="{StaticResource CenterMessageStyle}"/>
                         <Grid Style="{StaticResource CarouselViewGrid}">
-
                             <RelativeLayout Grid.Row="0" 
 							Style="{StaticResource CarouselRealativeStyle}">
                                 <ListView 
@@ -35,7 +32,7 @@
                                             <ViewCell>
                                                 <ContentView Style="{StaticResource ContentView}" >
                                                     <StackLayout HeightRequest="100" 
-												 WidthRequest="200">
+												 WidthRequest="100">
 
                                                         <Frame Style="{StaticResource PartyListFrame}" >
                                                             <Image  
@@ -52,11 +49,19 @@
                         </Grid>
                     </StackLayout>
                 </ScrollView>
-                <StackLayout>
-                    <Image x:Name="CharacterImage" Source="{Binding ImageURI}"/>
+                <StackLayout Style="{StaticResource HorizontalStack}" Margin="0,0,0,0">
                     <FlexLayout Style="{StaticResource ItemLayout}"
-                        x:Name="ItemBox">
+                        x:Name="ItemLeftBox">
                     </FlexLayout>
+                    <Frame Margin="0,70,0,0" HeightRequest="500" WidthRequest="500">
+                        <Image x:Name="CharacterImage" Source="{Binding ImageURI}"/>
+                    </Frame>
+                    <StackLayout  Margin="0,70,0,0">
+                        <FlexLayout Style="{StaticResource ItemLayout}"
+                        x:Name="ItemRightBox">
+                        </FlexLayout>
+                    </StackLayout>
+
 
                 </StackLayout>
                 <StackLayout>
@@ -83,6 +88,7 @@
                     </Frame>
                 </StackLayout>
             </StackLayout>
+            
             <!--The Item Popup-->
             <StackLayout x:Name="PopupItemSelector" 
                  Style="{StaticResource PopupLoadingView}"
