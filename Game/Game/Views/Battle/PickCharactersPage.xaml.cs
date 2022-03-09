@@ -77,6 +77,8 @@ namespace Game.Views
             // Remove the character from the list
             _ = BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
 
+            //Remove from set
+            characterSet.Remove(data);
             UpdateNextButtonState();
         }
 
