@@ -193,19 +193,26 @@ namespace Game.Views
         /// </summary>
         public void AddItemsToDisplay()
         {
-            var FlexList = ItemBox.Children.ToList();
+            var FlexList = ItemRightBox.Children.ToList();
             foreach (var data in FlexList)
             {
-                _ = ItemBox.Children.Remove(data);
+                _ = ItemRightBox.Children.Remove(data);
+            }
+            
+            var FlexList2 = ItemLeftBox.Children.ToList();
+            foreach (var data in FlexList2)
+            {
+                _ = ItemLeftBox.Children.Remove(data);
             }
 
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Necklass));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.PrimaryHand));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.OffHand));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.RightFinger));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.LeftFinger));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Feet));
+            ItemLeftBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
+            ItemLeftBox.Children.Add(GetItemToDisplay(ItemLocationEnum.OffHand));
+            ItemLeftBox.Children.Add(GetItemToDisplay(ItemLocationEnum.RightFinger));
+            ItemLeftBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Feet));
+            ItemRightBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Necklass));
+            ItemRightBox.Children.Add(GetItemToDisplay(ItemLocationEnum.PrimaryHand));
+            ItemRightBox.Children.Add(GetItemToDisplay(ItemLocationEnum.LeftFinger));
+
         }
 
         /// <summary>
