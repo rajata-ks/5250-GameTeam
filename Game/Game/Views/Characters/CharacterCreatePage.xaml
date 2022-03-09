@@ -77,9 +77,7 @@
                                    x:Name="ImageLabel"/>
 
                             <StackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource ImageLayout}">
-                                <Image 
-                                    Source="{Binding Data.ImageURI, Mode=TwoWay}"
-                                    Style="{StaticResource ImageSmallStyle}"/>
+                            
                                 <Entry 
                                     Style="{StaticResource ImageEntry}"
                                     x:Name="ImageEntry"
