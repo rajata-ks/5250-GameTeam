@@ -132,6 +132,13 @@ namespace Game.Models
 
         //Count the number of turns, if ability is ready use. 
         public int AbilityProgress { get; set; } = 0;
+
+        //Used for battle UI.
+        public float HealthPercent { get; set; } = 1;
+
+        //Used for battle UI to track ability
+        public float AbilityPercent { get; set; } = 1;
+
         // The Difficulty scale to use when creating examples
         public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
 
