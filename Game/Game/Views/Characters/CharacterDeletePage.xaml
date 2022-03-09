@@ -22,7 +22,7 @@
 
             <StackLayout Style="{StaticResource VerticalCenterStack}"  Grid.Row="0" Grid.ColumnSpan="2" >
 
-                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargestStyle}"/>
                 <StackLayout Style="{StaticResource HorizontalCenterStack}" Grid.Row="0" Grid.ColumnSpan="2">
                     <Label 
                    Text="Name : " 
