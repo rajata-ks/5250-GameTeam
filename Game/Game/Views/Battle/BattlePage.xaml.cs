@@ -253,27 +253,46 @@ namespace Game.Views
                 }
             }
 
+            return true;
+        }
 
+        public void UpdateCharacterMonsterUI()
+        {
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Count <= 0)
+            {
+                return;
+            }
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Count <= 0)
+            {
+                return;
+            }
             //Update Characters
             CharactersListView.ItemsSource = null;
             List<object> characterList = new List<object>();
-            foreach(var character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            foreach (var character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
             {
-                characterList.Add(character);
+                if (character.MaxHealth > 0)
+                {
+                    character.HealthPercent = (float)((float)character.CurrentHealth / character.MaxHealth);
+                    character.AbilityPercent = (float)((float)character.AbilityProgress / 3);
+                    characterList.Add(character);
+                }
             }
             CharactersListView.ItemsSource = characterList;
 
             //Update Monsters
             MonsterListView.ItemsSource = null;
             List<object> monsterList = new List<object>();
-            foreach(var monster in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
+            foreach (var monster in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
             {
-                monsterList.Add(monster);
+                if (monster.MaxHealth > 0)
+                {
+                    monster.HealthPercent = monster.CurrentHealth / monster.MaxHealth;
+                    monsterList.Add(monster);
+                }
             }
             MonsterListView.ItemsSource = monsterList;
-            return true;
         }
-
         /// <summary>
         /// Convert the Stack to a name for the dictionary to lookup
         /// </summary>
@@ -617,7 +636,7 @@ namespace Game.Views
 
             // Draw the Map
             _ = UpdateMapGrid();
-
+            //UpdateCharacterMonsterUI();
             // Show the Attacker and Defender
             //DrawGameBoardAttackerDefenderSection();
         }
@@ -713,7 +732,7 @@ namespace Game.Views
                 postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
 
             } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
-
+            UpdateCharacterMonsterUI();
         }
 
         /// <summary>
@@ -747,6 +766,7 @@ namespace Game.Views
                 postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
 
             } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
+            UpdateCharacterMonsterUI();
         }
 
         /// <summary>
@@ -790,6 +810,7 @@ namespace Game.Views
                 postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
 
             } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
+            UpdateCharacterMonsterUI();
         }
 
         /// <summary>
@@ -810,7 +831,7 @@ namespace Game.Views
             }
 
             NextAction(action);
-
+            UpdateCharacterMonsterUI();
         }
 
         /// <summary>
