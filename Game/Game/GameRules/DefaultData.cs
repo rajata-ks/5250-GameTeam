@@ -28,7 +28,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = "Books",
                     Description = "Big and Heavy",
-                    ImageURI = "pen.png",
+                    ImageURI = "item_book.PNG",
                     Range = 0,
                     Damage = 8,
                     Value = 9,
@@ -38,7 +38,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = "Duster",
                     Description = "Sweep em out",
-                    ImageURI = "pen.png",
+                    ImageURI = "item_duster.png",
                     Range = 0,
                     Damage = 6,
                     Value = 9,
@@ -48,7 +48,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = "School Bag",
                     Description = "A useful weapon",
-                    ImageURI = "pen.png",
+                    ImageURI = "item_bag_rough.png",
                     Range = 0,
                     Damage = 12,
                     Value = 9,
@@ -58,7 +58,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = "Shoes",
                     Description = "Run fast",
-                    ImageURI = "pen.png",
+                    ImageURI = "item_shoe_koradupe_filler.png",
                     Range = 0,
                     Damage = 4,
                     Value = 9,
@@ -68,7 +68,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = "Lunch Box",
                     Description = "Handy and a weapon",
-                    ImageURI = "pen.png",
+                    ImageURI = "item_lunchbag_rough.png",
                     Range = 0,
                     Damage = 6,
                     Value = 9,
@@ -76,6 +76,26 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Speed},
 
                 new ItemModel {
+                    Name = "Desk",
+                    Description = "How did you pick that up?",
+                    ImageURI = "item_desk_fillersketch.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 9,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                new ItemModel {
+                    Name = "Chair",
+                    Description = "Please don't throw that!",
+                    ImageURI = "item_chair_fillersketch.png",
+                    Range = 0,
+                    Damage = 6,
+                    Value = 9,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack},
+
+                 new ItemModel {
                     Name = "Water Bottle",
                     Description = "Feeling Good",
                     ImageURI = "pen.png",
@@ -86,29 +106,9 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.CurrentHealth},
 
                 new ItemModel {
-                    Name = "Desk",
-                    Description = "How did you pick that up?",
-                    ImageURI = "pen.png",
-                    Range = 10,
-                    Damage = 10,
-                    Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
-                    Name = "Chair",
-                    Description = "Please don't throw that!",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 6,
-                    Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
                     Name = "Chalk",
                     Description = "Useless as hell",
-                    ImageURI = "pen.png",
+                    ImageURI = "item_chalk_rough.png",
                     Range = 10,
                     Damage = 10,
                     Value = 9,

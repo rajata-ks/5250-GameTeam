@@ -168,6 +168,15 @@
     <Content Include="icon_save.png" />
     <Content Include="item.png" />
     <Content Include="items.png" />
+    <Content Include="item_bag_rough.png" />
+    <Content Include="item_book.PNG" />
+    <Content Include="item_chair_fillersketch.png" />
+    <Content Include="item_chalk_rough.PNG" />
+    <Content Include="item_desk_fillersketch.png" />
+    <Content Include="item_duster.PNG" />
+    <Content Include="item_lunchbag_rough.PNG" />
+    <Content Include="item_pen1_sketch.png" />
+    <Content Include="item_shoe_koradupe_filler.png" />
     <Content Include="knight.png" />
     <Content Include="leftarrow.png" />
     <Content Include="logo.png" />

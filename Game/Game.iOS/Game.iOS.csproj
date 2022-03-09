@@ -370,4 +370,31 @@
   <ItemGroup>
     <BundleResource Include="Resources\procrastinator.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_duster.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_chair_fillersketch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_book.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_bag_rough.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_shoe_koradupe_filler.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_pen1_sketch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_lunchbag_rough.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_desk_fillersketch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_chalk_rough.PNG" />
+  </ItemGroup>
 </Project>
