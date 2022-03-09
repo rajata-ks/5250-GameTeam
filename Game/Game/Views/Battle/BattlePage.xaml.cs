@@ -559,18 +559,17 @@ namespace Game.Views
 
                 var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
             }
-            var count = 0;
-            do
-            {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
-                NextAction(ActionEnum.Unknown);
-                curr = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList();
-                count++;
-            } while (curr.PlayerType == PlayerTypeEnum.Monster && count < 6);
+
+            //do
+            //{
+            //    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            //    NextAction(ActionEnum.Unknown);
+            //    curr = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList();
+            //} while (curr.PlayerType == PlayerTypeEnum.Monster);
 
             var test = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList().PlayerType;
 
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList());
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList());
             _ = UpdateMapGrid();
 
             return true;
