@@ -15,6 +15,8 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShowMonstersPage : ContentPage
     {
+        //bool check for modal after push
+        private bool ReturnedFromModalPage = false;
 
         // This uses the Instance so it can be shared with other Battle Pages as needed
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
@@ -38,10 +40,27 @@ namespace Game.Views
         public async void BattleButton_Clicked(object sender, EventArgs e)
         {
 
-            await Navigation.PushModalAsync(new BattlePage());
+            //await Navigation.PushModalAsync(new BattlePage());
+
+            ReturnedFromModalPage = false;
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+            ReturnedFromModalPage = true;
         }
 
 
+        /// <summary>
+        /// the on appearing method to handel push
+        /// </summary>
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (ReturnedFromModalPage)
+            {
+                ReturnedFromModalPage = false;
+                _ = await Navigation.PopModalAsync();
+            }
+        }
 
 
     }
