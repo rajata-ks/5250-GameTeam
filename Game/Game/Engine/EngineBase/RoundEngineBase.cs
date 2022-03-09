@@ -473,6 +473,39 @@ namespace Game.Engine.EngineBase
             return droppedItem;
         }
 
+
+        /// <summary>
+        /// Swap the Item the character has for one from the dropped items
+        /// 
+        ///
+        /// 
+        /// </summary>
+        /// <param name="character"></param>
+        /// <param name="setLocation"></param>
+        /// <param name="PoolItem"></param>
+        /// <returns></returns>
+        public virtual ItemModel SwapCharacterItemWithDroppedItem(PlayerInfoModel character, ItemLocationEnum setLocation, ItemModel PoolItem)
+        {
+            // Put on the new ItemModel, which drops the one back to the pool
+            var droppedItem = character.AddItem(setLocation, PoolItem.Id);
+
+            // Add the PoolItem to the list of selected items
+            EngineSettings.BattleScore.ItemModelSelectList.Add(PoolItem);
+
+            // Remove the ItemModel just put on from the pool
+            _ = EngineSettings.BattleScore.ItemModelDropList.Remove(PoolItem);
+
+            if (droppedItem != null)
+            {
+                // Add the dropped ItemModel to the pool
+                EngineSettings.ItemPool.Add(droppedItem);
+            }
+
+            return droppedItem;
+        }
+
+
+
         /// <summary>
         /// For all characters in player list, remove their buffs
         /// </summary>
@@ -488,6 +521,73 @@ namespace Game.Engine.EngineBase
             {
                 _ = data.ClearBuffs();
             }
+            return true;
+        }
+
+
+        /// <summary>
+        /// For all characters pick up dropped items 
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool PickupDroppedItemsForAllCharacters()
+        {
+            foreach (var character in EngineSettings.CharacterList)
+            {
+                _ = PickupItemsFromDroppedItems(character);
+            }
+            return true;
+        }
+
+        private bool PickupItemsFromDroppedItems(PlayerInfoModel character)
+        {
+
+            _ = GetItemFromDroppedListIfBetter(character, ItemLocationEnum.Head);
+            _ = GetItemFromDroppedListIfBetter(character, ItemLocationEnum.Necklass);
+            _ = GetItemFromDroppedListIfBetter(character, ItemLocationEnum.PrimaryHand);
+            _ = GetItemFromDroppedListIfBetter(character, ItemLocationEnum.OffHand);
+            //_ = GetItemFromDroppedListIfBetter(character, ItemLocationEnum.Finger);
+            _ = GetItemFromDroppedListIfBetter(character, ItemLocationEnum.Feet);
+            return true;
+        }
+        public bool GetItemFromDroppedListIfBetter(PlayerInfoModel character, ItemLocationEnum setLocation)
+        {
+            var thisLocation = setLocation;
+            if (setLocation == ItemLocationEnum.RightFinger)
+            {
+                thisLocation = ItemLocationEnum.Finger;
+            }
+
+            if (setLocation == ItemLocationEnum.LeftFinger)
+            {
+                thisLocation = ItemLocationEnum.Finger;
+            }
+
+            var myList = EngineSettings.BattleScore.ItemModelDropList.Where(a => a.Location == thisLocation)
+                .OrderByDescending(a => a.Value)
+                .ToList();
+
+            // If no items in the list, return...
+            if (!myList.Any())
+            {
+                return false;
+            }
+
+            var CharacterItem = character.GetItemByLocation(setLocation);
+            if (CharacterItem == null)
+            {
+                _ = SwapCharacterItemWithDroppedItem(character, setLocation, myList.FirstOrDefault());
+                return true;
+            }
+
+            foreach (var PoolItem in myList)
+            {
+                if (PoolItem.Value >= CharacterItem.Value)
+                {
+                    _ = SwapCharacterItemWithDroppedItem(character, setLocation, PoolItem);
+                    return true;
+                }
+            }
+
             return true;
         }
     }
