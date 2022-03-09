@@ -10,6 +10,7 @@
         <ResourceDictionary>
 
             <!--Global Styles-->
+            
 
             <!--Colors -->
 
@@ -46,6 +47,7 @@
                     <x:Double>0.75</x:Double>
                 </x:Arguments>
             </Color>
+            
 
             <!-- Battle Map Colors for Backgrounds -->
             <Color x:Key="BattleMapTransparentColor">Transparent</Color>
@@ -159,6 +161,8 @@
                 BasedOn="{StaticResource LabelBaseStyle}">
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            <Setter Property="HeightRequest" Value="100" />
             </Style>
 
 
@@ -714,6 +718,13 @@
                 x:Key="BoxStyle"
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="100" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="RoundBoxStyle"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="HeightRequest" Value="100" />
             </Style>
 
