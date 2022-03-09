@@ -791,18 +791,20 @@ namespace Game.Engine.EngineGame
             //Consume ability progress. Set to 0.
             Attacker.AbilityProgress = 0;
 
-            for(int i = 0; i < EngineSettings.MonsterList.Count; i++)
+            int monsterCount = EngineSettings.MonsterList.Count;
+            for (int i = 0; i < monsterCount; i++)
             {
-                if (EngineSettings.MonsterList[i].Alive)
-                {
-                    EngineSettings.MonsterList[i].CurrentHealth -= damageAmount;
-                }
+                EngineSettings.MonsterList[i].CurrentHealth -= damageAmount;
+            }
 
-                if(EngineSettings.MonsterList[i].CurrentHealth <= 0)
+            foreach (var monster in EngineSettings.MonsterList.ToList())
+            {
+                if (monster.CurrentHealth <= 0)
                 {
-                    TargetDied(EngineSettings.MonsterList[i]);
+                    TargetDied(monster);
                 }
             }
+
             EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " uses her ability Splash and deals " + damageAmount.ToString() + " to all monsters!"; 
             
             return true;
