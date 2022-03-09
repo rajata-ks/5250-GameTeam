@@ -347,6 +347,7 @@
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Padding" Value="10" />
+                
             </Style>
 
             <Style TargetType="Label"
@@ -1106,10 +1107,10 @@
 
             <Style TargetType="Frame"
                 x:Key="NarratorFrame">
-                <Setter Property="Margin" Value="10" />
+                <Setter Property="Margin" Value="5" />
                 <Setter Property="CornerRadius" Value="10" />
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
-                <Setter Property="Padding" Value="40" />
+                <Setter Property="Padding" Value="30" />
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}" />
             </Style>
 

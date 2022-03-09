@@ -32,7 +32,7 @@
                     Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="0" Grid.ColumnSpan="2">
+                <StackLayout Style="{StaticResource HorizontalCenterStack}" Grid.Row="0" Grid.ColumnSpan="2">
                     <Label 
                     Text="Description : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -51,7 +51,7 @@
                     <Label Text="Are you sure you want to delete this Character?" Style="{StaticResource UpdateStyle}"/>
 
 
-                    <StackLayout Style="{StaticResource CenterHorizontalStack}"  >
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}"  >
                         <Button 
                             Text="Yes"  Clicked="Delete_Clicked"
                             Style="{StaticResource UpdateButton}">
