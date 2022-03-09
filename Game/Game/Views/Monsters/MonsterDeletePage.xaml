@@ -15,21 +15,21 @@
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition  Width="*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition  Width="auto" />
             </Grid.ColumnDefinitions>
 
             <StackLayout Style="{StaticResource VerticalCenterStack}" Grid.Row="0" Grid.ColumnSpan="2" >
 
-                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargestStyle}"/>
 
-                <StackLayout Style="{StaticResource HorizontalCenterStack}"  Grid.Row="0" Grid.ColumnSpan="2">
+                <StackLayout Style="{StaticResource HorizontalCenterStack}"  Grid.Row="1" Grid.ColumnSpan="2">
                     <Label 
                    Text="Name : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -38,7 +38,7 @@
                     Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="0" Grid.ColumnSpan="2">
+                <StackLayout Style="{StaticResource HorizontalCenterStack}" Grid.Row="2" Grid.ColumnSpan="2">
                     <Label 
                     Text="Description : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -57,7 +57,7 @@
 
 
 
-                    <StackLayout Style="{StaticResource CenterHorizontalStack}"  >
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}"  >
                         <Button 
                             Text="Yes"  Clicked="Delete_Clicked"
                             Style="{StaticResource UpdateButton}">
@@ -70,7 +70,7 @@
 
                 </StackLayout>
             </Frame>
-            <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="2" Grid.Column="0"/>
+            <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="3" Grid.Column="0"/>
         </Grid>
     </ScrollView>
 </ContentPage>
