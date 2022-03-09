@@ -70,17 +70,26 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Using Amazon Same Battle Delivery, characters get just what they need, when they need it. 
+       /// When ASBD is clicked, the dropped items during battle will fit perfectly the open slots of the
+        ///character.So, if the character needs shoes, the drop will have shoes in it.This ensures that all
+        ///characters quickly have all slots full. 
+        ///
         /// Get Items using the HTTP Post command
         /// </summary>
         /// <returns></returns>
-        public async void AmazonInstantDelivery_Clicked(object sender, EventArgs e)
+        public void AmazonInstantDelivery_Clicked(object sender, EventArgs e)
         {
             var EmptyItemLocation = new SortedDictionary<String, int>();
-             
-            foreach(var character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+
+            foreach (var character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
             {
-                ItemLocationEnumHelper.GetListItem.ForEach(name =>
+                foreach (var name in ItemLocationEnumHelper.GetListItemMessage)
                 {
+                    if (name.Equals("Any Finger"))
+                    {
+                        continue;
+                    }
                     if (character.GetItemByLocation(ItemLocationEnumHelper.ConvertMessageToEnum(name)) == null)
                     {
                         if (EmptyItemLocation.ContainsKey(name))
@@ -98,15 +107,10 @@ namespace Game.Views
                             EmptyItemLocation.Add(name, 1);
                         }
 
-                        
-                    }
-
-                    else
-                    {
 
                     }
-                    
-                });
+                }
+
             }
             List<ItemModel> dataList = new List<ItemModel>();
             foreach (KeyValuePair<String, int> entry in EmptyItemLocation)
@@ -119,37 +123,56 @@ namespace Game.Views
                 var updateDataBase = true;  // Add them to the DB
 
                 var category = 6;
-                dataList.AddRange(await fetchItemModel(number, level, attribute, location, category, random, updateDataBase));
-               
+                Task<List<ItemModel>> task = Task.Run<List<ItemModel>>(async () => await fetchItemModel(number, level, attribute, location, category, random, updateDataBase));
+                dataList.AddRange(task.Result);
+
             }
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.AddRange(dataList);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+            if (dataList.Any())
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.AddRange(dataList);
+            }
+            else
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.AddRange(getUpSkilledItemList(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList));
+            }
 
             DrawItemLists();
-
-            /* var number = DiceHelper.RollDice(1, 6); // Get up to 6 random items
-             var level = BattleEngineViewModel.Instance.PartyCharacterList.Min(m => m.Level); // The Min level of character
-             var attribute = AttributeEnum.Unknown;  // Any Attribute
-             var location = ItemLocationEnum.Unknown;    // Any Location
-             var random = true;  // Random between 1 and Level
-             var updateDataBase = true;  // Add them to the DB
-
-             var category = 0;   // What category to filter down to, 0 is all, what team is your team?
-
-             var dataList = await ItemService.GetItemsFromServerPostAsync(number, level, attribute, location, category, random, updateDataBase);
-             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.AddRange(dataList);
-
-             // Redraw items
-             DrawItemLists();
-            */
         }
 
+        ///After all slots are full, then the drop will be of a higher
+        ///value than something the character has in any of the slots, thus ensuring a better item.
+
+        public List<ItemModel> getUpSkilledItemList(List<PlayerInfoModel> playerList)
+        {
+            List<ItemModel> result = new List<ItemModel>();
+            foreach (var character in playerList)
+            {
+                foreach (var name in ItemLocationEnumHelper.GetListItemMessage)
+                {
+                    if (name.Equals("Any Finger"))
+                    {
+                        continue;
+                    }
+                    ItemModel itemModel = character.GetItemByLocation(ItemLocationEnumHelper.ConvertMessageToEnum(name));
+
+                    if (itemModel != null && itemModel.Value <= 20)
+                    {
+                        itemModel.Value = itemModel.Value + 1;
+                    }
+                    result.Add(itemModel);
+                }
+
+            }
+            return result;
+        }
         public async Task<List<ItemModel>> fetchItemModel(int number, int level, AttributeEnum attribute, ItemLocationEnum location, int category, bool random, bool updateDataBase)
         {
             List<ItemModel> result = new List<ItemModel>();
-            result.AddRange(await ItemService.GetItemsFromServerPostAsync(number, level, attribute, location, category, random, updateDataBase));
-            
-            return result;
+            return await ItemService.GetItemsFromServerPostAsync(number, level, attribute, location, category, random, updateDataBase);
+
         }
+        
         /// <summary>
         /// Clear and Add the Characters that survived
         /// </summary>
