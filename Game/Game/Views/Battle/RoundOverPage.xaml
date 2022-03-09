@@ -33,10 +33,12 @@
                         </Frame>
 
                         <Label Text="Characters" Style="{StaticResource HeaderStyle}"/>
-                        <StackLayout x:Name="CharacterBox"  Style="{StaticResource RoundBoxStyle}" />
+                        <FlexLayout x:Name="CharacterListFrame"
+                                    Style="{StaticResource ScoreStyle}"/>
 
                         <Label Text="Monster Defeated" Style="{StaticResource HeaderStyle}"/>
-                        <StackLayout x:Name="MonsterBox"  Style="{StaticResource RoundBoxStyle}" />
+                        <FlexLayout x:Name="MonsterListFrame"
+                                    Style="{StaticResource ScoreStyle}"/>
 
                         <Label Text="Items Found" Style="{StaticResource HeaderStyle}"/>
                         <StackLayout Style="{StaticResource HorizontalStack}">
