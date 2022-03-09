@@ -31,9 +31,6 @@ namespace Game.Views
         private int itemcount;
         HashSet<CharacterModel> characterSet;
 
-        //bool check for modal after push
-        private bool ReturnedFromModalPage = false;
-
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
 
@@ -137,13 +134,15 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void NextButton_Clicked(object sender, EventArgs e)
         {
+            if (BattleEngineViewModel.Instance.PartyCharacterList == null)
+            {
+                BattleEngineViewModel.Instance.PartyCharacterList = new System.Collections.ObjectModel.ObservableCollection<CharacterModel>();
+                BattleEngineViewModel.Instance.PartyCharacterList.Add(CarouselCharacters.CurrentItem as CharacterModel);
+            }
+
             CreateEngineCharacterList();
 
-            //await Navigation.PushModalAsync(new NavigationPage(new ShowMonstersPage()));
-
-            ReturnedFromModalPage = false;
             await Navigation.PushModalAsync(new NavigationPage(new ShowMonstersPage()));
-            ReturnedFromModalPage = true;
         }
 
         /// <summary>
@@ -155,6 +154,8 @@ namespace Game.Views
         /// <param name="e"></param>
         public void SelectButton_Clicked(object sender, EventArgs e)
         {
+           
+
             if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
             {
                 this.currentItem = CarouselCharacters.CurrentItem as CharacterModel;
@@ -188,19 +189,5 @@ namespace Game.Views
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
             }
         }
-        /// <summary>
-        /// the on appearing method to handel push
-        /// </summary>
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-
-            if (ReturnedFromModalPage)
-            {
-                ReturnedFromModalPage = false;
-                _ = await Navigation.PopAsync();
-            }
-        }
-
     }
 }
