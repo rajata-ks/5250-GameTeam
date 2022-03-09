@@ -2,7 +2,6 @@
 using Game.ViewModels;
 
 using System;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 using Xamarin.Forms;
@@ -44,36 +43,24 @@ namespace Game.Views
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
-        public ItemCreatePage(ItemIndexViewModel ViewModel = null)
+        public ItemCreatePage(ItemIndexViewModel viewModel)
         {
             InitializeComponent();
 
             this.ViewModel.Data = new ItemModel();
-
-            if (ViewModel != null)
-            {
-                //initialize the dataset
-                this.ViewModel.Dataset = new ObservableCollection<DefaultModel>();
-                //to populate the dataset so images can show up
-                foreach (var data in ViewModel.Dataset)
-                {
-                    this.ViewModel.Dataset.Add(new DefaultModel { Name = data.Name, Description = data.Description, ImageURI = data.ImageURI });
-                }
-            }
-
             BindingContext = this.ViewModel;
-           
-            this.ViewModel.Title = "";
+            this.ViewModel.Title = "Create";
 
             //Defaults bools
-            nameValid = false;
-            descriptionValid = false;
-            attributeValid = false;
-            locationValid = false;
+            nameValid = true;
+            descriptionValid = true;
+            imageValid = true;
+            attributeValid = true;
+            locationValid = true;
 
             //Need to make the SelectedItem a string, so it can select the correct item.
-            LocationPicker.SelectedItem = this.ViewModel.Data.Location.ToString();
-            AttributePicker.SelectedItem = this.ViewModel.Data.Attribute.ToString();
+            LocationPicker.SelectedItem = ViewModel.Data.Location.ToString();
+            AttributePicker.SelectedItem = ViewModel.Data.Attribute.ToString();
         }
 
         /// <summary>
@@ -93,22 +80,27 @@ namespace Game.Views
             {
                 return;
             }
-            validateErrorLocationEnum(ViewModel.Data.Location);
-            if (!locationValid)
+
+            if (imageValid == false)
             {
                 return;
             }
 
-            validateErrorAttributeEnum(ViewModel.Data.Attribute);
-
-            if (!attributeValid)
+            if (validateErrorLocationEnum(ViewModel.Data.Location) == false)
             {
                 return;
             }
 
-            //get current carousel item image url to save
-            var curImage = (DefaultModel)(carouselItem.CurrentItem);
-            ViewModel.Data.ImageURI = curImage.ImageURI;
+            if (validateErrorAttributeEnum(ViewModel.Data.Attribute) == false)
+            {
+                return;
+            }
+
+            // If the image in the data box is empty, use the default one..
+            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
+            {
+                ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
+            }
 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             _ = await Navigation.PopModalAsync();
@@ -224,12 +216,45 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Validate the entry for image.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Image_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (!ImageEntry.Text.EndsWith(".png"))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            ImageLabel.TextColor = Color.White;
+            imageValid = true;
+
+        }
+
+        /// <summary>
         /// Validate and change UI Element if invalid
         /// Can't save unknown
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool validateErrorAttributeEnum(AttributeEnum data)
+        private bool validateErrorAttributeEnum(AttributeEnum data)
         {
             if (data == AttributeEnum.Unknown)
             {
@@ -247,7 +272,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool validateErrorLocationEnum(ItemLocationEnum data)
+        private bool validateErrorLocationEnum(ItemLocationEnum data)
         {
             if (data == ItemLocationEnum.Unknown)
             {
@@ -265,7 +290,7 @@ namespace Game.Views
         /// <param name="val"></param>
         /// <param name="slide"> silder object</param>
         /// <returns></returns>
-        public double RoundSilderValueToWhole(double val, Slider slide)
+        private double RoundSilderValueToWhole(double val, Slider slide)
         {
             if (slide == null)
             {

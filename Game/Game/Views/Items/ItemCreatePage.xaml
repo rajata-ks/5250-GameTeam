@@ -15,182 +15,161 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:StringEnumConverter x:Key="StringEnum"/>
-            <local_helpers:ItemLocationEnumConverter x:Key="ItemLocationEnumConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ContentPage.Content>
+
         <ScrollView>
             <StackLayout Style="{StaticResource OuterBoxStack}">
 
-                <Frame Style="{StaticResource ListIndexFrameCells}">
-                    <Label Text="Create your item!" Style="{StaticResource BlackCenterMessageStyle}" />
-                </Frame>
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyleCenter}"/>
 
-                <Grid>
+                <Grid
+                    Style="{StaticResource UpdateCreateGrid}">
+
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="250" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image  Grid.Column="0" Grid.Row="0"
-                                        Source="leftarrow.png"
-                                        Style="{StaticResource ImageMediumStyleCenter}"/>
+                    <Label Grid.Row="0" Grid.Column="0"
+                        Text="Name" 
+                        Style="{StaticResource LabelBaseStyle}"
+                        x:Name="NameLabel"/>
 
-                    <CarouselView ItemsSource="{Binding Dataset}" IndicatorView="{x:Reference itemIndicator}" Grid.Row="0" Grid.Column="1" x:Name="carouselItem">
-                        <CarouselView.ItemTemplate>
-                            <DataTemplate>
-                                <StackLayout>
-                                    <Frame Style="{StaticResource CarouselViewFrame}">
-                                        <Image Source="{Binding ImageURI}" Style="{StaticResource ImageLargeStyle}" />
-                                    </Frame>
-                                </StackLayout>
-                            </DataTemplate>
-                        </CarouselView.ItemTemplate>
-                    </CarouselView>
-                    <IndicatorView x:Name="itemIndicator" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource IndicatorViewDefault}"/>
+                    <Entry Grid.Row="0" Grid.Column="1"
+                        Text="{Binding Data.Name}" 
+                        Style="{StaticResource EntryStyle}"
+                        x:Name="NameEntry"
+                        TextChanged="Name_TextChanged"
+                           />
 
-                    <Image Grid.Row="0" Grid.Column="2"
-                                        Source="rightarrow.png"
-                                        Style="{StaticResource ImageMediumStyleCenter}"/>
+                    <Label Grid.Row="1" Grid.Column="0"
+                        Text="Description" 
+                        Style="{StaticResource LabelBaseStyle}"
+                           x:Name="DescriptionLabel"/>
 
+                    <Entry Grid.Row="1" Grid.Column="1"
+                        Text="{Binding Data.Description}" 
+                        Style="{StaticResource EntryStyle}"
+                        x:Name="DescriptionEntry"
+                        TextChanged="Description_TextChanged"/>
+
+                    <Label Grid.Row="2" Grid.Column="0"
+                        Text="Location" 
+                        Style="{StaticResource LabelStyle}"
+                           x:Name="LocationLabel"/>
+
+                    <Picker Grid.Row="2" Grid.Column="1"
+                        ItemsSource="{x:Static local_enum:ItemLocationEnumHelper.GetListCharacter}" 
+                        SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        x:Name="LocationPicker"/>
+
+                    <Label Grid.Row="3" Grid.Column="0"
+                        Text="Attribute" 
+                        Style="{StaticResource LabelStyle}"
+                           x:Name="AttributeLabel"/>
+
+                    <Picker Grid.Row="3" Grid.Column="1"
+                        ItemsSource="{x:Static local_enum:AttributeEnumHelper.GetListCharacter}" 
+                        SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        x:Name="AttributePicker"/>
+
+                    <Label Grid.Row="4" Grid.Column="0"
+                        Text="Image" 
+                        Style="{StaticResource LabelBaseStyle}"
+                           x:Name="ImageLabel"/>
+
+                    <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStackFillExpand}">
+
+                       
+
+                        <Entry 
+                            Text="{Binding Data.ImageURI}" 
+                            Style="{StaticResource EntryStyle}"
+                            x:Name="ImageEntry"
+                            TextChanged="Image_TextChanged"/>
+
+                    </StackLayout>
                 </Grid>
 
-                <Grid x:Name="MainGrid">
-                    <ScrollView Style="{StaticResource ScrollViews}">
-                        <StackLayout Style="{StaticResource ItemStacks}">
-                            <StackLayout Style="{StaticResource Verticalcenter}">
-                                <StackLayout x:Name="FormLayout" Style="{StaticResource Verticalcenters}">
-                                    <StackLayout >
-                                        <Label Text="Name" 
-                                                        Style="{StaticResource LabelBaseStyle}"
-                                                        x:Name="NameLabel"/>
-                                        <Entry Text="{Binding Data.Name}" 
-                                                        Style="{StaticResource EntryStyle}"
-                                                        x:Name="NameEntry"
-                                                        TextChanged="Name_TextChanged" Placeholder="Awesome names only."/>
-                                    </StackLayout>
-                                    <StackLayout >
-                                        <Label Text="Description" 
-                                                    Style="{StaticResource LabelBaseStyle}"
-                                                       x:Name="DescriptionLabel"/>
-                                        <Entry Text="{Binding Data.Description}" 
-                                                    Style="{StaticResource EntryStyle}"
-                                                    x:Name="DescriptionEntry"
-                                                    TextChanged="Description_TextChanged" Placeholder="Describe me!"/>
-                                    </StackLayout>
-                                    <Grid ColumnSpacing="16">
-                                        <StackLayout  Grid.Column="0">
-                                            <Label Grid.Row="2" Grid.Column="0"
-                                                    Text="Location" 
-                                                    Style="{StaticResource LabelStyle}"
-                                                       x:Name="LocationLabel"/>
+                <StackLayout Style="{StaticResource VerticalStackHorizontalFillExpand}">
 
-                                            <Picker Grid.Row="2" Grid.Column="1"
-                                                    ItemsSource="{x:Static local_enum:ItemLocationEnumHelper.GetListItemMessage}" 
-                                                    SelectedItem="{Binding Data.Location, Converter={StaticResource ItemLocationEnumConverter}, Mode=TwoWay}" 
-                                                    x:Name="LocationPicker"/>
-                                        </StackLayout>
-                                        <StackLayout  Grid.Column="1">
-                                            <Label Grid.Row="3" Grid.Column="0"
-                                                    Text="Attribute" 
-                                                    Style="{StaticResource LabelStyle}"
-                                                       x:Name="AttributeLabel"/>
+                    <Label Text="Attributes" Style="{StaticResource CenterMessageStyle}"/>
 
-                                            <Picker Grid.Row="3" Grid.Column="1"
-                                                    ItemsSource="{x:Static local_enum:AttributeEnumHelper.GetListCharacter}" 
-                                                    SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                                                    x:Name="AttributePicker"/>
-                                        </StackLayout>
-                                    </Grid>
-                                </StackLayout>
-                            </StackLayout>
-                        </StackLayout>
-                    </ScrollView>
-                </Grid>
+                    <StackLayout Orientation="Vertical">
 
-                <Frame Style="{StaticResource ListIndexFrameCells}">
+                        <StackLayout Style="{StaticResource HorizontalStack}" Padding="20">
 
-                    <StackLayout Style="{StaticResource VerticalStackHorizontalFillExpand}">
+                            <Label Text="Damage: " Style="{StaticResource LabelStyle}"/>
 
-                        <Label Text="Attributes" Style="{StaticResource CenterMessageStyle}"/>
-
-                        <StackLayout Orientation="Vertical">
-
-                            <StackLayout Style="{StaticResource HorizontalStack}" >
-
-                                <Label Text="Damage: " Style="{StaticResource ListStyle}"/>
-
-                                <Label 
+                            <Label 
                                     Text="{Binding Data.Attack, Mode=TwoWay}" 
                                     x:Name="DamageValue"
-                                    Style="{StaticResource ListStyle}"
+                                    Style="{StaticResource ValueStyle}"
                                     />
 
-                            </StackLayout>
+                        </StackLayout>
 
-                            <Slider x:Name="damageSilder" 
+                        <Slider x:Name="damageSilder" 
                                      Style="{StaticResource DefaultSlider}"
                                 ValueChanged="Damage_OnStepperValueChanged" Value="{Binding Data.Damage}"/>
 
-                            <StackLayout Style="{StaticResource HorizontalStack}" >
+                        <StackLayout Style="{StaticResource HorizontalStack}" Padding="20">
 
-                                <Label Text="Range: " Style="{StaticResource ListStyle}"/>
+                            <Label Text="Range: " Style="{StaticResource LabelStyle}"/>
 
-                                <Label 
+                            <Label 
                                     Text="{Binding Data.Defense, Mode=TwoWay}" 
                                     x:Name="RangeValue"
-                                    Style="{StaticResource EntryStyle}"/>
-
-                            </StackLayout>
-
-                            <Slider x:Name="rangeSilder" Style="{StaticResource DefaultSlider}"
-                                ValueChanged="Range_OnStepperValueChanged" Value="{Binding Data.Range}" />
-
-                            <StackLayout Style="{StaticResource HorizontalStack}" >
-
-                                <Label Text="Value: " Style="{StaticResource ListStyle}"/>
-
-                                <Label 
-                                    Text="{Binding Data.Speed, Mode=TwoWay}" 
-                                    x:Name="ValueValue"
-                                    Style="{StaticResource EntryStyle}"/>
-
-                            </StackLayout>
-
-                            <Slider x:Name="valueSilder" Style="{StaticResource DefaultSlider}"
-                                ValueChanged="Value_OnStepperValueChanged" Value="{Binding Data.Value}" />
+                                    Style="{StaticResource ValueStyle}"/>
 
                         </StackLayout>
+
+                        <Slider x:Name="rangeSilder" Style="{StaticResource DefaultSlider}"
+                                ValueChanged="Range_OnStepperValueChanged" Value="{Binding Data.Range}" />
+
+                        <StackLayout Style="{StaticResource HorizontalStack}" Padding="20">
+
+                            <Label Text="Value: " Style="{StaticResource LabelStyle}"/>
+
+                            <Label 
+                                    Text="{Binding Data.Speed, Mode=TwoWay}" 
+                                    x:Name="ValueValue"
+                                    Style="{StaticResource ValueStyle}"/>
+
+                        </StackLayout>
+
+                        <Slider x:Name="valueSilder" Style="{StaticResource DefaultSlider}"
+                                ValueChanged="Value_OnStepperValueChanged" Value="{Binding Data.Value}" />
+
                     </StackLayout>
-                </Frame>
 
-                <StackLayout Style="{StaticResource VerticalStackSaveCancelButtons}">
-                    <Grid>
+                    <StackLayout Style="{StaticResource VerticalStackSaveCancelButtons}">
+                        <Grid>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions >
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
 
-                        <Button 
+                            <Button 
                             Text="Cancel"  Clicked="Cancel_Clicked"  Grid.Row="0" Grid.Column="0"
                             Style="{StaticResource GridRoundedButton}"/>
 
-                        <Button 
+                            <Button 
                             Text="Save"  Clicked="Save_Clicked"  Grid.Row="0" Grid.Column="1"
                             Style="{StaticResource GridRoundedButton}"/>
 
-                    </Grid>
+                        </Grid>
 
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
