@@ -12,7 +12,7 @@
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource OuterBoxStack}">
+        <StackLayout Style="{StaticResource OuterBoxStacks}">
 
             <ListView x:Name="MonstersListView" 
                     Style="{StaticResource DefaultListView}"

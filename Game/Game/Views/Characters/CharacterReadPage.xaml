@@ -15,7 +15,7 @@
 
 
     <ScrollView >
-        <StackLayout Style="{StaticResource OuterBoxStack}">
+        <StackLayout Style="{StaticResource OuterBoxStacks}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />

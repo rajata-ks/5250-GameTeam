@@ -9,7 +9,7 @@
              Title="{Binding Title}">
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource OuterBoxStack}">
+        <StackLayout Style="{StaticResource OuterBoxStacks}">
 
             <ListView x:Name="CharactersListView" 
                     Style="{StaticResource DefaultListView}"
