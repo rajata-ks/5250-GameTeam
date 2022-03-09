@@ -176,6 +176,8 @@ namespace Game.Views
             _ = CreateMapGridObjects();
 
             _ = UpdateMapGrid();
+            UpdateCharacterMonsterUI();
+
         }
 
         /// <summary>
@@ -258,6 +260,15 @@ namespace Game.Views
 
         public void UpdateCharacterMonsterUI()
         {
+            if(CharactersListView.ItemsSource == null)
+            {
+                return;
+            }
+
+            if(MonsterListView.ItemsSource == null)
+            {
+                return;
+            }
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Count <= 0)
             {
                 return;
