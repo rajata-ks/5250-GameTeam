@@ -32,19 +32,26 @@
                             <Image x:Name="CharacterImage" Source="" Style="{StaticResource ImageLargeStyleCenter}"/>
                         </Frame>
 
-                        <Label Text="Characters" Style="{StaticResource HeaderStyle}"/>
-                        <StackLayout x:Name="CharacterBox"  Style="{StaticResource RoundBoxStyle}" />
+                        <Label Text="Characters" Style="{StaticResource RoundHeaderStyle}"/>
+                        <Frame Style="{StaticResource PartyListFrame}" >
+                            <StackLayout x:Name="CharacterBox"  Style="{StaticResource RoundBoxStyle}" />
+                        </Frame>
 
-                        <Label Text="Monster Defeated" Style="{StaticResource HeaderStyle}"/>
-                        <StackLayout x:Name="MonsterBox"  Style="{StaticResource RoundBoxStyle}" />
+                        <Label Text="Monster Defeated" Style="{StaticResource RoundHeaderStyle}"/>
 
-                        <Label Text="Items Found" Style="{StaticResource HeaderStyle}"/>
+                        <Frame Style="{StaticResource PartyListFrame}" >
+                            <StackLayout x:Name="MonsterBox"  Style="{StaticResource RoundBoxStyle}" />
+                        </Frame>
+
+                        
                         <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label Text="Found : " Style="{StaticResource LabelStyle}"/>
+                            <Label Text="Items Found" Style="{StaticResource RoundHeaderStyle}"/>
                             <Label Text="0" x:Name="TotalFound" Style="{StaticResource ValueStyle}"/>
                         </StackLayout>
-                        <FlexLayout x:Name="ItemListFoundFrame"
+                        <Frame Style="{StaticResource PartyListFrame}" >
+                            <FlexLayout x:Name="ItemListFoundFrame"
                                     Style="{StaticResource ScoreStyle}"/>
+                        </Frame>
 
                         <Button Clicked="AmazonInstantDelivery_Clicked" Text="Item Delivery"/>
                         

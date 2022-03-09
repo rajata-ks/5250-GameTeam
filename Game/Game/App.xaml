@@ -165,6 +165,15 @@
             <Setter Property="HeightRequest" Value="100" />
             </Style>
 
+            <Style TargetType="Label"
+                x:Key="RoundHeaderStyle"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="HeightRequest" Value="100" />
+            </Style>
+
 
             <Style TargetType="Label"
                 x:Key="HeaderCenterStyle"

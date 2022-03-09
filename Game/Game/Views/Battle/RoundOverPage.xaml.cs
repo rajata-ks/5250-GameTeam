@@ -348,7 +348,7 @@ namespace Game.Views
                 Spacing = 0,
                 Children = {
                     PlayerImage,
-                    PlayerNameLabel,
+                    //PlayerNameLabel,
                     
                 },
             };
