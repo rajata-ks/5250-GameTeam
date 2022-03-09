@@ -21,7 +21,12 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame Style="{StaticResource ListIndexFrameCells}">
+                            <Grid >
+
+                                <Image Source="faculty_id_background.png" 
+                                            BackgroundColor="Transparent" 
+                                       HeightRequest="200"
+                                       WidthRequest="250"/>
                                 <Grid Style="{StaticResource IndexGrid}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -31,26 +36,37 @@
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
 
-                                    <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                    <Image  Grid.Column="0" Grid.Row="2" Grid.RowSpan="3"
                                         Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageMediumStyle}"/>
-
-                                    <Label Grid.Column="1" Grid.Row="0"
-                                    Text="{Binding Name}" 
-                                    Style="{StaticResource ListStyle}"/>
-
-
-                                    <Label Grid.Column="1" Grid.Row="1"
-                                    Text="{Binding Difficulty}" 
-                                    Style="{StaticResource ListStyle}"/>
+                                        Style="{StaticResource ImageLargeStyle}"
+                                        />
 
                                     <Label Grid.Column="1" Grid.Row="2"
-                                    Text="{Binding Description}" 
-                                    Style="{StaticResource ListStyle}"/>
+                                       Text="{Binding Name}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                    <StackLayout Grid.Column="1" Grid.Row="3"
+                                        Orientation="Horizontal">
+
+                                        <Label 
+                                       Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                        <Label Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
+                                        Style="{StaticResource ListStyle}"/>
+
+                                    </StackLayout>
+
+                                    <Label Grid.Column="1" Grid.Row="4"
+                                       Text="{Binding Description}" 
+                                       Style="{StaticResource ListStyle}"/>
+
                                 </Grid>
-                            </Frame>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
