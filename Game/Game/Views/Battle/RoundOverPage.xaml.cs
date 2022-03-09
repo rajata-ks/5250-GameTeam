@@ -436,6 +436,14 @@ namespace Game.Views
             await Navigation.PushModalAsync(new PickItemsPage());
         }
 
+
+        public void AssignItems(object sender, EventArgs e)
+        {
+            _ = BattleEngineViewModel.Instance.Engine.Round.PickupDroppedItemsForAllCharacters();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+            DrawItemLists();
+        }
+
         /// <summary>
         /// Start next Round, returning to the battle screen
         /// </summary>
