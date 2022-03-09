@@ -415,8 +415,308 @@ namespace UnitTests.Engine.EngineGame
         }
         #endregion GetItemFromPoolIfBetter
 
-        #region RemoveDeadPlayersFromList
+        #region GetItemFromDroppedListIfBetter
         [Test]
+        public async Task RoundEngine_GetItemFromDroppedListIfBetter_InValid_Location_Empty_Should_Fail()
+        {
+            Engine.EngineSettings.MonsterList.Clear();
+
+            // Both need to be character to fall through to the Name Test
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceTotal = 1,
+                Name = "Z",
+                ListOrder = 1,
+                Guid = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            _ = Game.Helpers.DataSetsHelper.WarmUp();
+
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Feet };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Feet };
+
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item1);
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item2);
+
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item1);
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item2);
+
+            // Put the Item on the Character
+            Character.Head = null;
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+
+            // Make the List
+            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
+
+            // Act
+
+            var result = Engine.Round.GetItemFromDroppedListIfBetter(CharacterPlayer, ItemLocationEnum.Feet);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(item2.Id, CharacterPlayer.Feet);    // The 2nd item is better, so did they swap?
+        }
+
+        [Test]
+        public async Task RoundEngine_GetItemFromDroppedListIfBetter_Valid_Head_Better_Should_Pass()
+        {
+            Engine.EngineSettings.MonsterList.Clear();
+
+            // Both need to be character to fall through to the Name Test
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceTotal = 1,
+                Name = "Z",
+                ListOrder = 1,
+                Guid = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            _ = Game.Helpers.DataSetsHelper.WarmUp();
+
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Head };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Head };
+
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item1);
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item2);
+
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item1);
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item2);
+
+            // Put the Item on the Character
+            _ = Character.AddItem(ItemLocationEnum.Head, item1.Id);
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+
+            // Make the List
+            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
+
+            // Act
+            var result = Engine.Round.GetItemFromDroppedListIfBetter(CharacterPlayer, ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(item2.Id, CharacterPlayer.Head);    // The 2nd item is better, so did they swap?
+        }
+        [Test]
+        public async Task RoundEngine_GetItemFromDroppedListIfBetter_InValid_Head_Worse_Should_Skip()
+        {
+            Engine.EngineSettings.MonsterList.Clear();
+
+            // Both need to be character to fall through to the Name Test
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceTotal = 1,
+                Name = "Z",
+                ListOrder = 1,
+                Guid = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            _ = Game.Helpers.DataSetsHelper.WarmUp();
+
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Head };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Head };
+
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item1);
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item2);
+
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item1);
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item2);
+
+            // Put the Item on the Character
+            _ = Character.AddItem(ItemLocationEnum.Head, item2.Id);
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+
+            // Make the List
+            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
+
+            // Act
+            var result = Engine.Round.GetItemFromDroppedListIfBetter(CharacterPlayer, ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(item2.Id, CharacterPlayer.Head);    // Kept the one
+        }
+
+        [Test]
+        public async Task RoundEngine_GetItemFromDroppedListIfBetter_InValid_Pool_Empty_Should_Fail()
+        {
+            Engine.EngineSettings.MonsterList.Clear();
+
+            // Both need to be character to fall through to the Name Test
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceTotal = 1,
+                Name = "Z",
+                ListOrder = 1,
+                Guid = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            _ = Game.Helpers.DataSetsHelper.WarmUp();
+
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Head };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Head };
+
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item1);
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item2);
+
+
+            // Put the Item on the Character
+            _ = Character.AddItem(ItemLocationEnum.Head, item2.Id);
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+
+            // Make the List
+            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
+
+            // Act
+            var result = Engine.Round.GetItemFromDroppedListIfBetter(CharacterPlayer, ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public async Task RoundEngine_GetItemFromDroppedListIfBetter_InValid_Right_Finger_Empty_Should_Pass()
+        {
+            Engine.EngineSettings.MonsterList.Clear();
+
+            // Both need to be character to fall through to the Name Test
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceTotal = 1,
+                Name = "Z",
+                ListOrder = 1,
+                Guid = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            _ = Game.Helpers.DataSetsHelper.WarmUp();
+
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Finger };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Finger };
+
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item1);
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item2);
+
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item1);
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item2);
+
+            // Put the Item on the Character
+            _ = Character.AddItem(ItemLocationEnum.RightFinger, item1.Id);
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+
+            // Make the List
+            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
+
+            // Act
+            var result = Engine.Round.GetItemFromDroppedListIfBetter(CharacterPlayer, ItemLocationEnum.RightFinger);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(item2.Id, CharacterPlayer.RightFinger);    // The 2nd item is better, so did they swap?
+        }
+
+        [Test]
+        public async Task RoundEngine_GetItemFromDroppedListIfBetter_Valid_Left_Finger_Empty_Should_Pass()
+        {
+            Engine.EngineSettings.MonsterList.Clear();
+
+            // Both need to be character to fall through to the Name Test
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceTotal = 1,
+                Name = "Z",
+                ListOrder = 1,
+                Guid = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            _ = Game.Helpers.DataSetsHelper.WarmUp();
+
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Finger };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Finger };
+
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item1);
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item2);
+
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item1);
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item2);
+
+            // Put the Item on the Character
+            _ = Character.AddItem(ItemLocationEnum.LeftFinger, item1.Id);
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+
+            // Make the List
+            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
+
+            // Act
+            var result = Engine.Round.GetItemFromDroppedListIfBetter(CharacterPlayer, ItemLocationEnum.LeftFinger);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(item2.Id, CharacterPlayer.LeftFinger);    // The 2nd item is better, so did they swap?
+        }
+
+        #endregion GetItemFromDroppedListIfBetter
+       
+            #region RemoveDeadPlayersFromList
+            [Test]
         public void RoundEngine_RemoveDeadPlayersFromList_Valid_Default_Should_Pass()
         {
             // Arrange 
@@ -446,6 +746,46 @@ namespace UnitTests.Engine.EngineGame
             Assert.AreEqual(true, result);
         }
         #endregion PickupItemsFromPool
+
+        #region PickupItemsFromDroppedItems
+        [Test]
+        public void RoundEngine_PickupItemsFromDroppedItems_Valid_Default_Should_Pass()
+        {
+            Engine.EngineSettings.MonsterList.Clear();
+
+            // Both need to be character to fall through to the Name Test
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceTotal = 1,
+                Name = "Z",
+                ListOrder = 1,
+                Guid = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            _ = Game.Helpers.DataSetsHelper.WarmUp();
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+
+            // Make the List
+            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
+
+            // Act
+            var result = Engine.Round.PickupItemsFromDroppedItems(CharacterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+        #endregion PickupItemsFromDroppedItems
+
 
         #region GetNextPlayerTurn
         [Test]

@@ -538,7 +538,7 @@ namespace Game.Engine.EngineBase
             return true;
         }
 
-        private bool PickupItemsFromDroppedItems(PlayerInfoModel character)
+        public virtual bool PickupItemsFromDroppedItems(PlayerInfoModel character)
         {
 
             _ = GetItemFromDroppedListIfBetter(character, ItemLocationEnum.Head);
@@ -549,7 +549,7 @@ namespace Game.Engine.EngineBase
             _ = GetItemFromDroppedListIfBetter(character, ItemLocationEnum.Feet);
             return true;
         }
-        public bool GetItemFromDroppedListIfBetter(PlayerInfoModel character, ItemLocationEnum setLocation)
+        public virtual bool GetItemFromDroppedListIfBetter(PlayerInfoModel character, ItemLocationEnum setLocation)
         {
             var thisLocation = setLocation;
             if (setLocation == ItemLocationEnum.RightFinger)
