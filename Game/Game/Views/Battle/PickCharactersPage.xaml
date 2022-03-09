@@ -12,7 +12,7 @@
         <FlexLayout Direction="Column"
                 AlignItems="Center"
                 JustifyContent="SpaceEvenly">
-            <StackLayout Style="{StaticResource OuterBoxStack}">
+            <StackLayout Style="{StaticResource OuterBoxStacks}">
                 <Label Text="Click to remove me! or Drag and Hold to scroll." Style="{StaticResource CenterMessageStyle}"/>
 
                 <Grid Style="{StaticResource CarouselViewGrid}">
