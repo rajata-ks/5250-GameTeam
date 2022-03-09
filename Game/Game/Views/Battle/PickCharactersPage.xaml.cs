@@ -31,6 +31,9 @@ namespace Game.Views
         private int itemcount;
         HashSet<CharacterModel> characterSet;
 
+        //bool check for modal after push
+        private bool ReturnedFromModalPage = false;
+
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
 
@@ -136,7 +139,11 @@ namespace Game.Views
         {
             CreateEngineCharacterList();
 
+            //await Navigation.PushModalAsync(new NavigationPage(new ShowMonstersPage()));
+
+            ReturnedFromModalPage = false;
             await Navigation.PushModalAsync(new NavigationPage(new ShowMonstersPage()));
+            ReturnedFromModalPage = true;
         }
 
         /// <summary>
@@ -181,5 +188,19 @@ namespace Game.Views
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
             }
         }
+        /// <summary>
+        /// the on appearing method to handel push
+        /// </summary>
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (ReturnedFromModalPage)
+            {
+                ReturnedFromModalPage = false;
+                _ = await Navigation.PopAsync();
+            }
+        }
+
     }
 }
