@@ -369,6 +369,34 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.Null(result);
         }
+
+        [Test]
+        public void RoundEngine_SwapCharacterItemWithDroppedItem_Valid_Default_Should_Pass()
+        {
+            // Arrange 
+            var CharacterPlayerMike = new PlayerInfoModel(
+                          new CharacterModel
+                          {
+                              Speed = 100,
+                              Attack = 100,
+                              Defense = 100,
+                              Level = 1,
+                              CurrentHealth = 111,
+                              ExperienceTotal = 1,
+                              ExperienceRemaining = 1,
+                              Name = "Mike",
+                              ListOrder = 1,
+                          });
+            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand); ;
+
+            // Act
+            var result = Engine.Round.SwapCharacterItem(CharacterPlayerMike, ItemLocationEnum.PrimaryHand, item);
+
+            // Reset
+
+            // Assert
+            Assert.Null(result);
+        }
         #endregion SwapCharacterItem
 
         #region GetItemFromPoolIfBetter
