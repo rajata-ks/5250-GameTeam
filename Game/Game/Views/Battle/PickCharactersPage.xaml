@@ -21,6 +21,7 @@
 							Style="{StaticResource CarouselRealativeStyle}">
                         <ListView 
                                 x:Name="PartyListView" 
+                                ItemSelected="OnPartyCharacterItemSelected"
                                 Style="{StaticResource PartyListView}" 
                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-50}"
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
