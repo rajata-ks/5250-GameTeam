@@ -653,6 +653,7 @@
                 x:Key="VerticalStack"
                    BasedOn="{StaticResource HorizontalStack}">
                 <Setter Property="Orientation" Value="Vertical" />
+              
             </Style>
 
             <Style TargetType="StackLayout"
@@ -744,6 +745,12 @@
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="HeightRequest" Value="300" />
                 <Setter Property="WidthRequest" Value="300" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="CenterRoundHorizontalStack"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
             </Style>
 
             <Style TargetType="StackLayout"

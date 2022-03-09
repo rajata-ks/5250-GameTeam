@@ -18,12 +18,12 @@
 
                     <StackLayout Style="{StaticResource VerticalStack}">
 
-                        <StackLayout Style="{StaticResource CenterHorizontalStack}">
+                        <StackLayout Style="{StaticResource CenterRoundHorizontalStack}" >
                             <Label Text="Round  " Style="{StaticResource CenterMessageLargeStyle}"/>
                             <Label Text="{Binding BattleScore.RoundCount}" Style="{StaticResource CenterMessageLargeStyle}"/>
                         </StackLayout>
 
-                        <StackLayout Style="{StaticResource CenterHorizontalStack}">
+                        <StackLayout Style="{StaticResource CenterRoundHorizontalStack}">
                             <Label Text="{Binding BattleScore.ExperienceGainedTotal}" Style="{StaticResource CenterMessageLargeStyle}"/>
                             <Image Source="GRADE.png" Style="{StaticResource PlayerBattleSmallStyle}"/>
                         </StackLayout>
