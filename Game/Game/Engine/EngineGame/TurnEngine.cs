@@ -39,12 +39,12 @@ namespace Game.Engine.EngineGame
         #endregion Algrorithm
 
         #region AbilityCost
-        const int NerdCost = 2;
-        const int AthleteCost = 2;
-        const int GothCost = 2;
-        const int SkaterCost = 2;
-        const int ProcrastinatorCost = 2;
-        const int ClassClownCost = 2;
+        const int NerdCost = 1;
+        const int AthleteCost = 1;
+        const int GothCost = 1;
+        const int SkaterCost = 1;
+        const int ProcrastinatorCost = 1;
+        const int ClassClownCost = 1;
 
         #endregion AbilityCost
         // Hold the BaseEngine
@@ -105,7 +105,7 @@ namespace Game.Engine.EngineGame
 
             // Reset the Action to unknown for next time
             EngineSettings.CurrentAction = ActionEnum.Unknown;
-
+            UpdateCharacter(Attacker);
             return result;
         }
          
@@ -348,6 +348,13 @@ namespace Game.Engine.EngineGame
                     // If it is a character apply the experience earned
                     _ = CalculateExperience(Attacker, Target);
 
+                    for(int i = 0; i < EngineSettings.MonsterList.Count; i++)
+                    {
+                        if(EngineSettings.MonsterList[i].Name == Target.Name)
+                        {
+                            EngineSettings.MonsterList[i] = Target;
+                        }
+                    }
                     break;
             }
 
@@ -882,6 +889,12 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool Attack(PlayerInfoModel Attacker)
         {
+            UpdateCharacter(Attacker);
+            return base.Attack(Attacker);
+        }
+
+        public bool UpdateCharacter(PlayerInfoModel Attacker)
+        {
             for (int i = 0; i < EngineSettings.CharacterList.Count; i++)
             {
                 //Since there can't be duplicates, find instance and replace with updated model.
@@ -890,9 +903,8 @@ namespace Game.Engine.EngineGame
                     EngineSettings.CharacterList[i] = Attacker;
                 }
             }
-            return base.Attack(Attacker);
+            return true;
         }
-
         /// <summary> 
         /// Decide which to attack
         /// </summary>
