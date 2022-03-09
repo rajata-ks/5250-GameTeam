@@ -12,166 +12,168 @@
     </NavigationPage.TitleView>
 
     <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
+        <StackLayout Style="{StaticResource OuterBoxStack}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition  Width="*" />
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition  Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <StackLayout  Grid.Row="0" Grid.ColumnSpan="3">
-                <StackLayout Style="{StaticResource HorizontalCenterStack}">
+                <StackLayout  Grid.Row="0" Grid.ColumnSpan="3">
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}">
 
-                    <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
+                        <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}"/>
 
-                    <StackLayout  Style="{StaticResource VerticalCenterStack}">
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label 
+                        <StackLayout  Style="{StaticResource VerticalCenterStack}">
+                            <StackLayout Style="{StaticResource HorizontalStack}">
+                                <Label 
                                Text="Name : " 
                                Style="{StaticResource LabelStyle}"/>
-                            <Label 
+                                <Label 
                                 Text="{Binding Data.Name}" 
                                 Style="{StaticResource ValueStyle}"/>
-                        </StackLayout>
+                            </StackLayout>
 
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label 
+                            <StackLayout Style="{StaticResource HorizontalStack}">
+                                <Label 
                                 Text="Difficulty : " 
                                 Style="{StaticResource LabelStyle}"/>
-                            <Label 
+                                <Label 
                                 Text="{Binding Data.Difficulty}" 
                                 Style="{StaticResource ValueStyle}"/>
-                        </StackLayout>
+                            </StackLayout>
 
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label 
+                            <StackLayout Style="{StaticResource HorizontalStack}">
+                                <Label 
                                 Text="Max Health : " 
                                 Style="{StaticResource LabelStyle}"/>
-                            <Label 
+                                <Label 
                                 Text="{Binding Data.MaxHealth}" 
                                 Style="{StaticResource ValueStyle}"/>
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>
-            </StackLayout>
-
-            <StackLayout Grid.Row="1" Grid.ColumnSpan="3">
-                <Label Text="Description : " Style="{StaticResource DescriptionStyle}"/>
-                <Label Text="{Binding Data.Description}" Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-            
-            <StackLayout  Grid.Row="2" Grid.ColumnSpan="3">
-                <Label Text="Attributes" Style="{StaticResource AttributeHeaderStyle}"/>
-
-                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                    <Label Text="Attack: " Style="{StaticResource AttributeLabelStyle}"/>
-                    <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
-
-                <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
-                        <ProgressBar x:Name="AttackProgress" Progress="{Binding Data.GetAttackProgress}" Style="{StaticResource AttributeProgressBar}" />
-                        <StackLayout Style="{StaticResource ProgressInnerStack}">
-                            <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
-                            <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                    <Label Text="Defense: " Style="{StaticResource AttributeLabelStyle}"/>
-                    <Label Text="{Binding Data.Defense}" Style="{StaticResource LabelStyle}"/>
+                <StackLayout Grid.Row="1" Grid.ColumnSpan="3">
+                    <Label Text="Description : " Style="{StaticResource DescriptionStyle}"/>
+                    <Label Text="{Binding Data.Description}" Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
-                        <ProgressBar x:Name="DefenseProgress" Progress="{Binding Data.GetDefenseProgress}" Style="{StaticResource AttributeProgressBar}"/>
-                        <StackLayout Style="{StaticResource ProgressInnerStack}">
-                            <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
-                            <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                <StackLayout  Grid.Row="2" Grid.ColumnSpan="3">
+                    <Label Text="Attributes" Style="{StaticResource AttributeHeaderStyle}"/>
+
+                    <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
+                        <Label Text="Attack: " Style="{StaticResource AttributeLabelStyle}"/>
+                        <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Style="{StaticResource ProgressOuterStack}">
+                        <StackLayout Style="{StaticResource ProgressMiddleStack}">
+                            <ProgressBar x:Name="AttackProgress" Progress="{Binding Data.GetAttackProgress}" Style="{StaticResource AttributeProgressBar}" />
+                            <StackLayout Style="{StaticResource ProgressInnerStack}">
+                                <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
+                                <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
-                </StackLayout>
 
-                <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
-                    <Label Text="Speed: " Style="{StaticResource AttributeLabelStyle}"/>
-                    <Label Text="{Binding Data.Speed}" Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
+                    <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
+                        <Label Text="Defense: " Style="{StaticResource AttributeLabelStyle}"/>
+                        <Label Text="{Binding Data.Defense}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
 
-                <StackLayout Style="{StaticResource ProgressOuterStack}">
-                    <StackLayout Style="{StaticResource ProgressMiddleStack}">
-                        <ProgressBar x:Name="SpeedProgress" Progress="{Binding Data.GetSpeedProgress}" Style="{StaticResource AttributeProgressBar}"/>
-                        <StackLayout Style="{StaticResource ProgressInnerStack}">
-                            <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
-                            <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                    <StackLayout Style="{StaticResource ProgressOuterStack}">
+                        <StackLayout Style="{StaticResource ProgressMiddleStack}">
+                            <ProgressBar x:Name="DefenseProgress" Progress="{Binding Data.GetDefenseProgress}" Style="{StaticResource AttributeProgressBar}"/>
+                            <StackLayout Style="{StaticResource ProgressInnerStack}">
+                                <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
+                                <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
+
+                    <StackLayout Style="{StaticResource AttributeStackLayoutStyle}">
+                        <Label Text="Speed: " Style="{StaticResource AttributeLabelStyle}"/>
+                        <Label Text="{Binding Data.Speed}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Style="{StaticResource ProgressOuterStack}">
+                        <StackLayout Style="{StaticResource ProgressMiddleStack}">
+                            <ProgressBar x:Name="SpeedProgress" Progress="{Binding Data.GetSpeedProgress}" Style="{StaticResource AttributeProgressBar}"/>
+                            <StackLayout Style="{StaticResource ProgressInnerStack}">
+                                <Label Text="0" Style="{StaticResource ProgressStartStyle}"></Label>
+                                <Label Text="9" Style="{StaticResource ProgressEndStyle}"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+
                 </StackLayout>
 
-            </StackLayout>
-
-            <FlexLayout  
+                <FlexLayout  
                 Style="{StaticResource ItemLayout}" x:Name="ItemBox" Grid.Row="3" Grid.ColumnSpan="3">
-            </FlexLayout>
+                </FlexLayout>
 
-            <Frame Style="{StaticResource UpdateFrame}"  Grid.Row="4" Grid.ColumnSpan="3" >
-                <StackLayout Style="{StaticResource VerticalCenterStack}">
+                <Frame Style="{StaticResource UpdateFrame}"  Grid.Row="4" Grid.ColumnSpan="3" >
+                    <StackLayout Style="{StaticResource VerticalCenterStack}">
 
-                    <Label Text="Do you want to update this Monster?" Style="{StaticResource UpdateStyle}" />
+                        <Label Text="Do you want to update this Monster?" Style="{StaticResource UpdateStyle}" />
 
-                    <StackLayout Style="{StaticResource HorizontalCenterStack}">
-                        <Button 
+                        <StackLayout Style="{StaticResource HorizontalCenterStack}">
+                            <Button 
                             Text="Update"  Clicked="Update_Clicked" 
                             Style="{StaticResource UpdateButton}"/>
-                        <Button 
+                            <Button 
                             Text="Delete"  Clicked="Delete_Clicked" 
                             Style="{StaticResource UpdateButton}"/>
+                        </StackLayout>
                     </StackLayout>
+                </Frame>
+                <StackLayout Grid.Row="5" Grid.Column="0">
+                    <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}"/>
                 </StackLayout>
-            </Frame>
-            <StackLayout Grid.Row="5" Grid.Column="0">
-                <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}"/>
-            </StackLayout>
 
-            <!--The Item Popup-->
-            <StackLayout x:Name="PopupLoadingView" 
+                <!--The Item Popup-->
+                <StackLayout x:Name="PopupLoadingView" 
                  Style="{StaticResource PopupLoadingView}" 
                  AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
                  AbsoluteLayout.LayoutFlags="All">
 
-                <StackLayout Style="{StaticResource PopupBox}">
-                    <Frame Style="{StaticResource ItemFrame}">
-                        <StackLayout Style="{StaticResource VerticalStacks}" >
-                            <Image x:Name="PopupItemImage" Style="{StaticResource ImageLargeStyle}"/>
+                    <StackLayout Style="{StaticResource PopupBox}">
+                        <Frame Style="{StaticResource ItemFrame}">
+                            <StackLayout Style="{StaticResource VerticalStacks}" >
+                                <Image x:Name="PopupItemImage" Style="{StaticResource ImageLargeStyle}"/>
 
-                            <Label x:Name="PopupItemName" Style="{StaticResource ItemPopup} "/>
-                            <Label x:Name="PopupItemDescription" Style="{StaticResource ItemPopup}"/>
+                                <Label x:Name="PopupItemName" Style="{StaticResource ItemPopup} "/>
+                                <Label x:Name="PopupItemDescription" Style="{StaticResource ItemPopup}"/>
 
-                            <StackLayout Style="{StaticResource HorizontalStack}">
-                                <Label Text="Location : " Style="{StaticResource LabelStyle}" />
-                                <Label x:Name="PopupItemLocation" Style="{StaticResource ValueStyle}" />
-                            </StackLayout>
+                                <StackLayout Style="{StaticResource HorizontalStack}">
+                                    <Label Text="Location : " Style="{StaticResource LabelStyle}" />
+                                    <Label x:Name="PopupItemLocation" Style="{StaticResource ValueStyle}" />
+                                </StackLayout>
 
-                            <StackLayout Style="{StaticResource HorizontalStack}">
-                                <Label x:Name="PopupItemAttribute" Style="{StaticResource LabelStyle}" />
-                                <Label x:Name="PopupItemValue" Style="{StaticResource ValueStyle}" />
-                            </StackLayout>
+                                <StackLayout Style="{StaticResource HorizontalStack}">
+                                    <Label x:Name="PopupItemAttribute" Style="{StaticResource LabelStyle}" />
+                                    <Label x:Name="PopupItemValue" Style="{StaticResource ValueStyle}" />
+                                </StackLayout>
 
-                            <Button x:Name="PopupCloseButton" 
+                                <Button x:Name="PopupCloseButton" 
                                 Clicked="ClosePopup_Clicked" 
                                 Text="Close"/>
-                        </StackLayout>
-                    </Frame>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-        </Grid>
+            </Grid>
+        </StackLayout>
     </ScrollView>
 </ContentPage>
