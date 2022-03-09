@@ -100,9 +100,9 @@
                                                     <Label Grid.Column="1" Grid.Row="0"
                                                    Text="{Binding Name}" 
                                                    Style="{StaticResource BattleUILabels}"/>
-
-                                                    <ProgressBar x:Name="healthMBar" Progress="{Binding HealthPercent, Mode=TwoWay}" />
-                                                    <ProgressBar x:Name="abilityBar" Progress="{Binding AbilityPercent, Mode=TwoWay}" />
+                                                    
+                                                    <ProgressBar x:Name="healthBar" ProgressColor="Red" BackgroundColor="Gray" Progress="{Binding HealthPercent, Mode=TwoWay}" />
+                                                    <ProgressBar x:Name="abilityBar" ProgressColor="Blue" BackgroundColor="Gray" Progress="{Binding AbilityPercent, Mode=TwoWay}" />
                                                 </StackLayout>
 
                                             </Grid>
@@ -137,13 +137,13 @@
                                     <DataTemplate>
                                         <ViewCell>
                                             <Grid>
-                                                <StackLayout Style="{StaticResource StartStack}">
+                                                <StackLayout Style="{StaticResource BattleUIListView}">
 
                                                     <Label Grid.Column="1" Grid.Row="0"
                                                    Text="{Binding Name}" 
                                                    Style="{StaticResource BattleUILabels}"/>
 
-                                                    <ProgressBar x:Name="progressBar" Progress="{Binding CurrentHealthPercentage, Mode=TwoWay}" />
+                                                    <ProgressBar x:Name="progressBar" ProgressColor="Red" BackgroundColor="Gray" Progress="{Binding CurrentHealthPercentage, Mode=TwoWay}" />
 
                                                 </StackLayout>
 
