@@ -116,7 +116,7 @@ namespace Game.Views
             foreach (KeyValuePair<String, int> entry in EmptyItemLocation)
             {
                 var number = entry.Value;
-                var level = BattleEngineViewModel.Instance.PartyCharacterList.Min(m => m.Level); // The Min level of character
+                var level = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Min(m => m.Level); // The Min level of character
                 var attribute = AttributeEnum.Unknown;  // Any Attribute
                 var location = ItemLocationEnumHelper.ConvertMessageToEnum(entry.Key);    // Any Location
                 var random = true;  // Random between 1 and Level

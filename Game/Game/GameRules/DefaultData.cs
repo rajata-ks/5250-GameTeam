@@ -308,7 +308,6 @@ namespace Game.GameRules
                     MaxHealth = 5,
                     Speed=2,
                     ImageURI = "character__nerd.png",
-                    Head = HeadString,
                     Necklass = NecklassString,
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
@@ -328,7 +327,6 @@ namespace Game.GameRules
                     ImageURI = "character_athlete.png",
                     Head = HeadString,
                     Necklass = NecklassString,
-                    PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
                     RightFinger = RightFingerString,
@@ -345,7 +343,6 @@ namespace Game.GameRules
                      Speed=3,
                     ImageURI = "goth.png",
                     Head = HeadString,
-                    Necklass = NecklassString,
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
@@ -361,7 +358,13 @@ namespace Game.GameRules
                     Level = 4,
                     Speed=1,
                     MaxHealth = 38,
-                    ImageURI = "skater.png"
+                    ImageURI = "skater.png",
+                    Head = HeadString,
+                    Necklass = NecklassString,
+                    PrimaryHand = PrimaryHandString,
+                    OffHand = OffHandString,
+                    RightFinger = RightFingerString,
+                    LeftFinger = LeftFingerString,
                 },
 
                 new CharacterModel {
@@ -372,7 +375,13 @@ namespace Game.GameRules
                      Speed=5,
                     Level = 5,
                     MaxHealth = 43,
-                    ImageURI = "procrastinator.png"
+                    ImageURI = "procrastinator.png",
+                     Head = HeadString,
+                    Necklass = NecklassString,
+                    PrimaryHand = PrimaryHandString,
+                    Feet = FeetString,
+                    RightFinger = RightFingerString,
+                    LeftFinger = LeftFingerString,
                 },
 
                 new CharacterModel {
@@ -383,7 +392,14 @@ namespace Game.GameRules
                     Level = 5,
                     Speed=6,
                     MaxHealth = 43,
-                    ImageURI = "classclown.png"
+                    ImageURI = "classclown.png",
+                    Head = HeadString,
+                    Necklass = NecklassString,
+                    PrimaryHand = PrimaryHandString,
+                    OffHand = OffHandString,
+                    Feet = FeetString,
+                    RightFinger = RightFingerString,
+                    LeftFinger = LeftFingerString,
                 }
             };
 
