@@ -21,7 +21,7 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Style="{StaticResource OuterBoxStacks}">
+            <StackLayout Style="{StaticResource OuterBoxStack}">
 
                 <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyleCenter}"/>
 
@@ -85,7 +85,10 @@
 
                     <StackLayout Grid.Row="4" Grid.Column="1" Style="{StaticResource HorizontalStackFillExpand}">
 
-                       
+                        <Image 
+                            Source="{Binding Data.ImageURI}"
+                            Style="{StaticResource ImageSmallStyle}"
+                            />
 
                         <Entry 
                             Text="{Binding Data.ImageURI}" 

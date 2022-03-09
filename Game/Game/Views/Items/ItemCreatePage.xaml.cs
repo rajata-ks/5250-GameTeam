@@ -43,7 +43,7 @@ namespace Game.Views
         /// <summary>
         /// Constructor for Create makes a new model
         /// </summary>
-        public ItemCreatePage(ItemIndexViewModel viewModel)
+        public ItemCreatePage()
         {
             InitializeComponent();
 
