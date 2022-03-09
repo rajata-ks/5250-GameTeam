@@ -103,7 +103,6 @@ namespace Game.Views
 
         }
 
-
         public void OnDatabaseCharacterItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             CharacterModel data = args.SelectedItem as CharacterModel;
@@ -134,12 +133,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void NextButton_Clicked(object sender, EventArgs e)
         {
-            if (BattleEngineViewModel.Instance.PartyCharacterList == null)
-            {
-                BattleEngineViewModel.Instance.PartyCharacterList = new System.Collections.ObjectModel.ObservableCollection<CharacterModel>();
-                BattleEngineViewModel.Instance.PartyCharacterList.Add(CarouselCharacters.CurrentItem as CharacterModel);
-            }
-
+           
             CreateEngineCharacterList();
 
             await Navigation.PushModalAsync(new NavigationPage(new ShowMonstersPage()));
@@ -187,6 +181,22 @@ namespace Game.Views
             {
                 data.CurrentHealth = data.GetMaxHealthTotal;
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
+            }
+        }
+
+
+
+        /// <summary>
+        /// the on appearing method to handel push
+        /// </summary>
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (BattleEngineViewModel.Instance.PartyCharacterList == null)
+            {
+                BattleEngineViewModel.Instance.PartyCharacterList = new System.Collections.ObjectModel.ObservableCollection<CharacterModel>();
+                BattleEngineViewModel.Instance.PartyCharacterList.Add(CarouselCharacters.CurrentItem as CharacterModel);
             }
         }
     }

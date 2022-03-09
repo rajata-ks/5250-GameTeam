@@ -287,8 +287,10 @@ namespace Game.Views
             {
                 if (monster.MaxHealth > 0)
                 {
-                    monster.HealthPercent = monster.CurrentHealth / monster.MaxHealth;
+                    monster.HealthPercent = (float)((float)monster.CurrentHealth / monster.MaxHealth);
+                    //monster.Name = monster.CurrentHealth.ToString() + " " + monster.MaxHealth.ToString();
                     monsterList.Add(monster);
+                    
                 }
             }
             MonsterListView.ItemsSource = monsterList;
