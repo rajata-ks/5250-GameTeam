@@ -21,7 +21,7 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Style="{StaticResource OuterBoxStack}">
+            <StackLayout Style="{StaticResource OuterBoxStacks}">
 
                 <Frame Style="{StaticResource ListIndexFrameCells}">
                     <Label Text="Create your item!" Style="{StaticResource BlackCenterMessageStyle}" />
