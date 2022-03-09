@@ -46,7 +46,7 @@ namespace Game.Views
         public void DrawCharacterList()
         {
 
-            foreach(PlayerInfoModel character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            foreach (PlayerInfoModel character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
             {
                 characterList.Add(character);
             }
@@ -63,7 +63,7 @@ namespace Game.Views
             PlayerInfoModel data = characterList[e.SelectedItemIndex];
             currentCharacterIndex = e.SelectedItemIndex;
             CharacterImage.Source = data.ImageURI;
-            
+
             AddItemsToDisplay();
 
         }
@@ -130,7 +130,11 @@ namespace Game.Views
             };
 
             // Add the rest of the items to the list
-            itemList.AddRange(ItemIndexViewModel.Instance.GetLocationItems(location));
+            var data = ViewModel.Data.GetItemByLocation(location);
+            if (data != null)
+            {
+                itemList.Add(data);
+            }
 
             // Populate the list with the items
             PopupLocationItemListView.ItemsSource = itemList;
@@ -308,6 +312,7 @@ namespace Game.Views
                     ItemButton,
                 },
             };
+
 
             return ItemStack;
         }
