@@ -90,6 +90,32 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void RoundOverPage_AssignItems_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.AssignItems(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_AmazonInstantDelivery_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.AmazonInstantDelivery_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
         public void RoundOverPage_ClosePopup_Clicked_Default_Should_Pass()
         {
             // Arrange
