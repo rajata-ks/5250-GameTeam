@@ -397,4 +397,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\item_chalk_rough.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Student_ID_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Faculty_ID_background.png" />
+  </ItemGroup>
 </Project>

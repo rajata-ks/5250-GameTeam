@@ -10,19 +10,24 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStacks}">
-
-            <ListView x:Name="CharactersListView" 
+         
+               
+                <ListView x:Name="CharactersListView" 
                     Style="{StaticResource DefaultListView}"
                     CachingStrategy="RecycleElement"
                     ItemSelected="OnItemSelected"
                     >
-                
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame Style="{StaticResource ListIndexFrameCells}">
+               
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            
+                            <ViewCell>
+                            <Grid >
 
-
+                                <Image Source="Student_ID_background.png" 
+                                            BackgroundColor="Transparent" 
+                                       HeightRequest="200"
+                                       WidthRequest="250"/>
                                 <Grid Style="{StaticResource IndexGrid}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -32,19 +37,21 @@
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
 
-                                    <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                    <Image  Grid.Column="0" Grid.Row="2" Grid.RowSpan="3"
                                         Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageMediumStyle}"
-                                        VerticalOptions="CenterAndExpand"/>
+                                        Style="{StaticResource ImageLargeStyle}"
+                                        />
 
-                                    <Label Grid.Column="1" Grid.Row="0"
+                                    <Label Grid.Column="1" Grid.Row="2"
                                        Text="{Binding Name}" 
                                        Style="{StaticResource ListStyle}"/>
 
-                                    <StackLayout Grid.Column="1" Grid.Row="1"
-                                    Orientation="Horizontal">
+                                    <StackLayout Grid.Column="1" Grid.Row="3"
+                                        Orientation="Horizontal">
 
                                         <Label 
                                        Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
@@ -55,24 +62,26 @@
 
                                     </StackLayout>
 
-                                    <Label Grid.Column="1" Grid.Row="2"
+                                    <Label Grid.Column="1" Grid.Row="4"
                                        Text="{Binding Description}" 
                                        Style="{StaticResource ListStyle}"/>
 
                                 </Grid>
-                            </Frame>
+                            </Grid>
                         </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Grid>
-                <Button 
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid>
+                    <Button 
                     Text="Create New Character?" Clicked="Add_Clicked"
                     Style="{StaticResource StickyBottomButtons}" >
-                    
-                </Button>
-              
-            </Grid>
+
+                    </Button>
+
+                </Grid>
+  
         </StackLayout>
+            
     </ContentPage.Content>
 </ContentPage>
