@@ -181,6 +181,7 @@ namespace Game.Views
         /// <summary>
         /// Walk the current grid
         /// check each cell to see if it matches the engine map
+        /// check each cell to see if it matches the engine map
         /// Update only those that need change
         /// </summary>
         /// <returns></returns>
@@ -252,6 +253,24 @@ namespace Game.Views
                 }
             }
 
+
+            //Update Characters
+            CharactersListView.ItemsSource = null;
+            List<object> characterList = new List<object>();
+            foreach(var character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            {
+                characterList.Add(character);
+            }
+            CharactersListView.ItemsSource = characterList;
+
+            //Update Monsters
+            MonsterListView.ItemsSource = null;
+            List<object> monsterList = new List<object>();
+            foreach(var monster in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
+            {
+                monsterList.Add(monster);
+            }
+            MonsterListView.ItemsSource = monsterList;
             return true;
         }
 
