@@ -57,6 +57,7 @@
                     <FlexLayout Style="{StaticResource ItemLayout}"
                         x:Name="ItemBox">
                     </FlexLayout>
+
                 </StackLayout>
                 <StackLayout>
                     <Label  x:Name="Test" Text="Items Found" Style="{StaticResource HeaderStyle}"/>
@@ -66,13 +67,22 @@
                                     Wrap="Wrap"/>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource VerticalStack}">
-                    <Label Text="Pick Items Page..."></Label>
+                <StackLayout Style="{StaticResource VerticalCenterStack}">
+                    <Frame Style="{StaticResource UpdateFrame}"  Grid.Row="4" Grid.ColumnSpan="3">
 
-                    <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
+                        <StackLayout Style="{StaticResource VerticalCenterStack}">
+
+                            <Label Text="Exit" Style="{StaticResource UpdateStyle}"/>
+                            <StackLayout Style="{StaticResource HorizontalCenterStack}">
+                                <Button 
+                            Text="Back"  Clicked="CloseButton_Clicked" 
+                            Style="{StaticResource UpdateButton}"/>
+
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
             </StackLayout>
-
             <!--The Item Popup-->
             <StackLayout x:Name="PopupItemSelector" 
                  Style="{StaticResource PopupLoadingView}"
@@ -115,7 +125,7 @@
 
                                                 <StackLayout Grid.Column="1" Grid.Row="1" >
                                                     <Label Text="{Binding Attribute}" Style="{StaticResource ListStyle}"/>
-                                                    <Label Text="{Binding Value}" Style="{StaticResource ListStyle}"/>
+                                                    <Label Text="{Binding Location}" Style="{StaticResource ListStyle}"/>
                                                 </StackLayout>
 
                                                 <Label Grid.Column="1" Grid.Row="2"
