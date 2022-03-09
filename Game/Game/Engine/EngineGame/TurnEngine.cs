@@ -676,19 +676,21 @@ namespace Game.Engine.EngineGame
             //Ability not ready yet
             if(Attacker.AbilityProgress < NerdCost)
             {
-                //most likely have to put a battle message here
+                EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " tried to use her ability but it is not ready yet!";
                 return false;
             }
 
             //Consume ability progress. Set to 0.
             Attacker.AbilityProgress = 0;
-            foreach (var monster in EngineSettings.MonsterList.ToList())
+
+            for (int i = 0; i < EngineSettings.MonsterList.Count; i++)
             {
-                if (monster.Alive)
+                if (EngineSettings.MonsterList[i].Alive)
                 {
-                    monster.Defense = monster.Defense / 2;
+                    EngineSettings.MonsterList[i].Defense = EngineSettings.MonsterList[i].Defense / 2;
                 }
             }
+
             EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " uses her ability and cuts her enemies defense in half!";
             return true;
         }
@@ -705,20 +707,22 @@ namespace Game.Engine.EngineGame
             //Ability not ready yet
             if (Attacker.AbilityProgress < AthleteCost)
             {
-                //most likely have to put a battle message here
+                EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " tried to use her ability but it is not ready yet!";
                 return false;
             }
 
             //Consume ability progress. Set to 0.
             Attacker.AbilityProgress = 0;
-            foreach (var character in EngineSettings.CharacterList.ToList())
+
+            for (int i = 0; i < EngineSettings.CharacterList.Count; i++)
             {
-                if(character.Alive)
+                if (EngineSettings.CharacterList[i].Alive)
                 {
-                    character.BuffDefenseValue += statBonus;
-                    character.BuffSpeedValue += statBonus;
+                    EngineSettings.CharacterList[i].BuffDefenseValue += statBonus;
+                    EngineSettings.CharacterList[i].BuffSpeedValue += statBonus;
                 }
             }
+
             EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " gives a moral boost and gives her team +" + statBonus + " to their defense and speed!";
             return true;
         }
@@ -773,26 +777,27 @@ namespace Game.Engine.EngineGame
             //Ability not ready yet
             if (Attacker.AbilityProgress < SkaterCost)
             {
-                //most likely have to put a battle message here
+                EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " tried to use her ability but it is not ready yet!";
                 return false;
             }
 
             //Consume ability progress. Set to 0.
             Attacker.AbilityProgress = 0;
 
-            //Kill all monsters on battlefield
-            foreach (var monster in EngineSettings.MonsterList.ToList())
+            for(int i = 0; i < EngineSettings.MonsterList.Count; i++)
             {
-                if (monster.Alive)
+                if (EngineSettings.MonsterList[i].Alive)
                 {
-                    monster.CurrentHealth -= damageAmount;
+                    EngineSettings.MonsterList[i].CurrentHealth -= damageAmount;
                 }
-                if(monster.CurrentHealth <= 0)
+
+                if(EngineSettings.MonsterList[i].CurrentHealth <= 0)
                 {
-                    TargetDied(monster);
+                    TargetDied(EngineSettings.MonsterList[i]);
                 }
             }
             EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " uses her ability Splash and deals " + damageAmount.ToString() + " to all monsters!"; 
+            
             return true;
         }
         
@@ -806,14 +811,20 @@ namespace Game.Engine.EngineGame
             //Ability not ready yet
             if (Attacker.AbilityProgress < ProcrastinatorCost)
             {
-                //most likely have to put a battle message here
+                EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " tried to use her ability but it is not ready yet!";
                 return false;
             }
 
             //Consume ability progress. Set to 0.
             Attacker.AbilityProgress = 0;
 
-            Attacker.BuffAttackValue = Attacker.Attack * 2;
+            for (int i = 0; i < EngineSettings.CharacterList.Count; i++)
+            {
+                if (EngineSettings.CharacterList[i].Name == Attacker.Name)
+                {
+                    EngineSettings.CharacterList[i].BuffAttackValue = Attacker.Attack * 2;
+                }
+            }
             EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " uses her ability Steroid and buffs her attack by " + Attacker.BuffAttackValue.ToString() +"!";
             return true;
         }
@@ -830,28 +841,30 @@ namespace Game.Engine.EngineGame
             //Ability not ready yet
             if (Attacker.AbilityProgress < ClassClownCost)
             {
-                //most likely have to put a battle message here
+                EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " tried to use her ability but it is not ready yet!";
                 return false;
             }
 
             //Consume ability progress. Set to 0.
             Attacker.AbilityProgress = 0;
 
-            foreach (var character in EngineSettings.CharacterList)
+            for(int i = 0; i < EngineSettings.CharacterList.Count; i++)
             {
-                //Only heal characters still in game
-                if(character.Alive)
+                //Only heal character still in game
+                if(EngineSettings.CharacterList[i].Alive)
                 {
                     //Heal for the amount
-                    if(character.GetCurrentHealth() + healAmount <= character.GetMaxHealth())
+                    if (EngineSettings.CharacterList[i].GetCurrentHealth() + healAmount <= EngineSettings.CharacterList[i].GetMaxHealth())
                     {
-                        character.CurrentHealth += healAmount;
+                        EngineSettings.CharacterList[i].CurrentHealth += healAmount;
                         continue;
                     }
-                    //Heal will overcap, heal to full
-                    character.CurrentHealth = character.MaxHealth;
                 }
+
+                //Heal will overcap, heal to full.
+                EngineSettings.CharacterList[i].CurrentHealth = EngineSettings.CharacterList[i].MaxHealth;
             }
+
             EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " makes her team laugh and heals them for " + healAmount.ToString() + "!";
             return true;
         }
@@ -880,7 +893,7 @@ namespace Game.Engine.EngineGame
             return base.Attack(Attacker);
         }
 
-        /// <summary>
+        /// <summary> 
         /// Decide which to attack
         /// </summary>
         public override PlayerInfoModel AttackChoice(PlayerInfoModel data)
