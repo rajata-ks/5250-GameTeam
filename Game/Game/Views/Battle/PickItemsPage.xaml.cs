@@ -97,8 +97,19 @@ namespace Game.Views
 
             _ = ViewModel.Data.AddItem(PopupLocationEnum, data.Id);
 
+            //Find item and remove it from the drop pool
+            foreach (var item in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList)
+            {
+                if (data.Id == item.Id)
+                {
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Remove(item);
+                    break;
+                }
+            }
             AddItemsToDisplay();
 
+            //Update Item pool
+            DrawDroppedItems();
             ClosePopup();
         }
 
@@ -130,11 +141,23 @@ namespace Game.Views
             };
 
             // Add the rest of the items to the list
+
+            //Add character item
             var data = ViewModel.Data.GetItemByLocation(location);
             if (data != null)
             {
                 itemList.Add(data);
             }
+
+            //Add items from pool
+            foreach (var item in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
+            {
+                if (item.Location == location)
+                {
+                    itemList.Add(item);
+                }
+            }
+
 
             // Populate the list with the items
             PopupLocationItemListView.ItemsSource = itemList;
