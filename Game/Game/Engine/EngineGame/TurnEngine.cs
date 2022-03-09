@@ -869,6 +869,14 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool Attack(PlayerInfoModel Attacker)
         {
+            for (int i = 0; i < EngineSettings.CharacterList.Count; i++)
+            {
+                //Since there can't be duplicates, find instance and replace with updated model.
+                if (EngineSettings.CharacterList[i].Name == Attacker.Name)
+                {
+                    EngineSettings.CharacterList[i] = Attacker;
+                }
+            }
             return base.Attack(Attacker);
         }
 
