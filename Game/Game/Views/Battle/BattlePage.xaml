@@ -101,8 +101,8 @@
                                                    Text="{Binding Name}" 
                                                    Style="{StaticResource BattleUILabels}"/>
 
-                                                    <ProgressBar x:Name="progressBar" Progress="{Binding CurrentHealthPercentage, Mode=TwoWay}" />
-
+                                                    <ProgressBar x:Name="healthMBar" Progress="{Binding HealthPercent, Mode=TwoWay}" />
+                                                    <ProgressBar x:Name="abilityBar" Progress="{Binding AbilityPercent, Mode=TwoWay}" />
                                                 </StackLayout>
 
                                             </Grid>
