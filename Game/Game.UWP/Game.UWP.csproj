@@ -142,6 +142,7 @@
     <Content Include="character__nerd.png" />
     <Content Include="classclown.png" />
     <Content Include="classclown_headshot.png" />
+    <Content Include="classroombackground.png" />
     <Content Include="d10.png" />
     <Content Include="d20_2.png" />
     <Content Include="dice.png" />
