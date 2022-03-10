@@ -35,7 +35,7 @@
         DisplayName="Undead Academy"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Description="The game is about high school girls who are stuck in a monster&apos;s zone where they will need to fight to survive and escape by the following morning before the evil catches them. If they fail, they will be forever stuck in the zone and lose the game. Are you up to the challenge?"
-        BackgroundColor="transparent" Square44x44Logo="character_nerd_headshot.png">
+        BackgroundColor="transparent" Square44x44Logo="Assets\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
