@@ -202,10 +202,9 @@ namespace Game.Views
                 }
             }
 
+
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation)
             {
-
-                //set openspace
                 if (data.Player.PlayerType == PlayerTypeEnum.Character && BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Battling)
                 {
                     foreach (var openspace in BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation)
@@ -217,6 +216,10 @@ namespace Game.Views
                         }
                     }
                 }
+            }
+
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation)
+            {
 
                 // Use the ImageButton from the dictionary because that represents the player object
                 var MapObject = GetMapGridObject(GetDictionaryImageButtonName(data));
