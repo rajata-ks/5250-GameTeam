@@ -263,12 +263,12 @@ namespace Game.Views
 
         public void UpdateCharacterMonsterUI()
         {
-            if(CharactersListView.ItemsSource == null)
+            if (CharactersListView.ItemsSource == null)
             {
                 return;
             }
 
-            if(MonsterListView.ItemsSource == null)
+            if (MonsterListView.ItemsSource == null)
             {
                 return;
             }
@@ -302,7 +302,7 @@ namespace Game.Views
                     monster.HealthPercent = (float)((float)monster.CurrentHealth / monster.MaxHealth);
                     //monster.Name = monster.CurrentHealth.ToString() + " " + monster.MaxHealth.ToString();
                     monsterList.Add(monster);
-                    
+
                 }
             }
             MonsterListView.ItemsSource = monsterList;
@@ -561,6 +561,7 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
+            ClearMessages();
             var curr = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var currentMover = curr == null ? BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn() : curr;
             var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
@@ -622,6 +623,7 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
+            ClearMessages();
             var curr = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var currentMover = curr == null ? BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn() : curr;
             var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
@@ -687,6 +689,7 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
+            ClearMessages();
             BattleMessages.IsVisible = true;
             BattleMessages.Text = data.Player.Name;
             return true;
@@ -870,7 +873,7 @@ namespace Game.Views
             if (attacker.PlayerType == PlayerTypeEnum.Character)
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Ability;
-              
+
                 BattleEngineViewModel.Instance.Engine.Round.Turn.TakeTurn(attacker);
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
             }
