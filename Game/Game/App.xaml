@@ -641,6 +641,16 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
             </Style>
 
+            <Style TargetType="Button" 
+                   x:Key="NextButton"
+                BasedOn="{StaticResource StickyBottomButtons}" >
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
+            </Style>
+
             <!-- AbsoluteLayout-->
             <Style TargetType="AbsoluteLayout"
                 x:Key="AbsHorizontalStackFillAndExpand">

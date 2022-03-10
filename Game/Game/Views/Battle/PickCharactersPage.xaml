@@ -131,10 +131,10 @@
 
                 <Button Clicked="SelectButton_Clicked" Text="Select Character"   Style="{StaticResource CreateBottomButton}" />
                 <Button 
-                            x:Name="NextButton"
+                            x:Name="NextButton" Style="{StaticResource NextButton}" 
                             Clicked="NextButton_Clicked" 
                             Text="Next"
-                            IsEnabled="False" Style="{StaticResource NextButtonStyle}"  />
+                            IsEnabled="False" />
 
 
             </StackLayout>
