@@ -281,7 +281,6 @@ namespace Game.Views
                 return;
             }
             //Update Characters
-            //chCharactersListView.ItemsSource = null;
             List<object> characterList = new List<object>();
             foreach (var character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
             {
@@ -295,7 +294,6 @@ namespace Game.Views
             CharactersListView.ItemsSource = characterList;
 
             //Update Monsters
-            //MonsterListView.ItemsSource = null;
             List<object> monsterList = new List<object>();
             foreach (var monster in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
             {
@@ -500,7 +498,6 @@ namespace Game.Views
                     break;
                 case PlayerTypeEnum.Monster:
                     data.Clicked += (sender, args) => SetSelectedMonster(MapLocationModel);
-                    data.IsEnabled = false;
                     break;
                 case PlayerTypeEnum.openSpace:
                     data.Clicked += (sender, args) => SetSelectedEmpty(MapLocationModel);
@@ -564,18 +561,40 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
+
             var currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
             var curr = currentMover;
+            var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(currentMover);
 
             if (currentMover.PlayerType == PlayerTypeEnum.Character)
             {
                 var location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(location, data);
-
-                var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
+                
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage = currentMover.Name + " moved to " + location.Row.ToString() + " " + location + location.Column.ToString();
+                GameMessage();
             }
 
+
+            //WIP LOOPS THROUGH ALL MOSNTERS BUT MOVES PLAYER LAST.
+            if (currentMover.PlayerType == PlayerTypeEnum.Monster)
+            {
+                var keepAutoMove = false;
+                var setup = true;
+                PlayerTypeEnum postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+                do
+                {
+                    if (postBattle == PlayerTypeEnum.Monster)
+                    {
+                        action = ActionEnum.Unknown;
+                    }
+                    var before = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+                    keepAutoMove = NextAction(action, true);
+                    postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+
+                } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
+            }
             //do
             //{
             //    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
@@ -606,7 +625,8 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
-
+            BattleMessages.IsVisible = true;
+            BattleMessages.Text = data.Player.Name;
             data.IsSelectedTarget = true;
             return true;
         }
@@ -626,7 +646,8 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
-
+            BattleMessages.IsVisible = true;
+            BattleMessages.Text = data.Player.Name;
             return true;
         }
         #endregion MapEvents
@@ -777,7 +798,7 @@ namespace Game.Views
                     action = ActionEnum.Unknown;
                 }
                 var before = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
-                keepAutoMove = NextAction(action, setup);
+                keepAutoMove = NextAction(action, false);
                 postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
 
             } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
