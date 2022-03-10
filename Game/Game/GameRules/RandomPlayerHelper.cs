@@ -59,7 +59,7 @@ namespace Game.GameRules
             FirstNameList.Add("Zombified Teacher", "zombieTeacher.png");
             FirstNameList.Add("Zombified Lunch Lady", "monster_lunchlady.png");
             FirstNameList.Add("Zombified Janitor", "monster_janitor.png");
-            FirstNameList.Add("Zombified Security Guard", "monster_securitygaurd.png");
+            FirstNameList.Add("Zombified Security Guard", "monster_securityguard.png");
             FirstNameList.Add("Ghoul Vice-Principle", "monster_viceprincipal.png");
             FirstNameList.Add("Ghoul Principle", "monster_principle.png");
             var result = FirstNameList[Name];
