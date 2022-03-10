@@ -191,7 +191,7 @@ namespace Game.Views
         /// <summary>
         /// the on appearing method to handel push
         /// </summary>
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
 
@@ -199,6 +199,7 @@ namespace Game.Views
             {
                 BattleEngineViewModel.Instance.PartyCharacterList = new System.Collections.ObjectModel.ObservableCollection<CharacterModel>();
                 BattleEngineViewModel.Instance.PartyCharacterList.Add(CarouselCharacters.CurrentItem as CharacterModel);
+                _ = Navigation.PopModalAsync();
             }
         }
     }
