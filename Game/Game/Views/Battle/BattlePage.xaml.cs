@@ -65,7 +65,7 @@ namespace Game.Views
 
             BindingContext = BattleEngineViewModel.Instance;
             MonsterListView.ItemsSource = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList;
-
+            UpdateCharacterMonsterUI();
 
 
             // Turn on Timer
@@ -1103,6 +1103,7 @@ namespace Game.Views
         {
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
             ShowBattleMode();
+            DrawMapGridInitialState();
             await Navigation.PushModalAsync(new NewRoundPage());
         }
 
