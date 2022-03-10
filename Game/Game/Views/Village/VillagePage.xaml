@@ -50,9 +50,7 @@
                                     Style="{StaticResource HorizontalMenuLabelLeft}"/>
 
                         <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="3">
-                            <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="3">
-                                <Image Source="logo.png" Style="{StaticResource LogoImageMedVillagePage}" />
-                            </StackLayout>
+                            <Image Source="logo.png" Style="{StaticResource LogoImageLarge}" />
                         </StackLayout>
                     </Grid>
                 </StackLayout>
