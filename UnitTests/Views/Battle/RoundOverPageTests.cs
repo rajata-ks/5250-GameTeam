@@ -116,6 +116,46 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public async Task RoundOverPage_AmazonInstantDelivery_Clicked_With_CharacterList_Should_Pass()
+        {
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 2,
+                ExperienceTotal = 1,
+                Name = "C",
+                ListOrder = 10,
+            };
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Head };
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item1);
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Feet };
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item2);
+            var item3 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Necklass };
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item3);
+            var item4 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.OffHand };
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item4);
+            var item5 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.PrimaryHand };
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item5);
+            CharacterPlayer.AddItem(ItemLocationEnum.Head, item1.Id);
+            CharacterPlayer.AddItem(ItemLocationEnum.Feet, item2.Id);
+            CharacterPlayer.AddItem(ItemLocationEnum.Necklass, item3.Id);
+            CharacterPlayer.AddItem(ItemLocationEnum.OffHand, item4.Id);
+            CharacterPlayer.AddItem(ItemLocationEnum.PrimaryHand, item5.Id);
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
+
+            page.AmazonInstantDelivery_Clicked(null, null);
+
+            Assert.IsTrue(true); // Got to here, so it happened...
+
+        }
+
+        [Test]
         public void RoundOverPage_ClosePopup_Clicked_Default_Should_Pass()
         {
             // Arrange
