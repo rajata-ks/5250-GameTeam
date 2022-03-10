@@ -12,6 +12,7 @@
                     <StackLayout
                         x:Name="GamePlayersTopDisplay" 
                         IsVisible="true" 
+                        Margin="0,200,0,0"
                         Style="{StaticResource NewRoundStyle}">
 
 
@@ -23,7 +24,7 @@
                         <Button Clicked="BeginButton_Clicked" Text="Fight"   Style="{StaticResource CreateBottomButton}"/>
 
 
-                        <StackLayout x:Name="MonsterBox"  Style="{StaticResource BoxStyle}" />
+                        <StackLayout Margin="0,100,0,0" x:Name="MonsterBox"  Style="{StaticResource BoxStyle}" />
 
                     </StackLayout>
 
