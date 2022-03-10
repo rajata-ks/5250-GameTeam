@@ -75,7 +75,7 @@
                                     <Frame Style="{StaticResource ListIndexFrameCells}" Grid.Column="1" Grid.Row="8" HorizontalOptions="Center">
 
 
-                                        <Grid Style="{StaticResource IndexGrid}">
+                                        <Grid Style="{StaticResource IndexPickGrid}">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
