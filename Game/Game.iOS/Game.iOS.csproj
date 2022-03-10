@@ -421,4 +421,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\monster_principle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\openingscreen_darkschool_deadtrees.png" />
+  </ItemGroup>
 </Project>
