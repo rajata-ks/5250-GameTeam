@@ -1302,7 +1302,7 @@ namespace Game.Views
         {
             TimerStateOn = true;
             IsEnableTimer = true;
-            TimerDuration = 100000;
+            TimerDuration = 99999;
             TimerEndTime = DateTime.Now.AddMilliseconds(TimerDuration);
             StartTimerEvent();
             return true;
