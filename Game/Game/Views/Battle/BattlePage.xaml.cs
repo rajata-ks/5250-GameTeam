@@ -527,10 +527,10 @@ namespace Game.Views
             switch (MapModel.Player.PlayerType)
             {
                 case PlayerTypeEnum.Character:
-                    BattleMapBackgroundColor = "BattleMapCharacterColor";
+                    BattleMapBackgroundColor = "BattleMapTransparentColor";
                     break;
                 case PlayerTypeEnum.Monster:
-                    BattleMapBackgroundColor = "BattleMapMonsterColor";
+                    BattleMapBackgroundColor = "BattleMapTransparentColor";
                     break;
                 case PlayerTypeEnum.openSpace:
                     BattleMapBackgroundColor = "BattleMapDeathColor";
