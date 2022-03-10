@@ -9,9 +9,7 @@
              Title="{Binding Title}">
 
     <ContentPage.Content>
-        <FlexLayout Direction="Column"
-                AlignItems="Center"
-                JustifyContent="SpaceEvenly">
+        <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
             <StackLayout Style="{StaticResource OuterBoxStack}">
                 <Label Text="Click to remove me! or Drag and Hold to scroll." Style="{StaticResource CenterMessageStyle}"/>
 
@@ -131,6 +129,6 @@
                             Text="Next"
                             IsEnabled="False" Style="{StaticResource NextButtonStyle}"  />
             </StackLayout>
-        </FlexLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
