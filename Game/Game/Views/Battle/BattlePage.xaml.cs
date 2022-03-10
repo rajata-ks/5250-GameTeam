@@ -1126,7 +1126,6 @@ namespace Game.Views
         {
             Attack.IsVisible = false;
             Special.IsVisible = false;
-            Defend.IsVisible = false;
             Rest.IsVisible = false;
             NextRoundButton.IsVisible = false;
             StartBattleButton.IsVisible = false;
@@ -1191,7 +1190,6 @@ namespace Game.Views
                     MessageDisplayBox.IsVisible = true;
                     Attack.IsVisible = true;
                     Special.IsVisible = true;
-                    Defend.IsVisible = true;
                     Rest.IsVisible = true;
                     break;
 
