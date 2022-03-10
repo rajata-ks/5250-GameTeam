@@ -59,7 +59,7 @@
 
                         <StackLayout x:Name="MessageDisplayBox" 
                             IsVisible="false"
-                            Style="{StaticResource CenterHorizontalStack}">
+                            Style="{StaticResource CenterHorizontalStack}" HeightRequest="200">
 
                             <Label x:Name="BattleMessages" 
                                     Style="{StaticResource AboutUsText}"
