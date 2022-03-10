@@ -561,9 +561,8 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
-
-            var currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
-            var curr = currentMover;
+            var curr = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
+            var currentMover = curr == null ? BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn() : curr;
             var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(currentMover);
 
@@ -571,12 +570,13 @@ namespace Game.Views
             {
                 var location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(location, data);
-                
+                NextAction(action, true, true);
                 BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage = currentMover.Name + " moved to " + location.Row.ToString() + " " + location + location.Column.ToString();
                 GameMessage();
+
             }
 
-
+            currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
             //WIP LOOPS THROUGH ALL MOSNTERS BUT MOVES PLAYER LAST.
             if (currentMover.PlayerType == PlayerTypeEnum.Monster)
             {
@@ -592,18 +592,11 @@ namespace Game.Views
 
                     if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
                     {
-                        keepAutoMove = NextAction(action, true);
+                        keepAutoMove = NextAction(action, true, true);
                     }
                     postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
-
                 } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
             }
-            //do
-            //{
-            //    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
-            //    NextAction(ActionEnum.Unknown);
-            //    curr = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList();
-            //} while (curr.PlayerType == PlayerTypeEnum.Monster);
 
             var test = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList().PlayerType;
 
@@ -896,14 +889,19 @@ namespace Game.Views
         /// So the pattern is Click Next, Next, Next until game is over
         /// 
         /// </summary>
-        public bool NextAction(ActionEnum action = ActionEnum.Unknown, bool setAttackersDefenders = true)
+        public bool NextAction(ActionEnum action = ActionEnum.Unknown, bool setAttackersDefenders = true, bool auto = false)
         {
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
 
             // Get the turn, set the current player and attacker to match
             if (setAttackersDefenders == true)
             {
-                SetAttackerAndDefender();
+                SetAttackerAndDefender(auto);
+            }
+
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction;
             }
 
             // Hold the current state
@@ -954,15 +952,20 @@ namespace Game.Views
         /// <summary>
         /// Decide The Turn and who to Attack
         /// </summary>
-        public void SetAttackerAndDefender()
+        public void SetAttackerAndDefender(bool auto = false)
         {
+            var re = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
+            var before = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
             _ = BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn());
 
             switch (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType)
             {
                 case PlayerTypeEnum.Character:
                     // User would select who to attack
-
+                    if (auto == true)
+                    {
+                        BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
+                    }
                     // for now just auto selecting
                     _ = BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker));
                     break;
