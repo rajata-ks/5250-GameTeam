@@ -62,7 +62,10 @@
                             Style="{StaticResource CenterHorizontalStack}">
 
                             <Label x:Name="BattleMessages" 
-                                    Style="{StaticResource GameMessageText}"
+                                    Style="{StaticResource AboutUsText}"
+                                   Margin="0"
+                                   FontSize="10"
+                                   HorizontalOptions="CenterAndExpand"
                                     />
 
                         </StackLayout>
@@ -115,7 +118,6 @@
                                 <Button x:Name="NextRoundButton" Clicked="NextRoundButton_Clicked" Text="Next Round" IsVisible="False" Style="{StaticResource UpdateButton}"/>
                                 <Button x:Name="StartBattleButton" Clicked="StartButton_Clicked" Text="Start Battle" IsVisible="False" Style="{StaticResource UpdateButton}"/>
                                 <Button x:Name="Attack" Clicked="AttackButton_Clicked" Text="Attack" IsVisible="False" Style="{StaticResource UpdateButton}"/>
-                                <Button x:Name="Defend" Clicked="MoveButton_Clicked" Text="Move" IsVisible="False" Style="{StaticResource UpdateButton}"/>
                                 <Button x:Name="Special" Clicked="SpecialButton_Clicked" Text="Special" IsVisible="False" Style="{StaticResource UpdateButton}"/>
                                 <Button x:Name="Rest" Clicked="RestButton_Clicked" Text="Rest" IsVisible="False" Style="{StaticResource UpdateButton}"/>
                             </StackLayout>
