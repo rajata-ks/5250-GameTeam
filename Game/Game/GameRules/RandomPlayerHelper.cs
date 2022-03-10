@@ -284,6 +284,15 @@ namespace Game.GameRules
             _ = result.LevelUpToValue(result.Level);
 
             // Set ExperienceRemaining so Monsters can both use this method
+            if(result.Level < 0)
+            {
+                result.Level = 0;
+            }
+
+            if (result.Level >= 20)
+            {
+                result.Level = 19;
+            }
             result.ExperienceRemaining = LevelTableHelper.LevelDetailsList[result.Level + 1].Experience;
 
             // Enter Battle at full health
