@@ -8,6 +8,7 @@ using Game.Models;
 using Xamarin.Forms.Mocks;
 using Xamarin.Forms;
 using Game.ViewModels;
+using System.Collections.Generic;
 
 namespace UnitTests.Views
 {
@@ -152,6 +153,31 @@ namespace UnitTests.Views
             page.AmazonInstantDelivery_Clicked(null, null);
 
             Assert.IsTrue(true); // Got to here, so it happened...
+
+        }
+
+        [Test]
+        public async Task RoundOverPage_testGetUpSkilledItemList__Should_Pass()
+        {
+            List<PlayerInfoModel> list = new List<PlayerInfoModel>();
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 2,
+                ExperienceTotal = 1,
+                Name = "C",
+                ListOrder = 10,
+            };
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Head };
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item1);
+            CharacterPlayer.AddItem(ItemLocationEnum.Head, item1.Id);
+            list.Add(CharacterPlayer);
+            List<ItemModel> result = page.getUpSkilledItemList(list);
+
+            Assert.IsTrue(result[0].Value == 2);
 
         }
 
