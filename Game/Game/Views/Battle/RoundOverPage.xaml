@@ -53,11 +53,11 @@
                                     Style="{StaticResource ScoreStyle}"/>
                         </Frame>
 
-                        <Button Clicked="AmazonInstantDelivery_Clicked" Text="Item Delivery"/>
-                        
-                        <Button Clicked="AssignItem_Clicked" Text="Go to ItemPickUp Page"/>
+                        <Button Clicked="AmazonInstantDelivery_Clicked" Text="Amazon Item Delivery"  Style="{StaticResource UpdateButton}"/>
 
-                        <Button Clicked="AssignItems" Text="Assign Items"/>
+                        <Button Clicked="AssignItem_Clicked" Text="Go to ItemPickUp Page"  Style="{StaticResource UpdateButton}"/>
+
+                        <Button Clicked="AssignItems" Text="Assign Items"  Style="{StaticResource UpdateButton}"/>
 
                         <Label Text="Items Selected" Style="{StaticResource HeaderStyle}"/>
                         <StackLayout Style="{StaticResource HorizontalStack}">
