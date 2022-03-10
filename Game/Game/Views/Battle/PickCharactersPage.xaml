@@ -10,7 +10,7 @@
 
     <ContentPage.Content>
         <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
-            <StackLayout Style="{StaticResource OuterBoxStack}">
+            <StackLayout>
                 <Label Text="Click to remove me! or Drag and Hold to scroll." Style="{StaticResource CenterMessageStyle}"/>
 
                 <Grid Style="{StaticResource CarouselViewGrid}">
@@ -61,56 +61,64 @@
                     <Image x:Name="pre"   Grid.Column="0" Grid.Row="0" Source="leftarrow.png"
                                   Style="{StaticResource ImageMediumStyleCenter}"/>
 
-                    <CarouselView x:Name="CarouselCharacters" Position="{Binding CarouselPosition}" ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0">
+                    <CarouselView x:Name="CarouselCharacters" Position="{Binding CarouselPosition}" ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"
+                                 >
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
 
                                 <StackLayout>
+                                    <!--
                                     <Frame Style="{StaticResource CarouselViewFrame}">
                                         <Image Source="{Binding ImageURI}" Style="{StaticResource CarouselImageSyle}" />
 
                                     </Frame>
-                                    <Frame Style="{StaticResource ListIndexFrameCells}" Grid.Column="1" Grid.Row="8" HorizontalOptions="Center">
+                                     -->
+                                    <Grid VerticalOptions="FillAndExpand">
 
-
-                                        <Grid Style="{StaticResource IndexPickGrid}">
+                                        <Image Source="student_id_background.png" 
+                                           
+                                       HeightRequest="1000"
+                                       WidthRequest="250"/>
+                                        <Grid RowSpacing="25" ColumnSpacing="5">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="auto"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="auto"/>
-                                                <RowDefinition Height="auto"/>
-                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
+                                                <RowDefinition Height="20"/>
                                             </Grid.RowDefinitions>
 
-                                            <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                            <Image  Grid.Column="0" Grid.Row="3" Grid.RowSpan="3"
                                         Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageMediumStyle}"
-                                        VerticalOptions="CenterAndExpand"/>
+                                        Style="{StaticResource ImageLargeStyle}" Margin="0"
+                                        />
 
-                                            <Label Grid.Column="1" Grid.Row="0"
-                                       Text="{Binding Name}" 
+                                            <Label Grid.Column="1" Grid.Row="3"
+                                       Text="{Binding Name}"   Margin="0"
                                        Style="{StaticResource ListStyle}"/>
 
-                                            <StackLayout Grid.Column="1" Grid.Row="1"
-                                    Orientation="Horizontal">
+                                            <StackLayout Grid.Column="1" Grid.Row="4"  Margin="0"
+                                        Orientation="Horizontal">
 
                                                 <Label 
                                        Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
-                                       Style="{StaticResource ListStyle}"/>
+                                       Style="{StaticResource ListStyle}"  Margin="0"/>
 
                                                 <Label Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
-                                        Style="{StaticResource ListStyle}"/>
+                                        Style="{StaticResource ListStyle}"  Margin="0"/>
+
 
                                             </StackLayout>
-
-                                            <Label Grid.Column="1" Grid.Row="2"
-                                       Text="{Binding Description}" 
+                                            <Label Grid.Column="1" Grid.Row="5"
+                                       Text="{Binding Description}"   Margin="0"
                                        Style="{StaticResource ListStyle}"/>
-
                                         </Grid>
-                                    </Frame>
+                                    </Grid>
                                 </StackLayout>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
@@ -121,13 +129,14 @@
 
                 </Grid>
 
-
                 <Button Clicked="SelectButton_Clicked" Text="Select Character"   Style="{StaticResource CreateBottomButton}" />
                 <Button 
                             x:Name="NextButton"
                             Clicked="NextButton_Clicked" 
                             Text="Next"
                             IsEnabled="False" Style="{StaticResource NextButtonStyle}"  />
+
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
