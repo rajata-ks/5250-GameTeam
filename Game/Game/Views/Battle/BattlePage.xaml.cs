@@ -281,7 +281,7 @@ namespace Game.Views
                 return;
             }
             //Update Characters
-            CharactersListView.ItemsSource = null;
+            //chCharactersListView.ItemsSource = null;
             List<object> characterList = new List<object>();
             foreach (var character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
             {
@@ -295,7 +295,7 @@ namespace Game.Views
             CharactersListView.ItemsSource = characterList;
 
             //Update Monsters
-            MonsterListView.ItemsSource = null;
+            //MonsterListView.ItemsSource = null;
             List<object> monsterList = new List<object>();
             foreach (var monster in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
             {
