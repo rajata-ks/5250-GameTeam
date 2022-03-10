@@ -622,10 +622,54 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
+            var curr = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
+            var currentMover = curr == null ? BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn() : curr;
+            var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(currentMover);
+
+            if (currentMover.PlayerType == PlayerTypeEnum.Character)
+            {
+                _ = BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(data.Player);
+                NextAction(action, true, false);
+                UpdateCharacterMonsterUI();
+            }
+
+            currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
+            //WIP LOOPS THROUGH ALL MOSNTERS BUT MOVES PLAYER LAST.
+            if (currentMover.PlayerType == PlayerTypeEnum.Monster)
+            {
+                var keepAutoMove = false;
+                var setup = true;
+                PlayerTypeEnum postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+                do
+                {
+                    if (postBattle == PlayerTypeEnum.Monster)
+                    {
+                        action = ActionEnum.Unknown;
+                    }
+
+                    if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
+                    {
+                        keepAutoMove = NextAction(action, true, true);
+                    }
+                    postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+                    UpdateCharacterMonsterUI();
+                } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
+            }
+
+            var test = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList().PlayerType;
+
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList());
+            _ = UpdateMapGrid();
+
+            return true;
+
+            /*
             BattleMessages.IsVisible = true;
             BattleMessages.Text = data.Player.Name;
             data.IsSelectedTarget = true;
             return true;
+            */
         }
 
         /// <summary>
@@ -968,7 +1012,7 @@ namespace Game.Views
                         BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
                     }
                     // for now just auto selecting
-                    _ = BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker));
+                    //_ = BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker));
                     break;
 
                 case PlayerTypeEnum.Monster:
