@@ -2,19 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.BattlePage"
-             BackgroundImageSource="sampleImage.jpg"
+             BackgroundImageSource="classroombackground.png"
              BackgroundColor="Transparent">
 
     <NavigationPage.TitleView>
         <!--Menu Bar-->
         <StackLayout Style="{StaticResource BattleLayout}" >
             <Frame Style="{StaticResource BattleFrame}"/>
-            <Label Text="Girls vs Ghouls" Style="{StaticResource CenterMessageLargeStyle}"/>
             <Frame Style="{StaticResource BattleFrame}"/>
             <ImageButton Source="icon_edit.png" Clicked="Setttings_Clicked" Style="{StaticResource BattleToolbarStyle}"/>
             <ImageButton Source="icon_cancel.png" Clicked="ExitButton_Clicked" Style="{StaticResource BattleToolbarStyle}"/>
             <Frame Style="{StaticResource BattleFrame}"/>
-            <Label x:Name="BattleModeValue" Text="" Style="{StaticResource HeaderCenterStyle}"/>
         </StackLayout>
     </NavigationPage.TitleView>
 
