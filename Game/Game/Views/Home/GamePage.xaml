@@ -5,7 +5,8 @@
              >
 
     <ContentPage.Content>
-        <StackLayout >
+        <StackLayout Style="{StaticResource OuterBoxStacks}">
+            <StackLayout >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -58,5 +59,6 @@
                     </StackLayout>
                 </Grid>
             </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
