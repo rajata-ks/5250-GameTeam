@@ -8,21 +8,21 @@
 
 
 
-        <StackLayout  Style="{StaticResource HomePageCenterVerticalStack}"  >
 
-            <StackLayout Style="{StaticResource CenterHorizontalStack}" Spacing="5">
+        <StackLayout>
+            <StackLayout Style="{StaticResource CenterLogoHorizontalStack}">
 
                 <Image Source="logo.png" Style="{StaticResource LogoImageLarge}"  />
             </StackLayout>
 
-
-            <Button 
+            <StackLayout Style="{StaticResource CenterButtonHorizontalStack}">
+                <Button 
                     Text="Start Game"
                     Clicked="GameButton_Clicked"
                     Style="{StaticResource HomeBottomButtons}"
                    />
 
-           
+            </StackLayout>
         </StackLayout>
 
     </ContentPage.Content>
