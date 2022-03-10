@@ -471,7 +471,7 @@ namespace Game.Engine.EngineGame
 
                 if (EngineSettings.BattleSettingsModel.AllowCriticalMiss)
                 {
-                    EngineSettings.BattleMessagesModel.AttackStatus = " rolls 1 to completly miss ";
+                    EngineSettings.BattleMessagesModel.AttackStatus = " rolls 1 to miss and be laughed at by ";
                     EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.CriticalMiss;
                 }
 
