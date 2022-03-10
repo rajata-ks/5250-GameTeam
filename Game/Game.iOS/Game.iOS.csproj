@@ -427,4 +427,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\classroombackground.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_battle_attack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_battle_justoutline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_battle_move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_battle_rest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_battle_special.png" />
+  </ItemGroup>
 </Project>

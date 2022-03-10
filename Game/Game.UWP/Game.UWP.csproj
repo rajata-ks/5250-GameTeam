@@ -152,6 +152,11 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="athlete_headshot.png" />
     <Content Include="battleboard.png" />
+    <Content Include="button_battle_attack.png" />
+    <Content Include="button_battle_justoutline.png" />
+    <Content Include="button_battle_move.png" />
+    <Content Include="button_battle_rest.png" />
+    <Content Include="button_battle_special.png" />
     <Content Include="character_athlete.png" />
     <Content Include="character_nerd_headshot.scale-400.png" />
     <Content Include="character__nerd.png" />
