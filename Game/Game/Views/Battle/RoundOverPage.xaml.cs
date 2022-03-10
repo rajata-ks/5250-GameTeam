@@ -159,8 +159,9 @@ namespace Game.Views
                     if (itemModel != null && itemModel.Value <= 20)
                     {
                         itemModel.Value = itemModel.Value + 1;
+                        result.Add(itemModel);
                     }
-                    result.Add(itemModel);
+                    
                 }
 
             }

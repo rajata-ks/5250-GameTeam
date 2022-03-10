@@ -510,7 +510,7 @@ namespace Game.Engine.EngineGame
                 }
             }
 
-            return true;
+            return false;
         }
         /// <summary>
         /// Swap the Item the character has for one from the dropped items
