@@ -573,7 +573,7 @@ namespace Game.Views
                 NextAction(action, true, true);
                 BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage = currentMover.Name + " moved to " + location.Row.ToString() + " " + location + location.Column.ToString();
                 GameMessage();
-
+                UpdateCharacterMonsterUI();
             }
 
             currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
@@ -595,6 +595,7 @@ namespace Game.Views
                         keepAutoMove = NextAction(action, true, true);
                     }
                     postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
+                    UpdateCharacterMonsterUI();
                 } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
             }
 
