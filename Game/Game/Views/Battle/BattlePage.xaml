@@ -57,18 +57,14 @@
                     <StackLayout 
                             Style="{StaticResource CenterVerticalStack}">
 
-                        <StackLayout x:Name="MessageDisplayBox" 
-                            IsVisible="false"
-                            Style="{StaticResource CenterHorizontalStack}" HeightRequest="200">
-
+                        <ScrollView x:Name="MessageDisplayBox"> 
                             <Label x:Name="BattleMessages" 
                                     Style="{StaticResource AboutUsText}"
                                    Margin="0"
-                                   FontSize="10"
+                                   FontSize="15"
                                    HorizontalOptions="CenterAndExpand"
                                     />
-
-                        </StackLayout>
+                        </ScrollView>
                     </StackLayout>
                     <Frame Style="{StaticResource BattleUIBar}">
                         <Grid>
