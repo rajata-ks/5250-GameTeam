@@ -759,6 +759,55 @@ namespace UnitTests.Engine.EngineGame
             Assert.AreEqual(item2.Id, CharacterPlayer.LeftFinger);    // The 2nd item is better, so did they swap?
         }
 
+        [Test]
+        public async Task RoundEngine_GetItemFromDroppedListIfBetter_NoBetterItemFound()
+        {
+            Engine.EngineSettings.MonsterList.Clear();
+
+            // Both need to be character to fall through to the Name Test
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceTotal = 1,
+                Name = "Z",
+                ListOrder = 1,
+                Guid = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            _ = Game.Helpers.DataSetsHelper.WarmUp();
+
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 2, Location = ItemLocationEnum.Head };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Head };
+
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item1);
+            _ = await ItemIndexViewModel.Instance.CreateAsync(item2);
+
+
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item2);
+
+            // Put the Item on the Character
+            _ = Character.AddItem(ItemLocationEnum.Head, item1.Id);
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+
+            // Make the List
+            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
+
+            // Act
+            var result = Engine.Round.GetItemFromDroppedListIfBetter(CharacterPlayer, ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(item1.Id, CharacterPlayer.Head);    // Kept the one
+        }
         #endregion GetItemFromDroppedListIfBetter
     }
 }
