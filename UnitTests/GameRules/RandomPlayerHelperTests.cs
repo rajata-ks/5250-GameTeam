@@ -374,5 +374,28 @@ namespace UnitTests.Helpers
             // Assert
             Assert.AreEqual(PlayerTypeEnum.Monster, result.PlayerType);
         }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomMonster_Valid_negative_level_Should_Return_zero_Monster()
+        {
+            var ret = MonsterIndexViewModel.Instance.Dataset.FirstOrDefault().Level = -1;
+
+            _ = DiceHelper.EnableForcedRolls();
+            _ = DiceHelper.SetForcedRollValue(1);
+
+            // Arrange
+
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomMonster(1, false);
+
+            // Reset
+            _ = DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(ret, -1);
+            Assert.AreEqual(result.Level, 0);
+
+        }
     }
 }
