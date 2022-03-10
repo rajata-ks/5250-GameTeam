@@ -70,47 +70,52 @@
                                         <Image Source="{Binding ImageURI}" Style="{StaticResource CarouselImageSyle}" />
 
                                     </Frame>
-                                    <Frame Style="{StaticResource ListIndexFrameCells}" Grid.Column="1" Grid.Row="8" HorizontalOptions="Center">
+                                    <Grid >
 
+                                            <Image Source="student_id_background.png" 
+                                            BackgroundColor="Transparent" 
+                                       HeightRequest="200"
+                                       WidthRequest="250"/>
+                                            <Grid Style="{StaticResource IndexGrid}">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
 
-                                        <Grid Style="{StaticResource IndexPickGrid}">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="auto"/>
-                                                <RowDefinition Height="auto"/>
-                                                <RowDefinition Height="auto"/>
-                                            </Grid.RowDefinitions>
-
-                                            <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                                <Image  Grid.Column="0" Grid.Row="2" Grid.RowSpan="3"
                                         Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageMediumStyle}"
-                                        VerticalOptions="CenterAndExpand"/>
+                                        Style="{StaticResource ImageLargeStyle}"
+                                        />
 
-                                            <Label Grid.Column="1" Grid.Row="0"
+                                                <Label Grid.Column="1" Grid.Row="2"
                                        Text="{Binding Name}" 
                                        Style="{StaticResource ListStyle}"/>
 
-                                            <StackLayout Grid.Column="1" Grid.Row="1"
-                                    Orientation="Horizontal">
+                                                <StackLayout Grid.Column="1" Grid.Row="3"
+                                        Orientation="Horizontal">
 
-                                                <Label 
+                                                    <Label 
                                        Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
                                        Style="{StaticResource ListStyle}"/>
 
-                                                <Label Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
+                                                    <Label Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
                                         Style="{StaticResource ListStyle}"/>
 
-                                            </StackLayout>
+                                                </StackLayout>
 
-                                            <Label Grid.Column="1" Grid.Row="2"
+                                                <Label Grid.Column="1" Grid.Row="4"
                                        Text="{Binding Description}" 
                                        Style="{StaticResource ListStyle}"/>
 
-                                        </Grid>
-                                    </Frame>
+                                            </Grid>
+                            
                                 </StackLayout>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
