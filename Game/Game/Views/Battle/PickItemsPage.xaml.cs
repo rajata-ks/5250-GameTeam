@@ -59,7 +59,6 @@ namespace Game.Views
 
         public void OnPartyCharacterSelected(object s, SelectedItemChangedEventArgs e)
         {
-            Test.Text = e.SelectedItemIndex.ToString();
             PlayerInfoModel data = characterList[e.SelectedItemIndex];
             currentCharacterIndex = e.SelectedItemIndex;
             CharacterImage.Source = data.ImageURI;
