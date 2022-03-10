@@ -589,8 +589,11 @@ namespace Game.Views
                     {
                         action = ActionEnum.Unknown;
                     }
-                    var before = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
-                    keepAutoMove = NextAction(action, true);
+
+                    if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
+                    {
+                        keepAutoMove = NextAction(action, true);
+                    }
                     postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
 
                 } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
