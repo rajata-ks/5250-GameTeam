@@ -600,6 +600,7 @@ namespace UnitTests.Engine.EngineGame
             var CharacterPlayer = new PlayerInfoModel(Character);
             Engine.EngineSettings.CharacterList.Clear();
             Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+            Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
 
             // Make the List
             Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
