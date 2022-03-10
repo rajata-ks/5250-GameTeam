@@ -52,7 +52,7 @@ namespace Game.GameRules
         /// Get Random Image
         /// </summary>
         /// <returns></returns>
-        public static string GetMonsterImage(string Name)
+        public static string GetMonsterImage(string Name = "")
         {
 
             Dictionary<string, string> FirstNameList = new Dictionary<string, string>();
