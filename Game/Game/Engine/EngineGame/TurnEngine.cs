@@ -87,7 +87,10 @@ namespace Game.Engine.EngineGame
                     break;
 
                 case ActionEnum.Move:
-                    result = MoveAsTurn(Attacker);
+                    if (Attacker.PlayerType == PlayerTypeEnum.Monster)
+                    {
+                        result = MoveAsTurn(Attacker);
+                    }
                     break;
 
                 case ActionEnum.Rest:
