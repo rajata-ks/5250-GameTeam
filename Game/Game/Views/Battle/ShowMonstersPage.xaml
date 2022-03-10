@@ -49,22 +49,10 @@
                                         />
 
                                     <Label Grid.Column="1" Grid.Row="2"
-                                       Text="{Binding Name}" 
+                                       Text="{Binding Name}"
                                        Style="{StaticResource ListStyle}"/>
 
-                                    <StackLayout Grid.Column="1" Grid.Row="3"
-                                        Orientation="Horizontal">
-
-                                        <Label 
-                                       Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
-                                       Style="{StaticResource ListStyle}"/>
-
-                                        <Label Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
-                                        Style="{StaticResource ListStyle}"/>
-
-                                    </StackLayout>
-
-                                    <Label Grid.Column="1" Grid.Row="4"
+                                    <Label Grid.Column="1" Grid.Row="3"
                                        Text="{Binding Description}" 
                                        Style="{StaticResource ListStyle}"/>
 
