@@ -91,6 +91,7 @@ namespace Game.Engine.EngineGame
                     {
                         result = MoveAsTurn(Attacker);
                     }
+                    result = true;
                     break;
 
                 case ActionEnum.Rest:
