@@ -403,4 +403,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\Faculty_ID_background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_janitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_viceprincipal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_securityguard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_principle__200x200 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_lunchlady.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_principle.png" />
+  </ItemGroup>
 </Project>

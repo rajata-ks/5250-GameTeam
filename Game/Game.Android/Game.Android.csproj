@@ -359,5 +359,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Student_ID_background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\monster_principle.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -424,31 +424,31 @@ namespace Game.GameRules
                 new MonsterModel {
                     Name = "Zombified Lunch Lady",
                     Description = "Don't skip lunch, or else.",
-                    ImageURI = "zombieTeacher.png",
+                    ImageURI = "monster_lunchlady.png",
                 },
 
                 new MonsterModel {
                     Name = "Zombified Janitor",
                     Description = "Cleans up the defeated.",
-                    ImageURI = "zombieTeacher.png",
+                    ImageURI = "monster_janitor.png",
                 },
 
                 new MonsterModel {
                     Name = "Zombified Security Guard",
                     Description = "Make sure you have your hall pass...",
-                    ImageURI = "zombieTeacher.png",
+                    ImageURI = "monster_securityguard.png",
                 },
 
                 new MonsterModel {
                     Name = "Ghoul Vice-Principle",
                     Description = "Second in command. Just as dangerous.",
-                    ImageURI = "zombieTeacher.png",
+                    ImageURI = "monster_viceprincipal.png",
                 },
 
                 new MonsterModel {
                     Name = "Ghoul Principle",
                     Description = "Rules the school with an iron fist.",
-                    ImageURI = "zombieTeacher.png",
+                    ImageURI = "monster_principle.png",
                 },
             };
 

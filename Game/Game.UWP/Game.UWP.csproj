@@ -181,6 +181,12 @@
     <Content Include="knight.png" />
     <Content Include="leftarrow.png" />
     <Content Include="logo.png" />
+    <Content Include="monster_janitor.png" />
+    <Content Include="monster_lunchlady.png" />
+    <Content Include="monster_principle.png" />
+    <Content Include="monster_principle__200x200 2.png" />
+    <Content Include="monster_securityguard.png" />
+    <Content Include="monster_viceprincipal.png" />
     <Content Include="neck1.png" />
     <Content Include="neck2.png" />
     <Content Include="pen.png" />
