@@ -71,6 +71,26 @@ namespace UnitTests.Engine.EngineGame
         #endregion Constructor
 
         #region RunAutoBattle
+
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_InValid_DetectInfinateLoop_TurnCount_Should_Return_False()
+        {
+            //Arrange
+
+            // Trigger DetectInfinateLoop Loop
+            var oldRoundCountMax = AutoBattleEngine.Battle.EngineSettings.MaxTurnCount;
+            AutoBattleEngine.Battle.EngineSettings.MaxTurnCount = -1;
+
+            //Act
+            var result = await AutoBattleEngine.RunAutoBattle();
+
+            //Reset
+            AutoBattleEngine.Battle.EngineSettings.MaxRoundCount = oldRoundCountMax;
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
+
         [Test]
         public async Task AutoBattleEngine_RunAutoBattle_InValid_DetectInfinateLoop_Should_Return_False()
         {
@@ -95,8 +115,8 @@ namespace UnitTests.Engine.EngineGame
         {
             //Arrange
 
-            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyMonsters = 6;
-            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyCharacters = 6;
+            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyMonsters = 1;
+            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
 
             var CharacterPlayerMike = new PlayerInfoModel(
                             new CharacterModel
@@ -129,6 +149,8 @@ namespace UnitTests.Engine.EngineGame
                 });
 
             AutoBattleEngine.Battle.EngineSettings.MonsterList.Add(MonsterPlayerSue);
+            AutoBattleEngine.Battle.EngineSettings.MaxRoundCount = 400;
+            AutoBattleEngine.Battle.EngineSettings.MaxTurnCount = 4000;
 
             //Act
             var result = await AutoBattleEngine.RunAutoBattle();
@@ -136,7 +158,7 @@ namespace UnitTests.Engine.EngineGame
             //Reset
 
             //Assert
-            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, result);
         }
         #endregion RunAutoBattle
 
