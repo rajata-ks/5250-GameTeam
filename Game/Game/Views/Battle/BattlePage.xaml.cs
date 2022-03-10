@@ -565,11 +565,17 @@ namespace Game.Views
             var curr = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var currentMover = curr == null ? BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn() : curr;
             var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
+            var location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
+
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(currentMover);
 
             if (currentMover.PlayerType == PlayerTypeEnum.Character)
             {
-                var location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.CalculateDistance(location, data) > 1)
+                {
+                    NextAction(action, true, true);
+                    return true;
+                }
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(location, data);
                 location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
                 BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage = currentMover.Name + " moved to " + location.Row.ToString() + " " + location.Column.ToString();
