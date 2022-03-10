@@ -48,8 +48,11 @@
                         <Label Grid.Row="2" 
                                    Text="Monsters" 
                                     Style="{StaticResource HorizontalMenuLabelLeft}"/>
+
                         <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="3">
-                            <Image Source="logo.png" Style="{StaticResource LogoImageLarge}" />
+                            <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="3">
+                                <Image Source="logo.png" Style="{StaticResource LogoImageMedVillagePage}" />
+                            </StackLayout>
                         </StackLayout>
                     </Grid>
                 </StackLayout>

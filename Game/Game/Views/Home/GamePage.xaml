@@ -16,9 +16,10 @@
                     <StackLayout Style="{StaticResource VerticalStackHorizontalFillExpand}" Grid.Row="1">
                         <Grid RowSpacing="30">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="130"></RowDefinition>
-                                <RowDefinition Height="130"></RowDefinition>
-                                <RowDefinition Height="130"></RowDefinition>
+                                <RowDefinition Height="150"></RowDefinition>
+                                <RowDefinition Height="150"></RowDefinition>
+                                <RowDefinition Height="150"></RowDefinition>
+                                <RowDefinition Height="150"></RowDefinition>
                             </Grid.RowDefinitions>
 
                             <ImageButton
