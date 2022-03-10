@@ -178,40 +178,77 @@ namespace UnitTests.Engine.EngineGame
         #endregion GetItemFromPoolIfBetter
 
         #region PickupItemsFromPool
-        //[Test]
-        //public void RoundEngine_PickupItemsFromPool_Valid_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var Character = new CharacterModel
-        //    {
-        //        Speed = 20,
-        //        Level = 1,
-        //        CurrentHealth = 1,
-        //        ExperienceTotal = 1,
-        //        Name = "Z",
-        //        ListOrder = 1,
-        //        Guid = "me"
-        //    };
+        [Test]
+        public void RoundEngine_PickupItemsFromPool_Valid_Default_Should_Pass()
+        {
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceTotal = 1,
+                Name = "Z",
+                ListOrder = 1,
+                Guid = "me"
+            };
 
-        //    // Add each model here to warm up and load it.
-        //    _ = Game.Helpers.DataSetsHelper.WarmUp();
+            // Add each model here to warm up and load it.
+            _ = Game.Helpers.DataSetsHelper.WarmUp();
 
-        //    var CharacterPlayer = new PlayerInfoModel(Character);
-        //    Engine.EngineSettings.CharacterList.Clear();
-        //    Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
 
-        //    // Make the List
-        //    Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
+            // Make the List
+            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
 
-        //    // Act
-        //    var result = Engine.Round.PickupItemsFromPool(CharacterPlayer);
+            // Act
+            var result = Engine.Round.PickupItemsFromPool(CharacterPlayer);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.AreEqual(false, result);
-        //}
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void RoundEngine_PickupItemsFromDroppedItems_Valid_Default_Should_Pass()
+        {
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceTotal = 1,
+                Name = "Z",
+                ListOrder = 1,
+                Guid = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            _ = Game.Helpers.DataSetsHelper.WarmUp();
+
+            var CharacterPlayer = new PlayerInfoModel(Character);
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
+
+            // Make the List
+            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
+
+            // Act
+            var result = Engine.Round.PickupItemsFromDroppedItems(CharacterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
         #endregion PickupItemsFromPool
+
+
+
 
         #region EndRound
         [Test]
@@ -267,7 +304,7 @@ namespace UnitTests.Engine.EngineGame
         public void RoundEngine_GetNextPlayerInList_Valid_Sue_Should_Return_Monster()
         {
             // Arrange
-            
+
 
             // Act
             var result = Engine.Round.GetNextPlayerInList();
@@ -369,34 +406,6 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.Null(result);
         }
-
-        [Test]
-        public void RoundEngine_SwapCharacterItemWithDroppedItem_Valid_Default_Should_Pass()
-        {
-            // Arrange 
-            var CharacterPlayerMike = new PlayerInfoModel(
-                          new CharacterModel
-                          {
-                              Speed = 100,
-                              Attack = 100,
-                              Defense = 100,
-                              Level = 1,
-                              CurrentHealth = 111,
-                              ExperienceTotal = 1,
-                              ExperienceRemaining = 1,
-                              Name = "Mike",
-                              ListOrder = 1,
-                          });
-            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand); ;
-
-            // Act
-            var result = Engine.Round.SwapCharacterItem(CharacterPlayerMike, ItemLocationEnum.PrimaryHand, item);
-
-            // Reset
-
-            // Assert
-            Assert.Null(result);
-        }
         #endregion SwapCharacterItem
 
         #region GetItemFromPoolIfBetter
@@ -414,6 +423,43 @@ namespace UnitTests.Engine.EngineGame
             Assert.AreEqual(false, result);
         }
         #endregion GetItemFromPoolIfBetter
+
+        #region RemoveDeadPlayersFromList
+        [Test]
+        public void RoundEngine_RemoveDeadPlayersFromList_Valid_Default_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = Engine.Round.RemoveDeadPlayersFromList();
+
+            // Reset
+
+            // Assert
+            Assert.NotNull(result);
+        }
+        #endregion RemoveDeadPlayersFromList
+
+        #region PickupItemsFromDropItems
+
+        #endregion PickupItemsFromDropItems
+
+        #region GetNextPlayerTurn
+        [Test]
+        public void RoundEngine_GetNextPlayerTurn_Valid_Default_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = Engine.Round.GetNextPlayerTurn();
+
+            // Reset
+
+            // Assert
+            Assert.NotNull(result);
+        }
+        #endregion GetNextPlayerTurn
+
 
         #region GetItemFromDroppedListIfBetter
         [Test]
@@ -601,7 +647,6 @@ namespace UnitTests.Engine.EngineGame
             Engine.EngineSettings.CharacterList.Clear();
             Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
             Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
-
             // Make the List
             Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
 
@@ -715,93 +760,5 @@ namespace UnitTests.Engine.EngineGame
         }
 
         #endregion GetItemFromDroppedListIfBetter
-       
-            #region RemoveDeadPlayersFromList
-            [Test]
-        public void RoundEngine_RemoveDeadPlayersFromList_Valid_Default_Should_Pass()
-        {
-            // Arrange 
-
-            // Act
-            var result = Engine.Round.RemoveDeadPlayersFromList();
-
-            // Reset
-
-            // Assert
-            Assert.NotNull(result);
-        }
-        #endregion RemoveDeadPlayersFromList
-
-        #region PickupItemsFromPool
-        [Test]
-        public void RoundEngine_PickupItemsFromPool_Valid_Default_Should_Pass()
-        {
-            // Arrange 
-
-            // Act
-            var result = Engine.Round.PickupItemsFromPool(null);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(true, result);
-        }
-        #endregion PickupItemsFromPool
-
-        #region PickupItemsFromDroppedItems
-        [Test]
-        public void RoundEngine_PickupItemsFromDroppedItems_Valid_Default_Should_Pass()
-        {
-            Engine.EngineSettings.MonsterList.Clear();
-
-            // Both need to be character to fall through to the Name Test
-            // Arrange
-            var Character = new CharacterModel
-            {
-                Speed = 20,
-                Level = 1,
-                CurrentHealth = 1,
-                ExperienceTotal = 1,
-                Name = "Z",
-                ListOrder = 1,
-                Guid = "me"
-            };
-
-            // Add each model here to warm up and load it.
-            _ = Game.Helpers.DataSetsHelper.WarmUp();
-
-            var CharacterPlayer = new PlayerInfoModel(Character);
-            Engine.EngineSettings.CharacterList.Clear();
-            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(Character));
-
-            // Make the List
-            Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
-
-            // Act
-            var result = Engine.Round.PickupItemsFromDroppedItems(CharacterPlayer);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(true, result);
-        }
-        #endregion PickupItemsFromDroppedItems
-
-
-        #region GetNextPlayerTurn
-        [Test]
-        public void RoundEngine_GetNextPlayerTurn_Valid_Default_Should_Pass()
-        {
-            // Arrange 
-
-            // Act
-            var result = Engine.Round.GetNextPlayerTurn();
-
-            // Reset
-
-            // Assert
-            Assert.NotNull(result);
-        }
-        #endregion GetNextPlayerTurn
     }
 }

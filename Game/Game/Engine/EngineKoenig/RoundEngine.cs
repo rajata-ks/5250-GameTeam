@@ -148,6 +148,8 @@ namespace Game.Engine.EngineKoenig
             return true;
         }
 
+
+
         /// <summary>
         /// Manage Next Turn
         /// 
@@ -342,6 +344,8 @@ namespace Game.Engine.EngineKoenig
             return true;
         }
 
+
+
         /// <summary>
         /// Swap out the item if it is better
         /// 
@@ -420,6 +424,7 @@ namespace Game.Engine.EngineKoenig
 
             return droppedItem;
         }
+       
 
         /// <summary>
         /// For all characters in player list, remove their buffs
@@ -438,5 +443,7 @@ namespace Game.Engine.EngineKoenig
             }
             return true;
         }
+      
+
     }
 }
