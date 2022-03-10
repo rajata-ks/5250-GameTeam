@@ -52,12 +52,17 @@ namespace Game.GameRules
         /// Get Random Image
         /// </summary>
         /// <returns></returns>
-        public static string GetMonsterImage()
+        public static string GetMonsterImage(string Name)
         {
 
-            List<string> FirstNameList = new List<string> { "zombieTeacher.png", "zombieTeacher.png", "zombieTeacher.png", "zombieTeacher.png", "zombieTeacher.png", "zombieTeacher.png" };
-
-            var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
+            Dictionary<string, string> FirstNameList = new Dictionary<string, string>();
+            FirstNameList.Add("Zombified Teacher", "zombieTeacher.png");
+            FirstNameList.Add("Zombified Lunch Lady", "monster_lunchlady.png");
+            FirstNameList.Add("Zombified Janitor", "monster_janitor.png");
+            FirstNameList.Add("Zombified Security Guard", "monster_securitygaurd.png");
+            FirstNameList.Add("Ghoul Vice-Principle", "monster_viceprincipal.png");
+            FirstNameList.Add("Ghoul Principle", "monster_principle.png");
+            var result = FirstNameList[Name];
 
             return result;
         }
@@ -85,7 +90,7 @@ namespace Game.GameRules
         public static string GetMonsterName()
         {
 
-            List<string> FirstNameList = new List<string> { "Zombified Teachers", "Zombified Lunch Ladie", "Zombified Janitor", "Zombified Security Guard", "Ghoul Vice-Principle", "Ghoul Principle" };
+            List<string> FirstNameList = new List<string> { "Zombified Teacher", "Zombified Lunch Lady", "Zombified Janitor", "Zombified Security Guard", "Ghoul Vice-Principle", "Ghoul Principle" };
 
             var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
 
@@ -248,12 +253,13 @@ namespace Game.GameRules
 
             var copy = MonsterIndexViewModel.Instance.Dataset.ElementAt(rnd - 1);
 
+            string monsterName = GetMonsterName();
             var result = new MonsterModel(copy)
             {
                 Level =  copy.Level < 0 ? copy.Level : DiceHelper.RollDice(1, MaxLevel),
 
                 // Randomize Name
-                Name = GetMonsterName(),
+                Name = monsterName,
                 Description = GetMonsterDescription(),
 
                 // Randomize the Attributes
@@ -261,7 +267,7 @@ namespace Game.GameRules
                 Speed = GetAbilityValue(),
                 Defense = GetAbilityValue(),
 
-                ImageURI = GetMonsterImage(),
+                ImageURI = GetMonsterImage(monsterName),
 
                 Difficulty = GetMonsterDifficultyValue()
             };
