@@ -186,13 +186,15 @@ namespace UnitTests.Helpers
             _ = DiceHelper.EnableForcedRolls();
             _ = DiceHelper.SetForcedRollValue(2);
 
+            string name = "Zombified Teacher";
+
             // Act
-            var result = RandomPlayerHelper.GetMonsterImage();
+            var result = RandomPlayerHelper.GetMonsterImage(name);
 
             // Reset
             _ = DiceHelper.DisableForcedRolls();
 
-            // Assert
+            // Asser
             Assert.AreEqual("zombieTeacher.png", result);
         }
 
