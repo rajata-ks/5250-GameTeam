@@ -77,7 +77,7 @@ namespace UnitTests.Helpers
             _ = DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual("Zombified Lunch Ladie", result);
+            Assert.AreEqual("Zombified Lunch Lady", result);
         }
 
         [Test]
