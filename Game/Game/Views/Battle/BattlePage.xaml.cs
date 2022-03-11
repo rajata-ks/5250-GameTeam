@@ -866,26 +866,26 @@ namespace Game.Views
             UpdateCharacterMonsterUI();
         }
 
-        /// <summary>
-        /// Rest Ability Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void RestButton_Clicked(object sender, EventArgs e)
-        {
-            var setup = true;
-            var keepAutoMove = false;
-            var action = ActionEnum.Rest;
+        ///// <summary>
+        ///// Rest Ability Action
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //public void RestButton_Clicked(object sender, EventArgs e)
+        //{
+        //    var setup = true;
+        //    var keepAutoMove = false;
+        //    var action = ActionEnum.Rest;
 
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker == null)
-            {
-                SetAttackerAndDefender();
-                setup = false;
-            }
+        //    if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker == null)
+        //    {
+        //        SetAttackerAndDefender();
+        //        setup = false;
+        //    }
 
-            NextAction(action);
-            UpdateCharacterMonsterUI();
-        }
+        //    NextAction(action);
+        //    UpdateCharacterMonsterUI();
+        //}
 
         /// <summary>
         /// Settings Page
