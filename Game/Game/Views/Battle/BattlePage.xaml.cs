@@ -1146,7 +1146,7 @@ namespace Game.Views
         public void HideUIElements()
         {
             Special.IsVisible = false;
-            Rest.IsVisible = false;
+            //Rest.IsVisible = false;
             NextRoundButton.IsVisible = false;
             StartBattleButton.IsVisible = false;
             MessageDisplayBox.IsVisible = false;
@@ -1209,7 +1209,7 @@ namespace Game.Views
                     //BattlePlayerInfomationBox.IsVisible = true;
                     MessageDisplayBox.IsVisible = true;
                     Special.IsVisible = true;
-                    Rest.IsVisible = true;
+                    //Rest.IsVisible = true;
                     break;
 
                 // Based on the State disable buttons
