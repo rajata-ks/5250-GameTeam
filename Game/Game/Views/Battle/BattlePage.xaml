@@ -113,8 +113,7 @@
                             <StackLayout Style="{StaticResource Verticalcenter}"  Grid.Column="2" Grid.Row="0">
                                 <Button x:Name="NextRoundButton" Clicked="NextRoundButton_Clicked" Text="Next Round" IsVisible="False" Style="{StaticResource UpdateButton}"/>
                                 <Button x:Name="StartBattleButton" Clicked="StartButton_Clicked" Text="Start Battle" IsVisible="False" Style="{StaticResource UpdateButton}"/>
-                                <Button x:Name="Special" Clicked="SpecialButton_Clicked" Text="Special" IsVisible="False" Style="{StaticResource UpdateButton}"/>
-                                <Button x:Name="Rest" Clicked="RestButton_Clicked" Text="Rest" IsVisible="False" Style="{StaticResource UpdateButton}"/>
+                                <Button :Name="Special" Clicked="SpecialButton_Clicked" Text="Special" IsVisible="False" Style="{StaticResource UpdateButton}"/>
                             </StackLayout>
 
                             <BoxView Grid.Column="3" Grid.Row="0" Grid.RowSpan="1" Style="{StaticResource BoxViewDivider}"/>
