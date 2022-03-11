@@ -787,39 +787,6 @@ namespace Game.Views
         //    BattlePlayerBoxVersus.Text = string.Empty;
         //}
 
-        /// <summary>
-        /// Attack Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void AttackButton_Clicked(object sender, EventArgs e)
-        {
-            //auto move for monsters
-
-            var setup = true;
-            var keepAutoMove = false;
-            var action = ActionEnum.Attack;
-
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker == null)
-            {
-                SetAttackerAndDefender();
-                setup = false;
-            }
-
-            PlayerTypeEnum postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
-            do
-            {
-                if (postBattle == PlayerTypeEnum.Monster)
-                {
-                    action = ActionEnum.Unknown;
-                }
-                var before = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
-                keepAutoMove = NextAction(action, setup);
-                postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
-
-            } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
-            UpdateCharacterMonsterUI();
-        }
 
         /// <summary>
         /// Move Action
@@ -1178,7 +1145,6 @@ namespace Game.Views
         /// </summary>
         public void HideUIElements()
         {
-            Attack.IsVisible = false;
             Special.IsVisible = false;
             Rest.IsVisible = false;
             NextRoundButton.IsVisible = false;
@@ -1242,7 +1208,6 @@ namespace Game.Views
                     GameUIDisplay.IsVisible = true;
                     //BattlePlayerInfomationBox.IsVisible = true;
                     MessageDisplayBox.IsVisible = true;
-                    Attack.IsVisible = true;
                     Special.IsVisible = true;
                     Rest.IsVisible = true;
                     break;
