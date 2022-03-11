@@ -708,7 +708,7 @@ namespace UnitTests.Views
             Assert.AreEqual(true, result); // Got to here, so it happened...
         }
 
-        [Test]
+       /*  [Test]
         public void BattlePage_SetSelectedEmpty_Default_Should_Pass()
         {
             // Arrange
@@ -720,7 +720,7 @@ namespace UnitTests.Views
 
             // Assert
             Assert.AreEqual(true, result); // Got to here, so it happened...
-        }
+        }*/
 
         [Test]
         public void BattlePage_UpdateMapGrid_InValid_Bogus_Image_Should_Fail()
