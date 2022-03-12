@@ -68,9 +68,9 @@
             </ListView>
 
             <Grid>
-                <Button
-                    Text="Create New Item?" Clicked="AddItem_Clicked"
-                    Style="{StaticResource StickyBottomButtons}" />
+                <ImageButton 
+                            Source="button_create_item.png" Clicked="Add_Clicked"  
+                            Style="{StaticResource GridRoundedImageButton}"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>
