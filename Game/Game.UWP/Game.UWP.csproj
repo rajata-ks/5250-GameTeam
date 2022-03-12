@@ -157,8 +157,12 @@
     <Content Include="button_battle_move.png" />
     <Content Include="button_battle_rest.png" />
     <Content Include="button_battle_special.png" />
+    <Content Include="button_cancel.png" />
+    <Content Include="button_delete.png" />
     <Content Include="button_no.png" />
     <Content Include="button_no_blank.png" />
+    <Content Include="button_save.png" />
+    <Content Include="button_update.png" />
     <Content Include="button_yes.png" />
     <Content Include="button_yes_blank.png" />
     <Content Include="character_athlete.png" />

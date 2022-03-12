@@ -454,4 +454,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\button_yes_blank.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_delete.png" />
+  </ItemGroup>
 </Project>
