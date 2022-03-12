@@ -181,9 +181,9 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <Button 
-                            Text="Cancel"  Clicked="Cancel_Clicked"  Grid.Row="0" Grid.Column="0"
-                            Style="{StaticResource GridRoundedButton}"/>
+                                <ImageButton 
+                            Source="button_cancel.png" Clicked="Cancel_Clicked"   
+                            Style="{StaticResource GridRoundedImageButton}"/>
 
                                 <Button 
                             Text="Save"  Clicked="Save_Clicked"  Grid.Row="0" Grid.Column="1"
