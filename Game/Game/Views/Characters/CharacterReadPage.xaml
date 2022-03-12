@@ -135,9 +135,9 @@
                             <ImageButton 
                             Source="button_delete.png" Clicked="Delete_Clicked"   
                             Style="{StaticResource GridRoundedImageButton}"/>
-                            <Button 
-                            Text="Delete"  Clicked="Delete_Clicked" 
-                            Style="{StaticResource UpdateButton}"/>
+                            <ImageButton 
+                            Source="button_update.png" Clicked="Update_Clicked"   
+                            Style="{StaticResource GridRoundedImageButton}"/>
 
                         </StackLayout>
                     </StackLayout>
