@@ -184,10 +184,9 @@
                                 <ImageButton 
                             Source="button_cancel.png" Clicked="Cancel_Clicked"   
                             Style="{StaticResource GridRoundedImageButton}"/>
-
-                                <Button 
-                            Text="Save"  Clicked="Save_Clicked"  Grid.Row="0" Grid.Column="1"
-                            Style="{StaticResource GridRoundedButton}"/>
+                                <ImageButton 
+                            Source="button_save.png"  Clicked="Save_Clicked"
+                            Style="{StaticResource GridRoundedImageButton}"/>
 
                             </Grid>
 
