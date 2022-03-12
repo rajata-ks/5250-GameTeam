@@ -442,4 +442,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\button_battle_special.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_yes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_no.png" />
+  </ItemGroup>
 </Project>

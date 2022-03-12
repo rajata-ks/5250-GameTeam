@@ -157,6 +157,8 @@
     <Content Include="button_battle_move.png" />
     <Content Include="button_battle_rest.png" />
     <Content Include="button_battle_special.png" />
+    <Content Include="button_no.png" />
+    <Content Include="button_yes.png" />
     <Content Include="character_athlete.png" />
     <Content Include="character_nerd_headshot.scale-400.png" />
     <Content Include="character__nerd.png" />

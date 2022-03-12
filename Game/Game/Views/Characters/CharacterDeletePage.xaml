@@ -52,14 +52,11 @@
 
 
                     <StackLayout Style="{StaticResource HorizontalCenterStack}"  >
-                        <Button 
-                            Text="Yes"  Clicked="Delete_Clicked"
-                            Style="{StaticResource UpdateButton}">
-                        </Button>
-                        <Button 
-                            Text="No"  Clicked="Cancel_Clicked"   
-                            Style="{StaticResource UpdateButton}">
-                        </Button>
+                        <ImageButton 
+                            Source="button_yes.png"  Clicked="Delete_Clicked"
+                            Style="{StaticResource UpdateImageButton}"/>
+
+
                     </StackLayout>
 
                 </StackLayout>
