@@ -5,8 +5,6 @@ using Xamarin.Forms.Xaml;
 
 using Game.ViewModels;
 using Game.Models;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace Game.Views
 {
@@ -45,32 +43,8 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            this.ViewModel = data;
-
-            //clear list
-            if (this.ViewModel.Dataset != null)
-            {
-                this.ViewModel.Dataset.Clear();
-            }
-
-            //initialize the dataset
-            this.ViewModel.Dataset = new ObservableCollection<DefaultModel>();
-
-            //get all data
-            var dataList = ItemIndexViewModel.Instance.Dataset;
-
-            //to populate the dataset so images can show up
-            foreach (var datas in dataList)
-            {
-                this.ViewModel.Dataset.Add(new DefaultModel { Name = datas.Name, Description = datas.Description, ImageURI = datas.ImageURI, Id = datas.Id });
-            }
-
             BindingContext = this.ViewModel = data;
 
-            //set carousel to the current item image
-            carouselItem.CurrentItem = this.ViewModel.Dataset.Where(x => x.Id == data.Data.Id).FirstOrDefault();
-
-            //set title
             this.ViewModel.Title = "Update " + data.Title;
 
             //Set bools to true.
@@ -81,7 +55,7 @@ namespace Game.Views
             ItemModelCopy = new ItemModel(data.Data);
 
             //Need to make the SelectedItem a string, so it can select the correct item.
-            LocationPicker.SelectedItem = ItemLocationEnumExtensions.ToMessage(data.Data.Location);
+            LocationPicker.SelectedItem = data.Data.Location.ToString();
             AttributePicker.SelectedItem = data.Data.Attribute.ToString();
         }
 
@@ -99,6 +73,11 @@ namespace Game.Views
             }
 
             if (descriptionValid == false)
+            {
+                return;
+            }
+
+            if (imageValid == false)
             {
                 return;
             }
@@ -233,12 +212,45 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Validate the entry for image.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Image_TextChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ImageEntry.Text))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            if (!ImageEntry.Text.EndsWith(".png"))
+            {
+                ImageLabel.TextColor = Color.Red;
+                imageValid = false;
+                return;
+            }
+
+            ImageLabel.TextColor = Color.White;
+            imageValid = true;
+
+        }
+
+        /// <summary>
         /// Round number for the slider
         /// </summary>
         /// <param name="val"></param>
         /// <param name="slide"> silder object</param>
         /// <returns></returns>
-        public double RoundSilderValueToWhole(double val, Slider slide)
+        private double RoundSilderValueToWhole(double val, Slider slide)
         {
             if (slide == null)
             {
@@ -248,13 +260,6 @@ namespace Game.Views
             var newStep = Math.Round(val / SliderStepSize);
 
             return slide.Value = newStep * SliderStepSize;
-        }
-
-        private void carouselItem_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
-        {
-            //get current carousel item image url to save
-            var cur = e.CurrentItem as DefaultModel;
-            ViewModel.Data.ImageURI = cur.ImageURI;
         }
     }
 }
