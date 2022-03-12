@@ -168,7 +168,7 @@
                             <ImageButton 
                             Source="button_cancel.png" Clicked="Cancel_Clicked"   
                             Style="{StaticResource GridRoundedImageButton}"/>
-                            
+
                             <ImageButton 
                             Source="button_save.png"  Clicked="Save_Clicked"
                             Style="{StaticResource GridRoundedImageButton}"/>
