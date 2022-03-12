@@ -151,28 +151,18 @@
 
                     </StackLayout>
 
-                    <StackLayout Style="{StaticResource VerticalStackSaveCancelButtons}">
-                        <Grid>
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}"  >
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="50"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions >
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
+                        <ImageButton 
+                            Source="button_cancel.png" Clicked="Cancel_Clicked"   
+                            Style="{StaticResource GridRoundedImageButton}"/>
 
-                            <Button 
-                            Text="Cancel"  Clicked="Cancel_Clicked"  Grid.Row="0" Grid.Column="0"
-                            Style="{StaticResource GridRoundedButton}"/>
-
-                            <Button 
-                            Text="Save"  Clicked="Save_Clicked"  Grid.Row="0" Grid.Column="1"
-                            Style="{StaticResource GridRoundedButton}"/>
-
-                        </Grid>
+                        <ImageButton 
+                            Source="button_save.png"  Clicked="Save_Clicked"
+                            Style="{StaticResource GridRoundedImageButton}"/>
 
                     </StackLayout>
+
                 </StackLayout>
             </StackLayout>
         </ScrollView>
