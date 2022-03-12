@@ -9,65 +9,66 @@
     <NavigationPage.TitleView>
         <Label Text="{Binding Title}" Style="{StaticResource CenterMessageStyle}"/>
     </NavigationPage.TitleView>
-
     <ScrollView>
-
         <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition  Width="*" />
-                </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition  Width="*" />
+            </Grid.ColumnDefinitions>
 
-                <StackLayout Style="{StaticResource CenterVerticalStack}" Grid.Row="0" Grid.ColumnSpan="2" >
-                
-                    <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
-                    <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="0" Grid.ColumnSpan="2" >
-                        <Label
-                           Text="Name : " 
-                            Style="{StaticResource LabelStyle}"/>
-                        <Label 
-                            Text="{Binding Data.Name}" 
-                            Style="{StaticResource ValueStyle}"/>
-                    </StackLayout>
-                    <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="0" Grid.ColumnSpan="2" >
-                        <Label 
-                                Text="Description : " 
-                                Style="{StaticResource LabelStyle}"/>
-                        <Label 
-                                Text="{Binding Data.Description}" 
-                                Style="{StaticResource ValueStyle}"/>
-                    </StackLayout>
+            <StackLayout Style="{StaticResource VerticalCenterStack}"  Grid.Row="0" Grid.ColumnSpan="2" >
+
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargestStyle}"/>
+                <StackLayout Style="{StaticResource HorizontalCenterStack}" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label 
+                   Text="Name : " 
+                    Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                    Text="{Binding Data.Name}" 
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalCenterStack}" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Label 
+                    Text="Description : " 
+                    Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                    Text="{Binding Data.Description}" 
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
             </StackLayout>
+
 
             <Frame Style="{StaticResource NarratorFrame}"
                    Grid.Row="1" Grid.ColumnSpan="2">
 
-                <StackLayout Style="{StaticResource CenterVerticalStack}" >
+                <StackLayout Style="{StaticResource VerticalCenterStack}">
 
-                    <Label Text="Are you sure you want to delete this Item?" Style="{StaticResource UpdateStyle}" />
+                    <Label Text="Are you sure you want to delete this Item?" Style="{StaticResource UpdateStyle}"/>
 
-                    <StackLayout Style="{StaticResource HorizontalCenterStack}">
+
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}"  >
+
+
                         <ImageButton 
-                            Source="button_cancel.png" Clicked="Cancel_Clicked"   
+                            Source="button_no.png" Clicked="Cancel_Clicked"   
                             Style="{StaticResource GridRoundedImageButton}"/>
+
                         <ImageButton 
-                            Source="button_delete.png" Clicked="Delete_Clicked"   
+                            Source="button_yes.png"  Clicked="Delete_Clicked"
                             Style="{StaticResource GridRoundedImageButton}"/>
 
                     </StackLayout>
 
                 </StackLayout>
             </Frame>
-
             <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="2" Grid.Column="0"/>
-
-            </Grid>
-
+        </Grid>
     </ScrollView>
 </ContentPage>
