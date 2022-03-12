@@ -466,4 +466,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\button_delete.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_create_score.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\output-onlineimagetools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_create_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_create_character.png" />
+  </ItemGroup>
 </Project>
