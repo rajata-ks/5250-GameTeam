@@ -132,9 +132,9 @@
 
                         <Label Text="Do you want to update this Character?" Style="{StaticResource UpdateStyle}"/>
                         <StackLayout Style="{StaticResource HorizontalCenterStack}">
-                            <Button 
-                            Text="Update"  Clicked="Update_Clicked" 
-                            Style="{StaticResource UpdateButton}"/>
+                            <ImageButton 
+                            Source="button_delete.png" Clicked="Delete_Clicked"   
+                            Style="{StaticResource GridRoundedImageButton}"/>
                             <Button 
                             Text="Delete"  Clicked="Delete_Clicked" 
                             Style="{StaticResource UpdateButton}"/>
