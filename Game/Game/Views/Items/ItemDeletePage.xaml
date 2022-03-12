@@ -53,17 +53,19 @@
                     <Label Text="Are you sure you want to delete this Item?" Style="{StaticResource UpdateStyle}" />
 
 
-                    <StackLayout Style="{StaticResource CenterHorizontalStack}"  >
-                        <Button 
-                            Text="Yes"  Clicked="Delete_Clicked"
-                            Style="{StaticResource UpdateButton}">
-                        </Button>
-                        <Button 
-                            Text="No"  Clicked="Cancel_Clicked"   
-                            Style="{StaticResource UpdateButton}">
-                        </Button>
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}"  >
+
+
+                        <ImageButton 
+                            Source="button_no.png" Clicked="Cancel_Clicked"   
+                            Style="{StaticResource GridRoundedImageButton}"/>
+
+                        <ImageButton 
+                            Source="button_yes.png"  Clicked="Delete_Clicked"
+                            Style="{StaticResource GridRoundedImageButton}"/>
+
                     </StackLayout>
-                    
+
                 </StackLayout>
             </Frame>
 
