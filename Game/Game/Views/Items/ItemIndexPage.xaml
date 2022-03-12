@@ -14,7 +14,7 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStacks}">
             <ListView x:Name="ItemsListView" 
-                    Style="{StaticResource DefaultListView}"
+                    Style="{StaticResource DefaultListitemView}"
                     CachingStrategy="RecycleElement"
                     ItemSelected="OnItemSelected"
                     >
@@ -23,7 +23,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <Frame Style="{StaticResource ListIndexFrameCells}">
-                                <Grid Style="{StaticResource IndexGrid}">
+                                <Grid Style="{StaticResource IndexPickGrid}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="200"/>
                                         <ColumnDefinition Width="auto"/>
@@ -69,7 +69,7 @@
 
             <Grid>
                 <ImageButton 
-                            Source="button_create_item.png" Clicked="Add_Clicked"  
+                            Source="button_create_item.png" Clicked="AddItem_Clicked"  
                             Style="{StaticResource GridRoundedImageButton}"/>
             </Grid>
         </StackLayout>

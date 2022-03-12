@@ -53,7 +53,7 @@
                                 Text="Location : " 
                                 Style="{StaticResource LabelStyle}"/>
                             <Label 
-                                Text="{Binding Data.Location, Converter={StaticResource ItemLocationEnumConverter}}}" 
+                                Text="{Binding Data.Location, Converter={StaticResource ItemLocationEnumConverter}}" 
                                 Style="{StaticResource ValueStyle}"/>
                         </StackLayout>
                         <StackLayout Style="{StaticResource HorizontalStack}">

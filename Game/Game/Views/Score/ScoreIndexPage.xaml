@@ -65,7 +65,7 @@
             </ListView>
             <Grid>
                 <ImageButton 
-                            Source="button_create_score.png" Clicked="Add_Clicked"  
+                            Source="button_create_score.png" Clicked="AddScore_Clicked"  
                             Style="{StaticResource GridRoundedImageButton}"/>
 
 

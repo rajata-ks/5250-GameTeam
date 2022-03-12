@@ -1064,6 +1064,16 @@
                 <Setter Property="RefreshCommand" Value="{Binding LoadItemsCommand}" />
             </Style>
 
+            <Style TargetType="ListView" 
+                   x:Key="DefaultListitemView">
+                <Setter Property="HasUnevenRows" Value="true" />
+                <Setter Property="Margin" Value="5,0,5,0" />
+                <Setter Property="RowHeight" Value="100" />
+
+                <Setter Property="ItemsSource" Value="{Binding Dataset}" />
+                <Setter Property="IsRefreshing" Value="{Binding IsBusy, Mode=OneWay}" />
+                <Setter Property="RefreshCommand" Value="{Binding LoadItemsCommand}" />
+            </Style>
 
             <Style TargetType="ContentView" 
                    x:Key="ContentView">
