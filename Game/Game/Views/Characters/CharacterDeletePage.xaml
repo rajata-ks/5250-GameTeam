@@ -54,11 +54,11 @@
                     <StackLayout Style="{StaticResource HorizontalCenterStack}"  >
                         <ImageButton 
                             Source="button_yes.png"  Clicked="Delete_Clicked"
-                            Style="{StaticResource UpdateImageButton}"/>
+                            Style="{StaticResource GridRoundedImageButton}"/>
 
                         <ImageButton 
                             Source="button_no.png" Clicked="Cancel_Clicked"   
-                            Style="{StaticResource UpdateImageButton}"/>
+                            Style="{StaticResource GridRoundedImageButton}"/>
 
                     </StackLayout>
 
