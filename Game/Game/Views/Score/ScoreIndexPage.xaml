@@ -64,11 +64,10 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Grid>
-                <Button 
-                    Text="Create New Score?" Clicked="AddScore_Clicked"
-                    Style="{StaticResource StickyBottomButtons}" >
+                <ImageButton 
+                            Source="button_create_score.png" Clicked="Add_Clicked"  
+                            Style="{StaticResource GridRoundedImageButton}"/>
 
-                </Button>
 
             </Grid>
         </StackLayout>
