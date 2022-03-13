@@ -10,9 +10,9 @@
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -20,9 +20,10 @@
                 <ColumnDefinition  Width="*" />
             </Grid.ColumnDefinitions>
 
-            <StackLayout Style="{StaticResource VerticalCenterStack}" Grid.Row="0" Grid.ColumnSpan="2" >
+            <StackLayout Style="{StaticResource VerticalCenterStack}"  Grid.Row="0" Grid.ColumnSpan="2" >
 
-                <StackLayout Style="{StaticResource HorizontalCenterStack}"  Grid.Row="0" Grid.ColumnSpan="2">
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargestStyle}" IsAnimationPlaying="True"/>
+                <StackLayout Style="{StaticResource HorizontalCenterStack}" Grid.Row="0" Grid.ColumnSpan="2">
                     <Label 
                    Text="Name : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -31,7 +32,7 @@
                     Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="0" Grid.ColumnSpan="2">
+                <StackLayout Style="{StaticResource HorizontalCenterStack}" Grid.Row="0" Grid.ColumnSpan="2">
                     <Label 
                     Text="Battle# : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -39,25 +40,17 @@
                     Text="{Binding Data.BattleNumber}" 
                     Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
-
-                <StackLayout Style="{StaticResource CenterHorizontalStack}" Grid.Row="0" Grid.ColumnSpan="2">
-                    <Label 
-                    Text="Date : " 
-                    Style="{StaticResource LabelStyle}"/>
-                    <Label 
-                    Text="{Binding Data.GameDate}" 
-                    Style="{StaticResource ValueStyle}"/>
-                </StackLayout>
-
-
-
             </StackLayout>
+
 
             <Frame Style="{StaticResource NarratorFrame}"
                    Grid.Row="1" Grid.ColumnSpan="2">
-                <StackLayout Style="{StaticResource VerticalCenterStack}" >
 
-                    <Label Text="Are you sure you want to delete this Score?" Style="{StaticResource UpdateStyle}" />
+                <StackLayout Style="{StaticResource VerticalCenterStack}">
+
+                    <Label Text="Are you sure you want to delete this Score?" Style="{StaticResource UpdateStyle}"/>
+
+
                     <StackLayout Style="{StaticResource HorizontalCenterStack}"  >
 
 
@@ -72,13 +65,8 @@
                     </StackLayout>
 
                 </StackLayout>
-
-                
             </Frame>
-
-            <StackLayout Grid.Row="2">
-                <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" />
-            </StackLayout>
+            <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" Grid.Row="2" Grid.Column="0"/>
         </Grid>
     </ScrollView>
 </ContentPage>
