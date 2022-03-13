@@ -108,7 +108,7 @@
 
                         <Image 
                                     Source="{Binding Data.ImageURI, Mode=TwoWay}"
-                                    Style="{StaticResource ImageSmallStyle}"/>
+                                    Style="{StaticResource ImageSmallStyle}"  IsAnimationPlaying="True"/>
 
                         <Entry 
                                     Text="{Binding Data.ImageURI, Mode=TwoWay}" 
@@ -120,26 +120,19 @@
 
                 </Grid>
 
-                <StackLayout Style="{StaticResource VerticalStackSaveCancelButtons}">
-                    <Grid>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions >
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
 
-                        <Button 
-                            Text="Cancel"  Clicked="Cancel_Clicked"  Grid.Row="0" Grid.Column="0"
-                            Style="{StaticResource GridRoundedButton}"/>
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}"  >
 
-                        <Button 
-                            Text="Save"  Clicked="Save_Clicked"  Grid.Row="0" Grid.Column="1"
-                            Style="{StaticResource GridRoundedButton}"/>
+                        <ImageButton 
+                            Source="button_cancel.png" Clicked="Cancel_Clicked"   
+                            Style="{StaticResource GridRoundedImageButton}"/>
 
-                    </Grid>
+                        <ImageButton 
+                            Source="button_save.png"  Clicked="Save_Clicked"
+                            Style="{StaticResource GridRoundedImageButton}"/>
+
+                   
 
                 </StackLayout>
             </StackLayout>

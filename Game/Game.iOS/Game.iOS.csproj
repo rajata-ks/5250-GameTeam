@@ -481,4 +481,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\button_create_item.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grade_B.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grade_A.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grade_D.GIF" />
+  </ItemGroup>
 </Project>

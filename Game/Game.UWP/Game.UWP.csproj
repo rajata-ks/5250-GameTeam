@@ -192,6 +192,9 @@
     <Content Include="goth.png" />
     <Content Include="goth_headshot.png" />
     <Content Include="GRADE.png" />
+    <Content Include="grade_A.GIF" />
+    <Content Include="grade_B.GIF" />
+    <Content Include="grade_D.GIF" />
     <Content Include="hat1.png" />
     <Content Include="hat2.png" />
     <Content Include="icon_add.png" />
