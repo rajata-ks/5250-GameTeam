@@ -571,6 +571,7 @@ namespace Game.Views
 
             if (currentMover.PlayerType == PlayerTypeEnum.Character)
             {
+                
                 if (BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.CalculateDistance(location, data) > 1)
                 {
                     NextAction(action, true, true);
@@ -606,8 +607,9 @@ namespace Game.Views
                 } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
             }
 
-            var test = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList().PlayerType;
+            var test = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList();
 
+           
             //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList());
             _ = UpdateMapGrid();
 
@@ -1031,13 +1033,23 @@ namespace Game.Views
         public void GameMessage()
         {
             // Output The Message that happened.
-            BattleMessages.Text = string.Format("{0} \n{1}", BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage, BattleMessages.Text);
-
+            string[] checkMessage = BattleMessages.Text.ToString().Split('\n');
+            foreach(string message in checkMessage)
+            {
+                if (message == BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage)
+                {
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage = "";
+                }
+            }
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage != "")
+            {
+                BattleMessages.Text = string.Format("{0} \n{1}", BattleMessages.Text, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage);
+            }
             Debug.WriteLine(BattleMessages.Text);
 
             if (!string.IsNullOrEmpty(BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.LevelUpMessage))
             {
-                BattleMessages.Text = string.Format("{0} \n{1}", BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.LevelUpMessage, BattleMessages.Text);
+                BattleMessages.Text = string.Format("{0} \n{1}", BattleMessages.Text, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.LevelUpMessage);
             }
 
             //htmlSource.Html = BattleEngineViewModel.Instance.Engine.BattleMessagesModel.GetHTMLFormattedTurnMessage();
@@ -1260,13 +1272,14 @@ namespace Game.Views
         /// Turn on the Timer
         /// 
         /// Fire the Start Timer every duration
+        /// Fire the Start Timer every duration
         /// 
         /// </summary>
         /// <returns></returns>
         public bool ConfigureTimerOn()
         {
             TimerStateOn = true;
-            IsEnableTimer = true;
+            IsEnableTimer = false;
             TimerDuration = 99999;
             TimerEndTime = DateTime.Now.AddMilliseconds(TimerDuration);
             StartTimerEvent();
