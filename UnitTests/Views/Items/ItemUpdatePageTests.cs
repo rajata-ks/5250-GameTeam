@@ -352,19 +352,5 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
-        [Test]
-        public void ItemUpdatePage_round_silder_null_silder_Should_Pass()
-        {
-            // Arrange
-
-            //act
-            var test = page.RoundSilderValueToWhole(2.3,null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(test == 0); // Got to here, so it happened...
-        }
     }
 }
