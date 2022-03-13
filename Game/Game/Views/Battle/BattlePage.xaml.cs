@@ -634,11 +634,11 @@ namespace Game.Views
             if (currentMover.PlayerType == PlayerTypeEnum.Character)
             {
                 _ = BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(data.Player);
-                NextAction(action, true, false);
+                NextAction(action, false, false);
                 UpdateCharacterMonsterUI();
             }
 
-            currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
+            currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList();
             //WIP LOOPS THROUGH ALL MOSNTERS BUT MOVES PLAYER LAST.
             if (currentMover.PlayerType == PlayerTypeEnum.Monster)
             {
@@ -649,10 +649,10 @@ namespace Game.Views
                 {
                     if (postBattle == PlayerTypeEnum.Monster)
                     {
-                        action = ActionEnum.Unknown;
+                        action = ActionEnum.Attack;
                     }
 
-                    if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
+                    if (currentMover.PlayerType == PlayerTypeEnum.Monster)
                     {
                         keepAutoMove = NextAction(action, true, true);
                     }
