@@ -57,11 +57,12 @@
                     <StackLayout 
                             Style="{StaticResource CenterVerticalStack}">
 
-                        <ScrollView x:Name="MessageDisplayBox"> 
+                        <ScrollView x:Name="MessageDisplayBox" BackgroundColor="#80000000" Opacity=".8"> 
                             <Label x:Name="BattleMessages" 
                                     Style="{StaticResource AboutUsText}"
                                    Margin="0"
-                                   FontSize="15"
+                                   FontSize="20"
+                                   TextColor="White"
                                    HorizontalOptions="CenterAndExpand"
                                     />
                         </ScrollView>
