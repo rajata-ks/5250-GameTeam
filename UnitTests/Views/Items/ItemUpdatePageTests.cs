@@ -80,25 +80,6 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ItemUpdatePage_Constructor_Dataset_not_null_should_clear_Should_Pass()
-        {
-            // Arrange
-            var data = new GenericViewModel<ItemModel>() {
-                Dataset = new System.Collections.ObjectModel.ObservableCollection<DefaultModel> { new DefaultModel() },
-                Data = new ItemModel() { Id = "1" }
-            };
-            page = new ItemUpdatePage(data);
-
-            // Act
-            page.Save_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(page.ViewModel.Dataset.Count != 1);
-        }
-
-        [Test]
         public void ItemUpdatePage_Save_Clicked_Null_Image_Should_Pass()
         {
             // Arrange
@@ -306,9 +287,6 @@ namespace UnitTests.Views
 
             page.ViewModel.Data.Location = ItemLocationEnum.Necklass;
             page.ViewModel.Data.Attribute = AttributeEnum.Attack;
-
-            var carouselItem = page.FindByName("carouselItem");
-            ((CarouselView)carouselItem).CurrentItem = new DefaultModel() { ImageURI = "test.png" };
 
             page.Name_TextChanged(null, null);
             page.Description_TextChanged(null, null);
