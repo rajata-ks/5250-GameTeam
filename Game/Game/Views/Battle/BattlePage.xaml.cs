@@ -571,11 +571,9 @@ namespace Game.Views
 
             if (currentMover.PlayerType == PlayerTypeEnum.Character)
             {
-                
-
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(location, data);
                 location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
-                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage = currentMover.Name + " moved to " + location.Row.ToString() + " " + location.Column.ToString();
+                BattleMessages.Text = currentMover.Name + " moved to Row " + location.Row.ToString() + " Column " + location.Column.ToString();
                 NextAction(action, true, true);
                 UpdateCharacterMonsterUI();
             }
