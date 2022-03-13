@@ -52,9 +52,9 @@
                     </Grid>
                 </StackLayout>
             </Grid>
-            <Button
-                    Text="LeaderBoard" Clicked="ScoresButton_Clicked"
-                    Style="{StaticResource CreateBottomButton}"/>
+            <ImageButton 
+                     Source="button_leader.png" Clicked="ScoresButton_Clicked"  
+                     Style="{StaticResource GridRoundedImageButton}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

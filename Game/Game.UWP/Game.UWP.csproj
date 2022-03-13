@@ -163,6 +163,7 @@
     <Content Include="button_create_monster.png" />
     <Content Include="button_create_score.png" />
     <Content Include="button_delete.png" />
+    <Content Include="button_leader.png" />
     <Content Include="button_no.png" />
     <Content Include="button_no_blank.png" />
     <Content Include="button_save.png" />

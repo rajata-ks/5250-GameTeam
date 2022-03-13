@@ -490,4 +490,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\grade_D.GIF" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_leader.png" />
+  </ItemGroup>
 </Project>
