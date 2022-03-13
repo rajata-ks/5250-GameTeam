@@ -572,11 +572,7 @@ namespace Game.Views
             if (currentMover.PlayerType == PlayerTypeEnum.Character)
             {
                 
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.CalculateDistance(location, data) > 1)
-                {
-                    NextAction(action, true, true);
-                    return true;
-                }
+
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(location, data);
                 location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
                 BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage = currentMover.Name + " moved to " + location.Row.ToString() + " " + location.Column.ToString();
