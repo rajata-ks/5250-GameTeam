@@ -108,7 +108,7 @@
 
                         <Image 
                                     Source="{Binding Data.ImageURI, Mode=TwoWay}"
-                                    Style="{StaticResource ImageSmallStyle}"/>
+                                    Style="{StaticResource ImageSmallStyle}" IsAnimationPlaying="True"/>
 
                         <Entry 
                                     Text="{Binding Data.ImageURI, Mode=TwoWay}" 
