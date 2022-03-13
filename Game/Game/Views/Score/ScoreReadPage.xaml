@@ -110,15 +110,16 @@
 
                         <Label Text="Do you want to update this Score?" Style="{StaticResource UpdateStyle}" />
 
-                        <StackLayout Style="{StaticResource HorizontalCenterStack}">
-                            <Button 
-                            Text="Update"  Clicked="Update_Clicked" 
-                            Style="{StaticResource UpdateButton}"/>
-                            <Button 
-                            Text="Delete"  Clicked="Delete_Clicked" 
-                            Style="{StaticResource UpdateButton}"/>
+                            <StackLayout Style="{StaticResource HorizontalCenterStack}">
+                                <ImageButton 
+                            Source="button_delete.png" Clicked="Delete_Clicked"   
+                            Style="{StaticResource GridRoundedImageButton}"/>
+                                <ImageButton 
+                            Source="button_update.png" Clicked="Update_Clicked"   
+                            Style="{StaticResource GridRoundedImageButton}"/>
+
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
                 </Frame>
                 <StackLayout Grid.Row="2" >
                     <Image Source="character_nerd_headshot.png" Style="{StaticResource ImageLargeStyle}" />
