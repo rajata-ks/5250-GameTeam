@@ -470,7 +470,7 @@
     <BundleResource Include="Resources\button_create_score.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\output-onlineimagetools.png" />
+    <BundleResource Include="Resources\outputonlineimagetools.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\button_create_monster.png" />

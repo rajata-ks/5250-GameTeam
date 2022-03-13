@@ -414,7 +414,7 @@
     <AndroidResource Include="Resources\drawable\button_create_score.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\output-onlineimagetools.png" />
+    <AndroidResource Include="Resources\drawable\outputonlineimagetools.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\button_create_monster.png" />
