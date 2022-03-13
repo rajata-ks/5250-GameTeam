@@ -34,7 +34,7 @@
                                     
                                     <Image  Grid.Column="0" Grid.Row="0" 
                                         Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageMediumStyle}"/>
+                                        Style="{StaticResource ImageMediumStyle}" IsAnimationPlaying="True"/>
 
                                     <Label Grid.Column="0" Grid.Row="1"
                                        Text="{Binding Name}" 
