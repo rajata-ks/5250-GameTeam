@@ -98,7 +98,7 @@
                                 
                             </StackLayout>
                             <Frame  Style="{StaticResource ScoreFrame}">
-                            <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}" />
+                                <Image Source="{Binding Data.ImageURI}"  Style="{StaticResource ImageLargeStyle}" IsAnimationPlaying="True" />
                             </Frame>
                         </StackLayout>
                     </StackLayout>
