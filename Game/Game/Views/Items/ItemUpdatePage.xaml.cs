@@ -250,7 +250,7 @@ namespace Game.Views
         /// <param name="val"></param>
         /// <param name="slide"> silder object</param>
         /// <returns></returns>
-        private double RoundSilderValueToWhole(double val, Slider slide)
+        public double RoundSilderValueToWhole(double val, Slider slide)
         {
             if (slide == null)
             {
