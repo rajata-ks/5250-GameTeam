@@ -116,6 +116,25 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void BattlePage_DetermineMapImageButton_openSpace_Valid_Should_Pass()
+        {
+            // Arrange
+            page.monstersTurn = true;
+            MapModelLocation map = new MapModelLocation();
+            map.Player = new PlayerInfoModel() { PlayerType = PlayerTypeEnum.openSpace, Location = ItemLocationEnum.LeftFinger };
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = map.Player;
+            var dataImage = page.DetermineMapImageButton(map);
+
+            // Act
+            ((ImageButton)dataImage).PropagateUpClicked();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
         public void BattlePage_MoveButton_Clicked_Default_Should_Pass()
         {
             // Arrange
@@ -706,7 +725,7 @@ namespace UnitTests.Views
         {
             // Make the Row Bogus
             BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation[0, 0].Row = -1;
-
+            page.monstersTurn = true;
             // Act
             var result = page.UpdateMapGrid();
 
