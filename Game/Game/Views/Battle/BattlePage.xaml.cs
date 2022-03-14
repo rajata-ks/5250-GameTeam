@@ -498,8 +498,8 @@ namespace Game.Views
             switch (MapLocationModel.Player.PlayerType)
             {
                 case PlayerTypeEnum.Character:
-                    
-                        data.IsEnabled = !monstersTurn;
+                    //dont have any function with character click. Always false.
+                        data.IsEnabled = false;
                     
                     data.Clicked += (sender, args) => SetSelectedCharacter(MapLocationModel);
                     break;
