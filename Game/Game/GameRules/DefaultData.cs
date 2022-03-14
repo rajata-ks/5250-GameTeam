@@ -22,7 +22,7 @@ namespace Game.GameRules
                     Range = 0,
                     Damage = 10,
                     Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
+                    Location = ItemLocationEnum.Finger,
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
@@ -42,7 +42,7 @@ namespace Game.GameRules
                     Range = 0,
                     Damage = 6,
                     Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
+                    Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
@@ -52,7 +52,7 @@ namespace Game.GameRules
                     Range = 0,
                     Damage = 12,
                     Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
+                    Location = ItemLocationEnum.Necklass,
                     Attribute = AttributeEnum.Attack},
 
                 new ItemModel {
@@ -62,7 +62,7 @@ namespace Game.GameRules
                     Range = 0,
                     Damage = 4,
                     Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
+                    Location = ItemLocationEnum.Feet,
                     Attribute = AttributeEnum.Defense},
 
                 new ItemModel {
@@ -72,7 +72,7 @@ namespace Game.GameRules
                     Range = 0,
                     Damage = 6,
                     Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
+                    Location = ItemLocationEnum.OffHand,
                     Attribute = AttributeEnum.Speed},
 
                 new ItemModel {
@@ -95,16 +95,7 @@ namespace Game.GameRules
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack},
 
-                 new ItemModel {
-                    Name = "Water Bottle",
-                    Description = "Feeling Good",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 6,
-                    Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.CurrentHealth},
-
+            
                 new ItemModel {
                     Name = "Chalk",
                     Description = "Useless as hell",
@@ -112,148 +103,10 @@ namespace Game.GameRules
                     Range = 10,
                     Damage = 10,
                     Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
-                    Name = "Glasses",
-                    Description = "Really good for seeing",
-                    ImageURI = "pen.png",
-                    Range = 10,
-                    Damage = 10,
-                    Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
-                    Name = "Yard Stick",
-                    Description = "Great for long distance",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.OffHand,
-                    Attribute = AttributeEnum.Defense},
-
-                new ItemModel {
-                    Name = "Binder",
-                    Description = "Useless like the chalk",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.OffHand,
-                    Attribute = AttributeEnum.Defense},
-
-                new ItemModel {
-                    Name = "Refrigerator",
-                    Description = "You are a god",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.OffHand,
-                    Attribute = AttributeEnum.MaxHealth},
-
-                new ItemModel {
-                    Name = "Microphone",
-                    Description = "Scream out your lungs",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.OffHand,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
-                    Name = "Pack of Gum",
-                    Description = "Something to chew on",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.Head,
-                    Attribute = AttributeEnum.Speed},
-
-                new ItemModel {
-                    Name = "Pencil",
-                    Description = "Useful now",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.Head,
-                    Attribute = AttributeEnum.Defense},
-
-                new ItemModel {
-                    Name = "Binder Paper",
-                    Description = "What can you do with this?",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.Necklass,
-                    Attribute = AttributeEnum.Speed},
-
-                new ItemModel {
-                    Name = "Energy Drink",
-                    Description = "Go Fast",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.Necklass,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
-                    Name = "Hat",
-                    Description = "Blocks out the sun",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.Head,
-                    Attribute = AttributeEnum.Defense},
-
-                new ItemModel {
-                    Name = "Sun Glasses",
-                    Description = "Can't see anything",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.Finger,
-                    Attribute = AttributeEnum.Speed},
-
-                new ItemModel {
-                    Name = "Flag Pole",
-                    Description = "Best weapon in game",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
                     Location = ItemLocationEnum.Finger,
                     Attribute = AttributeEnum.Attack},
 
-                new ItemModel {
-                    Name = "Fan",
-                    Description = "Cool",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.Feet,
-                    Attribute = AttributeEnum.Attack},
-
-                new ItemModel {
-                    Name = "Gym Shirt",
-                    Description = "Smelly",
-                    ImageURI = "pen.png",
-                    Range = 0,
-                    Damage = 0,
-                    Value = 9,
-                    Location = ItemLocationEnum.Feet,
-                    Attribute = AttributeEnum.Speed},
+              
             };
 
             return datalist;
