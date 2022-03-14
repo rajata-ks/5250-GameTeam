@@ -235,6 +235,38 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void RoundOverPage_DrawMonsterList_Valid_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterModelDeathList = new List<PlayerInfoModel>() { new PlayerInfoModel() };
+            // Act
+            page.DrawMonsterList();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+         [Test]
+        public void RoundOverPage_DrawCharacterListt_Valid_Should_Pass()
+        {
+            // Arrange
+            StackLayout itemBox = (StackLayout)page.Content.FindByName("CharacterBox");
+
+            itemBox.Children.Add(new Label());
+            itemBox.Children.Add(new Label());
+
+            // Act
+            page.DrawCharacterList();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
         public void RoundOverPage_GetItemToDisplay_InValid_Id_Should_Pass()
         {
             // Arrange
