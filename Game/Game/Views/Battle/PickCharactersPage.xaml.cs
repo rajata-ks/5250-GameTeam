@@ -229,6 +229,42 @@ namespace Game.Views
         }
 
 
+        /// <summary>
+        /// Move the Image left or Right
+        /// </summary>
+        /// <param name="increment"></param>
+        public int ChangeImageByIncrement(int increment)
+        {
+            // Find the Index for the current Image
+            var ImageIndexCurrent = BattleEngineViewModel.Instance.DatabaseCharacterList.IndexOf(currentItem);
+
+            // Amount to move
+            var indexNew = ImageIndexCurrent + increment;
+
+            if (indexNew >= itemcount)
+            {
+                indexNew = itemcount - 1;
+            }
+
+            if (indexNew <= 0)
+            {
+                indexNew = 0;
+            }
+
+            // Increment or Decrement to change the to a different image
+            currentItem = BattleEngineViewModel.Instance.DatabaseCharacterList.ElementAt(indexNew);
+            CharacterImage.Source = currentItem.ImageURI;
+            CharacterImage2.Source = currentItem.ImageURI;
+            CharacterDescription.Text = currentItem.Description;
+            CharacterText.Text = currentItem.Name;
+            CharacterLevel.Text = currentItem.Level.ToString();
+            CharacterMaxHealth.Text = currentItem.Level.ToString();
+
+
+
+            return indexNew;
+        }
+
 
         /// <summary>
         /// Clear out the old list and make the new list
