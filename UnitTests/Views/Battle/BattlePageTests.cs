@@ -80,12 +80,16 @@ namespace UnitTests.Views
         }
 
         //[Test]
-        //public void BattlePage_AttackButton_Clicked_Default_Should_Pass()
+        //public void BattlePage_SetSelectedEmpty_Defaults_Should_Pass()
         //{
         //    // Arrange
 
+        //    var item = page.DetermineMapImageButton(new MapModelLocation());
+
         //    // Act
-        //    page.AttackButton_Clicked(null, null);
+        //    var itemButton = item.Children.FirstOrDefault(m => m.GetType().Name.Equals("Button"));
+
+        //    _ = page.ShowPopup(ItemLocationEnum.Head);
 
         //    // Reset
 
@@ -93,34 +97,23 @@ namespace UnitTests.Views
         //    Assert.IsTrue(true); // Got to here, so it happened...
         //}
 
-        //[Test]
-        //public void BattlePage_RestButton_Clicked_Default_Should_Pass()
-        //{
-        //    // Arrange
+        [Test]
+        public void BattlePage_DetermineMapImageButton_Click_Button_Valid_Should_Pass()
+        {
+            // Arrange
+            MapModelLocation map = new MapModelLocation();
+            map.Player = new PlayerInfoModel() { PlayerType = PlayerTypeEnum.openSpace, Location = ItemLocationEnum.LeftFinger };
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = map.Player;
+            var dataImage = page.DetermineMapImageButton(map);
 
-        //    // Act
-        //    page.RestButton_Clicked(null, null);
+            // Act
+            ((ImageButton)dataImage).PropagateUpClicked();
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
-
-        //[Test]
-        //public void BattlePage_AttackButton_Clicked_Monster_turn_Should_Pass()
-        //{
-        //    // Arrange
-        //    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel() { PlayerType = PlayerTypeEnum.Monster};
-
-        //    // Act
-        //    page.AttackButton_Clicked(null, null);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
         [Test]
         public void BattlePage_MoveButton_Clicked_Default_Should_Pass()
@@ -199,7 +192,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        
+
         //[Test]
         //public void BattlePage_AttackButton_Clicked_While_Loop_Should_Pass()
         //{
@@ -708,20 +701,6 @@ namespace UnitTests.Views
             Assert.AreEqual(true, result); // Got to here, so it happened...
         }
 
-       /*  [Test]
-        public void BattlePage_SetSelectedEmpty_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = page.SetSelectedEmpty(new MapModelLocation());
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(true, result); // Got to here, so it happened...
-        }*/
-
         [Test]
         public void BattlePage_UpdateMapGrid_InValid_Bogus_Image_Should_Fail()
         {
@@ -1166,99 +1145,52 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got Here
         }
 
-        /*
-        #region TimerExample
         [Test]
-        public void SyncPage_StartTimerEvent_Default_Should_Pass()
+        public void BattleSettingsPage_SetSelectedEmpty_Should_Pass()
         {
-            //Arrange
-            page.IsEnableTimer = true;
+            // Arrange
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel() { Location = ItemLocationEnum.PrimaryHand});
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
 
-            //Act
-            var result = page.StartTimerEvent();
+            _ = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.PopulateMapModel(BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList);
 
-            //Reset
-            page.StopTimerEvent();
-            page.IsEnableTimer = false;
-
-            //Assert
-            Assert.AreEqual(true, result);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            page.SetSelectedEmpty(BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation[0,0]);
         }
 
         [Test]
-        public async Task SyncPage_StartTimerEvent_TimeUp_Should_Return_TimeUp()
+        public void BattleSettingsPage_NextTurn_Clicked_Should_Pass()
         {
-            //Arrange
-            var oldDuration = page.TimerDuration;
-            page.TimerDuration = 5;
-            page.IsEnableTimer = true;
+            page.NextTurn_Clicked(null,null);
 
-            //Act
-            _ = page.StartTimerEvent();
-            await Task.Delay(10);
-            var result = page.StartTimerEvent();
-
-            //Reset
-            page.StopTimerEvent();
-            page.IsEnableTimer = false;
-            page.TimerDuration = oldDuration;
-
-            //Assert
-            Assert.AreEqual(true, result);
+            Assert.IsTrue(true);
         }
 
         [Test]
-        public async Task SyncPage_StartTimerEvent_TimeRemaining_Should_Return_TimeRemaining()
+        public void BattleSettingsPage_UpdateCharacterMonsterUI_Should_Pass()
         {
-            //Arrange
-            var oldDuration = page.TimerDuration;
-            page.TimerDuration = 500;
-            page.IsEnableTimer = true;
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = new System.Collections.Generic.List<PlayerInfoModel>();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel());
+            var listview = page.FindByName("CharactersListView");
+            ((ListView)listview).ItemsSource = null;
 
-            //Act
-            _ = page.StartTimerEvent();
-            await Task.Delay(1);
-            var result = page.StartTimerEvent();
+            page.UpdateCharacterMonsterUI();
 
-            //Reset
-            page.StopTimerEvent();
-            page.IsEnableTimer = false;
-            page.TimerDuration = oldDuration;
-
-            //Assert
-            Assert.AreEqual(true, result);
+            Assert.IsTrue(true);
         }
+
 
         [Test]
-        public void SyncPage_StartTimerEvent_TimeRemaining_TimerEndTime_Expired_Should_Return_false()
+        public void BattleSettingsPage_UpdateCharacterMonsterUI_MonsterListZero_Should_Pass()
         {
-            //Arrange
-            page.TimerEndTime = DateTime.Now.AddMinutes(-1);
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = new System.Collections.Generic.List<PlayerInfoModel>();
 
-            //Act
-            var result = page.TimeRemaining();
+            page.UpdateCharacterMonsterUI();
 
-            //Reset
-
-            //Assert
-            Assert.AreEqual(false, result);
+            Assert.IsTrue(true);
         }
 
-        [Test]
-        public void SyncPage_StartTimerEvent_TimeRemaining_TimerEndTime_Remaining_Should_Return_true()
-        {
-            //Arrange
-            page.TimerEndTime = DateTime.Now.AddMinutes(1);
-
-            //Act
-            var result = page.TimeRemaining();
-
-            //Reset
-
-            //Assert
-            Assert.AreEqual(true, result);
-        }
-        #endregion TimerExample
-        */
     }
 }
