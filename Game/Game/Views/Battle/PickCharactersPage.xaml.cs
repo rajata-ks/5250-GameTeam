@@ -208,6 +208,27 @@ namespace Game.Views
             return true;
         }
 
+        /// <summary>
+        /// Shift Image to the Left
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void LeftArrow_Clicked(object sender, EventArgs e)
+        {
+            _ = ChangeImageByIncrement(-1);
+        }
+
+        /// <summary>
+        /// Shift Image to the Right
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void RightArrow_Clicked(object sender, EventArgs e)
+        {
+            _ = ChangeImageByIncrement(1);
+        }
+
+
 
         /// <summary>
         /// Clear out the old list and make the new list
