@@ -1172,6 +1172,7 @@ namespace Game.Views
 
             hideTurnButtons(showNextTurnButton);
             UpdateMapGrid();
+            UpdateCharacterMonsterUI();
         }
     }
 }
