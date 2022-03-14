@@ -89,7 +89,7 @@ namespace Game.Engine.EngineGame
                 case ActionEnum.Move:
                     if (Attacker.PlayerType == PlayerTypeEnum.Monster)
                     {
-                        result = MoveAsTurn(Attacker);
+                        MoveAsTurn(Attacker);
                     }
                     result = true;
                     break;
@@ -144,6 +144,12 @@ namespace Game.Engine.EngineGame
         public override bool MoveAsTurn(PlayerInfoModel Attacker)
         {
 
+            var locationAttacker = EngineSettings.MapModel.GetLocationForPlayer(Attacker);
+            if (locationAttacker == null)
+            {
+                return false;
+            }
+
             // For Attack, Choose Who
             EngineSettings.CurrentDefender = AttackChoice(Attacker);
 
@@ -154,16 +160,6 @@ namespace Game.Engine.EngineGame
 
             // Get X, Y for Defender
             var locationDefender = EngineSettings.MapModel.GetLocationForPlayer(EngineSettings.CurrentDefender);
-            if (locationDefender == null)
-            {
-                return false;
-            }
-
-            var locationAttacker = EngineSettings.MapModel.GetLocationForPlayer(Attacker);
-            if (locationAttacker == null)
-            {
-                return false;
-            }
 
             // Find Location Nearest to Defender that is Open.
 
