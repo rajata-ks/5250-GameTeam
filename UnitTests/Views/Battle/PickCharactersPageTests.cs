@@ -31,6 +31,8 @@ namespace UnitTests.Views
             Application.Current = app;
 
             page = new PickCharactersPage();
+
+            BattleEngineViewModel.Instance.PartyCharacterList =  new ObservableCollection<CharacterModel> { new CharacterModel() };
         }
 
         [TearDown]
@@ -103,43 +105,20 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        //[Test]
-        //public void PickCharactersPage_OnApperaing_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = new List<PlayerInfoModel>();
-        //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
-
-        //    BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = new List<PlayerInfoModel>();
-        //    BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));
-
-        //    BattleEngineViewModel.Instance.PartyCharacterList = new ObservableCollection<CharacterModel>();
-        //    BattleEngineViewModel.Instance.PartyCharacterList.Add(new CharacterModel());
-
-        //    var temp = page.EngineViewModel.Engine;
-
-        //    page.UpdateNextButtonState();
-
-        //    // Act
-        //    OnAppearing();
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
-
         [Test]
         public void PickCharactersPage_UpdateButtonState_Default_Should_Pass()
         {
             // Arrange
-
+            BattleEngineViewModel.Instance.PartyCharacterList = new ObservableCollection<CharacterModel>();
+            BattleEngineViewModel.Instance.PartyCharacterList.Add(new CharacterModel());
+            
             // Act
             page.UpdateNextButtonState();
 
             // Reset
 
             // Assert
+            Assert.NotNull(BattleEngineViewModel.Instance.PartyCharacterList);
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
@@ -183,7 +162,7 @@ namespace UnitTests.Views
             // Arrange
 
             var selectedCharacter = new CharacterModel();
-
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters = 6;
             var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(selectedCharacter, 0);
 
             // Act
@@ -201,6 +180,7 @@ namespace UnitTests.Views
             // Arrange
 
             var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(null, 0);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters = 6;
 
             // Act
             page.OnDatabaseCharacterItemSelected(null, selectedCharacterChangedEventArgs);
@@ -218,6 +198,34 @@ namespace UnitTests.Views
 
             // Act
             page.SelectButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PickCharacterPage_OnAppearing_Should_Pass()
+        {
+            // set character list
+
+            // Act
+            OnAppearing();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PickCharacterPage_OnAppearing_Null_List_Should_Pass()
+        {
+            // set character list
+            BattleEngineViewModel.Instance.PartyCharacterList = null;
+            // Act
+            OnAppearing();
 
             // Reset
 
