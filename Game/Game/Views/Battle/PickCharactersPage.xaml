@@ -14,9 +14,10 @@
                 <Label Text="Click to remove me! or Drag and Hold to scroll." Style="{StaticResource CenterMessageStyle}"/>
 
                 <Grid Style="{StaticResource CarouselViewGrid}">
-
-                    <RelativeLayout Grid.Row="0" 
+                    <Frame Style="{StaticResource FramePartyListFrame}" >
+                        <RelativeLayout Grid.Row="0" 
 							Style="{StaticResource CarouselRealativeStyle}">
+                        
                         <ListView 
                                 x:Name="PartyListView" 
                                 ItemSelected="OnPartyCharacterItemSelected"
@@ -25,31 +26,36 @@
                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=50}"
                               RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=100}"
                               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"   CachingStrategy="RecycleElement" >
-
-                            <ListView.ItemTemplate>
+                            
+                                <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
                                         <ContentView Style="{StaticResource ContentView}" >
                                             <StackLayout HeightRequest="100" 
 												 WidthRequest="200">
-
-                                                <Frame Style="{StaticResource PartyListFrame}" >
-                                                    <Image  
+                                                
+                                                    <Frame Style="{StaticResource PartyListFrame}" >
+                                                        <Image  
                                                     Source="{Binding ImageURI}"
                                                     Style="{StaticResource ImageMediumStyle}"/>
-                                                </Frame>
+                                                    </Frame>
+                                              
                                             </StackLayout>
                                         </ContentView>
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
+                       
                     </RelativeLayout>
+                    </Frame>
                 </Grid>
 
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="350" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -58,84 +64,87 @@
                         <ColumnDefinition Width="70"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image x:Name="pre"   Grid.Column="0" Grid.Row="0" Source="leftarrow.png"
+                    <ImageButton x:Name="LeftArrowButton"   Grid.Column="0" Grid.Row="0" Source="leftarrow.png" Clicked="LeftArrow_Clicked"
                                   Style="{StaticResource ImageMediumStyleCenter}"/>
 
-                    <CarouselView x:Name="CarouselCharacters" Position="{Binding CarouselPosition}" ItemsSource="{Binding DatabaseCharacterList}" Grid.Column="1" Grid.Row="0"
-                                 >
-                        <CarouselView.ItemTemplate>
-                            <DataTemplate>
+                    <StackLayout Grid.Column="1" Grid.Row="0">
 
-                                <StackLayout>
-                                    <!--
-                                    <Frame Style="{StaticResource CarouselViewFrame}">
-                                        <Image Source="{Binding ImageURI}" Style="{StaticResource CarouselImageSyle}" />
+                        <Frame Style="{StaticResource CarouselViewFrame}">
+                            <Image x:Name="CharacterImage" Source="{Binding ImageURI}"  Style="{StaticResource CarouselImageSyle}" HorizontalOptions="CenterAndExpand" />
+                        </Frame>
+                    </StackLayout>
 
-                                    </Frame>
-                                     -->
-                                    <Grid VerticalOptions="FillAndExpand">
+                    <StackLayout Grid.Column="1" Grid.Row="1" >
+                        <Grid >
+                            <Image Source="student_id_background.png" 
+                                            BackgroundColor="Transparent" 
+                                       HeightRequest="300"
+                                       WidthRequest="250" />
+                            <Grid Style="{StaticResource IndexGrid}" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
 
-                                        <Image Source="student_id_background.png" 
-                                           
-                                       HeightRequest="1000"
-                                       WidthRequest="250"/>
-                                        <Grid RowSpacing="25" ColumnSpacing="5">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="20"/>
-                                                <RowDefinition Height="20"/>
-                                                <RowDefinition Height="20"/>
-                                                <RowDefinition Height="20"/>
-                                                <RowDefinition Height="20"/>
-                                                <RowDefinition Height="20"/>
-                                            </Grid.RowDefinitions>
-
-                                            <Image  Grid.Column="0" Grid.Row="3" Grid.RowSpan="3"
+                                <Image x:Name="CharacterImage2" Grid.Column="0" Grid.Row="2" Grid.RowSpan="3"
                                         Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageLargeStyle}" Margin="0"
-                                        />
+                                        Style="{StaticResource ImageLargeStyle}"
+                                        /> 
 
-                                            <Label Grid.Column="1" Grid.Row="3"
-                                       Text="{Binding Name}"   Margin="0"
+                                <Label x:Name="CharacterText" Grid.Column="1" Grid.Row="2"
+                                       Text="{Binding Name}" 
                                        Style="{StaticResource ListStyle}"/>
 
-                                            <StackLayout Grid.Column="1" Grid.Row="4"  Margin="0"
+                                <StackLayout Grid.Column="1" Grid.Row="3"
                                         Orientation="Horizontal">
 
-                                                <Label 
+                                    <Label x:Name="CharacterLevel"
                                        Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
-                                       Style="{StaticResource ListStyle}"  Margin="0"/>
-
-                                                <Label Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
-                                        Style="{StaticResource ListStyle}"  Margin="0"/>
-
-
-                                            </StackLayout>
-                                            <Label Grid.Column="1" Grid.Row="5"
-                                       Text="{Binding Description}"   Margin="0"
                                        Style="{StaticResource ListStyle}"/>
-                                        </Grid>
-                                    </Grid>
+
+                                    <Label x:Name="CharacterMaxHealth" Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
+                                        Style="{StaticResource ListStyle}"/>
+
                                 </StackLayout>
-                            </DataTemplate>
+
+                                <Label x:Name="CharacterDescription" Grid.Column="1" Grid.Row="4"
+                                       Text="{Binding Description}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                            </Grid>
+
+                        
+                    </Grid>
+                    </StackLayout>
+
+
+
+                    <!--  </DataTemplate> 
                         </CarouselView.ItemTemplate>
                     </CarouselView>
-
-                    <Image  x:Name="next" Grid.Column="2" Grid.Row="0" Source="rightarrow.png"
+-->
+                    <ImageButton  x:Name="RightArrowButton" Grid.Column="2" Grid.Row="0" Source="rightarrow.png" Clicked="RightArrow_Clicked"
                                   Style="{StaticResource ImageMediumStyleCenter}" />
 
-                </Grid>
 
-                <Button Clicked="SelectButton_Clicked" Text="Select Character"   Style="{StaticResource CreateBottomButton}" />
-                <Button 
+
+
+
+                    <Button  Clicked="SelectButton_Clicked" Text="Select Character"   Style="{StaticResource CreateBottomButton}" Grid.Column="1" Grid.Row="2"  />
+                    <Button Grid.Column="1" Grid.Row="3"
                             x:Name="NextButton" Style="{StaticResource NextButton}" 
                             Clicked="NextButton_Clicked" 
                             Text="Next"
                             IsEnabled="False" />
 
+                </Grid>
 
             </StackLayout>
         </ScrollView>
