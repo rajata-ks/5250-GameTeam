@@ -254,7 +254,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        private bool validateErrorAttributeEnum(AttributeEnum data)
+        public bool validateErrorAttributeEnum(AttributeEnum data)
         {
             if (data == AttributeEnum.Unknown)
             {
@@ -290,7 +290,7 @@ namespace Game.Views
         /// <param name="val"></param>
         /// <param name="slide"> silder object</param>
         /// <returns></returns>
-        private double RoundSilderValueToWhole(double val, Slider slide)
+        public double RoundSilderValueToWhole(double val, Slider slide)
         {
             if (slide == null)
             {
