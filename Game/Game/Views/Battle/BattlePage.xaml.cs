@@ -263,6 +263,11 @@ namespace Game.Views
 
         public void UpdateCharacterMonsterUI()
         {
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Count <= 0)
+            {
+                return;
+            }
+
             if (CharactersListView.ItemsSource == null)
             {
                 return;
@@ -276,10 +281,7 @@ namespace Game.Views
             {
                 return;
             }
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Count <= 0)
-            {
-                return;
-            }
+            
             //Update Characters
             List<object> characterList = new List<object>();
             foreach (var character in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
@@ -553,58 +555,32 @@ namespace Game.Views
         /// <returns></returns>
         public bool SetSelectedEmpty(MapModelLocation data)
         {
-            // TODO: Info
 
-            /*
-             * This gets called when the characters is clicked on
-             * Usefull if you want to select the location to move to etc.
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
             ClearMessages();
-            var curr = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
-            var currentMover = curr == null ? BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn() : curr;
             var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
-            var location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
 
+            NextAction(action, true, true);
+            var curr = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
+            var currentMover = curr;
+            var curLocation = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
+            var location = curLocation;
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(currentMover);
 
             if (currentMover.PlayerType == PlayerTypeEnum.Character)
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(location, data);
                 location = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.GetLocationForPlayer(currentMover);
+                if (location == null)
+                {
+                    location = new MapModelLocation() { };
+                }
                 BattleMessages.Text = currentMover.Name + " moved to Row " + location.Row.ToString() + " Column " + location.Column.ToString();
-                NextAction(action, true, true);
                 UpdateCharacterMonsterUI();
             }
 
-            currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
-            //WIP LOOPS THROUGH ALL MOSNTERS BUT MOVES PLAYER LAST.
-            if (currentMover.PlayerType == PlayerTypeEnum.Monster)
-            {
-                var keepAutoMove = false;
-                var setup = true;
-                PlayerTypeEnum postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
-                do
-                {
-                    if (postBattle == PlayerTypeEnum.Monster)
-                    {
-                        action = ActionEnum.Unknown;
-                    }
+            var showNextTurnButton = !(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn().PlayerType == PlayerTypeEnum.Monster);
+            hideTurnButtons(showNextTurnButton);
 
-                    if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
-                    {
-                        keepAutoMove = NextAction(action, true, true);
-                    }
-                    postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
-                    UpdateCharacterMonsterUI();
-                } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
-            }
-
-            var test = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList();
-
-           
-            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList());
             _ = UpdateMapGrid();
 
             return true;
@@ -617,53 +593,20 @@ namespace Game.Views
         /// <returns></returns>
         public bool SetSelectedMonster(MapModelLocation data)
         {
-            // TODO: Info
-
-            /*
-             * This gets called when the Monster is clicked on
-             * Usefull if you want to select the monster to attack etc.
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
             ClearMessages();
-            var curr = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
-            var currentMover = curr == null ? BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn() : curr;
             var action = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(currentMover);
 
-            if (currentMover.PlayerType == PlayerTypeEnum.Character)
-            {
-                _ = BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(data.Player);
-                NextAction(action, false, false);
-                UpdateCharacterMonsterUI();
-            }
+            NextAction(action);
 
-            currentMover = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList();
-            //WIP LOOPS THROUGH ALL MOSNTERS BUT MOVES PLAYER LAST.
-            if (currentMover.PlayerType == PlayerTypeEnum.Monster)
-            {
-                var keepAutoMove = false;
-                var setup = true;
-                PlayerTypeEnum postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
-                do
-                {
-                    if (postBattle == PlayerTypeEnum.Monster)
-                    {
-                        action = ActionEnum.Attack;
-                    }
+            var attacker = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.AttackerName;
+            var message = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage;
 
-                    if (currentMover.PlayerType == PlayerTypeEnum.Monster)
-                    {
-                        keepAutoMove = NextAction(action, true, true);
-                    }
-                    postBattle = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType;
-                    UpdateCharacterMonsterUI();
-                } while (postBattle == PlayerTypeEnum.Monster && keepAutoMove == true);
-            }
 
-            var test = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList().PlayerType;
+            BattleMessages.Text = $"{BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.AttackerName} attacked ";
 
-            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerInList());
+            var showNextTurnButton = !(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn().PlayerType == PlayerTypeEnum.Monster);
+            hideTurnButtons(showNextTurnButton);
+
             _ = UpdateMapGrid();
 
             return true;
@@ -1159,6 +1102,11 @@ namespace Game.Views
             // BattlePlayerInfomationBox.IsVisible = false;
         }
 
+        public void hideTurnButtons(bool hide)
+        {
+            NextTurn.IsVisible = !hide;
+        }
+
         /// <summary>
         /// Show the proper Battle Mode
         /// </summary>
@@ -1350,6 +1298,17 @@ namespace Game.Views
 
         #endregion TimerExample
 
+        public void NextTurn_Clicked(object sender, EventArgs e)
+        {
+            ClearMessages();
+
+            NextAction(ActionEnum.Unknown);
+            var showNextTurnButton = !(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn().PlayerType == PlayerTypeEnum.Monster);
+
+            hideTurnButtons(showNextTurnButton);
+
+            var test = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+        }
     }
 }
 
