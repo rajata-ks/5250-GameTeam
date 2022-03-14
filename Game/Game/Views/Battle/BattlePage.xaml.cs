@@ -1011,6 +1011,7 @@ namespace Game.Views
                     _ = UpdateMapGrid();
                     //AttackerAttack.Source = ActionEnum.Unknown.ToImageURI();
                     NextRoundButton.IsVisible = true;
+                    Special.IsVisible = false;
                     break;
 
                 case BattleStateEnum.GameOver:
