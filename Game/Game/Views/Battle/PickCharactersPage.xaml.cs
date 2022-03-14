@@ -49,14 +49,15 @@ namespace Game.Views
 
 
             currentItem = BattleEngineViewModel.Instance.DatabaseCharacterList.FirstOrDefault();
-
-            CharacterImage.Source = currentItem.ImageURI;
-            CharacterImage2.Source = currentItem.ImageURI;
-            CharacterDescription.Text = currentItem.Description;
-            CharacterText.Text = currentItem.Name;
-            CharacterLevel.Text = currentItem.Level.ToString();
-            CharacterMaxHealth.Text = currentItem.Level.ToString();
-
+            if (currentItem != null)
+            {
+                CharacterImage.Source = currentItem.ImageURI;
+                CharacterImage2.Source = currentItem.ImageURI;
+                CharacterDescription.Text = currentItem.Description;
+                CharacterText.Text = currentItem.Name;
+                CharacterLevel.Text = currentItem.Level.ToString();
+                CharacterMaxHealth.Text = currentItem.Level.ToString();
+            }
             itemcount = BattleEngineViewModel.Instance.DatabaseCharacterList.Count;
 
             // Clear the Database List and the Party List to start
@@ -67,8 +68,10 @@ namespace Game.Views
             characterSet = new HashSet<CharacterModel>();
 
             CharacterModel data = BattleEngineViewModel.Instance.DatabaseCharacterList.FirstOrDefault();
-            CharacterImage.Source = data.ImageURI;
-
+            if (data != null)
+            {
+                CharacterImage.Source = data.ImageURI;
+            }
             UpdateNextButtonState();
         }
 
