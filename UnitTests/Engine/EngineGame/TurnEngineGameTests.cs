@@ -694,6 +694,38 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public void TurnEngine_TakeTurn_InValid_ActionEnum_Action_To_Attack()
+        {
+            // Arrange
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Move;
+
+            var character = new PlayerInfoModel(new CharacterModel());
+            var monster = new PlayerInfoModel(new MonsterModel());
+            character.Speed = 1;
+            monster.Speed = 1;
+            Engine.EngineSettings.PlayerList.Add(character);
+            Engine.EngineSettings.PlayerList.Add(monster);
+
+            _ = Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            // Set current action to unknonw
+            EngineSettingsModel.Instance.CurrentAction = ActionEnum.Move;
+
+            // Set Autobattle to false
+            EngineSettingsModel.Instance.BattleScore.AutoBattle = false;
+
+
+            // Act
+            var result = Engine.Round.Turn.TakeTurn(monster);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
         #endregion TakeTurn
 
         #region DropItems
@@ -1820,6 +1852,30 @@ namespace UnitTests.Engine.EngineGame
 
             // Assert
             Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void TurnEngine_MoveAsTurn_Valid_Move_Should_Pass()
+        {
+            // Arrange
+            var characterModel = new CharacterModel { Job = CharacterJobEnum.Cleric };
+            characterModel.Speed = 1;
+            var CharacterPlayer = new PlayerInfoModel(characterModel);
+
+            Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+
+           // _ = Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            Engine.EngineSettings.BattleScore.AutoBattle = true;
+            Engine.EngineSettings.CurrentDefender = CharacterPlayer;
+            // Act
+            var result = Engine.Round.Turn.MoveAsTurn(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
         }
 
         [Test]
