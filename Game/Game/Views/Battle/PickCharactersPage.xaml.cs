@@ -168,7 +168,7 @@ namespace Game.Views
 
             if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
             {
-                this.currentItem = CarouselCharacters.CurrentItem as CharacterModel;
+              
                 if (!characterSet.Contains(this.currentItem))
                 {
                     if (currentItem != null)
@@ -181,6 +181,31 @@ namespace Game.Views
 
             UpdateNextButtonState();
 
+        }
+
+        /// <summary>
+        /// Enable True of False the Image Arrows
+        /// Based on the image in the list
+        /// </summary>
+        /// <returns></returns>
+        public bool EnableImageArrowButtons()
+        {
+            LeftArrowButton.IsEnabled = true;
+            RightArrowButton.IsEnabled = true;
+
+            var ImageIndexCurrent = BattleEngineViewModel.Instance.DatabaseCharacterList.IndexOf(this.currentItem);
+
+            if (ImageIndexCurrent < 1)
+            {
+                LeftArrowButton.IsEnabled = false;
+            }
+
+            if (ImageIndexCurrent >= itemcount - 1)
+            {
+                RightArrowButton.IsEnabled = false;
+            }
+
+            return true;
         }
 
 
