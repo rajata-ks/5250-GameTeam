@@ -89,10 +89,6 @@ namespace Game.Views
         public void OnPopupItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             ItemModel data = args.SelectedItem as ItemModel;
-            if (data == null)
-            {
-                return;
-            }
 
             _ = ViewModel.Data.AddItem(PopupLocationEnum, data.Id);
 
