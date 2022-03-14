@@ -1,23 +1,23 @@
-﻿using System.Linq;
+﻿using NUnit.Framework;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-using NUnit.Framework;
-
 using Xamarin.Forms.Mocks;
+using Xamarin.Forms;
 
+using Game;
+using Game.Views;
 using Game.ViewModels;
 using Game.Models;
-using Game.Views;
-using Game;
-using Xamarin.Forms;
 
 namespace UnitTests.Views.Battle
 {
-    internal class ShowMonstersPageTest
+    internal class ShowMonstersPageTest : ShowMonstersPage
     {
 
         App app;
         ShowMonstersPage page;
+        public ShowMonstersPageTest() : base(true) { }
 
 
         [SetUp]
@@ -40,13 +40,42 @@ namespace UnitTests.Views.Battle
             Application.Current = null;
         }
 
+
+        [Test]
+        public void ShowMonstersPage_Constructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = page;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
         [Test]
         public void ShowMonstersPage_BattleButton_Clicked_Default_Should_Pass()
         {
-            // Get the current valute
-
             // Act
             page.BattleButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void ShowMonsterPage_OnAppearing_Should_Pass()
+        {
+            // set character list
+            page.ReturnedFromModalPage = true;
+
+            // Act
+            OnAppearing();
 
             // Reset
 
