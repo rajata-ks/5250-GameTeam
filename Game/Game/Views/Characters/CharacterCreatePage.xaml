@@ -197,12 +197,12 @@
                             <ListView x:Name="PopupLocationItemListView" 
                                 CachingStrategy="RecycleElement"
                                 ItemSelected="OnPopupItemSelected"
-                                Style="{StaticResource DefaultListView}">
+                                Style="{StaticResource DefaultListitemView}">
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
-                                            <Grid Style="{StaticResource IndexGrid}">
+                                            <Grid Style="{StaticResource IndexPickGrid}">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="auto"/>
                                                     <ColumnDefinition Width="*"/>
