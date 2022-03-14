@@ -498,24 +498,19 @@ namespace Game.Views
             switch (MapLocationModel.Player.PlayerType)
             {
                 case PlayerTypeEnum.Character:
-                    if (monstersTurn)
-                    {
-                        data.IsEnabled = false;
-                    }
+                    
+                        data.IsEnabled = !monstersTurn;
+                    
                     data.Clicked += (sender, args) => SetSelectedCharacter(MapLocationModel);
                     break;
                 case PlayerTypeEnum.Monster:
-                    if (monstersTurn)
-                    {
-                        data.IsEnabled = false;
-                    }
+                    data.IsEnabled = !monstersTurn;
+
                     data.Clicked += (sender, args) => SetSelectedMonster(MapLocationModel);
                     break;
                 case PlayerTypeEnum.openSpace:
-                    if (monstersTurn)
-                    {
-                        data.IsEnabled = false;
-                    }
+                    data.IsEnabled = !monstersTurn;
+
                     data.Clicked += (sender, args) => SetSelectedEmpty(MapLocationModel);
                     data.BackgroundColor = Color.Green;
                     // Use the blank cell
@@ -846,15 +841,7 @@ namespace Game.Views
         /// <param name="message"></param>
         public void GameMessage()
         {
-            // Output The Message that happened.
-            string[] checkMessage = BattleMessages.Text.ToString().Split('\n');
-            foreach(string message in checkMessage)
-            {
-                if (message == BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage)
-                {
-                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage = "";
-                }
-            }
+            
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage != "")
             {
                 BattleMessages.Text = string.Format("{0} \n{1}", BattleMessages.Text, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage);
