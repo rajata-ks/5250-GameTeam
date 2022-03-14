@@ -127,7 +127,7 @@ namespace UnitTests.Views
             var item = page.GetItemToDisplayPool(new ItemModel());
 
             // Act
-            var itemButton = item.Children.FirstOrDefault(m => m.GetType().Name.Equals("ImageButton"));
+            var itemButton = item.Children.FirstOrDefault(m => m.GetType().Name.Equals("Button"));
             var dataImage = item.Children[0];
             ((ImageButton)dataImage).PropagateUpClicked();
 
@@ -138,7 +138,61 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void CharacterCratePage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
+        public void PickItemsPage_Item_ShowPopup_Defaults_Should_Pass()
+        {
+            // Arrange
+
+            var item = page.GetItemToDisplay(ItemLocationEnum.Head);
+
+            // Act
+            var itemButton = item.Children.FirstOrDefault(m => m.GetType().Name.Equals("Button"));
+
+            _ = page.ShowPopup(ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PickItemsPage_Item_ShowPopup_Location_Match_Should_Pass()
+        {
+            // Arrange
+
+            var item = page.GetItemToDisplay(ItemLocationEnum.Head);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel() { Location = ItemLocationEnum.Head});
+            // Act
+            var itemButton = item.Children.FirstOrDefault(m => m.GetType().Name.Equals("Button"));
+
+            _ = page.ShowPopup(ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PickItemsPage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
+        {
+            // Arrange
+            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
+            page.ViewModel.Data.Head = item.Id;
+            var StackItem = page.GetItemToDisplay(ItemLocationEnum.PrimaryHand);
+            var dataImage = StackItem.Children[0];
+
+            // Act
+            ((ImageButton)dataImage).PropagateUpClicked();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PickItemsPage_GetItemToDisplay_Click_Buttons_Valid_Should_Pass()
         {
             // Arrange
             var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
@@ -155,7 +209,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void CharacterCratePage_DrawDroppedItems_Valid_Should_Pass()
+        public void PickItemsPage_DrawDroppedItems_Valid_Should_Pass()
         {
             // Arrange
             var flexview = page.FindByName("ItemListFoundFrame") as FlexLayout;
@@ -170,5 +224,89 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void PickItemsPage_ClosePoolPopup_Clicked_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.ClosePoolPopup_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void PickItemsPage_OnPartyCharacterSelected_Clicked_Valid_Should_Pass()
+        {
+            // Arrange
+            var data = new ItemModel();
+
+            var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(data, 0);
+            // Act
+            page.OnPartyCharacterSelected(null, selectedCharacterChangedEventArgs);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PickItemsPage_AddItemsToDisplay_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PickItemsPage_OnPopupItemSelected_Should_Pass()
+        {
+            // Arrange
+            var data = new ItemModel();
+
+            var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(data, 0);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList = new List<ItemModel>();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(data);
+
+            // Act
+            page.OnPopupItemSelected(null, selectedCharacterChangedEventArgs);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+        [Test]
+        public void PickItemsPage_OnPopupItemSelected_Different_location_Should_Pass()
+        {
+            // Arrange
+            var data = new ItemModel();
+            var datas = new ItemModel();
+
+            var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(data, 0);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList = new List<ItemModel>();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(datas);
+
+            // Act
+            page.OnPopupItemSelected(null, selectedCharacterChangedEventArgs);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
     }
 }
