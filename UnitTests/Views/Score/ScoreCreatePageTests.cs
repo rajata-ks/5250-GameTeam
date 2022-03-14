@@ -448,5 +448,19 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void ScoreCreatePage_image_text_change_valid_ending_Should_Pass()
+        {
+            // Arrange
+            var ImageEntry = page.FindByName("ImageEntry");
+            ((Entry)ImageEntry).Text = "asdasd.png";
+
+            page.Image_TextChanged(null, null);
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
