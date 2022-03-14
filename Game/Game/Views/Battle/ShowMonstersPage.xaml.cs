@@ -16,17 +16,19 @@ namespace Game.Views
     public partial class ShowMonstersPage : ContentPage
     {
         //bool check for modal after push
-        private bool ReturnedFromModalPage = false;
+        public bool ReturnedFromModalPage = false;
 
         // This uses the Instance so it can be shared with other Battle Pages as needed
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+
+        public ShowMonstersPage(bool UnitTest) { ReturnedFromModalPage = true; }
+
 
         public ShowMonstersPage()
         {
             InitializeComponent();
 
             BindingContext = EngineViewModel;
-
 
         }
 
