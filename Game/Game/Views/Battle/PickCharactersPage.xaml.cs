@@ -56,7 +56,6 @@ namespace Game.Views
                 CharacterDescription.Text = currentItem.Description;
                 CharacterText.Text = currentItem.Name;
                 CharacterLevel.Text = currentItem.Level.ToString();
-                CharacterMaxHealth.Text = currentItem.Level.ToString();
             }
             itemcount = BattleEngineViewModel.Instance.DatabaseCharacterList.Count;
 
@@ -261,7 +260,6 @@ namespace Game.Views
             CharacterDescription.Text = currentItem.Description;
             CharacterText.Text = currentItem.Name;
             CharacterLevel.Text = currentItem.Level.ToString();
-            CharacterMaxHealth.Text = currentItem.Level.ToString();
 
 
 
