@@ -114,6 +114,7 @@
                             <StackLayout Style="{StaticResource Verticalcenter}"  Grid.Column="2" Grid.Row="0">
                                 <Button x:Name="NextRoundButton" Clicked="NextRoundButton_Clicked" Text="Next Round" IsVisible="False" Style="{StaticResource UpdateButton}"/>
                                 <Button x:Name="StartBattleButton" Clicked="StartButton_Clicked" Text="Start Battle" IsVisible="False" Style="{StaticResource UpdateButton}"/>
+                                <Button x:Name="NextTurn" Clicked="NextTurn_Clicked" Text="Next Turn" IsVisible="False" Style="{StaticResource UpdateButton}"/>
                                 <Button x:Name="Special" Clicked="SpecialButton_Clicked" Text="Special" IsVisible="False" Style="{StaticResource UpdateButton}"/>
                             </StackLayout>
 
