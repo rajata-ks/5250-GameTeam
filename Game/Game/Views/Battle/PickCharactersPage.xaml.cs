@@ -8,6 +8,7 @@ using Game.Models;
 using Game.ViewModels;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Game.Views
 {
@@ -52,7 +53,10 @@ namespace Game.Views
             itemcount = BattleEngineViewModel.Instance.DatabaseCharacterList.Count;
 
             // Clear the Database List and the Party List to start
-            BattleEngineViewModel.Instance.PartyCharacterList.Clear();
+            if (BattleEngineViewModel.Instance.PartyCharacterList != null)
+            {
+                BattleEngineViewModel.Instance.PartyCharacterList.Clear();
+            }
             characterSet = new HashSet<CharacterModel>();
 
             UpdateNextButtonState();
@@ -96,7 +100,7 @@ namespace Game.Views
             // If no characters disable Next button
             NextButton.IsEnabled = true;
 
-            var currentCount = BattleEngineViewModel.Instance.PartyCharacterList.Count();
+            var currentCount = BattleEngineViewModel.Instance.PartyCharacterList?.Count();
             if (currentCount == 0)
             {
                 NextButton.IsEnabled = false;
@@ -197,8 +201,7 @@ namespace Game.Views
 
             if (BattleEngineViewModel.Instance.PartyCharacterList == null)
             {
-                BattleEngineViewModel.Instance.PartyCharacterList = new System.Collections.ObjectModel.ObservableCollection<CharacterModel>();
-                BattleEngineViewModel.Instance.PartyCharacterList.Add(CarouselCharacters.CurrentItem as CharacterModel);
+                BattleEngineViewModel.Instance.PartyCharacterList = new ObservableCollection<CharacterModel> { new CharacterModel() };
                 _ = Navigation.PopModalAsync();
             }
         }
