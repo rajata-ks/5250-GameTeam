@@ -218,7 +218,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ItemUpdatePage_Save_Clicked_Null_Valid_all_But_Experience_Should_Pass()
+        public void ScoreUpdatePage_Save_Clicked_Null_Valid_all_But_Experience_Should_Pass()
         {
             // Arrange
             var nameEntry = page.FindByName("NameEntry");
@@ -249,7 +249,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
         [Test]
-        public void ItemUpdatePage_Save_Clicked_Null_Valid_all_But_Monster_Should_Pass()
+        public void ScoreUpdatePage_Save_Clicked_Null_Valid_all_But_Monster_Should_Pass()
         {
             // Arrange
             var nameEntry = page.FindByName("NameEntry");
@@ -281,7 +281,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ItemUpdatePage_Save_Clicked_Null_Valid_all_But_Score_Should_Pass()
+        public void ScoreUpdatePage_Save_Clicked_Null_Valid_all_But_Score_Should_Pass()
         {
             // Arrange
             var nameEntry = page.FindByName("NameEntry");
@@ -456,6 +456,21 @@ namespace UnitTests.Views
             var ImageEntry = page.FindByName("ImageEntry");
             ((Entry)ImageEntry).Text = string.Empty;
 
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void ScoreUpdatePage_image_text_change_valid_ending_Should_Pass()
+        {
+            // Arrange
+            var ImageEntry = page.FindByName("ImageEntry");
+            ((Entry)ImageEntry).Text = "asdasd.png";
+
+            page.Image_TextChanged(null, null);
             // Reset
 
             // Assert
