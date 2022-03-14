@@ -288,8 +288,12 @@ namespace UnitTests.Views
             page.ViewModel.Data.Location = ItemLocationEnum.Necklass;
             page.ViewModel.Data.Attribute = AttributeEnum.Attack;
 
+            var ImageEntry = page.FindByName("ImageEntry");
+            ((Entry)ImageEntry).Text = "asdasd";
+
             page.Name_TextChanged(null, null);
             page.Description_TextChanged(null, null);
+            page.Image_TextChanged(null, null);
 
             // Act
             page.Save_Clicked(null, null);
@@ -329,6 +333,59 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_image_text_change_invalid_ending_Should_Pass()
+        {
+            // Arrange
+            var ImageEntry = page.FindByName("ImageEntry");
+            ((Entry)ImageEntry).Text = "asdasd";
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_image_text_change_invalid_text_Should_Pass()
+        {
+            // Arrange
+            var ImageEntry = page.FindByName("ImageEntry");
+            ((Entry)ImageEntry).Text = " ";
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_image_text_empty_invalid_text_Should_Pass()
+        {
+            // Arrange
+            var ImageEntry = page.FindByName("ImageEntry");
+            ((Entry)ImageEntry).Text = "";
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_round_silder_null_silder_Should_Pass()
+        {
+            // Arrange
+
+            //act
+            var test = page.RoundSilderValueToWhole(2.3, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(test == 0); // Got to here, so it happened...
         }
     }
 }
