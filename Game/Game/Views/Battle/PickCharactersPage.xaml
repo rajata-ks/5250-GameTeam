@@ -105,12 +105,12 @@
                                 <StackLayout Grid.Column="1" Grid.Row="3"
                                         Orientation="Horizontal">
 
+                                    <Label Text="Level: " 
+                                        Style="{StaticResource ListStyle}"/>
                                     <Label x:Name="CharacterLevel"
                                        Text="{Binding Path=Level, StringFormat='Level {0:G}'}" 
                                        Style="{StaticResource ListStyle}"/>
 
-                                    <Label x:Name="CharacterMaxHealth" Text="{Binding Path=MaxHealth, StringFormat= '{0:G} hp'}" 
-                                        Style="{StaticResource ListStyle}"/>
 
                                 </StackLayout>
 
