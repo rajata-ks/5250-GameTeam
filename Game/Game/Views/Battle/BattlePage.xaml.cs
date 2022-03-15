@@ -1170,7 +1170,7 @@ namespace Game.Views
 
             NextAction(ActionEnum.Unknown);
             var showNextTurnButton = !(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn().PlayerType == PlayerTypeEnum.Monster);
-
+            monstersTurn = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn().PlayerType == PlayerTypeEnum.Monster;
             hideTurnButtons(showNextTurnButton);
             UpdateMapGrid();
             UpdateCharacterMonsterUI();
