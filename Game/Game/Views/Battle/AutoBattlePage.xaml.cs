@@ -45,9 +45,6 @@ namespace Game.Views
 
             var BattleMessage = string.Format("Done {0} Rounds", AutoBattle.Battle.EngineSettings.BattleScore.RoundCount);
 
-            BattleMessageValue.Text = BattleMessage;
-
-            AutobattleImage.Source = "troll6_d.gif";
         }
     }
 }
