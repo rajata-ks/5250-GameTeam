@@ -1199,6 +1199,20 @@ namespace UnitTests.Views
             Assert.IsTrue(true);
         }
 
+        [Test]
+        public void BattleSettingsPage_UpdateCharacterMonsterUI_MonsterListView_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = new System.Collections.Generic.List<PlayerInfoModel>();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel());
+            var listview = page.FindByName("MonsterListView");
+            ((ListView)listview).ItemsSource = null;
+
+            page.UpdateCharacterMonsterUI();
+
+            Assert.IsTrue(true);
+        }
+
 
         [Test]
         public void BattleSettingsPage_UpdateCharacterMonsterUI_MonsterListZero_Should_Pass()
