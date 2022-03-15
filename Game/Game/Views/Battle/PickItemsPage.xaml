@@ -53,9 +53,13 @@
                     <FlexLayout Style="{StaticResource ItemLayout}"
                         x:Name="ItemLeftBox">
                     </FlexLayout>
+                    <ImageButton  x:Name="LeftArrowButton"  Source="leftarrow.png" Clicked="LeftArrow_Clicked"
+                                  Style="{StaticResource ImageMediumStyleCenter}" />
                     <Frame Margin="0,70,0,0" HeightRequest="500" WidthRequest="500">
-                        <Image x:Name="CharacterImage" Source="{Binding ImageURI}"/>
+                        <Image x:Name="CharacterImage" Source="{Binding ImageURI}"  Style="{StaticResource ImageMediumStyle}"/>
                     </Frame>
+                    <ImageButton  x:Name="RightArrowButton" Source="rightarrow.png" Clicked="RightArrow_Clicked"
+                                  Style="{StaticResource ImageMediumStyleCenter}" />
                     <StackLayout  Margin="0,70,0,0">
                         <FlexLayout Style="{StaticResource ItemLayout}"
                         x:Name="ItemRightBox">
