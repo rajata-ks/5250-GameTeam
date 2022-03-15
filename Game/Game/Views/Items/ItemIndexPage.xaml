@@ -5,11 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Name="BrowseItemsPage"
-             x:Class="Game.Views.ItemIndexPage">
+             x:Class="Game.Views.ItemIndexPage"
+             Title="{Binding Title}">
 
-    <NavigationPage.TitleView>
-        <Label Text="{Binding Title}" Style="{StaticResource CenterMessageStyle}"/>
-    </NavigationPage.TitleView>
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStacks}">
