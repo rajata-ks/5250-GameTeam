@@ -1391,7 +1391,14 @@
                 <Setter Property="RowSpacing" Value="1" />
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
-
+            
+            <Style TargetType="Grid"
+                x:Key="MapGrid">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="ColumnSpacing" Value="0" />
+                <Setter Property="RowSpacing" Value="0" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
             <!-- Entry -->
             <Style TargetType="Entry"
                 x:Key="EntryStyle">
