@@ -259,5 +259,54 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void PickCharactersPage_EnableImageArrowButtons_Default_Should_Pass()
+        {
+            // Arrange
+            var charac = new CharacterModel();
+            BattleEngineViewModel.Instance.DatabaseCharacterList.Add(charac);
+            page.currentItem = charac;
+            // Act
+            var ret = page.EnableImageArrowButtons();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(ret); // Got to here, so it happened...
+        }
+        [Test]
+        public void PickCharactersPage_EnableImageArrowButtons_Left_Index_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.DatabaseCharacterList.Clear();
+            var charac = new CharacterModel();
+            page.currentItem = charac;
+            // Act
+            var ret = page.EnableImageArrowButtons();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(ret); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PickCharactersPage_ChangeImageByIncrement_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.DatabaseCharacterList.Clear();
+            var charac = new CharacterModel();
+            page.currentItem = charac;
+            page.itemcount = 1;
+            BattleEngineViewModel.Instance.DatabaseCharacterList.Add(charac);
+            // Act
+            var ret = page.ChangeImageByIncrement(30);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(ret == 0); // Got to here, so it happened...
+        }
     }
 }
