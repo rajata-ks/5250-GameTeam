@@ -381,6 +381,13 @@
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
+            
+            <Style TargetType="Label"
+                x:Key="PlayerUI"
+                BasedOn="{StaticResource CenterMessageStyle}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            </Style>
+            
             <!-- Image -->
             
             <Style TargetType="Image"
