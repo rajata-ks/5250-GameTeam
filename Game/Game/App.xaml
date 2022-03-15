@@ -1082,7 +1082,13 @@
                 <Setter Property="IsVisible" Value="true"/>
             </Style>
 
-            
+
+            <Style TargetType="StackLayout"
+                    x:Key="StackPlayerUI"
+                   BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            </Style>
+
             <Style TargetType="RelativeLayout"
                 x:Key="CarouselRealativeStyle">
                 <Setter Property="HeightRequest" Value="100"/>
