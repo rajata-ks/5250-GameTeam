@@ -31,8 +31,7 @@
                                 <DataTemplate>
                                     <ViewCell>
                                         <ContentView Style="{StaticResource ContentView}" >
-                                            <StackLayout HeightRequest="100" 
-												 WidthRequest="200">
+                                                <StackLayout Style="{StaticResource withheight}">
                                                 
                                                     <Frame Style="{StaticResource PartyListFrame}" >
                                                         <Image  
@@ -70,7 +69,7 @@
                     <StackLayout Grid.Column="1" Grid.Row="0">
 
                         <Frame Style="{StaticResource CarouselViewFrame}">
-                            <Image x:Name="CharacterImage" Source="{Binding ImageURI}"  Style="{StaticResource CarouselImageSyle}" HorizontalOptions="CenterAndExpand" />
+                            <Image x:Name="CharacterImage" Source="{Binding ImageURI}"  Style="{StaticResource CenterCarouselImageSyle}" />
                         </Frame>
                     </StackLayout>
 
