@@ -746,6 +746,19 @@
                 <Setter Property="Spacing" Value="1" />
             </Style>
 
+            <Style TargetType="Image" BasedOn="CarouselImageSyle"
+                x:Key="CenterCarouselImageSyle">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="withheight">
+                <Setter Property="HeightRequest" Value="100" />
+                <Setter Property="WidthRequest" Value="200" />
+            </Style>
+
+
+
             <Style TargetType="StackLayout"
                 x:Key="StartStack">
                 <Setter Property="HorizontalOptions" Value="End" />
