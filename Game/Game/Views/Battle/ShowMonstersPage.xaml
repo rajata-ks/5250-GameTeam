@@ -27,9 +27,7 @@
                             <Grid >
 
                                 <Image Source="faculty_id_background.png" 
-                                            BackgroundColor="Transparent" 
-                                       HeightRequest="200"
-                                       WidthRequest="250"/>
+                                           Style="{StaticResource ImageIndexLargeStyle}"/>
                                 <Grid Style="{StaticResource IndexGrid}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
