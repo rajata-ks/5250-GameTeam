@@ -18,7 +18,14 @@
                         Style="{StaticResource CenterMessageStyle}"/>
             </StackLayout>
 
+            <StackLayout Style="{StaticResource CardImageTextBox}">
 
+                <Label 
+                    x:Name="BattleMessageValue"
+                    Text=""
+                    Style="{StaticResource AutoBattleMessage}"
+                    />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
