@@ -22,8 +22,12 @@ namespace Game.Views
         // The Character to create
         public GenericViewModel<PlayerInfoModel> ViewModel { get; set; }
 
+        private PlayerInfoModel currentItem;
+
         //Keep track of current character index
         public int currentCharacterIndex;
+        private int itemCount;
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -33,7 +37,10 @@ namespace Game.Views
 
             characterList = new List<PlayerInfoModel>();
             ViewModel = new GenericViewModel<PlayerInfoModel>();
-            currentCharacterIndex = 0;
+
+            currentItem = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault();
+            currentCharacterIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.IndexOf(currentItem);
+            itemCount = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Count;
             DrawCharacterList();
             AddItemsToDisplay();
             DrawDroppedItems();
@@ -193,7 +200,7 @@ namespace Game.Views
             {
                 _ = ItemRightBox.Children.Remove(data);
             }
-            
+
             var FlexList2 = ItemLeftBox.Children.ToList();
             foreach (var data in FlexList2)
             {
@@ -369,5 +376,88 @@ namespace Game.Views
             PopupPoolItem.IsVisible = false;
         }
         #endregion ItemPool
+
+
+
+        /// <summary>
+        /// Enable True of False the Image Arrows
+        /// Based on the image in the list
+        /// </summary>
+        /// <returns></returns>
+        public bool EnableImageArrowButtons()
+        {
+            LeftArrowButton.IsEnabled = true;
+            RightArrowButton.IsEnabled = true;
+
+            var ImageIndexCurrent = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.IndexOf(this.currentItem);
+
+            if (ImageIndexCurrent < 1)
+            {
+                LeftArrowButton.IsEnabled = false;
+            }
+
+            if (ImageIndexCurrent >= itemCount - 1)
+            {
+                RightArrowButton.IsEnabled = false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Shift Image to the Left
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void LeftArrow_Clicked(object sender, EventArgs e)
+        {
+            _ = ChangeImageByIncrement(-1);
+        }
+
+        /// <summary>
+        /// Shift Image to the Right
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void RightArrow_Clicked(object sender, EventArgs e)
+        {
+            _ = ChangeImageByIncrement(1);
+        }
+
+
+        /// <summary>
+        /// Move the Image left or Right
+        /// </summary>
+        /// <param name="increment"></param>
+        public int ChangeImageByIncrement(int increment)
+        {
+            // Find the Index for the current Image
+            var ImageIndexCurrent = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.IndexOf(currentItem);
+
+            // Amount to move
+            var indexNew = ImageIndexCurrent + increment;
+
+            if (indexNew >= itemCount)
+            {
+                indexNew = itemCount - 1;
+            }
+
+            if (indexNew <= 0)
+            {
+                indexNew = 0;
+            }
+
+            // Increment or Decrement to change the to a different image
+            currentItem = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.ElementAt(indexNew);
+            CharacterImage.Source = currentItem.ImageURI;
+            currentCharacterIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.IndexOf(currentItem);
+
+
+
+            AddItemsToDisplay();
+
+            return indexNew;
+        }
+
     }
 }
