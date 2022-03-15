@@ -50,7 +50,7 @@
                 </StackLayout>
 
                 <!--The Bottom of the Battle UI  Holds the Player to Player boxes, Buttons, and the Messages-->
-                <StackLayout x:Name="BattleBottomBox" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <StackLayout x:Name="BattleBottomBox" Style="{StaticResource StackPlayerUIBottom}">
                     <StackLayout 
                             Style="{StaticResource CenterVerticalStack}">
 
