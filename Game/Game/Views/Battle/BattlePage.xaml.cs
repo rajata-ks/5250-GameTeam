@@ -59,11 +59,13 @@ namespace Game.Views
             // Ask the Game engine to select who goes first
             _ = BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
 
+            monstersTurn = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn().PlayerType == PlayerTypeEnum.Monster;
             // Add Players to Display
             DrawGameAttackerDefenderBoard();
 
             // Set the Battle Mode
             ShowBattleMode();
+
 
             BindingContext = BattleEngineViewModel.Instance;
             MonsterListView.ItemsSource = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList;
@@ -1011,7 +1013,7 @@ namespace Game.Views
                     _ = UpdateMapGrid();
                     //AttackerAttack.Source = ActionEnum.Unknown.ToImageURI();
                     NextRoundButton.IsVisible = true;
-                    Special.IsVisible = false;
+                    hideTurnButtons(!monstersTurn);
                     break;
 
                 case BattleStateEnum.GameOver:
@@ -1028,7 +1030,7 @@ namespace Game.Views
                     GameUIDisplay.IsVisible = true;
                     //BattlePlayerInfomationBox.IsVisible = true;
                     MessageDisplayBox.IsVisible = true;
-                    Special.IsVisible = true;
+                    hideTurnButtons(!monstersTurn);
                     //Rest.IsVisible = true;
                     break;
 
