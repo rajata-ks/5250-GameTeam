@@ -1066,6 +1066,16 @@
                 <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
                 <Setter Property="VerticalOptions" Value="StartAndExpand"/>
             </Style>
+
+            <Style TargetType="StackLayout"
+                    x:Key="BattleUITop"
+                   BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="IsVisible" Value="true"/>
+            </Style>
+
+            
             <Style TargetType="RelativeLayout"
                 x:Key="CarouselRealativeStyle">
                 <Setter Property="HeightRequest" Value="100"/>
