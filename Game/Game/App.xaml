@@ -94,7 +94,12 @@
                    x:Key="ScrollViews">
                 <Setter Property="VerticalOptions" Value="FillAndExpand"/>
             </Style>
-
+            
+            <Style TargetType="ScrollView"
+                   x:Key="BattleMessage">
+                <Setter Property="BackgroundColor" Value="#80000000"/>
+                <Setter Property="Opacity" Value=".8"/>
+            </Style>
             <!-- Silder -->
 
             <Style TargetType="Slider"
@@ -204,8 +209,9 @@
                 BasedOn="{StaticResource LabelBaseStyle}">
                 <Setter Property="FontSize" Value="Medium" />
             </Style>
-            
 
+
+            
             <Style TargetType="Label"
                 x:Key="ValueStyle"
                 BasedOn="{StaticResource LabelStyle}">
@@ -388,6 +394,15 @@
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
             </Style>
             
+            <Style TargetType="Label"
+                x:Key="BattleMessageText"
+                BasedOn="{StaticResource AboutUsText}">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+
+            </Style>
             <!-- Image -->
             
             <Style TargetType="Image"
@@ -1178,6 +1193,14 @@
                
             </Style>
 
+            <Style TargetType="ListView" 
+                   x:Key="PlayerListView">
+                <Setter Property="ItemsSource" Value="{Binding PartyCharacterList, Mode=TwoWay}" />
+                <Setter Property="IsRefreshing" Value="{Binding IsBusy, Mode=OneWay}" />
+                <Setter Property="RefreshCommand" Value="{Binding LoadItemsCommand}" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="RowHeight" Value="60" />
+            </Style>
             <!-- Frame -->
             <Style TargetType="Frame">
                 <Setter Property="Margin" Value="0" />
@@ -1487,6 +1510,20 @@
                 <Setter Property="ProgressColor" Value="{StaticResource TriciaryTextColor}" />
                 <Setter Property="HeightRequest" Value="20"/>
                 <Setter Property="Margin" Value="0"/>
+            </Style>
+            
+            <Style TargetType="ProgressBar"
+                x:Key="HealthProgressBar">
+                <Setter Property="ProgressColor" Value="Red" />
+                <Setter Property="BackgroundColor" Value="Gray"/>
+                <Setter Property="Progress" Value="{Binding HealthPercent, Mode=TwoWay}"/>
+            </Style>
+            
+            <Style TargetType="ProgressBar"
+                x:Key="AbilityProgressBar">
+                <Setter Property="ProgressColor" Value="Blue" />
+                <Setter Property="BackgroundColor" Value="Gray"/>
+                <Setter Property="Progress" Value="{Binding HealthPercent, Mode=TwoWay}"/>
             </Style>
 
             <!-- FlexLayout -->
