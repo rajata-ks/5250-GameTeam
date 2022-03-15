@@ -54,13 +54,9 @@
                     <StackLayout 
                             Style="{StaticResource CenterVerticalStack}">
 
-                        <ScrollView x:Name="MessageDisplayBox" BackgroundColor="#80000000" Opacity=".8"> 
+                        <ScrollView x:Name="MessageDisplayBox" Style="{StaticResource BattleMessage}">
                             <Label x:Name="BattleMessages" 
-                                    Style="{StaticResource AboutUsText}"
-                                   Margin="0"
-                                   FontSize="20"
-                                   TextColor="White"
-                                   HorizontalOptions="CenterAndExpand"
+                                    Style="{StaticResource BattleMessageText}"
                                     />
                         </ScrollView>
                     </StackLayout>
@@ -78,13 +74,9 @@
                             </Grid.ColumnDefinitions>
 
                             <ListView   Grid.Column="0" Grid.Row="0"
-                                x:Name="CharactersListView" 
-                                ItemsSource="{Binding PartyCharacterList, Mode=TwoWay}"
-                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                                RefreshCommand="{Binding LoadItemsCommand}"
-                                CachingStrategy="RecycleElement"
-                                Margin="0"
-                                RowHeight="60">
+                                x:Name="CharactersListView"
+                                Style="{StaticResource PlayerListView}"
+                                CachingStrategy="RecycleElement">
 
                                 <ListView.ItemTemplate >
                                     <DataTemplate>
@@ -96,8 +88,8 @@
                                                    Text="{Binding Name}" 
                                                    Style="{StaticResource BattleUILabels}"/>
                                                     
-                                                    <ProgressBar x:Name="healthBar" ProgressColor="Red" BackgroundColor="Gray" Progress="{Binding HealthPercent, Mode=TwoWay}" />
-                                                    <ProgressBar x:Name="abilityBar" ProgressColor="Blue" BackgroundColor="Gray" Progress="{Binding AbilityPercent, Mode=TwoWay}" />
+                                                    <ProgressBar x:Name="healthBar"  Style="{StaticResource HealthProgressBar}"/>
+                                                    <ProgressBar x:Name="abilityBar" Style="{StaticResource AbilityProgressBar}" />
                                                 </StackLayout>
 
                                             </Grid>
@@ -119,12 +111,8 @@
 
                             <ListView   Grid.Column="4" Grid.Row="0"
                                 x:Name="MonsterListView" 
-                                ItemsSource="{Binding Engine.EngineSettings.MonsterList}"
-                                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                                RefreshCommand="{Binding LoadItemsCommand}"
-                                CachingStrategy="RecycleElement"
-                                Margin="0"
-                                RowHeight="65">
+                                Style="{StaticResource PlayerListView}"
+                                CachingStrategy="RecycleElement">
 
                                 <ListView.ItemTemplate >
                                     <DataTemplate>
@@ -136,7 +124,7 @@
                                                    Text="{Binding Name}" 
                                                    Style="{StaticResource BattleUILabels}"/>
 
-                                                    <ProgressBar x:Name="progressBar" ProgressColor="Red" BackgroundColor="Gray" Progress="{Binding CurrentHealthPercentage, Mode=TwoWay}" />
+                                                    <ProgressBar x:Name="progressBar" Style="{StaticResource HealthProgressBar}"/>
 
                                                 </StackLayout>
 
