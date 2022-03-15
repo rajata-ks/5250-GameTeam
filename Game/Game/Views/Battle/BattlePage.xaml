@@ -42,7 +42,7 @@
                 </StackLayout>
 
                 <!--The Battle Map Display -->
-                <StackLayout x:Name="BattleMapDisplay" Style="{StaticResource BattleMapBox}"  HorizontalOptions="CenterAndExpand" VerticalOptions="Start"  HeightRequest="20">
+                <StackLayout x:Name="BattleMapDisplay" Style="{StaticResource BattleMapBox}" >
                     <AbsoluteLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         <Image Source="battleboard.png" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="Fill"/>
                         <Grid x:Name="MapGrid" HorizontalOptions="Center" VerticalOptions="Start" ColumnSpacing="0" RowSpacing="0" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
