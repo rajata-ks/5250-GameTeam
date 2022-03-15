@@ -45,7 +45,7 @@
                 <StackLayout x:Name="BattleMapDisplay" Style="{StaticResource BattleMapBox}" >
                     <AbsoluteLayout Style="{StaticResource AbsBattleBoard}">
                         <Image Source="battleboard.png" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="Fill"/>
-                        <Grid x:Name="MapGrid" HorizontalOptions="Center" VerticalOptions="Start" ColumnSpacing="0" RowSpacing="0" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+                        <Grid x:Name="MapGrid" Style="{StaticResource MapGrid}" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
                     </AbsoluteLayout>
                 </StackLayout>
 
