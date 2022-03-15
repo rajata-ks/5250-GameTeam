@@ -233,8 +233,8 @@ namespace Game.Views
                 var imageObject = (ImageButton)MapObject;
 
                 // Check automation ID on the Image, That should match the Player, if not a match, the cell is now different need to update
-                if (!imageObject.AutomationId.Equals(data.Player.Guid))
-                {
+                //if (!imageObject.AutomationId.Equals(data.Player.Guid))
+                //{
                     // The Image is different, so need to re-create the Image Object and add it to the Stack
                     // That way the correct monster is in the box.
 
@@ -257,7 +257,7 @@ namespace Game.Views
                     _ = MapGridObjectAddImage(PlayerImageButton, data);
 
                     stackObject.BackgroundColor = DetermineMapBackgroundColor(data);
-                }
+                //}
             }
 
             return true;
