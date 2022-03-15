@@ -28,8 +28,8 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PickCharactersPage : ContentPage
     {
-        private CharacterModel currentItem;
-        private int itemcount;
+        public CharacterModel currentItem;
+        public int itemcount;
         HashSet<CharacterModel> characterSet;
 
         // Empty Constructor for UTs
