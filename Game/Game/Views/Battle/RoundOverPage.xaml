@@ -25,7 +25,9 @@
 
                         <StackLayout Style="{StaticResource CenterRoundHorizontalStack}">
                             <Label Text="{Binding BattleScore.ExperienceGainedTotal}" Style="{StaticResource CenterMessageLargeStyle}"/>
-                            <Image Source="GRADE.png" Style="{StaticResource PlayerBattleSmallStyle}"/>
+                            <Image   
+                                        Source="grade_A.GIF"
+                                        Style="{StaticResource ImageMediumStyle}" IsAnimationPlaying="True"/>
                         </StackLayout>
 
                         <Frame Style="{StaticResource UpdateFrame}">
