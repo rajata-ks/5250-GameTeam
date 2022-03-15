@@ -33,10 +33,10 @@
                     <StackLayout Style="{StaticResource BattleUITop}"
                         x:Name="GamePlayersTopDisplay" >
 
-                        <Label Text="Characters" Style="{StaticResource CenterMessageStyle}" HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="Characters" Style="{StaticResource PlayerUI}"/>
                         <StackLayout x:Name="CharacterBox" Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand"/>
 
-                        <Label Text="Monsters" Style="{StaticResource CenterMessageStyle}" HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="Monsters" Style="{StaticResource PlayerUI}"/>
                         <StackLayout x:Name="MonsterBox" Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </StackLayout>
