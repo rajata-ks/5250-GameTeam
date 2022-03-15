@@ -77,7 +77,7 @@
                         <Grid >
                             <Image Source="student_id_background.png" 
                                           Style="{StaticResource ImageIndexLargeStyle}" />
-                            <Grid Style="{StaticResource IndexGrid}" >
+                            <Grid Style="{StaticResource IndexGrid}"  RowSpacing="30">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
