@@ -77,9 +77,7 @@
                     <StackLayout Grid.Column="1" Grid.Row="1" >
                         <Grid >
                             <Image Source="student_id_background.png" 
-                                            BackgroundColor="Transparent" 
-                                       HeightRequest="300"
-                                       WidthRequest="250" />
+                                          Style="{StaticResource ImageIndexLargeStyle}" />
                             <Grid Style="{StaticResource IndexGrid}" >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
